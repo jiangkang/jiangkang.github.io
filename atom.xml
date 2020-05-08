@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jiangkang.tech/"/>
-  <updated>2020-05-08T02:47:27.852Z</updated>
+  <updated>2020-05-08T09:57:13.008Z</updated>
   <id>https://jiangkang.tech/</id>
   
   <author>
@@ -17,24 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://jiangkang.tech/2020/05/08/hello-world/"/>
-    <id>https://jiangkang.tech/2020/05/08/hello-world/</id>
-    <published>2020-05-08T02:47:27.852Z</published>
-    <updated>2020-05-08T02:47:27.852Z</updated>
+    <title>Flutter-Timeline</title>
+    <link href="https://jiangkang.tech/2020/05/08/flutter/flutter-timeline/"/>
+    <id>https://jiangkang.tech/2020/05/08/flutter/flutter-timeline/</id>
+    <published>2020-05-08T09:55:35.000Z</published>
+    <updated>2020-05-08T09:57:13.008Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>Flutter有三种构建模式：</p><ul><li>debug</li><li>release</li><li>profile</li></ul><p>在profile模式下，我们可以看到frame rendering图：</p><h2 id="Frame-Rendering-Chart"><a href="#Frame-Rendering-Chart" class="headerlink" title="Frame Rendering Chart"></a>Frame Rendering Chart</h2><p><img src="https://oss.jiangkang.tech/jk/Timeline.png?x-oss-process=style_jiangkang_tech" alt="渲染图"></p><p>横轴表示每一帧，纵轴表示帧渲染时间。红色表示jank，每一个柱状条可以点击，展开之后可以看到该帧的详细信息。</p><blockquote><p>需要注意的是：</p><ol><li><p>profile模式不支持模拟器</p></li><li><p>profile模式下才可以看到Frame rendering 图</p></li><li><p>开启profile模式的命令是：</p><pre class=" language-shell"><code class="language-shell">flutter run --profile</code></pre></li></ol></blockquote><p>frame rendering 包含两个过程，UI和GPU执行时间：</p><h3 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h3><p>UI线程在DartVM中执行dart代码。当你的app创建并在屏幕上显示图像时，UI线程会创建一个layer tree（一个包含了与设备无关的绘制命令的轻量级对象），然后将layer tree发送给GPU去渲染。</p><h3 id="GPU"><a href="#GPU" class="headerlink" title="GPU"></a>GPU</h3><p>GPU线程在Flutter Engine中执行图形代码。该线程接收layer tree作为输入，然后发送给GPU进行图形渲染。应用开发者一般不能直接访问GPU线程和它的数据(但是如果GPU线程很慢，则多半是你写的Dart代码的问题)。</p><p>Skia就是运行在GPU线程上的。</p><blockquote><p>GPU线程有时候也叫rasterizer thread（光栅化线程）</p></blockquote><p>有时候layer tree很容易构建，但是在GPU线程上的渲染成本很高，正如前面所说，这个时候你应该检查一个自己的代码为什么导致GPU渲染代码变慢。</p><h3 id="jank"><a href="#jank" class="headerlink" title="jank"></a>jank</h3><p>国内一般叫做卡顿（渲染时间超过16ms），在frame rendering图中会以红色来表示。</p><p>Timeline View有三种层级：</p><ul><li>Frame Rendering 图</li><li>Frame events 图</li><li>CPU分析图</li></ul><p>前文说的就是Frame Rendering图，下面说一下后面的两种图标。</p><h2 id="Frame-Events-Chart"><a href="#Frame-Events-Chart" class="headerlink" title="Frame Events Chart"></a>Frame Events Chart</h2><p><img src="https://oss.jiangkang.tech/jk/timeline_frame_events_chart.png?x-oss-process=style_jiangkang_tech" alt="事件图"></p><p>如图所示，event是自上而下产生的。</p><p>UI和GPU是独立的事件流，但是它们公用同一个Timeline View。</p><p>同样地，每一个Event信息也都可以点击，这样就会展开更加详细的信息，也就是CPU Profile图。</p><h2 id="CPU-Profile-Chart"><a href="#CPU-Profile-Chart" class="headerlink" title="CPU Profile Chart"></a>CPU Profile Chart</h2><p><img src="https://oss.jiangkang.tech/jk/timeline_cpu_profiler_flame_chart.png?x-oss-process=style_jiangkang_tech" alt="CPU"></p><p>有三种采样粒度：</p><ul><li>low ： 1 sample / 50 μs</li><li>medium（默认）：1 sample / 250 μs</li><li>high ： 1 sample / 1000 μs</li></ul><p>高采样率会影响APP性能。</p><p>CPU profile图和Android Studio上的类似，一般也就是火焰图，调用图，自底向上调用图等，具体的看图方法可以看官方文档。</p><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol><li><a href="https://flutter.dev/docs/development/tools/devtools/timeline" target="_blank" rel="noopener">https://flutter.dev/docs/development/tools/devtools/timeline</a></li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+        &lt;p&gt;Flutter有三种构建模式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;debug&lt;/li&gt;
+&lt;li&gt;release&lt;/li&gt;
+&lt;li&gt;profile&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在profile模式下，我们可以看到frame rendering图：&lt;/p&gt;
+&lt;h2 id=&quot;Frame-
       
     
     </summary>
     
     
+      <category term="Flutter" scheme="https://jiangkang.tech/categories/Flutter/"/>
+    
+    
+      <category term="Flutter" scheme="https://jiangkang.tech/tags/Flutter/"/>
     
   </entry>
   
