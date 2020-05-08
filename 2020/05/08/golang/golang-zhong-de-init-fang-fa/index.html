@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Flutter-Timeline, 姜康,天津大学,Android,Golang">
+    <meta name="keywords" content="Golang中的init方法, 姜康,天津大学,Android,Golang">
     <meta name="description" content="姜康的技术博客:用技术解决实际问题">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Flutter-Timeline | 姜康的技术博客</title>
+    <title>Golang中的init方法 | 姜康的技术博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -265,12 +265,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Flutter-Timeline</h1>
+                    <h1 class="description center-align post-title">Golang中的init方法</h1>
                 </div>
             </div>
         </div>
@@ -387,8 +387,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Flutter/">
-                                <span class="chip bg-color">Flutter</span>
+                            <a href="/tags/Golang/">
+                                <span class="chip bg-color">Golang</span>
                             </a>
                         
                     </div>
@@ -399,8 +399,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Flutter/" class="post-category">
-                                Flutter
+                            <a href="/categories/Golang/" class="post-category">
+                                Golang
                             </a>
                         
                     </div>
@@ -421,14 +421,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    579
+                    252
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -443,59 +443,22 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Flutter有三种构建模式：</p>
-<ul>
-<li>debug</li>
-<li>release</li>
-<li>profile</li>
+                <h2 id="init方法是什么"><a href="#init方法是什么" class="headerlink" title="init方法是什么"></a><code>init</code>方法是什么</h2><p>我们都知道程序的入口在main包下的<code>main()</code>方法,其实还有一个方法会在<code>main</code>方法之前执行,这个方法就是<code>init()</code></p>
+<p><code>init()</code>方法用于package级别的一些初始化操作.</p>
+<h2 id="主要特点"><a href="#主要特点" class="headerlink" title="主要特点"></a>主要特点</h2><ul>
+<li><code>init</code>先于<code>main</code>自动执行,不能被其他函数调用</li>
+<li><code>init</code>方法没有输入参数和返回值</li>
+<li>每个package可以有多个<code>init</code>方法</li>
+<li>package下的每个源文件可以有多个<code>init</code>方法</li>
+<li>同一个package下的<code>init</code> 方法执行顺序不确定,不要存在依赖关系</li>
+<li>不同package的<code>init</code>方法的执行顺序由package依赖关系确定(没有依赖的package最先执行)</li>
 </ul>
-<p>在profile模式下，我们可以看到frame rendering图：</p>
-<h2 id="Frame-Rendering-Chart"><a href="#Frame-Rendering-Chart" class="headerlink" title="Frame Rendering Chart"></a>Frame Rendering Chart</h2><p><img src="https://oss.jiangkang.tech/jk/Timeline.png?x-oss-process=style_jiangkang_tech" alt="渲染图"></p>
-<p>横轴表示每一帧，纵轴表示帧渲染时间。红色表示jank，每一个柱状条可以点击，展开之后可以看到该帧的详细信息。</p>
-<blockquote>
-<p>需要注意的是：</p>
-<ol>
-<li><p>profile模式不支持模拟器</p>
-</li>
-<li><p>profile模式下才可以看到Frame rendering 图</p>
-</li>
-<li><p>开启profile模式的命令是：</p>
-<pre class=" language-shell"><code class="language-shell">flutter run --profile</code></pre>
-</li>
-</ol>
-</blockquote>
-<p>frame rendering 包含两个过程，UI和GPU执行时间：</p>
-<h3 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h3><p>UI线程在DartVM中执行dart代码。当你的app创建并在屏幕上显示图像时，UI线程会创建一个layer tree（一个包含了与设备无关的绘制命令的轻量级对象），然后将layer tree发送给GPU去渲染。</p>
-<h3 id="GPU"><a href="#GPU" class="headerlink" title="GPU"></a>GPU</h3><p>GPU线程在Flutter Engine中执行图形代码。该线程接收layer tree作为输入，然后发送给GPU进行图形渲染。应用开发者一般不能直接访问GPU线程和它的数据(但是如果GPU线程很慢，则多半是你写的Dart代码的问题)。</p>
-<p>Skia就是运行在GPU线程上的。</p>
-<blockquote>
-<p>GPU线程有时候也叫rasterizer thread（光栅化线程）</p>
-</blockquote>
-<p>有时候layer tree很容易构建，但是在GPU线程上的渲染成本很高，正如前面所说，这个时候你应该检查一个自己的代码为什么导致GPU渲染代码变慢。</p>
-<h3 id="jank"><a href="#jank" class="headerlink" title="jank"></a>jank</h3><p>国内一般叫做卡顿（渲染时间超过16ms），在frame rendering图中会以红色来表示。</p>
-<p>Timeline View有三种层级：</p>
-<ul>
-<li>Frame Rendering 图</li>
-<li>Frame events 图</li>
-<li>CPU分析图</li>
-</ul>
-<p>前文说的就是Frame Rendering图，下面说一下后面的两种图标。</p>
-<h2 id="Frame-Events-Chart"><a href="#Frame-Events-Chart" class="headerlink" title="Frame Events Chart"></a>Frame Events Chart</h2><p><img src="https://oss.jiangkang.tech/jk/timeline_frame_events_chart.png?x-oss-process=style_jiangkang_tech" alt="事件图"></p>
-<p>如图所示，event是自上而下产生的。</p>
-<p>UI和GPU是独立的事件流，但是它们公用同一个Timeline View。</p>
-<p>同样地，每一个Event信息也都可以点击，这样就会展开更加详细的信息，也就是CPU Profile图。</p>
-<h2 id="CPU-Profile-Chart"><a href="#CPU-Profile-Chart" class="headerlink" title="CPU Profile Chart"></a>CPU Profile Chart</h2><p><img src="https://oss.jiangkang.tech/jk/timeline_cpu_profiler_flame_chart.png?x-oss-process=style_jiangkang_tech" alt="CPU"></p>
-<p>有三种采样粒度：</p>
-<ul>
-<li>low ： 1 sample / 50 μs</li>
-<li>medium（默认）：1 sample / 250 μs</li>
-<li>high ： 1 sample / 1000 μs</li>
-</ul>
-<p>高采样率会影响APP性能。</p>
-<p>CPU profile图和Android Studio上的类似，一般也就是火焰图，调用图，自底向上调用图等，具体的看图方法可以看官方文档。</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol>
-<li><a href="https://flutter.dev/docs/development/tools/devtools/timeline" target="_blank" rel="noopener">https://flutter.dev/docs/development/tools/devtools/timeline</a></li>
-</ol>
+<h2 id="注意的点"><a href="#注意的点" class="headerlink" title="注意的点"></a>注意的点</h2><p>需要注意的地方就是,想要让<code>init</code>方法起作用,你必须要导入对应的package,但是如果你只想使用<code>init</code>方法,不想使用包里的其他方法,这个时候就需要无副作用的导入了:</p>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">import</span> <span class="token punctuation">(</span>
+    <span class="token string">"fmt"</span>
+    <span class="token boolean">_</span> <span class="token string">"github.com/jiangkang/JustGo/basic"</span>
+    <span class="token boolean">_</span> <span class="token string">"net/http"</span>
+<span class="token punctuation">)</span></code></pre>
 
             </div>
             <hr/>
@@ -521,7 +484,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://jiangkang.tech/2020/05/08/flutter/flutter-timeline/">https://jiangkang.tech/2020/05/08/flutter/flutter-timeline/</a>
+                    <a href="https://jiangkang.tech/2020/05/08/golang/golang-zhong-de-init-fang-fa/">https://jiangkang.tech/2020/05/08/golang/golang-zhong-de-init-fang-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -559,8 +522,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Flutter/">
-                                    <span class="chip bg-color">Flutter</span>
+                                <a href="/tags/Golang/">
+                                    <span class="chip bg-color">Golang</span>
                                 </a>
                             
                         </div>
@@ -602,89 +565,27 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/08/c/chu-shi-sdl/">
+                <a href="/2020/05/08/golang/golang-zhong-de-init-fang-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="初识SDL">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Golang中的init方法">
                         
-                        <span class="card-title">初识SDL</span>
+                        <span class="card-title">Golang中的init方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            SDL是什么Simple DirectMedia Layer 是一个跨平台的开发库,它提供了对音频,键盘,鼠标,游戏手柄的底层访问接口.以及通过OpenGL或者Direct3D控制图形硬件的接口.
-目前支持以下平台:
-
-Windows 
-
-
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-08
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/C/" class="post-category">
-                                    C++
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/SDL/">
-                        <span class="chip bg-color">SDL</span>
-                    </a>
-                    
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/05/08/flutter/flutter-timeline/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Flutter-Timeline">
-                        
-                        <span class="card-title">Flutter-Timeline</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Flutter有三种构建模式：
-
-debug
-release
-profile
-
-在profile模式下，我们可以看到frame rendering图：
-Frame Rendering Chart
-横轴表示每一帧，纵轴表示帧渲染时间。红色表示
+                            init方法是什么我们都知道程序的入口在main包下的main()方法,其实还有一个方法会在main方法之前执行,这个方法就是init()
+init()方法用于package级别的一些初始化操作.
+主要特点
+init先于main自动执行,不
                         
                     </div>
                     <div class="publish-info">
@@ -695,8 +596,8 @@ Frame Rendering Chart
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Flutter/" class="post-category">
-                                    Flutter
+                            <a href="/categories/Golang/" class="post-category">
+                                    Golang
                                 </a>
                             
                             
@@ -707,8 +608,63 @@ Frame Rendering Chart
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Flutter/">
-                        <span class="chip bg-color">Flutter</span>
+                    <a href="/tags/Golang/">
+                        <span class="chip bg-color">Golang</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/05/08/android/android-zhong-de-cun-chu-lu-jing/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Android中的存储路径">
+                        
+                        <span class="card-title">Android中的存储路径</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            存储数据的几种方式
+应用专属存储空间
+应用专属空间里的数据会在应用被卸载的时候删除，清除缓存通常指的是清除缓存文件下的文件，清空数据则是清空所有cache，files下文件，如果想让其他APP可以访问这些私有数据，可以利用FileProvi
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Android/" class="post-category">
+                                    Android
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AD%98%E5%82%A8/">
+                        <span class="chip bg-color">存储</span>
+                    </a>
+                    
+                    <a href="/tags/Android/">
+                        <span class="chip bg-color">Android</span>
                     </a>
                     
                 </div>

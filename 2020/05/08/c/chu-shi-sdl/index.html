@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Flutter-Timeline, 姜康,天津大学,Android,Golang">
+    <meta name="keywords" content="初识SDL, 姜康,天津大学,Android,Golang">
     <meta name="description" content="姜康的技术博客:用技术解决实际问题">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Flutter-Timeline | 姜康的技术博客</title>
+    <title>初识SDL | 姜康的技术博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -265,12 +265,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Flutter-Timeline</h1>
+                    <h1 class="description center-align post-title">初识SDL</h1>
                 </div>
             </div>
         </div>
@@ -387,8 +387,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Flutter/">
-                                <span class="chip bg-color">Flutter</span>
+                            <a href="/tags/SDL/">
+                                <span class="chip bg-color">SDL</span>
+                            </a>
+                        
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
                             </a>
                         
                     </div>
@@ -399,8 +403,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Flutter/" class="post-category">
-                                Flutter
+                            <a href="/categories/C/" class="post-category">
+                                C++
                             </a>
                         
                     </div>
@@ -421,7 +425,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    579
+                    576
                 </div>
                 
 
@@ -443,59 +447,60 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Flutter有三种构建模式：</p>
+                <h2 id="SDL是什么"><a href="#SDL是什么" class="headerlink" title="SDL是什么"></a>SDL是什么</h2><p>Simple DirectMedia Layer 是一个跨平台的开发库,它提供了对音频,键盘,鼠标,游戏手柄的底层访问接口.以及通过OpenGL或者Direct3D控制图形硬件的接口.</p>
+<p>目前支持以下平台:</p>
 <ul>
-<li>debug</li>
-<li>release</li>
-<li>profile</li>
-</ul>
-<p>在profile模式下，我们可以看到frame rendering图：</p>
-<h2 id="Frame-Rendering-Chart"><a href="#Frame-Rendering-Chart" class="headerlink" title="Frame Rendering Chart"></a>Frame Rendering Chart</h2><p><img src="https://oss.jiangkang.tech/jk/Timeline.png?x-oss-process=style_jiangkang_tech" alt="渲染图"></p>
-<p>横轴表示每一帧，纵轴表示帧渲染时间。红色表示jank，每一个柱状条可以点击，展开之后可以看到该帧的详细信息。</p>
-<blockquote>
-<p>需要注意的是：</p>
-<ol>
-<li><p>profile模式不支持模拟器</p>
+<li><p>Windows </p>
 </li>
-<li><p>profile模式下才可以看到Frame rendering 图</p>
+<li><p>Linux</p>
 </li>
-<li><p>开启profile模式的命令是：</p>
-<pre class=" language-shell"><code class="language-shell">flutter run --profile</code></pre>
+<li><p>Android</p>
 </li>
-</ol>
-</blockquote>
-<p>frame rendering 包含两个过程，UI和GPU执行时间：</p>
-<h3 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h3><p>UI线程在DartVM中执行dart代码。当你的app创建并在屏幕上显示图像时，UI线程会创建一个layer tree（一个包含了与设备无关的绘制命令的轻量级对象），然后将layer tree发送给GPU去渲染。</p>
-<h3 id="GPU"><a href="#GPU" class="headerlink" title="GPU"></a>GPU</h3><p>GPU线程在Flutter Engine中执行图形代码。该线程接收layer tree作为输入，然后发送给GPU进行图形渲染。应用开发者一般不能直接访问GPU线程和它的数据(但是如果GPU线程很慢，则多半是你写的Dart代码的问题)。</p>
-<p>Skia就是运行在GPU线程上的。</p>
-<blockquote>
-<p>GPU线程有时候也叫rasterizer thread（光栅化线程）</p>
-</blockquote>
-<p>有时候layer tree很容易构建，但是在GPU线程上的渲染成本很高，正如前面所说，这个时候你应该检查一个自己的代码为什么导致GPU渲染代码变慢。</p>
-<h3 id="jank"><a href="#jank" class="headerlink" title="jank"></a>jank</h3><p>国内一般叫做卡顿（渲染时间超过16ms），在frame rendering图中会以红色来表示。</p>
-<p>Timeline View有三种层级：</p>
-<ul>
-<li>Frame Rendering 图</li>
-<li>Frame events 图</li>
-<li>CPU分析图</li>
+<li><p>IOS</p>
+</li>
+<li><p>MacOS</p>
+</li>
 </ul>
-<p>前文说的就是Frame Rendering图，下面说一下后面的两种图标。</p>
-<h2 id="Frame-Events-Chart"><a href="#Frame-Events-Chart" class="headerlink" title="Frame Events Chart"></a>Frame Events Chart</h2><p><img src="https://oss.jiangkang.tech/jk/timeline_frame_events_chart.png?x-oss-process=style_jiangkang_tech" alt="事件图"></p>
-<p>如图所示，event是自上而下产生的。</p>
-<p>UI和GPU是独立的事件流，但是它们公用同一个Timeline View。</p>
-<p>同样地，每一个Event信息也都可以点击，这样就会展开更加详细的信息，也就是CPU Profile图。</p>
-<h2 id="CPU-Profile-Chart"><a href="#CPU-Profile-Chart" class="headerlink" title="CPU Profile Chart"></a>CPU Profile Chart</h2><p><img src="https://oss.jiangkang.tech/jk/timeline_cpu_profiler_flame_chart.png?x-oss-process=style_jiangkang_tech" alt="CPU"></p>
-<p>有三种采样粒度：</p>
-<ul>
-<li>low ： 1 sample / 50 μs</li>
-<li>medium（默认）：1 sample / 250 μs</li>
-<li>high ： 1 sample / 1000 μs</li>
+<h2 id="SDL可以做什么"><a href="#SDL可以做什么" class="headerlink" title="SDL可以做什么"></a>SDL可以做什么</h2><ul>
+<li><p>视频播放器</p>
+</li>
+<li><p>音频处理</p>
+</li>
+<li><p>输入事件处理,比如键盘,鼠标等</p>
+</li>
+<li><p>文件I/O</p>
+</li>
+<li><p>线程,定时器等其余功能</p>
+</li>
 </ul>
-<p>高采样率会影响APP性能。</p>
-<p>CPU profile图和Android Studio上的类似，一般也就是火焰图，调用图，自底向上调用图等，具体的看图方法可以看官方文档。</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol>
-<li><a href="https://flutter.dev/docs/development/tools/devtools/timeline" target="_blank" rel="noopener">https://flutter.dev/docs/development/tools/devtools/timeline</a></li>
-</ol>
+<h2 id="SDL的核心架构"><a href="#SDL的核心架构" class="headerlink" title="SDL的核心架构"></a>SDL的核心架构</h2><h3 id="几个子系统"><a href="#几个子系统" class="headerlink" title="几个子系统"></a>几个子系统</h3><ul>
+<li><p>Video:图像控制以及线程和事件管理</p>
+</li>
+<li><p>Audio:声音控制</p>
+</li>
+<li><p>Joystick: 游戏摇杆控制</p>
+</li>
+<li><p>Window: 视窗管理与集成</p>
+</li>
+<li><p>Event: 事件驱动处理</p>
+</li>
+<li><p>Haptic: 触摸事件处理</p>
+</li>
+<li><p>Timer : 时间,计时器管理</p>
+</li>
+</ul>
+<p>SDL本身其实不复杂,甚至有些简陋,单靠SDL你是无法实现一个完善的产品的,往往都需要其他功能库的支持.比如SDL广泛用于音视频播放器开发,但是SDL很多时候只是作为一个跨平台,Window的集成功能,而视频编解码则是通过其他功能库,如FFMPEG等处理的.</p>
+<p>所以,SDL核心之一就是<strong>跨平台</strong>.</p>
+<p>想一个问题,如何将一幅图像显示到屏幕上,我们知道视频其实是有一帧帧的图像数据组成,解决了图像显示到屏幕上的问题就解决了大部分问题.首先我们得从固定格式的图像中,比如JPEG,PNG等格式中解析出原始的图像数据,然后利用OPenGL操作GPU进行处理,经过渲染管线处理,形成像素数据存储到内存中,显示器按照刷新率刷新时,将像素数据映射到屏幕上,形成了我们看到的图像.</p>
+<p>而SDL主要做两件事,一个就是<strong>加载各种格式的图像数据</strong>,一个就是<strong>封装OpenGL或者Direct3D API,更简单的渲染</strong></p>
+<p>还有一个就是<strong>视窗管理与集成</strong>,这个功能也有一些其他的代替库,比如GLFW之类的.</p>
+<h3 id="拓展模块"><a href="#拓展模块" class="headerlink" title="拓展模块"></a>拓展模块</h3><ul>
+<li>SDL_image : 各种图像格式解析与载入,如png,jpeg等</li>
+<li>SDL_mixer : 声音输出方法和声音格式支持,比如mp3,ogg等</li>
+<li>SDL_net : 网络支持</li>
+<li>SDL_ttf : TrueType字体渲染支持</li>
+<li>SDL_rtf: RTF渲染支持</li>
+</ul>
 
             </div>
             <hr/>
@@ -521,7 +526,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://jiangkang.tech/2020/05/08/flutter/flutter-timeline/">https://jiangkang.tech/2020/05/08/flutter/flutter-timeline/</a>
+                    <a href="https://jiangkang.tech/2020/05/08/c/chu-shi-sdl/">https://jiangkang.tech/2020/05/08/c/chu-shi-sdl/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -559,8 +564,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Flutter/">
-                                    <span class="chip bg-color">Flutter</span>
+                                <a href="/tags/SDL/">
+                                    <span class="chip bg-color">SDL</span>
+                                </a>
+                            
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
                                 </a>
                             
                         </div>
@@ -606,24 +615,21 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/05/08/c/chu-shi-sdl/">
+                <a href="/2020/05/08/android/android-zhong-de-cun-chu-lu-jing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="初识SDL">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Android中的存储路径">
                         
-                        <span class="card-title">初识SDL</span>
+                        <span class="card-title">Android中的存储路径</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            SDL是什么Simple DirectMedia Layer 是一个跨平台的开发库,它提供了对音频,键盘,鼠标,游戏手柄的底层访问接口.以及通过OpenGL或者Direct3D控制图形硬件的接口.
-目前支持以下平台:
-
-Windows 
-
-
+                            存储数据的几种方式
+应用专属存储空间
+应用专属空间里的数据会在应用被卸载的时候删除，清除缓存通常指的是清除缓存文件下的文件，清空数据则是清空所有cache，files下文件，如果想让其他APP可以访问这些私有数据，可以利用FileProvi
                         
                     </div>
                     <div class="publish-info">
@@ -634,8 +640,8 @@ Windows
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C/" class="post-category">
-                                    C++
+                            <a href="/categories/Android/" class="post-category">
+                                    Android
                                 </a>
                             
                             
@@ -645,12 +651,12 @@ Windows
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SDL/">
-                        <span class="chip bg-color">SDL</span>
+                    <a href="/tags/%E5%AD%98%E5%82%A8/">
+                        <span class="chip bg-color">存储</span>
                     </a>
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
+                    <a href="/tags/Android/">
+                        <span class="chip bg-color">Android</span>
                     </a>
                     
                 </div>
@@ -661,7 +667,7 @@ Windows
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2020/05/08/flutter/flutter-timeline/">
@@ -703,7 +709,6 @@ Frame Rendering Chart
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Flutter-Timeline, 姜康,天津大学,Android,Golang">
+    <meta name="keywords" content="Android中的存储路径, 姜康,天津大学,Android,Golang">
     <meta name="description" content="姜康的技术博客:用技术解决实际问题">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Flutter-Timeline | 姜康的技术博客</title>
+    <title>Android中的存储路径 | 姜康的技术博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -265,12 +265,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Flutter-Timeline</h1>
+                    <h1 class="description center-align post-title">Android中的存储路径</h1>
                 </div>
             </div>
         </div>
@@ -387,8 +387,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Flutter/">
-                                <span class="chip bg-color">Flutter</span>
+                            <a href="/tags/%E5%AD%98%E5%82%A8/">
+                                <span class="chip bg-color">存储</span>
+                            </a>
+                        
+                            <a href="/tags/Android/">
+                                <span class="chip bg-color">Android</span>
                             </a>
                         
                     </div>
@@ -399,8 +403,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Flutter/" class="post-category">
-                                Flutter
+                            <a href="/categories/Android/" class="post-category">
+                                Android
                             </a>
                         
                     </div>
@@ -421,7 +425,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    579
+                    581
                 </div>
                 
 
@@ -443,59 +447,61 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Flutter有三种构建模式：</p>
+                <h2 id="存储数据的几种方式"><a href="#存储数据的几种方式" class="headerlink" title="存储数据的几种方式"></a>存储数据的几种方式</h2><ul>
+<li><p>应用专属存储空间</p>
+<p>应用专属空间里的数据会在应用被卸载的时候删除，清除缓存通常指的是清除缓存文件下的文件，清空数据则是清空所有cache，files下文件，如果想让其他APP可以访问这些私有数据，可以利用FileProvider。</p>
 <ul>
-<li>debug</li>
-<li>release</li>
-<li>profile</li>
-</ul>
-<p>在profile模式下，我们可以看到frame rendering图：</p>
-<h2 id="Frame-Rendering-Chart"><a href="#Frame-Rendering-Chart" class="headerlink" title="Frame Rendering Chart"></a>Frame Rendering Chart</h2><p><img src="https://oss.jiangkang.tech/jk/Timeline.png?x-oss-process=style_jiangkang_tech" alt="渲染图"></p>
-<p>横轴表示每一帧，纵轴表示帧渲染时间。红色表示jank，每一个柱状条可以点击，展开之后可以看到该帧的详细信息。</p>
-<blockquote>
-<p>需要注意的是：</p>
-<ol>
-<li><p>profile模式不支持模拟器</p>
-</li>
-<li><p>profile模式下才可以看到Frame rendering 图</p>
-</li>
-<li><p>开启profile模式的命令是：</p>
-<pre class=" language-shell"><code class="language-shell">flutter run --profile</code></pre>
-</li>
-</ol>
-</blockquote>
-<p>frame rendering 包含两个过程，UI和GPU执行时间：</p>
-<h3 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h3><p>UI线程在DartVM中执行dart代码。当你的app创建并在屏幕上显示图像时，UI线程会创建一个layer tree（一个包含了与设备无关的绘制命令的轻量级对象），然后将layer tree发送给GPU去渲染。</p>
-<h3 id="GPU"><a href="#GPU" class="headerlink" title="GPU"></a>GPU</h3><p>GPU线程在Flutter Engine中执行图形代码。该线程接收layer tree作为输入，然后发送给GPU进行图形渲染。应用开发者一般不能直接访问GPU线程和它的数据(但是如果GPU线程很慢，则多半是你写的Dart代码的问题)。</p>
-<p>Skia就是运行在GPU线程上的。</p>
-<blockquote>
-<p>GPU线程有时候也叫rasterizer thread（光栅化线程）</p>
-</blockquote>
-<p>有时候layer tree很容易构建，但是在GPU线程上的渲染成本很高，正如前面所说，这个时候你应该检查一个自己的代码为什么导致GPU渲染代码变慢。</p>
-<h3 id="jank"><a href="#jank" class="headerlink" title="jank"></a>jank</h3><p>国内一般叫做卡顿（渲染时间超过16ms），在frame rendering图中会以红色来表示。</p>
-<p>Timeline View有三种层级：</p>
+<li><p>内部存储</p>
+<p>大多是通过Context获取的地址，一般在/data/data文件夹下，如</p>
 <ul>
-<li>Frame Rendering 图</li>
-<li>Frame events 图</li>
-<li>CPU分析图</li>
+<li>dataDir: /data/data/packagename</li>
+<li>filesDir: /data/data/packagename/files</li>
+<li>cacheDir: /data/data/packagename/cache</li>
+<li>codeCacheDir:/data/data/packagename/code_cache</li>
 </ul>
-<p>前文说的就是Frame Rendering图，下面说一下后面的两种图标。</p>
-<h2 id="Frame-Events-Chart"><a href="#Frame-Events-Chart" class="headerlink" title="Frame Events Chart"></a>Frame Events Chart</h2><p><img src="https://oss.jiangkang.tech/jk/timeline_frame_events_chart.png?x-oss-process=style_jiangkang_tech" alt="事件图"></p>
-<p>如图所示，event是自上而下产生的。</p>
-<p>UI和GPU是独立的事件流，但是它们公用同一个Timeline View。</p>
-<p>同样地，每一个Event信息也都可以点击，这样就会展开更加详细的信息，也就是CPU Profile图。</p>
-<h2 id="CPU-Profile-Chart"><a href="#CPU-Profile-Chart" class="headerlink" title="CPU Profile Chart"></a>CPU Profile Chart</h2><p><img src="https://oss.jiangkang.tech/jk/timeline_cpu_profiler_flame_chart.png?x-oss-process=style_jiangkang_tech" alt="CPU"></p>
-<p>有三种采样粒度：</p>
+</li>
+<li><p>外部存储</p>
+<p>可以通过Context获取，也可以通过Environment获取，一般在/storage/emulated/0/Android/data/pacakagename/，如：</p>
 <ul>
-<li>low ： 1 sample / 50 μs</li>
-<li>medium（默认）：1 sample / 250 μs</li>
-<li>high ： 1 sample / 1000 μs</li>
+<li>externalCacheDir：/storage/emulated/0/Android/data/pacakagename/cache</li>
+<li>getExternalFilesDir:/storage/emulated/0/Android/data/pacakagename/files</li>
+<li>externalMediaDirs</li>
 </ul>
-<p>高采样率会影响APP性能。</p>
-<p>CPU profile图和Android Studio上的类似，一般也就是火焰图，调用图，自底向上调用图等，具体的看图方法可以看官方文档。</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol>
-<li><a href="https://flutter.dev/docs/development/tools/devtools/timeline" target="_blank" rel="noopener">https://flutter.dev/docs/development/tools/devtools/timeline</a></li>
-</ol>
+</li>
+<li><p>SharedPreference</p>
+</li>
+<li><p>本地数据库</p>
+</li>
+</ul>
+</li>
+<li><p>共享的存储空间</p>
+<p>可以被其他APP访问的数据，app卸载不会被删除,通常位于/storage/emulated/0下(除了/storage/emulated/0/Android/data/pacakagename)。</p>
+<ul>
+<li><p>media files</p>
+<p>可以通过 MediaStore处理</p>
+</li>
+<li><p>文档和其他文件</p>
+<p>可以通过ContentResolver和其他相关方法处理</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="几个容易混淆的地方"><a href="#几个容易混淆的地方" class="headerlink" title="几个容易混淆的地方"></a>几个容易混淆的地方</h2><h3 id="data-data-vs-data-user-0"><a href="#data-data-vs-data-user-0" class="headerlink" title="/data/data vs /data/user/0"></a>/data/data vs /data/user/0</h3><h3 id="Android-data-vs-Android-user-0"><a href="#Android-data-vs-Android-user-0" class="headerlink" title="/Android/data vs /Android/user/0"></a>/Android/data vs /Android/user/0</h3><p>现在的手机操作系统多是支持多用户的，最常见的就是“访客模式”，通常情况下，/data/data 与 /data/user/0是等价的，对于不同的用户，实际的存储位置可能是/user/xxx,但是我们通常只需要访问/data/data即可。</p>
+<h3 id="mnt-sdcard-vs-sdcard-vs-storage-sdcard0"><a href="#mnt-sdcard-vs-sdcard-vs-storage-sdcard0" class="headerlink" title="/mnt/sdcard vs /sdcard  vs /storage/sdcard0"></a>/mnt/sdcard vs /sdcard  vs /storage/sdcard0</h3><p> 这个其实就是“软链接”的区别，可以通过 <code>ls -l</code>命令查看：</p>
+<pre class=" language-bash"><code class="language-bash">storage/sdcard0 -<span class="token operator">></span> /sdcard
+mnt/sdcard -<span class="token operator">></span> /storage/self/primary
+sdcard -<span class="token operator">></span> /storage/self/primary</code></pre>
+<p>可以看到这几个地址的真实地址实际上都是/storage/self/primary。</p>
+<h3 id="storage-emulated-0"><a href="#storage-emulated-0" class="headerlink" title="/storage/emulated/0"></a>/storage/emulated/0</h3><p>共享的存储空间的根目录，其中0代表的是主存，如果有移动的存储空间，如外接SD卡，则会有其他数字。</p>
+<p>可通过下列方法获取：</p>
+<pre class=" language-java"><code class="language-java">Environment<span class="token punctuation">.</span><span class="token function">getExternalStorageDirectory</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>在Android Q之后，这个方法标记废弃，可以使用</p>
+<pre class=" language-java"><code class="language-java">Context#<span class="token function">getExternalFilesDir</span><span class="token punctuation">(</span>String<span class="token punctuation">)</span></code></pre>
+<p>或者<code>MediaStore</code>，<code>Intent#ACTION_OPEN_DOCUMENT</code>等方法作为替代。</p>
+<p>该目录下在没有被app污染时，通常有以下这些子目录：</p>
+<pre><code>Alarms Android DCIM Download Movies Music Notifications Pictures Podcasts Ringtones</code></pre><p>对于具体的子目录，可以通过以下方法获取：</p>
+<pre class=" language-java"><code class="language-java">Environment<span class="token punctuation">.</span>getExternalStoragePublicDirectory</code></pre>
+<p>Android Q之后，可用上面说的<code>Context#getExternalFilesDir(String)</code>，<code>MediaStore</code>，<code>Intent#ACTION_OPEN_DOCUMENT</code>替代。</p>
 
             </div>
             <hr/>
@@ -521,7 +527,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://jiangkang.tech/2020/05/08/flutter/flutter-timeline/">https://jiangkang.tech/2020/05/08/flutter/flutter-timeline/</a>
+                    <a href="https://jiangkang.tech/2020/05/08/android/android-zhong-de-cun-chu-lu-jing/">https://jiangkang.tech/2020/05/08/android/android-zhong-de-cun-chu-lu-jing/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -559,8 +565,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Flutter/">
-                                    <span class="chip bg-color">Flutter</span>
+                                <a href="/tags/%E5%AD%98%E5%82%A8/">
+                                    <span class="chip bg-color">存储</span>
+                                </a>
+                            
+                                <a href="/tags/Android/">
+                                    <span class="chip bg-color">Android</span>
                                 </a>
                             
                         </div>
@@ -606,6 +616,58 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/2020/05/08/golang/golang-zhong-de-init-fang-fa/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Golang中的init方法">
+                        
+                        <span class="card-title">Golang中的init方法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            init方法是什么我们都知道程序的入口在main包下的main()方法,其实还有一个方法会在main方法之前执行,这个方法就是init()
+init()方法用于package级别的一些初始化操作.
+主要特点
+init先于main自动执行,不
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-08
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Golang/" class="post-category">
+                                    Golang
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Golang/">
+                        <span class="chip bg-color">Golang</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2020/05/08/c/chu-shi-sdl/">
                     <div class="card-image">
                         
@@ -627,9 +689,9 @@ Windows
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -651,64 +713,6 @@ Windows
                     
                     <a href="/tags/C/">
                         <span class="chip bg-color">C++</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/05/08/flutter/flutter-timeline/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Flutter-Timeline">
-                        
-                        <span class="card-title">Flutter-Timeline</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Flutter有三种构建模式：
-
-debug
-release
-profile
-
-在profile模式下，我们可以看到frame rendering图：
-Frame Rendering Chart
-横轴表示每一帧，纵轴表示帧渲染时间。红色表示
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-08
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Flutter/" class="post-category">
-                                    Flutter
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Flutter/">
-                        <span class="chip bg-color">Flutter</span>
                     </a>
                     
                 </div>

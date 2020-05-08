@@ -4,6 +4,85 @@
   
     
     <entry>
+      <title>Golang中的init方法</title>
+      <link href="/2020/05/08/golang/golang-zhong-de-init-fang-fa/"/>
+      <url>/2020/05/08/golang/golang-zhong-de-init-fang-fa/</url>
+      
+        <content type="html"><![CDATA[<h2 id="init方法是什么"><a href="#init方法是什么" class="headerlink" title="init方法是什么"></a><code>init</code>方法是什么</h2><p>我们都知道程序的入口在main包下的<code>main()</code>方法,其实还有一个方法会在<code>main</code>方法之前执行,这个方法就是<code>init()</code></p><p><code>init()</code>方法用于package级别的一些初始化操作.</p><h2 id="主要特点"><a href="#主要特点" class="headerlink" title="主要特点"></a>主要特点</h2><ul><li><code>init</code>先于<code>main</code>自动执行,不能被其他函数调用</li><li><code>init</code>方法没有输入参数和返回值</li><li>每个package可以有多个<code>init</code>方法</li><li>package下的每个源文件可以有多个<code>init</code>方法</li><li>同一个package下的<code>init</code> 方法执行顺序不确定,不要存在依赖关系</li><li>不同package的<code>init</code>方法的执行顺序由package依赖关系确定(没有依赖的package最先执行)</li></ul><h2 id="注意的点"><a href="#注意的点" class="headerlink" title="注意的点"></a>注意的点</h2><p>需要注意的地方就是,想要让<code>init</code>方法起作用,你必须要导入对应的package,但是如果你只想使用<code>init</code>方法,不想使用包里的其他方法,这个时候就需要无副作用的导入了:</p><pre class=" language-go"><code class="language-go"><span class="token keyword">import</span> <span class="token punctuation">(</span>    <span class="token string">"fmt"</span>    <span class="token boolean">_</span> <span class="token string">"github.com/jiangkang/JustGo/basic"</span>    <span class="token boolean">_</span> <span class="token string">"net/http"</span><span class="token punctuation">)</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Golang </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Golang </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Android中的存储路径</title>
+      <link href="/2020/05/08/android/android-zhong-de-cun-chu-lu-jing/"/>
+      <url>/2020/05/08/android/android-zhong-de-cun-chu-lu-jing/</url>
+      
+        <content type="html"><![CDATA[<h2 id="存储数据的几种方式"><a href="#存储数据的几种方式" class="headerlink" title="存储数据的几种方式"></a>存储数据的几种方式</h2><ul><li><p>应用专属存储空间</p><p>应用专属空间里的数据会在应用被卸载的时候删除，清除缓存通常指的是清除缓存文件下的文件，清空数据则是清空所有cache，files下文件，如果想让其他APP可以访问这些私有数据，可以利用FileProvider。</p><ul><li><p>内部存储</p><p>大多是通过Context获取的地址，一般在/data/data文件夹下，如</p><ul><li>dataDir: /data/data/packagename</li><li>filesDir: /data/data/packagename/files</li><li>cacheDir: /data/data/packagename/cache</li><li>codeCacheDir:/data/data/packagename/code_cache</li></ul></li><li><p>外部存储</p><p>可以通过Context获取，也可以通过Environment获取，一般在/storage/emulated/0/Android/data/pacakagename/，如：</p><ul><li>externalCacheDir：/storage/emulated/0/Android/data/pacakagename/cache</li><li>getExternalFilesDir:/storage/emulated/0/Android/data/pacakagename/files</li><li>externalMediaDirs</li></ul></li><li><p>SharedPreference</p></li><li><p>本地数据库</p></li></ul></li><li><p>共享的存储空间</p><p>可以被其他APP访问的数据，app卸载不会被删除,通常位于/storage/emulated/0下(除了/storage/emulated/0/Android/data/pacakagename)。</p><ul><li><p>media files</p><p>可以通过 MediaStore处理</p></li><li><p>文档和其他文件</p><p>可以通过ContentResolver和其他相关方法处理</p></li></ul></li></ul><h2 id="几个容易混淆的地方"><a href="#几个容易混淆的地方" class="headerlink" title="几个容易混淆的地方"></a>几个容易混淆的地方</h2><h3 id="data-data-vs-data-user-0"><a href="#data-data-vs-data-user-0" class="headerlink" title="/data/data vs /data/user/0"></a>/data/data vs /data/user/0</h3><h3 id="Android-data-vs-Android-user-0"><a href="#Android-data-vs-Android-user-0" class="headerlink" title="/Android/data vs /Android/user/0"></a>/Android/data vs /Android/user/0</h3><p>现在的手机操作系统多是支持多用户的，最常见的就是“访客模式”，通常情况下，/data/data 与 /data/user/0是等价的，对于不同的用户，实际的存储位置可能是/user/xxx,但是我们通常只需要访问/data/data即可。</p><h3 id="mnt-sdcard-vs-sdcard-vs-storage-sdcard0"><a href="#mnt-sdcard-vs-sdcard-vs-storage-sdcard0" class="headerlink" title="/mnt/sdcard vs /sdcard  vs /storage/sdcard0"></a>/mnt/sdcard vs /sdcard  vs /storage/sdcard0</h3><p> 这个其实就是“软链接”的区别，可以通过 <code>ls -l</code>命令查看：</p><pre class=" language-bash"><code class="language-bash">storage/sdcard0 -<span class="token operator">></span> /sdcardmnt/sdcard -<span class="token operator">></span> /storage/self/primarysdcard -<span class="token operator">></span> /storage/self/primary</code></pre><p>可以看到这几个地址的真实地址实际上都是/storage/self/primary。</p><h3 id="storage-emulated-0"><a href="#storage-emulated-0" class="headerlink" title="/storage/emulated/0"></a>/storage/emulated/0</h3><p>共享的存储空间的根目录，其中0代表的是主存，如果有移动的存储空间，如外接SD卡，则会有其他数字。</p><p>可通过下列方法获取：</p><pre class=" language-java"><code class="language-java">Environment<span class="token punctuation">.</span><span class="token function">getExternalStorageDirectory</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre><p>在Android Q之后，这个方法标记废弃，可以使用</p><pre class=" language-java"><code class="language-java">Context#<span class="token function">getExternalFilesDir</span><span class="token punctuation">(</span>String<span class="token punctuation">)</span></code></pre><p>或者<code>MediaStore</code>，<code>Intent#ACTION_OPEN_DOCUMENT</code>等方法作为替代。</p><p>该目录下在没有被app污染时，通常有以下这些子目录：</p><pre><code>Alarms Android DCIM Download Movies Music Notifications Pictures Podcasts Ringtones</code></pre><p>对于具体的子目录，可以通过以下方法获取：</p><pre class=" language-java"><code class="language-java">Environment<span class="token punctuation">.</span>getExternalStoragePublicDirectory</code></pre><p>Android Q之后，可用上面说的<code>Context#getExternalFilesDir(String)</code>，<code>MediaStore</code>，<code>Intent#ACTION_OPEN_DOCUMENT</code>替代。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 存储 </tag>
+            
+            <tag> Android </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>初识SDL</title>
+      <link href="/2020/05/08/c/chu-shi-sdl/"/>
+      <url>/2020/05/08/c/chu-shi-sdl/</url>
+      
+        <content type="html"><![CDATA[<h2 id="SDL是什么"><a href="#SDL是什么" class="headerlink" title="SDL是什么"></a>SDL是什么</h2><p>Simple DirectMedia Layer 是一个跨平台的开发库,它提供了对音频,键盘,鼠标,游戏手柄的底层访问接口.以及通过OpenGL或者Direct3D控制图形硬件的接口.</p><p>目前支持以下平台:</p><ul><li><p>Windows </p></li><li><p>Linux</p></li><li><p>Android</p></li><li><p>IOS</p></li><li><p>MacOS</p></li></ul><h2 id="SDL可以做什么"><a href="#SDL可以做什么" class="headerlink" title="SDL可以做什么"></a>SDL可以做什么</h2><ul><li><p>视频播放器</p></li><li><p>音频处理</p></li><li><p>输入事件处理,比如键盘,鼠标等</p></li><li><p>文件I/O</p></li><li><p>线程,定时器等其余功能</p></li></ul><h2 id="SDL的核心架构"><a href="#SDL的核心架构" class="headerlink" title="SDL的核心架构"></a>SDL的核心架构</h2><h3 id="几个子系统"><a href="#几个子系统" class="headerlink" title="几个子系统"></a>几个子系统</h3><ul><li><p>Video:图像控制以及线程和事件管理</p></li><li><p>Audio:声音控制</p></li><li><p>Joystick: 游戏摇杆控制</p></li><li><p>Window: 视窗管理与集成</p></li><li><p>Event: 事件驱动处理</p></li><li><p>Haptic: 触摸事件处理</p></li><li><p>Timer : 时间,计时器管理</p></li></ul><p>SDL本身其实不复杂,甚至有些简陋,单靠SDL你是无法实现一个完善的产品的,往往都需要其他功能库的支持.比如SDL广泛用于音视频播放器开发,但是SDL很多时候只是作为一个跨平台,Window的集成功能,而视频编解码则是通过其他功能库,如FFMPEG等处理的.</p><p>所以,SDL核心之一就是<strong>跨平台</strong>.</p><p>想一个问题,如何将一幅图像显示到屏幕上,我们知道视频其实是有一帧帧的图像数据组成,解决了图像显示到屏幕上的问题就解决了大部分问题.首先我们得从固定格式的图像中,比如JPEG,PNG等格式中解析出原始的图像数据,然后利用OPenGL操作GPU进行处理,经过渲染管线处理,形成像素数据存储到内存中,显示器按照刷新率刷新时,将像素数据映射到屏幕上,形成了我们看到的图像.</p><p>而SDL主要做两件事,一个就是<strong>加载各种格式的图像数据</strong>,一个就是<strong>封装OpenGL或者Direct3D API,更简单的渲染</strong></p><p>还有一个就是<strong>视窗管理与集成</strong>,这个功能也有一些其他的代替库,比如GLFW之类的.</p><h3 id="拓展模块"><a href="#拓展模块" class="headerlink" title="拓展模块"></a>拓展模块</h3><ul><li>SDL_image : 各种图像格式解析与载入,如png,jpeg等</li><li>SDL_mixer : 声音输出方法和声音格式支持,比如mp3,ogg等</li><li>SDL_net : 网络支持</li><li>SDL_ttf : TrueType字体渲染支持</li><li>SDL_rtf: RTF渲染支持</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SDL </tag>
+            
+            <tag> C++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Flutter-Timeline</title>
       <link href="/2020/05/08/flutter/flutter-timeline/"/>
       <url>/2020/05/08/flutter/flutter-timeline/</url>
