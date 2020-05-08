@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Flutter-Timeline, 姜康,天津大学,Android,Golang">
+    <meta name="keywords" content="Flutter-Text的使用, 姜康,天津大学,Android,Golang">
     <meta name="description" content="姜康的技术博客:用技术解决实际问题">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Flutter-Timeline | 姜康的技术博客</title>
+    <title>Flutter-Text的使用 | 姜康的技术博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -265,12 +265,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Flutter-Timeline</h1>
+                    <h1 class="description center-align post-title">Flutter-Text的使用</h1>
                 </div>
             </div>
         </div>
@@ -391,6 +391,10 @@
                                 <span class="chip bg-color">Flutter</span>
                             </a>
                         
+                            <a href="/tags/Text/">
+                                <span class="chip bg-color">Text</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -421,14 +425,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    579
+                    768
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -443,59 +447,145 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Flutter有三种构建模式：</p>
-<ul>
-<li>debug</li>
-<li>release</li>
-<li>profile</li>
-</ul>
-<p>在profile模式下，我们可以看到frame rendering图：</p>
-<h2 id="Frame-Rendering-Chart"><a href="#Frame-Rendering-Chart" class="headerlink" title="Frame Rendering Chart"></a>Frame Rendering Chart</h2><p><img src="https://oss.jiangkang.tech/jk/Timeline.png?x-oss-process=style_jiangkang_tech" alt="渲染图"></p>
-<p>横轴表示每一帧，纵轴表示帧渲染时间。红色表示jank，每一个柱状条可以点击，展开之后可以看到该帧的详细信息。</p>
-<blockquote>
-<p>需要注意的是：</p>
-<ol>
-<li><p>profile模式不支持模拟器</p>
-</li>
-<li><p>profile模式下才可以看到Frame rendering 图</p>
-</li>
-<li><p>开启profile模式的命令是：</p>
-<pre class=" language-shell"><code class="language-shell">flutter run --profile</code></pre>
-</li>
-</ol>
+                <blockquote>
+<p>关注 <a href="https://github.com/jiangkang/flutter-system" target="_blank" rel="noopener">https://github.com/jiangkang/flutter-system</a> 了解更多Flutter相关的知识</p>
 </blockquote>
-<p>frame rendering 包含两个过程，UI和GPU执行时间：</p>
-<h3 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h3><p>UI线程在DartVM中执行dart代码。当你的app创建并在屏幕上显示图像时，UI线程会创建一个layer tree（一个包含了与设备无关的绘制命令的轻量级对象），然后将layer tree发送给GPU去渲染。</p>
-<h3 id="GPU"><a href="#GPU" class="headerlink" title="GPU"></a>GPU</h3><p>GPU线程在Flutter Engine中执行图形代码。该线程接收layer tree作为输入，然后发送给GPU进行图形渲染。应用开发者一般不能直接访问GPU线程和它的数据(但是如果GPU线程很慢，则多半是你写的Dart代码的问题)。</p>
-<p>Skia就是运行在GPU线程上的。</p>
-<blockquote>
-<p>GPU线程有时候也叫rasterizer thread（光栅化线程）</p>
-</blockquote>
-<p>有时候layer tree很容易构建，但是在GPU线程上的渲染成本很高，正如前面所说，这个时候你应该检查一个自己的代码为什么导致GPU渲染代码变慢。</p>
-<h3 id="jank"><a href="#jank" class="headerlink" title="jank"></a>jank</h3><p>国内一般叫做卡顿（渲染时间超过16ms），在frame rendering图中会以红色来表示。</p>
-<p>Timeline View有三种层级：</p>
+<p>文本作为UI最基本的元素，最基本的用法有这些：</p>
 <ul>
-<li>Frame Rendering 图</li>
-<li>Frame events 图</li>
-<li>CPU分析图</li>
+<li>字体</li>
+<li>文字大小、颜色</li>
+<li>一些常用样式，比如倾斜，加粗，下划线，删除线等</li>
+<li>文字超出边界之后如何显示</li>
+<li>文字的单行，多行控制</li>
+<li>文字的显示方向</li>
+<li>富文本的显示</li>
+<li>文字渐变，阴影</li>
+<li>文本点击事件</li>
 </ul>
-<p>前文说的就是Frame Rendering图，下面说一下后面的两种图标。</p>
-<h2 id="Frame-Events-Chart"><a href="#Frame-Events-Chart" class="headerlink" title="Frame Events Chart"></a>Frame Events Chart</h2><p><img src="https://oss.jiangkang.tech/jk/timeline_frame_events_chart.png?x-oss-process=style_jiangkang_tech" alt="事件图"></p>
-<p>如图所示，event是自上而下产生的。</p>
-<p>UI和GPU是独立的事件流，但是它们公用同一个Timeline View。</p>
-<p>同样地，每一个Event信息也都可以点击，这样就会展开更加详细的信息，也就是CPU Profile图。</p>
-<h2 id="CPU-Profile-Chart"><a href="#CPU-Profile-Chart" class="headerlink" title="CPU Profile Chart"></a>CPU Profile Chart</h2><p><img src="https://oss.jiangkang.tech/jk/timeline_cpu_profiler_flame_chart.png?x-oss-process=style_jiangkang_tech" alt="CPU"></p>
-<p>有三种采样粒度：</p>
+<h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><p>如果需要使用自定义字体，则需要在项目中的fonts文件夹下放置字体文件，然后在配置文件pubspec.yaml中进行配置：</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">flutter</span><span class="token punctuation">:</span>
+  <span class="token key atrule">fonts</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">family</span><span class="token punctuation">:</span> Raleway
+      <span class="token key atrule">fonts</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">asset</span><span class="token punctuation">:</span> fonts/Raleway<span class="token punctuation">-</span>Regular.ttf
+        <span class="token punctuation">-</span> <span class="token key atrule">asset</span><span class="token punctuation">:</span> fonts/Raleway<span class="token punctuation">-</span>Italic.ttf
+          <span class="token key atrule">style</span><span class="token punctuation">:</span> italic
+    <span class="token punctuation">-</span> <span class="token key atrule">family</span><span class="token punctuation">:</span> RobotoMono
+      <span class="token key atrule">fonts</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">asset</span><span class="token punctuation">:</span> fonts/RobotoMono<span class="token punctuation">-</span>Regular.ttf
+        <span class="token punctuation">-</span> <span class="token key atrule">asset</span><span class="token punctuation">:</span> fonts/RobotoMono<span class="token punctuation">-</span>Bold.ttf
+          <span class="token key atrule">weight</span><span class="token punctuation">:</span> <span class="token number">700</span>
+</code></pre>
+<p>使用字体主要有两种方式，一种是通过主题设置统一的字体，一种是为单独的Widget设置字体。</p>
+<p><strong>通过主题设置字体：</strong></p>
+<pre class=" language-dart"><code class="language-dart"><span class="token function">MaterialApp</span><span class="token punctuation">(</span>
+  title<span class="token punctuation">:</span> <span class="token string">'Custom Fonts'</span><span class="token punctuation">,</span>
+  <span class="token comment" spellcheck="true">// Set Raleway as the default app font.</span>
+  theme<span class="token punctuation">:</span> <span class="token function">ThemeData</span><span class="token punctuation">(</span>fontFamily<span class="token punctuation">:</span> <span class="token string">'Raleway'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  home<span class="token punctuation">:</span> <span class="token function">MyHomePage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><strong>单独设置字体：</strong></p>
+<pre class=" language-dart"><code class="language-dart"><span class="token function">Text</span><span class="token punctuation">(</span>
+  <span class="token string">'Roboto Mono sample'</span><span class="token punctuation">,</span>
+  style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>fontFamily<span class="token punctuation">:</span> <span class="token string">'RobotoMono'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3 id="文字大小，颜色，倾斜，加粗"><a href="#文字大小，颜色，倾斜，加粗" class="headerlink" title="文字大小，颜色，倾斜，加粗"></a>文字大小，颜色，倾斜，加粗</h3><p>这些样式也都是在TextStyle中设置的：</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">"style: color,fontWeight,fontSize,fontStyle"</span><span class="token punctuation">,</span>
+              style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>
+                color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>blueAccent<span class="token punctuation">,</span>
+                fontWeight<span class="token punctuation">:</span> FontWeight<span class="token punctuation">.</span>bold<span class="token punctuation">,</span>
+                fontSize<span class="token punctuation">:</span> <span class="token number">28</span><span class="token punctuation">,</span>
+                fontStyle<span class="token punctuation">:</span> FontStyle<span class="token punctuation">.</span>italic<span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span></code></pre>
+<p>其中fontSize使用的是逻辑像素，默认为14，FontWeight.bold表示加粗，当然还可以设置指定的值，fontStyle可以用来控制文本是否倾斜。</p>
+<h3 id="下划线-上划线，删除线，波浪线"><a href="#下划线-上划线，删除线，波浪线" class="headerlink" title="下划线/上划线，删除线，波浪线"></a>下划线/上划线，删除线，波浪线</h3><p>下划线，删除线等属于文本装饰的一种，在TextStyle中通过decoration属性描述：</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token function">TextStyle</span><span class="token punctuation">(</span>
+                decoration<span class="token punctuation">:</span> TextDecoration<span class="token punctuation">.</span>underline<span class="token punctuation">,</span>
+                decorationColor<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>blueAccent<span class="token punctuation">,</span>
+                decorationStyle<span class="token punctuation">:</span> TextDecorationStyle<span class="token punctuation">.</span>solid<span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span><span class="token punctuation">,</span></code></pre>
+<p>效果如下：<br><img src="https://oss.jiangkang.tech/jk/text_underline.png?x-oss-process=style_jiangkang_tech" alt=""></p>
+<p>可以指定下划线的颜色，样式，比如线的实现，还是虚线，还是波浪线等;<br>对于这些装饰，还可以设置双下划线，点线等效果。<br><img src="https://oss.jiangkang.tech/jk/text_underline_double.png?x-oss-process=style_jiangkang_tech" alt=""></p>
+<h3 id="文字超出边界如何显示"><a href="#文字超出边界如何显示" class="headerlink" title="文字超出边界如何显示"></a>文字超出边界如何显示</h3><p>超出边界的显示有三种类型：</p>
 <ul>
-<li>low ： 1 sample / 50 μs</li>
-<li>medium（默认）：1 sample / 250 μs</li>
-<li>high ： 1 sample / 1000 μs</li>
+<li>显示省略号</li>
+<li>直接截断</li>
+<li>渐隐</li>
 </ul>
-<p>高采样率会影响APP性能。</p>
-<p>CPU profile图和Android Studio上的类似，一般也就是火焰图，调用图，自底向上调用图等，具体的看图方法可以看官方文档。</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol>
-<li><a href="https://flutter.dev/docs/development/tools/devtools/timeline" target="_blank" rel="noopener">https://flutter.dev/docs/development/tools/devtools/timeline</a></li>
-</ol>
+<p>这几种显示样式都是通过overflow属性控制的：</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token function">ListTile</span><span class="token punctuation">(</span>
+          title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>
+            <span class="token string">"overflow: TextOverflow.ellipsis;overflow: TextOverflow.ellipsis;overflow: TextOverflow.ellipsis;"</span><span class="token punctuation">,</span>
+            overflow<span class="token punctuation">:</span> TextOverflow<span class="token punctuation">.</span>ellipsis<span class="token punctuation">,</span>
+            softWrap<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">ListTile</span><span class="token punctuation">(</span>
+          title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>
+            <span class="token string">"overflow: TextOverflow.clip;overflow: TextOverflow.clip;overflow: TextOverflow.clip;"</span><span class="token punctuation">,</span>
+            overflow<span class="token punctuation">:</span> TextOverflow<span class="token punctuation">.</span>clip<span class="token punctuation">,</span>
+            softWrap<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">ListTile</span><span class="token punctuation">(</span>
+          title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>
+            <span class="token string">"overflow: TextOverflow.fade,overflow: TextOverflow.fade,overflow: TextOverflow.fade,overflow: TextOverflow.fade,"</span><span class="token punctuation">,</span>
+            overflow<span class="token punctuation">:</span> TextOverflow<span class="token punctuation">.</span>fade<span class="token punctuation">,</span>
+            softWrap<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span></code></pre>
+<h3 id="文字的单行与多行显示"><a href="#文字的单行与多行显示" class="headerlink" title="文字的单行与多行显示"></a>文字的单行与多行显示</h3><p>文本的多行显示，可以通过maxLines属性和softWrap属性控制，其中maxLines控制最大行数，softWrap控制是否自动换行。</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token function">Text</span><span class="token punctuation">(</span>
+            <span class="token string">"softWrap: false;softWrap: false;softWrap: false;softWrap: false;softWrap: false;softWrap: false;"</span><span class="token punctuation">,</span>
+            softWrap<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span></code></pre>
+<pre class=" language-dart"><code class="language-dart"><span class="token function">Text</span><span class="token punctuation">(</span>
+            <span class="token string">"softWrap: true;softWrap: true;softWrap: true;softWrap: true;softWrap: true;"</span><span class="token punctuation">,</span>
+            softWrap<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span></code></pre>
+<h3 id="富文本"><a href="#富文本" class="headerlink" title="富文本"></a>富文本</h3><p>可以使用Text.rich/ RichText + TextSpan来显示富文本：</p>
+<pre class=" language-dart"><code class="language-dart">Text<span class="token punctuation">.</span><span class="token function">rich</span><span class="token punctuation">(</span>
+            <span class="token function">TextSpan</span><span class="token punctuation">(</span>
+              text<span class="token punctuation">:</span> <span class="token string">"plain text "</span><span class="token punctuation">,</span>
+              children<span class="token punctuation">:</span> <span class="token operator">&lt;</span>TextSpan<span class="token operator">></span><span class="token punctuation">[</span>
+                <span class="token function">TextSpan</span><span class="token punctuation">(</span>
+                    text<span class="token punctuation">:</span> <span class="token string">"color"</span><span class="token punctuation">,</span> style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>pinkAccent<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token function">TextSpan</span><span class="token punctuation">(</span>text<span class="token punctuation">:</span> <span class="token string">"fontSize"</span><span class="token punctuation">,</span> style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>fontSize<span class="token punctuation">:</span> <span class="token number">28</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token function">TextSpan</span><span class="token punctuation">(</span>
+                    text<span class="token punctuation">:</span> <span class="token string">"decoration"</span><span class="token punctuation">,</span>
+                    style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>decoration<span class="token punctuation">:</span> TextDecoration<span class="token punctuation">.</span>lineThrough<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span></code></pre>
+<p><img src="https://oss.jiangkang.tech/jk/rich_text_1.png?x-oss-process=style_jiangkang_tech" alt=""></p>
+<pre class=" language-dart"><code class="language-dart"><span class="token function">RichText</span><span class="token punctuation">(</span>
+              text<span class="token punctuation">:</span> <span class="token function">TextSpan</span><span class="token punctuation">(</span>
+            children<span class="token punctuation">:</span> <span class="token operator">&lt;</span>TextSpan<span class="token operator">></span><span class="token punctuation">[</span>
+              <span class="token function">TextSpan</span><span class="token punctuation">(</span>
+                  text<span class="token punctuation">:</span> <span class="token string">"Text 1"</span><span class="token punctuation">,</span> style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>blueAccent<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token function">TextSpan</span><span class="token punctuation">(</span>
+                  text<span class="token punctuation">:</span> <span class="token string">"Text 2"</span><span class="token punctuation">,</span>
+                  style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>pinkAccent<span class="token punctuation">,</span> fontSize<span class="token punctuation">:</span> <span class="token number">28</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p><img src="https://oss.jiangkang.tech/jk/rich_text_2.png?x-oss-process=style_jiangkang_tech" alt=""></p>
+<h3 id="文字阴影"><a href="#文字阴影" class="headerlink" title="文字阴影"></a>文字阴影</h3><p>文字的阴影可以通过TextStyle中的shadows属性进行控制：</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token function">Text</span><span class="token punctuation">(</span>
+            <span class="token string">"style: letterSpacing,shadows"</span><span class="token punctuation">,</span>
+            style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>
+              shadows<span class="token punctuation">:</span> <span class="token operator">&lt;</span>Shadow<span class="token operator">></span><span class="token punctuation">[</span>
+                <span class="token function">Shadow</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>pink<span class="token punctuation">,</span> offset<span class="token punctuation">:</span> <span class="token function">Offset</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+              <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span></code></pre>
+<p><img src="https://oss.jiangkang.tech/jk/text_shadow.png?x-oss-process=style_jiangkang_tech" alt=""></p>
+<h3 id="Text的点击事件"><a href="#Text的点击事件" class="headerlink" title="Text的点击事件"></a>Text的点击事件</h3><p>可以使用GestureDetector，也可以使用InkWell：</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token function">InkWell</span><span class="token punctuation">(</span>
+            child<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>
+              <span class="token string">"Default Text"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            onTap<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">debugPrint</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span></code></pre>
 
             </div>
             <hr/>
@@ -521,7 +611,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://jiangkang.tech/2020/05/08/flutter/flutter-timeline/">https://jiangkang.tech/2020/05/08/flutter/flutter-timeline/</a>
+                    <a href="https://jiangkang.tech/2020/05/08/flutter/flutter-text-de-shi-yong/">https://jiangkang.tech/2020/05/08/flutter/flutter-text-de-shi-yong/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -561,6 +651,10 @@
                             
                                 <a href="/tags/Flutter/">
                                     <span class="chip bg-color">Flutter</span>
+                                </a>
+                            
+                                <a href="/tags/Text/">
+                                    <span class="chip bg-color">Text</span>
                                 </a>
                             
                         </div>
@@ -731,7 +825,7 @@
         repo: 'jiangkang.github.io',
         owner: 'jiangkang',
         admin: ["jiangkang"],
-        id: '2020-05-08T17-55-35',
+        id: '2020-05-08T21-56-58',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -755,89 +849,31 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/08/c/chu-shi-sdl/">
+                <a href="/2020/05/08/flutter/flutter-text-de-shi-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="初识SDL">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Flutter-Text的使用">
                         
-                        <span class="card-title">初识SDL</span>
+                        <span class="card-title">Flutter-Text的使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            SDL是什么Simple DirectMedia Layer 是一个跨平台的开发库,它提供了对音频,键盘,鼠标,游戏手柄的底层访问接口.以及通过OpenGL或者Direct3D控制图形硬件的接口.
-目前支持以下平台:
-
-Windows 
-
-
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-08
-                        </span>
-                        <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/C/" class="post-category">
-                                    C++
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/SDL/">
-                        <span class="chip bg-color">SDL</span>
-                    </a>
-                    
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/05/08/flutter/flutter-timeline/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Flutter-Timeline">
-                        
-                        <span class="card-title">Flutter-Timeline</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Flutter有三种构建模式：
+关注 https://github.com/jiangkang/flutter-system 了解更多Flutter相关的知识
 
-debug
-release
-profile
+文本作为UI最基本的元素，最基本的用法有这些：
 
-在profile模式下，我们可以看到frame rendering图：
-Frame Rendering Chart
-横轴表示每一帧，纵轴表示帧渲染时间。红色表示
+字体
+文字大小、颜色
+一些常用样式，比如倾斜，加粗，下划线
                         
                     </div>
                     <div class="publish-info">
@@ -862,6 +898,73 @@ Frame Rendering Chart
                     
                     <a href="/tags/Flutter/">
                         <span class="chip bg-color">Flutter</span>
+                    </a>
+                    
+                    <a href="/tags/Text/">
+                        <span class="chip bg-color">Text</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/05/08/flutter/flutter-tabs-de-shi-yong/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Flutter-Tabs的使用">
+                        
+                        <span class="card-title">Flutter-Tabs的使用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Flutter中使用tabs还是非常的简单的，可以用在顶部导航栏，也可以用在底部导航栏。
+
+  
+  
+  
+
+
+
+
+
+使用Tabs需要用到两个widget，一个是TabBar,用于顶导航或者底导航；一个是TabBarView，用于Tab下
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Flutter/" class="post-category">
+                                    Flutter
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Flutter/">
+                        <span class="chip bg-color">Flutter</span>
+                    </a>
+                    
+                    <a href="/tags/Tab/">
+                        <span class="chip bg-color">Tab</span>
                     </a>
                     
                 </div>

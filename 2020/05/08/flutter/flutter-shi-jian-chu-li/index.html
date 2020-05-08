@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Flutter-Timeline, 姜康,天津大学,Android,Golang">
+    <meta name="keywords" content="Flutter时间处理, 姜康,天津大学,Android,Golang">
     <meta name="description" content="姜康的技术博客:用技术解决实际问题">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Flutter-Timeline | 姜康的技术博客</title>
+    <title>Flutter时间处理 | 姜康的技术博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -265,12 +265,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Flutter-Timeline</h1>
+                    <h1 class="description center-align post-title">Flutter时间处理</h1>
                 </div>
             </div>
         </div>
@@ -391,6 +391,10 @@
                                 <span class="chip bg-color">Flutter</span>
                             </a>
                         
+                            <a href="/tags/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/">
+                                <span class="chip bg-color">时间处理</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -421,14 +425,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    579
+                    334
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -443,59 +447,67 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Flutter有三种构建模式：</p>
+                <p>Flutter 中在时间处理方面还是比较简单的，我们主要用到的有两个类：</p>
 <ul>
-<li>debug</li>
-<li>release</li>
-<li>profile</li>
+<li><p>DateTime</p>
+<p>表示一个指定的时间点，包括年月日时分秒</p>
+</li>
+<li><p>TimeOfDay</p>
+<p>表示一天中的一个时间点，可以区分上午，下午，12小时制，24小时制等</p>
+</li>
 </ul>
-<p>在profile模式下，我们可以看到frame rendering图：</p>
-<h2 id="Frame-Rendering-Chart"><a href="#Frame-Rendering-Chart" class="headerlink" title="Frame Rendering Chart"></a>Frame Rendering Chart</h2><p><img src="https://oss.jiangkang.tech/jk/Timeline.png?x-oss-process=style_jiangkang_tech" alt="渲染图"></p>
-<p>横轴表示每一帧，纵轴表示帧渲染时间。红色表示jank，每一个柱状条可以点击，展开之后可以看到该帧的详细信息。</p>
-<blockquote>
-<p>需要注意的是：</p>
-<ol>
-<li><p>profile模式不支持模拟器</p>
+<h3 id="获取当前时间"><a href="#获取当前时间" class="headerlink" title="获取当前时间"></a>获取当前时间</h3><pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> now <span class="token operator">=</span> DateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>这里就得到了一个当前时间的DateTime对象，然后就可以拿到你想要的信息：</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> year <span class="token operator">=</span> now<span class="token punctuation">.</span>year<span class="token punctuation">;</span>
+<span class="token keyword">final</span> month <span class="token operator">=</span> now<span class="token punctuation">.</span>month<span class="token punctuation">;</span>
+<span class="token keyword">final</span> day <span class="token operator">=</span> now<span class="token punctuation">.</span>day<span class="token punctuation">;</span></code></pre>
+<p>还可以获取当前时星期几：</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> week <span class="token operator">=</span> now<span class="token punctuation">.</span>weekday<span class="token punctuation">;</span></code></pre>
+<h3 id="转时间戳"><a href="#转时间戳" class="headerlink" title="转时间戳"></a>转时间戳</h3><pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> now <span class="token operator">=</span> DateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+String timestamp <span class="token operator">=</span> now<span class="token punctuation">.</span>millisecondsSinceEpoch<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3 id="时间运算"><a href="#时间运算" class="headerlink" title="时间运算"></a>时间运算</h3><ul>
+<li><p>前2天</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> now <span class="token operator">=</span> DateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">final</span> before <span class="token operator">=</span> now<span class="token punctuation">.</span><span class="token function">subtract</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>days<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 </li>
-<li><p>profile模式下才可以看到Frame rendering 图</p>
-</li>
-<li><p>开启profile模式的命令是：</p>
-<pre class=" language-shell"><code class="language-shell">flutter run --profile</code></pre>
-</li>
-</ol>
-</blockquote>
-<p>frame rendering 包含两个过程，UI和GPU执行时间：</p>
-<h3 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h3><p>UI线程在DartVM中执行dart代码。当你的app创建并在屏幕上显示图像时，UI线程会创建一个layer tree（一个包含了与设备无关的绘制命令的轻量级对象），然后将layer tree发送给GPU去渲染。</p>
-<h3 id="GPU"><a href="#GPU" class="headerlink" title="GPU"></a>GPU</h3><p>GPU线程在Flutter Engine中执行图形代码。该线程接收layer tree作为输入，然后发送给GPU进行图形渲染。应用开发者一般不能直接访问GPU线程和它的数据(但是如果GPU线程很慢，则多半是你写的Dart代码的问题)。</p>
-<p>Skia就是运行在GPU线程上的。</p>
-<blockquote>
-<p>GPU线程有时候也叫rasterizer thread（光栅化线程）</p>
-</blockquote>
-<p>有时候layer tree很容易构建，但是在GPU线程上的渲染成本很高，正如前面所说，这个时候你应该检查一个自己的代码为什么导致GPU渲染代码变慢。</p>
-<h3 id="jank"><a href="#jank" class="headerlink" title="jank"></a>jank</h3><p>国内一般叫做卡顿（渲染时间超过16ms），在frame rendering图中会以红色来表示。</p>
-<p>Timeline View有三种层级：</p>
+</ul>
 <ul>
-<li>Frame Rendering 图</li>
-<li>Frame events 图</li>
-<li>CPU分析图</li>
+<li><p>后2天</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> now <span class="token operator">=</span> DateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">final</span> after <span class="token operator">=</span> now<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>days<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</li>
 </ul>
-<p>前文说的就是Frame Rendering图，下面说一下后面的两种图标。</p>
-<h2 id="Frame-Events-Chart"><a href="#Frame-Events-Chart" class="headerlink" title="Frame Events Chart"></a>Frame Events Chart</h2><p><img src="https://oss.jiangkang.tech/jk/timeline_frame_events_chart.png?x-oss-process=style_jiangkang_tech" alt="事件图"></p>
-<p>如图所示，event是自上而下产生的。</p>
-<p>UI和GPU是独立的事件流，但是它们公用同一个Timeline View。</p>
-<p>同样地，每一个Event信息也都可以点击，这样就会展开更加详细的信息，也就是CPU Profile图。</p>
-<h2 id="CPU-Profile-Chart"><a href="#CPU-Profile-Chart" class="headerlink" title="CPU Profile Chart"></a>CPU Profile Chart</h2><p><img src="https://oss.jiangkang.tech/jk/timeline_cpu_profiler_flame_chart.png?x-oss-process=style_jiangkang_tech" alt="CPU"></p>
-<p>有三种采样粒度：</p>
 <ul>
-<li>low ： 1 sample / 50 μs</li>
-<li>medium（默认）：1 sample / 250 μs</li>
-<li>high ： 1 sample / 1000 μs</li>
+<li><p>两个时间点相隔的时间数</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> now <span class="token operator">=</span> DateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">final</span> after <span class="token operator">=</span> now<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>days<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">final</span> diff <span class="token operator">=</span> after<span class="token punctuation">.</span><span class="token function">difference</span><span class="token punctuation">(</span>now<span class="token punctuation">)</span><span class="token punctuation">.</span>inHours<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 相隔的小时数，也可以是分钟数，秒数</span></code></pre>
+</li>
 </ul>
-<p>高采样率会影响APP性能。</p>
-<p>CPU profile图和Android Studio上的类似，一般也就是火焰图，调用图，自底向上调用图等，具体的看图方法可以看官方文档。</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol>
-<li><a href="https://flutter.dev/docs/development/tools/devtools/timeline" target="_blank" rel="noopener">https://flutter.dev/docs/development/tools/devtools/timeline</a></li>
-</ol>
+<h3 id="上午还是下午"><a href="#上午还是下午" class="headerlink" title="上午还是下午"></a>上午还是下午</h3><p>可以使用TimeOfDay来处理：</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> timeOfDay <span class="token operator">=</span> TimeOfDay<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">final</span> amOrPm <span class="token operator">=</span> timeOfDay<span class="token punctuation">.</span>period<span class="token punctuation">;</span></code></pre>
+<p>其中timeOfDay.period实际上是一个枚举对象：</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token keyword">enum</span> DayPeriod <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">/// Ante meridiem (before noon).</span>
+  am<span class="token punctuation">,</span>
+
+  <span class="token comment" spellcheck="true">/// Post meridiem (after noon).</span>
+  pm<span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre>
+<p>这样可以判断是上午还是下午了。</p>
+<h3 id="12-24小时制"><a href="#12-24小时制" class="headerlink" title="12/24小时制"></a>12/24小时制</h3><ul>
+<li><p>24小时</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> hour24 <span class="token operator">=</span> timeOfDay<span class="token punctuation">.</span>hour<span class="token punctuation">;</span></code></pre>
+</li>
+</ul>
+<ul>
+<li><p>12小时</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> hour12 <span class="token operator">=</span> timeOfDay<span class="token punctuation">.</span>hourOfPeriod<span class="token punctuation">;</span></code></pre>
+</li>
+</ul>
+<p>还可以格式化输出当前的分钟小时数：</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> timeStr <span class="token operator">=</span> timeOfDay<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 11:49 PM</span></code></pre>
 
             </div>
             <hr/>
@@ -521,7 +533,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://jiangkang.tech/2020/05/08/flutter/flutter-timeline/">https://jiangkang.tech/2020/05/08/flutter/flutter-timeline/</a>
+                    <a href="https://jiangkang.tech/2020/05/08/flutter/flutter-shi-jian-chu-li/">https://jiangkang.tech/2020/05/08/flutter/flutter-shi-jian-chu-li/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -561,6 +573,10 @@
                             
                                 <a href="/tags/Flutter/">
                                     <span class="chip bg-color">Flutter</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/">
+                                    <span class="chip bg-color">时间处理</span>
                                 </a>
                             
                         </div>
@@ -731,7 +747,7 @@
         repo: 'jiangkang.github.io',
         owner: 'jiangkang',
         admin: ["jiangkang"],
-        id: '2020-05-08T17-55-35',
+        id: '2020-05-08T21-47-29',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -759,24 +775,29 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/05/08/c/chu-shi-sdl/">
+                <a href="/2020/05/08/flutter/flutter-tabs-de-shi-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="初识SDL">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Flutter-Tabs的使用">
                         
-                        <span class="card-title">初识SDL</span>
+                        <span class="card-title">Flutter-Tabs的使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            SDL是什么Simple DirectMedia Layer 是一个跨平台的开发库,它提供了对音频,键盘,鼠标,游戏手柄的底层访问接口.以及通过OpenGL或者Direct3D控制图形硬件的接口.
-目前支持以下平台:
+                            Flutter中使用tabs还是非常的简单的，可以用在顶部导航栏，也可以用在底部导航栏。
 
-Windows 
+  
+  
+  
 
 
+
+
+
+使用Tabs需要用到两个widget，一个是TabBar,用于顶导航或者底导航；一个是TabBarView，用于Tab下
                         
                     </div>
                     <div class="publish-info">
@@ -787,8 +808,8 @@ Windows
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C/" class="post-category">
-                                    C++
+                            <a href="/categories/Flutter/" class="post-category">
+                                    Flutter
                                 </a>
                             
                             
@@ -798,12 +819,12 @@ Windows
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SDL/">
-                        <span class="chip bg-color">SDL</span>
+                    <a href="/tags/Flutter/">
+                        <span class="chip bg-color">Flutter</span>
                     </a>
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
+                    <a href="/tags/Tab/">
+                        <span class="chip bg-color">Tab</span>
                     </a>
                     
                 </div>
@@ -814,30 +835,24 @@ Windows
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/08/flutter/flutter-timeline/">
+                <a href="/2020/05/08/flutter/dart-ji-chu-yu-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Flutter-Timeline">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Dart基础语法">
                         
-                        <span class="card-title">Flutter-Timeline</span>
+                        <span class="card-title">Dart基础语法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Flutter有三种构建模式：
-
-debug
-release
-profile
-
-在profile模式下，我们可以看到frame rendering图：
-Frame Rendering Chart
-横轴表示每一帧，纵轴表示帧渲染时间。红色表示
+                            重要的概念
+任何你可以放在一个变量中的都是一个object，并且每个object都是一个class的实例，甚至于数字，functions，null都是对象，所有的对象继承自Object类。
+即使Dart是强类型的，但是类型说明是可选的，因为
                         
                     </div>
                     <div class="publish-info">
@@ -856,12 +871,15 @@ Frame Rendering Chart
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/Flutter/">
                         <span class="chip bg-color">Flutter</span>
+                    </a>
+                    
+                    <a href="/tags/Dart/">
+                        <span class="chip bg-color">Dart</span>
                     </a>
                     
                 </div>
