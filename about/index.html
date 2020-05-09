@@ -556,7 +556,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"Android","value":1},{"name":"C++","value":1},{"name":"Flutter","value":7},{"name":"Golang","value":2}],
+                data: [{"name":"Flutter","value":7},{"name":"Android","value":1},{"name":"C++","value":1},{"name":"Golang","value":2}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -580,7 +580,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["Flutter","Golang","存储","Android","SDL","C++","Text","Dart","圆角","深色模式"]
+                data: ["Flutter","Golang","Dart","Tab","存储","Android","Text","SDL","C++","圆角"]
             }
         ],
         yAxis: [
@@ -750,6 +750,24 @@
         <div class="tag-chips center-align">
             
             
+            <a href="/tags/Flutter/">
+                <span class="chip center-align waves-effect waves-light chip-default">Flutter</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Dart/">
+                <span class="chip center-align waves-effect waves-light chip-default">Dart</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Tab/">
+                <span class="chip center-align waves-effect waves-light chip-default">Tab</span>
+            </a>
+            
+            
+            
             <a href="/tags/%E5%AD%98%E5%82%A8/">
                 <span class="chip center-align waves-effect waves-light chip-default">存储</span>
             </a>
@@ -762,29 +780,17 @@
             
             
             
-            <a href="/tags/SDL/">
-                <span class="chip center-align waves-effect waves-light chip-default">SDL</span>
-            </a>
-            
-            
-            
-            
-            
-            <a href="/tags/Flutter/">
-                <span class="chip center-align waves-effect waves-light chip-default">Flutter</span>
-            </a>
-            
-            
-            
             <a href="/tags/Text/">
                 <span class="chip center-align waves-effect waves-light chip-default">Text</span>
             </a>
             
             
             
-            <a href="/tags/Dart/">
-                <span class="chip center-align waves-effect waves-light chip-default">Dart</span>
+            <a href="/tags/SDL/">
+                <span class="chip center-align waves-effect waves-light chip-default">SDL</span>
             </a>
+            
+            
             
             
             
@@ -800,17 +806,11 @@
             
             
             
-            
-            
-            <a href="/tags/Tab/">
-                <span class="chip center-align waves-effect waves-light chip-default">Tab</span>
-            </a>
-            
-            
-            
             <a href="/tags/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/">
                 <span class="chip center-align waves-effect waves-light chip-default">时间处理</span>
             </a>
+            
+            
             
             
             
@@ -962,7 +962,7 @@ $(function () {
     var _hmt = _hmt || [];
     (function () {
         var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?uMRUwWBXgn";
+        hm.src = "https://hm.baidu.com/hm.js?fe47fdf1df45d357560766f0f6454e48";
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();
