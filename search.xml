@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>调试flutter_tools</title>
+      <link href="/2020/05/15/flutter/diao-shi-flutter-tools/"/>
+      <url>/2020/05/15/flutter/diao-shi-flutter-tools/</url>
+      
+        <content type="html"><![CDATA[<p>在运行<code>flutter</code>命令的时候,比如<code>flutter run</code>,实际上执行的是<code>flutter_tools.snapshots</code>,而这个快照文件的源码入口就是<code>flutter_tools.dart</code>.</p><p>既然是普通的dart命令行程序,那么按照Dart命令行程序的调试方法进行调试即可.</p><p>建议提前下载一个flutter项目的源码.下载源码之后,按照下面的步骤就可以进行调试了:</p><h2 id="配置-Dart-SDK"><a href="#配置-Dart-SDK" class="headerlink" title="配置 Dart SDK"></a>配置 Dart SDK</h2><p><img src="https://oss.jiangkang.tech/jk/flutter_tools_dart_sdk.png?x-oss-process=style_jiangkang_tech" alt="配置Dart SDK"></p><h2 id="添加Configuration"><a href="#添加Configuration" class="headerlink" title="添加Configuration"></a>添加Configuration</h2><p><img src="https://oss.jiangkang.tech/jk/flutter_tools_config.png?x-oss-process=style_jiangkang_tech" alt="Configuration"></p><h2 id="执行调试"><a href="#执行调试" class="headerlink" title="执行调试"></a>执行调试</h2><p><img src="https://oss.jiangkang.tech/jk/flutter_tools_debug.png?x-oss-process=style_jiangkang_tech" alt="调试"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Flutter </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> flutter tools </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java中的Lock</title>
       <link href="/2020/05/15/android/java-zhong-de-lock/"/>
       <url>/2020/05/15/android/java-zhong-de-lock/</url>
@@ -20,9 +45,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> Lock </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -47,9 +72,9 @@
       
         <tags>
             
-            <tag> 数据结构 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 数据结构 </tag>
             
             <tag> Map </tag>
             
@@ -76,11 +101,11 @@
       
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> 数据结构 </tag>
             
             <tag> List </tag>
-            
-            <tag> Java </tag>
             
         </tags>
       
@@ -105,9 +130,9 @@
       
         <tags>
             
-            <tag> 数据结构 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 数据结构 </tag>
             
             <tag> 队列 </tag>
             

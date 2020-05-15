@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jiangkang.tech/"/>
-  <updated>2020-05-15T05:48:28.512Z</updated>
+  <updated>2020-05-15T11:43:47.398Z</updated>
   <id>https://jiangkang.tech/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>调试flutter_tools</title>
+    <link href="https://jiangkang.tech/2020/05/15/flutter/diao-shi-flutter-tools/"/>
+    <id>https://jiangkang.tech/2020/05/15/flutter/diao-shi-flutter-tools/</id>
+    <published>2020-05-15T11:42:45.000Z</published>
+    <updated>2020-05-15T11:43:47.398Z</updated>
+    
+    <content type="html"><![CDATA[<p>在运行<code>flutter</code>命令的时候,比如<code>flutter run</code>,实际上执行的是<code>flutter_tools.snapshots</code>,而这个快照文件的源码入口就是<code>flutter_tools.dart</code>.</p><p>既然是普通的dart命令行程序,那么按照Dart命令行程序的调试方法进行调试即可.</p><p>建议提前下载一个flutter项目的源码.下载源码之后,按照下面的步骤就可以进行调试了:</p><h2 id="配置-Dart-SDK"><a href="#配置-Dart-SDK" class="headerlink" title="配置 Dart SDK"></a>配置 Dart SDK</h2><p><img src="https://oss.jiangkang.tech/jk/flutter_tools_dart_sdk.png?x-oss-process=style_jiangkang_tech" alt="配置Dart SDK"></p><h2 id="添加Configuration"><a href="#添加Configuration" class="headerlink" title="添加Configuration"></a>添加Configuration</h2><p><img src="https://oss.jiangkang.tech/jk/flutter_tools_config.png?x-oss-process=style_jiangkang_tech" alt="Configuration"></p><h2 id="执行调试"><a href="#执行调试" class="headerlink" title="执行调试"></a>执行调试</h2><p><img src="https://oss.jiangkang.tech/jk/flutter_tools_debug.png?x-oss-process=style_jiangkang_tech" alt="调试"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在运行&lt;code&gt;flutter&lt;/code&gt;命令的时候,比如&lt;code&gt;flutter run&lt;/code&gt;,实际上执行的是&lt;code&gt;flutter_tools.snapshots&lt;/code&gt;,而这个快照文件的源码入口就是&lt;code&gt;flutter_tools.dar
+      
+    
+    </summary>
+    
+    
+      <category term="Flutter" scheme="https://jiangkang.tech/categories/Flutter/"/>
+    
+    
+      <category term="flutter tools" scheme="https://jiangkang.tech/tags/flutter-tools/"/>
+    
+  </entry>
   
   <entry>
     <title>Java中的Lock</title>
@@ -43,9 +69,9 @@
       <category term="Android" scheme="https://jiangkang.tech/categories/Android/"/>
     
     
-      <category term="Java" scheme="https://jiangkang.tech/tags/Java/"/>
-    
       <category term="Lock" scheme="https://jiangkang.tech/tags/Lock/"/>
+    
+      <category term="Java" scheme="https://jiangkang.tech/tags/Java/"/>
     
   </entry>
   
@@ -72,9 +98,9 @@
       <category term="Android" scheme="https://jiangkang.tech/categories/Android/"/>
     
     
-      <category term="数据结构" scheme="https://jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
       <category term="Java" scheme="https://jiangkang.tech/tags/Java/"/>
+    
+      <category term="数据结构" scheme="https://jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="Map" scheme="https://jiangkang.tech/tags/Map/"/>
     
@@ -102,11 +128,11 @@
       <category term="Android" scheme="https://jiangkang.tech/categories/Android/"/>
     
     
+      <category term="Java" scheme="https://jiangkang.tech/tags/Java/"/>
+    
       <category term="数据结构" scheme="https://jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="List" scheme="https://jiangkang.tech/tags/List/"/>
-    
-      <category term="Java" scheme="https://jiangkang.tech/tags/Java/"/>
     
   </entry>
   
@@ -134,9 +160,9 @@
       <category term="Android" scheme="https://jiangkang.tech/categories/Android/"/>
     
     
-      <category term="数据结构" scheme="https://jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
       <category term="Java" scheme="https://jiangkang.tech/tags/Java/"/>
+    
+      <category term="数据结构" scheme="https://jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="队列" scheme="https://jiangkang.tech/tags/%E9%98%9F%E5%88%97/"/>
     
