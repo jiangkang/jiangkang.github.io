@@ -265,7 +265,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://oss.jiangkang.tech/jk/Map.png?x-oss-process=style_jiangkang_tech')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://oss.jiangkang.tech/jk/Map.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -387,12 +387,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
-                            </a>
-                        
                             <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                                 <span class="chip bg-color">数据结构</span>
+                            </a>
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
                             <a href="/tags/Map/">
@@ -446,8 +446,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="https://oss.jiangkang.tech/jk/Map.png?x-oss-process=style_jiangkang_tech" alt="Map"></p>
-<h2 id="哈希表-散列表"><a href="#哈希表-散列表" class="headerlink" title="哈希表/散列表"></a>哈希表/散列表</h2><p><img src="https://oss.jiangkang.tech/jk/HashMap%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84.png?x-oss-process=style_jiangkang_tech" alt=""></p>
+                <p><img src="https://oss.jiangkang.tech/jk/Map.png" alt="Map"></p>
+<h2 id="哈希表-散列表"><a href="#哈希表-散列表" class="headerlink" title="哈希表/散列表"></a>哈希表/散列表</h2><p><img src="https://oss.jiangkang.tech/jk/HashMap%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84.png" alt=""></p>
 <p>通俗的说就是，使用散列函数将key值映射到数组下标，这样就可以根据key值直接访问到元素存储位置，这种结构就叫哈希表（散列表）。</p>
 <p>将key值映射到数组下标的函数就做散列函数，这个映射过程是一个key值压缩的过程，因而不可避免会存在两个不同的值映射到了相同的下标的情况，这种情况叫做<strong>哈希冲突</strong>。</p>
 <p>散列函数的选取也是有套路可循的，比如除数取余法，平方取中法，数字分析法，折叠法扥等。</p>
@@ -466,7 +466,7 @@
 <p>查询的效率可以达到O(1)。</p>
 <p>Java8中大部分情况是基于哈希表实现，当链表长度达到8的时候，转为红黑树实现。</p>
 <p>不保证存取顺序；</p>
-<p><img src="https://oss.jiangkang.tech/jk/HashMap-%E7%BA%A2%E9%BB%91%E6%A0%91.png?x-oss-process=style_jiangkang_tech" alt=""></p>
+<p><img src="https://oss.jiangkang.tech/jk/HashMap-%E7%BA%A2%E9%BB%91%E6%A0%91.png" alt=""></p>
 <p>具体的看存储结构：</p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Node</span><span class="token operator">&lt;</span>K<span class="token punctuation">,</span>V<span class="token operator">></span> <span class="token keyword">implements</span> <span class="token class-name">Map<span class="token punctuation">.</span>Entry</span><span class="token operator">&lt;</span>K<span class="token punctuation">,</span>V<span class="token operator">></span> <span class="token punctuation">{</span>
         <span class="token keyword">final</span> <span class="token keyword">int</span> hash<span class="token punctuation">;</span>
@@ -626,12 +626,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
-                                </a>
-                            
                                 <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                                     <span class="chip bg-color">数据结构</span>
+                                </a>
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
                                 <a href="/tags/Map/">
@@ -837,7 +837,7 @@
                 <a href="/2020/05/15/android/java-zhong-de-lock/">
                     <div class="card-image">
                         
-                        <img src="https://oss.jiangkang.tech/jk/Lock.png?x-oss-process=style_jiangkang_tech" class="responsive-img" alt="Java中的Lock">
+                        <img src="https://oss.jiangkang.tech/jk/Lock.png" class="responsive-img" alt="Java中的Lock">
                         
                         <span class="card-title">Java中的Lock</span>
                     </div>
@@ -872,12 +872,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Lock/">
-                        <span class="chip bg-color">Lock</span>
-                    </a>
-                    
                     <a href="/tags/Java/">
                         <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/Lock/">
+                        <span class="chip bg-color">Lock</span>
                     </a>
                     
                 </div>
@@ -894,7 +894,7 @@
                 <a href="/2020/05/15/android/java-zhong-de-list/">
                     <div class="card-image">
                         
-                        <img src="https://oss.jiangkang.tech/jk/UML-List.png?x-oss-process=style_jiangkang_tech" class="responsive-img" alt="Java中的List">
+                        <img src="https://oss.jiangkang.tech/jk/UML-List.png" class="responsive-img" alt="Java中的List">
                         
                         <span class="card-title">Java中的List</span>
                     </div>
@@ -927,16 +927,16 @@ ArrayList由于通过数组索引定位，所以查找效率比
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
                     <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                         <span class="chip bg-color">数据结构</span>
                     </a>
                     
                     <a href="/tags/List/">
                         <span class="chip bg-color">List</span>
+                    </a>
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
                 </div>
