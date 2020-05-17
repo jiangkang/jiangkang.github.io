@@ -5,9 +5,9 @@
   <subtitle>读书,行路,阅人</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://jiangkang.tech/"/>
+  <link href="https://www.jiangkang.tech/"/>
   <updated>2020-05-17T11:59:15.110Z</updated>
-  <id>https://jiangkang.tech/</id>
+  <id>https://www.jiangkang.tech/</id>
   
   <author>
     <name>姜康</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>调试flutter_tools</title>
-    <link href="https://jiangkang.tech/2020/05/15/flutter/diao-shi-flutter-tools/"/>
-    <id>https://jiangkang.tech/2020/05/15/flutter/diao-shi-flutter-tools/</id>
+    <link href="https://www.jiangkang.tech/2020/05/15/flutter/diao-shi-flutter-tools/"/>
+    <id>https://www.jiangkang.tech/2020/05/15/flutter/diao-shi-flutter-tools/</id>
     <published>2020-05-15T11:42:45.000Z</published>
     <updated>2020-05-17T11:59:15.110Z</updated>
     
@@ -35,17 +35,17 @@
     </summary>
     
     
-      <category term="Flutter" scheme="https://jiangkang.tech/categories/Flutter/"/>
+      <category term="Flutter" scheme="https://www.jiangkang.tech/categories/Flutter/"/>
     
     
-      <category term="flutter tools" scheme="https://jiangkang.tech/tags/flutter-tools/"/>
+      <category term="flutter tools" scheme="https://www.jiangkang.tech/tags/flutter-tools/"/>
     
   </entry>
   
   <entry>
     <title>Java中的Lock</title>
-    <link href="https://jiangkang.tech/2020/05/15/android/java-zhong-de-lock/"/>
-    <id>https://jiangkang.tech/2020/05/15/android/java-zhong-de-lock/</id>
+    <link href="https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-lock/"/>
+    <id>https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-lock/</id>
     <published>2020-05-15T05:30:56.000Z</published>
     <updated>2020-05-17T11:59:15.110Z</updated>
     
@@ -66,19 +66,19 @@
     </summary>
     
     
-      <category term="Android" scheme="https://jiangkang.tech/categories/Android/"/>
+      <category term="Android" scheme="https://www.jiangkang.tech/categories/Android/"/>
     
     
-      <category term="Java" scheme="https://jiangkang.tech/tags/Java/"/>
+      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
     
-      <category term="Lock" scheme="https://jiangkang.tech/tags/Lock/"/>
+      <category term="Lock" scheme="https://www.jiangkang.tech/tags/Lock/"/>
     
   </entry>
   
   <entry>
     <title>Java中的Map</title>
-    <link href="https://jiangkang.tech/2020/05/15/android/java-zhong-de-map/"/>
-    <id>https://jiangkang.tech/2020/05/15/android/java-zhong-de-map/</id>
+    <link href="https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-map/"/>
+    <id>https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-map/</id>
     <published>2020-05-15T05:30:26.000Z</published>
     <updated>2020-05-17T11:59:15.110Z</updated>
     
@@ -95,21 +95,21 @@
     </summary>
     
     
-      <category term="Android" scheme="https://jiangkang.tech/categories/Android/"/>
+      <category term="Android" scheme="https://www.jiangkang.tech/categories/Android/"/>
     
     
-      <category term="数据结构" scheme="https://jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+      <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-      <category term="Java" scheme="https://jiangkang.tech/tags/Java/"/>
+      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
     
-      <category term="Map" scheme="https://jiangkang.tech/tags/Map/"/>
+      <category term="Map" scheme="https://www.jiangkang.tech/tags/Map/"/>
     
   </entry>
   
   <entry>
     <title>Java中的List</title>
-    <link href="https://jiangkang.tech/2020/05/15/android/java-zhong-de-list/"/>
-    <id>https://jiangkang.tech/2020/05/15/android/java-zhong-de-list/</id>
+    <link href="https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-list/"/>
+    <id>https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-list/</id>
     <published>2020-05-15T05:30:20.000Z</published>
     <updated>2020-05-17T11:59:15.110Z</updated>
     
@@ -125,21 +125,21 @@
     </summary>
     
     
-      <category term="Android" scheme="https://jiangkang.tech/categories/Android/"/>
+      <category term="Android" scheme="https://www.jiangkang.tech/categories/Android/"/>
     
     
-      <category term="数据结构" scheme="https://jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+      <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-      <category term="List" scheme="https://jiangkang.tech/tags/List/"/>
+      <category term="List" scheme="https://www.jiangkang.tech/tags/List/"/>
     
-      <category term="Java" scheme="https://jiangkang.tech/tags/Java/"/>
+      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>Java队列</title>
-    <link href="https://jiangkang.tech/2020/05/15/android/java-dui-lie/"/>
-    <id>https://jiangkang.tech/2020/05/15/android/java-dui-lie/</id>
+    <link href="https://www.jiangkang.tech/2020/05/15/android/java-dui-lie/"/>
+    <id>https://www.jiangkang.tech/2020/05/15/android/java-dui-lie/</id>
     <published>2020-05-15T05:30:01.000Z</published>
     <updated>2020-05-17T11:59:15.110Z</updated>
     
@@ -157,21 +157,21 @@
     </summary>
     
     
-      <category term="Android" scheme="https://jiangkang.tech/categories/Android/"/>
+      <category term="Android" scheme="https://www.jiangkang.tech/categories/Android/"/>
     
     
-      <category term="数据结构" scheme="https://jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+      <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-      <category term="Java" scheme="https://jiangkang.tech/tags/Java/"/>
+      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
     
-      <category term="队列" scheme="https://jiangkang.tech/tags/%E9%98%9F%E5%88%97/"/>
+      <category term="队列" scheme="https://www.jiangkang.tech/tags/%E9%98%9F%E5%88%97/"/>
     
   </entry>
   
   <entry>
     <title>Gradle读取配置文件</title>
-    <link href="https://jiangkang.tech/2020/05/15/android/gradle-du-qu-pei-zhi-wen-jian/"/>
-    <id>https://jiangkang.tech/2020/05/15/android/gradle-du-qu-pei-zhi-wen-jian/</id>
+    <link href="https://www.jiangkang.tech/2020/05/15/android/gradle-du-qu-pei-zhi-wen-jian/"/>
+    <id>https://www.jiangkang.tech/2020/05/15/android/gradle-du-qu-pei-zhi-wen-jian/</id>
     <published>2020-05-15T05:23:45.000Z</published>
     <updated>2020-05-15T05:25:20.558Z</updated>
     
@@ -189,17 +189,17 @@
     </summary>
     
     
-      <category term="Android" scheme="https://jiangkang.tech/categories/Android/"/>
+      <category term="Android" scheme="https://www.jiangkang.tech/categories/Android/"/>
     
     
-      <category term="Gradle" scheme="https://jiangkang.tech/tags/Gradle/"/>
+      <category term="Gradle" scheme="https://www.jiangkang.tech/tags/Gradle/"/>
     
   </entry>
   
   <entry>
     <title>Golang语法快速入门</title>
-    <link href="https://jiangkang.tech/2020/05/09/golang/golang-yu-fa-kuai-su-ru-men/"/>
-    <id>https://jiangkang.tech/2020/05/09/golang/golang-yu-fa-kuai-su-ru-men/</id>
+    <link href="https://www.jiangkang.tech/2020/05/09/golang/golang-yu-fa-kuai-su-ru-men/"/>
+    <id>https://www.jiangkang.tech/2020/05/09/golang/golang-yu-fa-kuai-su-ru-men/</id>
     <published>2020-05-09T13:51:22.000Z</published>
     <updated>2020-05-09T13:52:41.888Z</updated>
     
@@ -215,19 +215,19 @@
     </summary>
     
     
-      <category term="Golang" scheme="https://jiangkang.tech/categories/Golang/"/>
+      <category term="Golang" scheme="https://www.jiangkang.tech/categories/Golang/"/>
     
     
-      <category term="Golang" scheme="https://jiangkang.tech/tags/Golang/"/>
+      <category term="Golang" scheme="https://www.jiangkang.tech/tags/Golang/"/>
     
-      <category term="语法" scheme="https://jiangkang.tech/tags/%E8%AF%AD%E6%B3%95/"/>
+      <category term="语法" scheme="https://www.jiangkang.tech/tags/%E8%AF%AD%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>Flutter-Text的使用</title>
-    <link href="https://jiangkang.tech/2020/05/08/flutter/flutter-text-de-shi-yong/"/>
-    <id>https://jiangkang.tech/2020/05/08/flutter/flutter-text-de-shi-yong/</id>
+    <link href="https://www.jiangkang.tech/2020/05/08/flutter/flutter-text-de-shi-yong/"/>
+    <id>https://www.jiangkang.tech/2020/05/08/flutter/flutter-text-de-shi-yong/</id>
     <published>2020-05-08T13:56:58.000Z</published>
     <updated>2020-05-17T11:59:15.110Z</updated>
     
@@ -244,19 +244,19 @@
     </summary>
     
     
-      <category term="Flutter" scheme="https://jiangkang.tech/categories/Flutter/"/>
+      <category term="Flutter" scheme="https://www.jiangkang.tech/categories/Flutter/"/>
     
     
-      <category term="Flutter" scheme="https://jiangkang.tech/tags/Flutter/"/>
+      <category term="Flutter" scheme="https://www.jiangkang.tech/tags/Flutter/"/>
     
-      <category term="Text" scheme="https://jiangkang.tech/tags/Text/"/>
+      <category term="Text" scheme="https://www.jiangkang.tech/tags/Text/"/>
     
   </entry>
   
   <entry>
     <title>Flutter-Tabs的使用</title>
-    <link href="https://jiangkang.tech/2020/05/08/flutter/flutter-tabs-de-shi-yong/"/>
-    <id>https://jiangkang.tech/2020/05/08/flutter/flutter-tabs-de-shi-yong/</id>
+    <link href="https://www.jiangkang.tech/2020/05/08/flutter/flutter-tabs-de-shi-yong/"/>
+    <id>https://www.jiangkang.tech/2020/05/08/flutter/flutter-tabs-de-shi-yong/</id>
     <published>2020-05-08T13:52:42.000Z</published>
     <updated>2020-05-17T11:59:15.111Z</updated>
     
@@ -274,19 +274,19 @@
     </summary>
     
     
-      <category term="Flutter" scheme="https://jiangkang.tech/categories/Flutter/"/>
+      <category term="Flutter" scheme="https://www.jiangkang.tech/categories/Flutter/"/>
     
     
-      <category term="Flutter" scheme="https://jiangkang.tech/tags/Flutter/"/>
+      <category term="Flutter" scheme="https://www.jiangkang.tech/tags/Flutter/"/>
     
-      <category term="Tab" scheme="https://jiangkang.tech/tags/Tab/"/>
+      <category term="Tab" scheme="https://www.jiangkang.tech/tags/Tab/"/>
     
   </entry>
   
   <entry>
     <title>Flutter时间处理</title>
-    <link href="https://jiangkang.tech/2020/05/08/flutter/flutter-shi-jian-chu-li/"/>
-    <id>https://jiangkang.tech/2020/05/08/flutter/flutter-shi-jian-chu-li/</id>
+    <link href="https://www.jiangkang.tech/2020/05/08/flutter/flutter-shi-jian-chu-li/"/>
+    <id>https://www.jiangkang.tech/2020/05/08/flutter/flutter-shi-jian-chu-li/</id>
     <published>2020-05-08T13:47:29.000Z</published>
     <updated>2020-05-08T13:48:04.656Z</updated>
     
@@ -308,19 +308,19 @@
     </summary>
     
     
-      <category term="Flutter" scheme="https://jiangkang.tech/categories/Flutter/"/>
+      <category term="Flutter" scheme="https://www.jiangkang.tech/categories/Flutter/"/>
     
     
-      <category term="Flutter" scheme="https://jiangkang.tech/tags/Flutter/"/>
+      <category term="Flutter" scheme="https://www.jiangkang.tech/tags/Flutter/"/>
     
-      <category term="时间处理" scheme="https://jiangkang.tech/tags/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/"/>
+      <category term="时间处理" scheme="https://www.jiangkang.tech/tags/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>Dart基础语法</title>
-    <link href="https://jiangkang.tech/2020/05/08/flutter/dart-ji-chu-yu-fa/"/>
-    <id>https://jiangkang.tech/2020/05/08/flutter/dart-ji-chu-yu-fa/</id>
+    <link href="https://www.jiangkang.tech/2020/05/08/flutter/dart-ji-chu-yu-fa/"/>
+    <id>https://www.jiangkang.tech/2020/05/08/flutter/dart-ji-chu-yu-fa/</id>
     <published>2020-05-08T13:45:15.000Z</published>
     <updated>2020-05-08T13:45:49.783Z</updated>
     
@@ -337,19 +337,19 @@
     </summary>
     
     
-      <category term="Flutter" scheme="https://jiangkang.tech/categories/Flutter/"/>
+      <category term="Flutter" scheme="https://www.jiangkang.tech/categories/Flutter/"/>
     
     
-      <category term="Flutter" scheme="https://jiangkang.tech/tags/Flutter/"/>
+      <category term="Flutter" scheme="https://www.jiangkang.tech/tags/Flutter/"/>
     
-      <category term="Dart" scheme="https://jiangkang.tech/tags/Dart/"/>
+      <category term="Dart" scheme="https://www.jiangkang.tech/tags/Dart/"/>
     
   </entry>
   
   <entry>
     <title>Flutter-实现图片圆角的几种方式</title>
-    <link href="https://jiangkang.tech/2020/05/08/flutter/flutter-shi-xian-tu-pian-yuan-jiao-de-ji-chong-fang-shi/"/>
-    <id>https://jiangkang.tech/2020/05/08/flutter/flutter-shi-xian-tu-pian-yuan-jiao-de-ji-chong-fang-shi/</id>
+    <link href="https://www.jiangkang.tech/2020/05/08/flutter/flutter-shi-xian-tu-pian-yuan-jiao-de-ji-chong-fang-shi/"/>
+    <id>https://www.jiangkang.tech/2020/05/08/flutter/flutter-shi-xian-tu-pian-yuan-jiao-de-ji-chong-fang-shi/</id>
     <published>2020-05-08T13:44:09.000Z</published>
     <updated>2020-05-17T11:59:15.111Z</updated>
     
@@ -366,19 +366,19 @@
     </summary>
     
     
-      <category term="Flutter" scheme="https://jiangkang.tech/categories/Flutter/"/>
+      <category term="Flutter" scheme="https://www.jiangkang.tech/categories/Flutter/"/>
     
     
-      <category term="Flutter" scheme="https://jiangkang.tech/tags/Flutter/"/>
+      <category term="Flutter" scheme="https://www.jiangkang.tech/tags/Flutter/"/>
     
-      <category term="圆角" scheme="https://jiangkang.tech/tags/%E5%9C%86%E8%A7%92/"/>
+      <category term="圆角" scheme="https://www.jiangkang.tech/tags/%E5%9C%86%E8%A7%92/"/>
     
   </entry>
   
   <entry>
     <title>Flutter深色模式</title>
-    <link href="https://jiangkang.tech/2020/05/08/flutter/flutter-shen-se-mo-shi/"/>
-    <id>https://jiangkang.tech/2020/05/08/flutter/flutter-shen-se-mo-shi/</id>
+    <link href="https://www.jiangkang.tech/2020/05/08/flutter/flutter-shen-se-mo-shi/"/>
+    <id>https://www.jiangkang.tech/2020/05/08/flutter/flutter-shen-se-mo-shi/</id>
     <published>2020-05-08T13:41:00.000Z</published>
     <updated>2020-05-17T11:59:15.110Z</updated>
     
@@ -395,19 +395,19 @@
     </summary>
     
     
-      <category term="Flutter" scheme="https://jiangkang.tech/categories/Flutter/"/>
+      <category term="Flutter" scheme="https://www.jiangkang.tech/categories/Flutter/"/>
     
     
-      <category term="Flutter" scheme="https://jiangkang.tech/tags/Flutter/"/>
+      <category term="Flutter" scheme="https://www.jiangkang.tech/tags/Flutter/"/>
     
-      <category term="深色模式" scheme="https://jiangkang.tech/tags/%E6%B7%B1%E8%89%B2%E6%A8%A1%E5%BC%8F/"/>
+      <category term="深色模式" scheme="https://www.jiangkang.tech/tags/%E6%B7%B1%E8%89%B2%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
   <entry>
     <title>Golang中的init方法</title>
-    <link href="https://jiangkang.tech/2020/05/08/golang/golang-zhong-de-init-fang-fa/"/>
-    <id>https://jiangkang.tech/2020/05/08/golang/golang-zhong-de-init-fang-fa/</id>
+    <link href="https://www.jiangkang.tech/2020/05/08/golang/golang-zhong-de-init-fang-fa/"/>
+    <id>https://www.jiangkang.tech/2020/05/08/golang/golang-zhong-de-init-fang-fa/</id>
     <published>2020-05-08T10:40:36.000Z</published>
     <updated>2020-05-08T10:41:16.163Z</updated>
     
@@ -423,17 +423,17 @@
     </summary>
     
     
-      <category term="Golang" scheme="https://jiangkang.tech/categories/Golang/"/>
+      <category term="Golang" scheme="https://www.jiangkang.tech/categories/Golang/"/>
     
     
-      <category term="Golang" scheme="https://jiangkang.tech/tags/Golang/"/>
+      <category term="Golang" scheme="https://www.jiangkang.tech/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>Android中的存储路径</title>
-    <link href="https://jiangkang.tech/2020/05/08/android/android-zhong-de-cun-chu-lu-jing/"/>
-    <id>https://jiangkang.tech/2020/05/08/android/android-zhong-de-cun-chu-lu-jing/</id>
+    <link href="https://www.jiangkang.tech/2020/05/08/android/android-zhong-de-cun-chu-lu-jing/"/>
+    <id>https://www.jiangkang.tech/2020/05/08/android/android-zhong-de-cun-chu-lu-jing/</id>
     <published>2020-05-08T10:36:51.000Z</published>
     <updated>2020-05-08T10:37:30.228Z</updated>
     
@@ -451,19 +451,19 @@
     </summary>
     
     
-      <category term="Android" scheme="https://jiangkang.tech/categories/Android/"/>
+      <category term="Android" scheme="https://www.jiangkang.tech/categories/Android/"/>
     
     
-      <category term="存储" scheme="https://jiangkang.tech/tags/%E5%AD%98%E5%82%A8/"/>
+      <category term="存储" scheme="https://www.jiangkang.tech/tags/%E5%AD%98%E5%82%A8/"/>
     
-      <category term="Android" scheme="https://jiangkang.tech/tags/Android/"/>
+      <category term="Android" scheme="https://www.jiangkang.tech/tags/Android/"/>
     
   </entry>
   
   <entry>
     <title>初识SDL</title>
-    <link href="https://jiangkang.tech/2020/05/08/c/chu-shi-sdl/"/>
-    <id>https://jiangkang.tech/2020/05/08/c/chu-shi-sdl/</id>
+    <link href="https://www.jiangkang.tech/2020/05/08/c/chu-shi-sdl/"/>
+    <id>https://www.jiangkang.tech/2020/05/08/c/chu-shi-sdl/</id>
     <published>2020-05-08T10:34:02.000Z</published>
     <updated>2020-05-08T10:35:49.616Z</updated>
     
@@ -479,19 +479,19 @@
     </summary>
     
     
-      <category term="C++" scheme="https://jiangkang.tech/categories/C/"/>
+      <category term="C++" scheme="https://www.jiangkang.tech/categories/C/"/>
     
     
-      <category term="SDL" scheme="https://jiangkang.tech/tags/SDL/"/>
+      <category term="SDL" scheme="https://www.jiangkang.tech/tags/SDL/"/>
     
-      <category term="C++" scheme="https://jiangkang.tech/tags/C/"/>
+      <category term="C++" scheme="https://www.jiangkang.tech/tags/C/"/>
     
   </entry>
   
   <entry>
     <title>Flutter-Timeline</title>
-    <link href="https://jiangkang.tech/2020/05/08/flutter/flutter-timeline/"/>
-    <id>https://jiangkang.tech/2020/05/08/flutter/flutter-timeline/</id>
+    <link href="https://www.jiangkang.tech/2020/05/08/flutter/flutter-timeline/"/>
+    <id>https://www.jiangkang.tech/2020/05/08/flutter/flutter-timeline/</id>
     <published>2020-05-08T09:55:35.000Z</published>
     <updated>2020-05-17T11:59:15.110Z</updated>
     
@@ -514,10 +514,10 @@
     </summary>
     
     
-      <category term="Flutter" scheme="https://jiangkang.tech/categories/Flutter/"/>
+      <category term="Flutter" scheme="https://www.jiangkang.tech/categories/Flutter/"/>
     
     
-      <category term="Flutter" scheme="https://jiangkang.tech/tags/Flutter/"/>
+      <category term="Flutter" scheme="https://www.jiangkang.tech/tags/Flutter/"/>
     
   </entry>
   
