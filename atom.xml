@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.jiangkang.tech/"/>
-  <updated>2020-05-17T11:59:15.110Z</updated>
+  <updated>2020-05-18T11:01:39.543Z</updated>
   <id>https://www.jiangkang.tech/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Skia的编译</title>
+    <link href="https://www.jiangkang.tech/2020/05/18/tu-xing-xuan-ran/skia-de-bian-yi/"/>
+    <id>https://www.jiangkang.tech/2020/05/18/tu-xing-xuan-ran/skia-de-bian-yi/</id>
+    <published>2020-05-18T11:00:12.000Z</published>
+    <updated>2020-05-18T11:01:39.543Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a>源码地址</h2><p><a href="https://github.com/google/skia" target="_blank" rel="noopener">https://github.com/google/skia</a></p><p><a href="https://skia.googlesource.com/skia" target="_blank" rel="noopener">https://skia.googlesource.com/skia</a></p><p>这两个都可以,如果不能科学上网,建议使用github上的镜像.</p><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><pre class=" language-shell"><code class="language-shell">bin/gn gen out/Static --args='is_official_build=false'bin/gn gen out/Shared --args='is_official_build=false is_component_build=true'</code></pre><p>如果出现问题,就使用python脚本更新依赖:</p><pre class=" language-shell"><code class="language-shell">python2 tools/git-sync-deps</code></pre><h2 id="需要注意的地方"><a href="#需要注意的地方" class="headerlink" title="需要注意的地方"></a>需要注意的地方</h2><h3 id="is-official-build"><a href="#is-official-build" class="headerlink" title="is_official_build"></a>is_official_build</h3><p>如果这个属性为true,则会在你电脑上的系统环境取寻找一些依赖库,比如libjpeg,libpng等,如果你设置成true,编译过程中发现一些库不存在或者函数错误等,建议直接把is_official_build设置成false.这样就用skia项目中的源码依赖了,就不会出问题了.</p><h3 id="is-component-build"><a href="#is-component-build" class="headerlink" title="is_component_build"></a>is_component_build</h3><p>设置为true,则编译成多个小的动态链接库,比如各种so文件.如果需要使用skia,建议设置成true.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;源码地址&quot;&gt;&lt;a href=&quot;#源码地址&quot; class=&quot;headerlink&quot; title=&quot;源码地址&quot;&gt;&lt;/a&gt;源码地址&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/google/skia&quot; target=&quot;_blank&quot; rel=&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="图形渲染" scheme="https://www.jiangkang.tech/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/"/>
+    
+    
+      <category term="Skia" scheme="https://www.jiangkang.tech/tags/Skia/"/>
+    
+      <category term="编译" scheme="https://www.jiangkang.tech/tags/%E7%BC%96%E8%AF%91/"/>
+    
+  </entry>
   
   <entry>
     <title>调试flutter_tools</title>
@@ -100,9 +128,9 @@
     
       <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
-    
       <category term="Map" scheme="https://www.jiangkang.tech/tags/Map/"/>
+    
+      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
     
   </entry>
   
@@ -130,9 +158,9 @@
     
       <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-      <category term="List" scheme="https://www.jiangkang.tech/tags/List/"/>
-    
       <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
+    
+      <category term="List" scheme="https://www.jiangkang.tech/tags/List/"/>
     
   </entry>
   

@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Skia的编译</title>
+      <link href="/2020/05/18/tu-xing-xuan-ran/skia-de-bian-yi/"/>
+      <url>/2020/05/18/tu-xing-xuan-ran/skia-de-bian-yi/</url>
+      
+        <content type="html"><![CDATA[<h2 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a>源码地址</h2><p><a href="https://github.com/google/skia" target="_blank" rel="noopener">https://github.com/google/skia</a></p><p><a href="https://skia.googlesource.com/skia" target="_blank" rel="noopener">https://skia.googlesource.com/skia</a></p><p>这两个都可以,如果不能科学上网,建议使用github上的镜像.</p><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><pre class=" language-shell"><code class="language-shell">bin/gn gen out/Static --args='is_official_build=false'bin/gn gen out/Shared --args='is_official_build=false is_component_build=true'</code></pre><p>如果出现问题,就使用python脚本更新依赖:</p><pre class=" language-shell"><code class="language-shell">python2 tools/git-sync-deps</code></pre><h2 id="需要注意的地方"><a href="#需要注意的地方" class="headerlink" title="需要注意的地方"></a>需要注意的地方</h2><h3 id="is-official-build"><a href="#is-official-build" class="headerlink" title="is_official_build"></a>is_official_build</h3><p>如果这个属性为true,则会在你电脑上的系统环境取寻找一些依赖库,比如libjpeg,libpng等,如果你设置成true,编译过程中发现一些库不存在或者函数错误等,建议直接把is_official_build设置成false.这样就用skia项目中的源码依赖了,就不会出问题了.</p><h3 id="is-component-build"><a href="#is-component-build" class="headerlink" title="is_component_build"></a>is_component_build</h3><p>设置为true,则编译成多个小的动态链接库,比如各种so文件.如果需要使用skia,建议设置成true.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 图形渲染 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Skia </tag>
+            
+            <tag> 编译 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>调试flutter_tools</title>
       <link href="/2020/05/15/flutter/diao-shi-flutter-tools/"/>
       <url>/2020/05/15/flutter/diao-shi-flutter-tools/</url>
@@ -74,9 +101,9 @@
             
             <tag> 数据结构 </tag>
             
-            <tag> Java </tag>
-            
             <tag> Map </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -103,9 +130,9 @@
             
             <tag> 数据结构 </tag>
             
-            <tag> List </tag>
-            
             <tag> Java </tag>
+            
+            <tag> List </tag>
             
         </tags>
       
