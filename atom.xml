@@ -97,9 +97,9 @@
       <category term="Android" scheme="https://www.jiangkang.tech/categories/Android/"/>
     
     
-      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
-    
       <category term="Lock" scheme="https://www.jiangkang.tech/tags/Lock/"/>
+    
+      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
     
   </entry>
   
@@ -126,11 +126,11 @@
       <category term="Android" scheme="https://www.jiangkang.tech/categories/Android/"/>
     
     
+      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
+    
       <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="Map" scheme="https://www.jiangkang.tech/tags/Map/"/>
-    
-      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
     
   </entry>
   
@@ -156,9 +156,9 @@
       <category term="Android" scheme="https://www.jiangkang.tech/categories/Android/"/>
     
     
-      <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
       <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
+    
+      <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="List" scheme="https://www.jiangkang.tech/tags/List/"/>
     
@@ -188,9 +188,9 @@
       <category term="Android" scheme="https://www.jiangkang.tech/categories/Android/"/>
     
     
-      <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
       <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
+    
+      <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="队列" scheme="https://www.jiangkang.tech/tags/%E9%98%9F%E5%88%97/"/>
     
