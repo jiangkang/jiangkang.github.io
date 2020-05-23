@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Flutter-Tabs的使用, 姜康,天津大学,Android,Golang">
+    <meta name="keywords" content="ModernC++的一些特性, 姜康,天津大学,Android,Golang">
     <meta name="description" content="姜康的技术博客:用技术解决实际问题">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Flutter-Tabs的使用 | 姜康的技术博客</title>
+    <title>ModernC++的一些特性 | 姜康的技术博客</title>
     <link rel="icon" type="image/jpeg" href="/medias/avatar.jpeg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -265,12 +265,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://oss.jiangkang.tech/jk/tabs1.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Flutter-Tabs的使用</h1>
+                    <h1 class="description center-align post-title">ModernC++的一些特性</h1>
                 </div>
             </div>
         </div>
@@ -387,12 +387,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Flutter/">
-                                <span class="chip bg-color">Flutter</span>
-                            </a>
-                        
-                            <a href="/tags/Tab/">
-                                <span class="chip bg-color">Tab</span>
+                            <a href="/tags/%E8%AF%AD%E6%B3%95/">
+                                <span class="chip bg-color">语法</span>
                             </a>
                         
                     </div>
@@ -403,8 +399,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Flutter/" class="post-category">
-                                Flutter
+                            <a href="/categories/C/" class="post-category">
+                                C++
                             </a>
                         
                     </div>
@@ -416,7 +412,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-08
+                    2020-05-23
                 </div>
                 
 
@@ -425,14 +421,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    463
+                    211
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -442,133 +438,216 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Flutter中使用tabs还是非常的简单的，可以用在顶部导航栏，也可以用在底部导航栏。</p>
-<div style="width:100%">
-  <img src="http://oss.jiangkang.tech/jk/tabs1.png" style="zoom:50%;width:33%;float:left;" />
-  <img src="http://oss.jiangkang.tech/jk/tabs2.png" style="zoom:50%;width:33%;float:left;" />
-  <img src="http://oss.jiangkang.tech/jk/tabs3.png" style="zoom:50%;width:33%;float:left;" />
-</div>
+                <h2 id="Modern-C"><a href="#Modern-C" class="headerlink" title="Modern C++"></a>Modern C++</h2><p>Modern C++指的是C++11/C++14/C++17/C++20等版本,新增和改进了C++语法,提升开发效率.</p>
+<h2 id="nullptr"><a href="#nullptr" class="headerlink" title="nullptr"></a>nullptr</h2><p>nullptr是用来替换NULL的</p>
+<h2 id="constexpr"><a href="#constexpr" class="headerlink" title="constexpr"></a>constexpr</h2><p>常量表达式</p>
+<pre class=" language-c++"><code class="language-c++">constexpr int num = 1 + 2+ 3;</code></pre>
+<h2 id="if-switch-变量声明强化"><a href="#if-switch-变量声明强化" class="headerlink" title="if/switch 变量声明强化"></a>if/switch 变量声明强化</h2><pre class=" language-c++"><code class="language-c++">    if (int i = num - 1){
 
-<p>使用Tabs需要用到两个widget，一个是<code>TabBar</code>,用于顶导航或者底导航；一个是<code>TabBarView</code>，用于Tab下具体的内容。</p>
-<h3 id="TabBar"><a href="#TabBar" class="headerlink" title="TabBar"></a>TabBar</h3><p>首先在AppBar中使用TabBar：</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> TABS <span class="token operator">=</span> <span class="token punctuation">[</span>
-    <span class="token function">Tab</span><span class="token punctuation">(</span>icon<span class="token punctuation">:</span> <span class="token function">Icon</span><span class="token punctuation">(</span>Icons<span class="token punctuation">.</span>book<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">Tab</span><span class="token punctuation">(</span>icon<span class="token punctuation">:</span> <span class="token function">Icon</span><span class="token punctuation">(</span>Icons<span class="token punctuation">.</span>videocam<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">Tab</span><span class="token punctuation">(</span>icon<span class="token punctuation">:</span> <span class="token function">Icon</span><span class="token punctuation">(</span>Icons<span class="token punctuation">.</span>games<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    }</code></pre>
+<p>即判断条件中可以直接声明临时变量.</p>
+<h2 id="初始化列表"><a href="#初始化列表" class="headerlink" title="初始化列表"></a>初始化列表</h2><pre class=" language-c++"><code class="language-c++">#include <iostream>
+#include <string>
 
-  TabBar <span class="token function">_buildTabBar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token function">TabBar</span><span class="token punctuation">(</span>
-      tabs<span class="token punctuation">:</span> TABS<span class="token punctuation">,</span>
-    <span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span></code></pre>
-<p><img src="http://oss.jiangkang.tech/jk/tabs4.png" alt="Indicator"></p>
-<p>可以看到，底下还有一个Indicator，如果看源码，会发现默认使用的Indicator为<code>UnderlineTabIndicator</code>。</p>
-<p>不过还是可以进行自定义：</p>
-<pre class=" language-dart"><code class="language-dart">  TabBar <span class="token function">_buildTabBar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token function">TabBar</span><span class="token punctuation">(</span>
-      controller<span class="token punctuation">:</span> _tabController<span class="token punctuation">,</span>
-      tabs<span class="token punctuation">:</span> TABS<span class="token punctuation">,</span>
-      indicatorColor<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>white<span class="token punctuation">,</span>
-      indicatorPadding<span class="token punctuation">:</span> EdgeInsets<span class="token punctuation">.</span><span class="token function">symmetric</span><span class="token punctuation">(</span>horizontal<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-      indicatorWeight<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
-      indicatorSize<span class="token punctuation">:</span> TabBarIndicatorSize<span class="token punctuation">.</span>label<span class="token punctuation">,</span>
-    <span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span></code></pre>
-<p>其中indicatorColor用来指定Indicator的颜色，IndicatorPadding用来指定内容四周的边距，IndicatorSize可以选择两个值：</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">enum</span> TabBarIndicatorSize <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">/// 为tab时，Indicator撑满tab宽度</span>
-  tab<span class="token punctuation">,</span>
+using namespace std;
 
-  <span class="token comment" spellcheck="true">/// 为label时，Indicator宽度为tab的内容的宽度</span>
-  label<span class="token punctuation">,</span>
-<span class="token punctuation">}</span></code></pre>
-<p><img src="http://oss.jiangkang.tech/jk/tabs5.png" alt=""></p>
-<h2 id="TabBarView"><a href="#TabBarView" class="headerlink" title="TabBarView"></a>TabBarView</h2><p>TabBarView对应Tab下的内容视图：</p>
-<pre class=" language-dart"><code class="language-dart">  TabBarView <span class="token function">_buildTabBarView</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token function">TabBarView</span><span class="token punctuation">(</span>
-      controller<span class="token punctuation">:</span> _tabController<span class="token punctuation">,</span>
-      children<span class="token punctuation">:</span> PAGES<span class="token punctuation">,</span>
-    <span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
+class Person {
+public:
+    string name;
+    int age;
+    int sex;
 
-  <span class="token keyword">final</span> PAGES <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token function">ArticleEntry</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">PageEntry</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">DemoEntry</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
-<p>可以看到TabBar和TabBarView中都有一个Controller，这个Controller用途比较大，比如你想知道当前选中的是哪个tab，默认选中哪个tab，都需要TabController的帮助，我们一般用<code>DefaultTabController</code>来包裹具体的视图。</p>
-<p>来看一下全部的代码吧：</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string">'package:flutter/material.dart'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token string">'package:flutter_system/page/page_entry.dart'</span><span class="token punctuation">;</span>
+    const string &getName() const {
+        return name;
+    }
 
-<span class="token keyword">class</span> <span class="token class-name">TabsDemo</span> <span class="token keyword">extends</span> <span class="token class-name">StatefulWidget</span> <span class="token punctuation">{</span>
-  <span class="token metadata symbol">@override</span>
-  _TabsDemoState <span class="token function">createState</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token function">_TabsDemoState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    int getAge() const {
+        return age;
+    }
 
-<span class="token keyword">class</span> <span class="token class-name">_TabsDemoState</span> <span class="token keyword">extends</span> <span class="token class-name">State</span><span class="token operator">&lt;</span>TabsDemo<span class="token operator">></span>
-    <span class="token keyword">with</span> SingleTickerProviderStateMixin <span class="token punctuation">{</span>
-  <span class="token keyword">final</span> TABS <span class="token operator">=</span> <span class="token punctuation">[</span>
-    <span class="token function">Tab</span><span class="token punctuation">(</span>icon<span class="token punctuation">:</span> <span class="token function">Icon</span><span class="token punctuation">(</span>Icons<span class="token punctuation">.</span>book<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">Tab</span><span class="token punctuation">(</span>icon<span class="token punctuation">:</span> <span class="token function">Icon</span><span class="token punctuation">(</span>Icons<span class="token punctuation">.</span>videocam<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">Tab</span><span class="token punctuation">(</span>icon<span class="token punctuation">:</span> <span class="token function">Icon</span><span class="token punctuation">(</span>Icons<span class="token punctuation">.</span>games<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    int getSex() const {
+        return sex;
+    }
+};
 
-  <span class="token keyword">final</span> PAGES <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token function">ArticleEntry</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">PageEntry</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">DemoEntry</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-  TabController _tabController<span class="token punctuation">;</span>
+void testInit() {
+    Person person = {"jack", 18, 1};
+}</code></pre>
+<p>C++11之前的版本初始化比较麻烦,需要写一些无用代码,这之后比较灵活,可以按照上面的方式进行初始化.</p>
+<h2 id="结构化绑定"><a href="#结构化绑定" class="headerlink" title="结构化绑定"></a>结构化绑定</h2><p>即多返回值的封包/拆包,在Python,Go,Kotlin中比较常见.</p>
+<pre class=" language-c++"><code class="language-c++">#include <iostream>
+#include <tuple>
 
-  <span class="token metadata symbol">@override</span>
-  <span class="token keyword">void</span> <span class="token function">initState</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    _tabController <span class="token operator">=</span>
-        <span class="token function">TabController</span><span class="token punctuation">(</span>initialIndex<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> length<span class="token punctuation">:</span> TABS<span class="token punctuation">.</span>length<span class="token punctuation">,</span> vsync<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">initState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
+using namespace std;
 
-  <span class="token metadata symbol">@override</span>
-  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token function">DefaultTabController</span><span class="token punctuation">(</span>
-        length<span class="token punctuation">:</span> TABS<span class="token punctuation">.</span>length<span class="token punctuation">,</span>
-        child<span class="token punctuation">:</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span>
-            appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>
-              title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">"Tabs Demo"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-              centerTitle<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-              bottom<span class="token punctuation">:</span> <span class="token function">_buildTabBar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            <span class="token punctuation">)</span><span class="token punctuation">,</span>
-            body<span class="token punctuation">:</span> <span class="token function">_buildTabBarView</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            floatingActionButton<span class="token punctuation">:</span> <span class="token function">Builder</span><span class="token punctuation">(</span>
-              builder<span class="token punctuation">:</span> <span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">FloatingActionButton</span><span class="token punctuation">(</span>
-                  child<span class="token punctuation">:</span> <span class="token function">Icon</span><span class="token punctuation">(</span>Icons<span class="token punctuation">.</span>info<span class="token punctuation">)</span><span class="token punctuation">,</span>
-                  onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    <span class="token function">_showSnackBar</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
+void testTuple() {
+    auto[x, y, z] = make_tuple(1, false, "hello");
+    cout << x << y << z << endl;
+}</code></pre>
+<h2 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h2><p>即类型推断,不用每个变量声明都声明类型.</p>
+<p>需要注意的就是:<strong>auto不能用于函数传参,也不能用于推导数组类型</strong></p>
+<h2 id="decltype"><a href="#decltype" class="headerlink" title="decltype"></a>decltype</h2><p>auto只能用于变量的类型推断,decltype则对表达式类型推断做了补充.</p>
+<pre class=" language-c++"><code class="language-c++">auto x = 1;
+auto y = 2;
+decltype(x+y) z;</code></pre>
+<h2 id="区间for迭代"><a href="#区间for迭代" class="headerlink" title="区间for迭代"></a>区间for迭代</h2><pre class=" language-c++"><code class="language-c++">#include <iostream>
+#include <vector>
+#include <algorithm>
 
-  TabBarView <span class="token function">_buildTabBarView</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token function">TabBarView</span><span class="token punctuation">(</span>
-      controller<span class="token punctuation">:</span> _tabController<span class="token punctuation">,</span>
-      children<span class="token punctuation">:</span> PAGES<span class="token punctuation">,</span>
-    <span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
+int main() {
+    std::vector<int> vec = {1, 2, 3, 4};
+    if (auto itr = std::find(vec.begin(), vec.end(), 3); itr != vec.end()) *itr = 4;
+    for (auto element : vec)
+        std::cout << element << std::endl; // read only
+    for (auto &element : vec) {
+        element += 1;                      // writeable
+    }
+    for (auto element : vec)
+        std::cout << element << std::endl; // read only
+}</code></pre>
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><p>将一切能在编译期解决的问题放在编译期解决,仅在运行时处理核心的动态服务.</p>
+<h3 id="外部模板"><a href="#外部模板" class="headerlink" title="外部模板"></a>外部模板</h3><pre class=" language-c++"><code class="language-c++">template class std::vector<bool>;          // 强行实例化
+extern template class std::vector<double>; // 不在该当前编译文件中实例化模板</code></pre>
+<p>其实就是一个实例化时机的问题.</p>
+<h3 id="类型别名模板"><a href="#类型别名模板" class="headerlink" title="类型别名模板"></a>类型别名模板</h3><p>模板是用来生成类型的.</p>
+<p>类型别名一般这样用:</p>
+<pre class=" language-c++"><code class="language-c++">typedef 原名称 新名称</code></pre>
+<p>对于复杂一点的就显得很难看,可以使用<code>using</code>:</p>
+<pre class=" language-c++"><code class="language-c++">typedef int (*process)(void *);
+using NewProcess = int(*)(void *);
+template<typename T>
+using TrueDarkMagic = MagicType<std::vector<T>, std::string>;
 
-  TabBar <span class="token function">_buildTabBar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token function">TabBar</span><span class="token punctuation">(</span>
-      controller<span class="token punctuation">:</span> _tabController<span class="token punctuation">,</span>
-      tabs<span class="token punctuation">:</span> TABS<span class="token punctuation">,</span>
-      indicatorColor<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>white<span class="token punctuation">,</span>
-      indicatorPadding<span class="token punctuation">:</span> EdgeInsets<span class="token punctuation">.</span><span class="token function">symmetric</span><span class="token punctuation">(</span>horizontal<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-      indicatorWeight<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
-      indicatorSize<span class="token punctuation">:</span> TabBarIndicatorSize<span class="token punctuation">.</span>label<span class="token punctuation">,</span>
-    <span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
+int main() {
+    TrueDarkMagic<bool> you;
+}</code></pre>
+<h2 id="委托构造"><a href="#委托构造" class="headerlink" title="委托构造"></a>委托构造</h2><pre class=" language-c++"><code class="language-c++">#include <iostream>
+class Base {
+public:
+    int value1;
+    int value2;
+    Base() {
+        value1 = 1;
+    }
+    Base(int value) : Base() { // 委托 Base() 构造函数
+        value2 = value;
+    }
+};
 
-  <span class="token keyword">void</span> <span class="token function">_showSnackBar</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    Scaffold<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">showSnackBar</span><span class="token punctuation">(</span>
-        <span class="token function">SnackBar</span><span class="token punctuation">(</span>content<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">"当前选中index为${_tabController.index}"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/jiangkang/flutter-system" target="_blank" rel="noopener">https://github.com/jiangkang/flutter-system</a></p>
+int main() {
+    Base b(2);
+    std::cout << b.value1 << std::endl;
+    std::cout << b.value2 << std::endl;
+}</code></pre>
+<p>没什么好说的,其他语言在设计的时候就已经支持了.</p>
+<h2 id="继承构造"><a href="#继承构造" class="headerlink" title="继承构造"></a>继承构造</h2><pre class=" language-c++"><code class="language-c++">#include <iostream>
+class Base {
+public:
+    int value1;
+    int value2;
+    Base() {
+        value1 = 1;
+    }
+    Base(int value) : Base() { // 委托 Base() 构造函数
+        value2 = value;
+    }
+};
+class Subclass : public Base {
+public:
+    using Base::Base; // 继承构造
+};
+int main() {
+    Subclass s(3);
+    std::cout << s.value1 << std::endl;
+    std::cout << s.value2 << std::endl;
+}</code></pre>
+<h2 id="overide-final"><a href="#overide-final" class="headerlink" title="overide , final"></a>overide , final</h2><pre class=" language-c++"><code class="language-c++">struct Base {
+    virtual void foo(int);
+};
+struct SubClass: Base {
+    virtual void foo(int) override; // 合法
+    virtual void foo(float) override; // 非法, 父类没有此虚函数
+};</code></pre>
+<pre class=" language-c++"><code class="language-c++">struct Base {
+    virtual void foo() final;
+};
+struct SubClass1 final: Base {
+}; // 合法
+
+struct SubClass2 : SubClass1 {
+}; // 非法, SubClass1 已 final
+
+struct SubClass3: Base {
+    void foo(); // 非法, foo 已 final
+};</code></pre>
+<p>这两点也没什么好说的,其他语言早就支持了.</p>
+<h2 id="Lambda"><a href="#Lambda" class="headerlink" title="Lambda"></a>Lambda</h2><pre class=" language-c++"><code class="language-c++">[捕获列表](参数列表) mutable(可选) 异常属性 -> 返回类型 {
+// 函数体
+}</code></pre>
+<h3 id="值捕获"><a href="#值捕获" class="headerlink" title="值捕获"></a>值捕获</h3><pre class=" language-c++"><code class="language-c++">void lambda_value_capture() {
+    int value = 1;
+    auto copy_value = [value] {
+        return value;
+    };
+    value = 100;
+    auto stored_value = copy_value();
+    std::cout << "stored_value = " << stored_value << std::endl;
+    // 这时, stored_value == 1, 而 value == 100.
+    // 因为 copy_value 在创建时就保存了一份 value 的拷贝
+}</code></pre>
+<h3 id="引用捕获"><a href="#引用捕获" class="headerlink" title="引用捕获"></a>引用捕获</h3><pre class=" language-c++"><code class="language-c++">void lambda_reference_capture() {
+    int value = 1;
+    auto copy_value = [&value] {
+        return value;
+    };
+    value = 100;
+    auto stored_value = copy_value();
+    std::cout << "stored_value = " << stored_value << std::endl;
+    // 这时, stored_value == 100, value == 100.
+    // 因为 copy_value 保存的是引用
+}</code></pre>
+<h3 id="范型Lambda"><a href="#范型Lambda" class="headerlink" title="范型Lambda"></a>范型Lambda</h3><pre class=" language-c++"><code class="language-c++">auto add = [](auto x, auto y) {
+    return x+y;
+};
+
+add(1, 2);
+add(1.1, 2.2);</code></pre>
+<h2 id="函数对象包装器"><a href="#函数对象包装器" class="headerlink" title="函数对象包装器"></a>函数对象包装器</h2><p>如果不使用<code>std::fucntion()</code>是这样子的:</p>
+<pre class=" language-c++"><code class="language-c++">#include <iostream>
+
+using foo = void(int); // 定义函数类型, using 的使用见上一节中的别名语法
+void functional(foo f) { // 定义在参数列表中的函数类型 foo 被视为退化后的函数指针类型 foo*
+    f(1); // 通过函数指针调用函数
+}
+
+int main() {
+    auto f = [](int value) {
+        std::cout << value << std::endl;
+    };
+    functional(f); // 传递闭包对象，隐式转换为 foo* 类型的函数指针值
+    f(1); // lambda 表达式调用
+    return 0;
+}</code></pre>
+<p>使用了之后是这样的:</p>
+<pre class=" language-c++"><code class="language-c++">#include <functional>
+#include <iostream>
+
+int foo(int para) {
+    return para;
+}
+
+int main() {
+    // std::function 包装了一个返回值为 int, 参数为 int 的函数
+    std::function<int(int)> func = foo;
+
+    int important = 10;
+    std::function<int(int)> func2 = [&](int value) -> int {
+        return 1+value+important;
+    };
+    std::cout << func(10) << std::endl;
+    std::cout << func2(10) << std::endl;
+}</code></pre>
 
             </div>
             <hr/>
@@ -594,7 +673,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.jiangkang.tech/2020/05/08/flutter/flutter-tabs-de-shi-yong/">https://www.jiangkang.tech/2020/05/08/flutter/flutter-tabs-de-shi-yong/</a>
+                    <a href="https://www.jiangkang.tech/2020/05/23/c/modernc-de-yi-xie-te-xing/">https://www.jiangkang.tech/2020/05/23/c/modernc-de-yi-xie-te-xing/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -632,12 +711,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Flutter/">
-                                    <span class="chip bg-color">Flutter</span>
-                                </a>
-                            
-                                <a href="/tags/Tab/">
-                                    <span class="chip bg-color">Tab</span>
+                                <a href="/tags/%E8%AF%AD%E6%B3%95/">
+                                    <span class="chip bg-color">语法</span>
                                 </a>
                             
                         </div>
@@ -808,7 +883,7 @@
         repo: 'jiangkang.github.io',
         owner: 'jiangkang',
         admin: ["jiangkang"],
-        id: '2020-05-08T21-52-42',
+        id: '2020-05-23T17-51-07',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -832,57 +907,51 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/08/flutter/flutter-text-de-shi-yong/">
+                <a href="/2020/05/23/c/modernc-de-yi-xie-te-xing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Flutter-Text的使用">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="ModernC++的一些特性">
                         
-                        <span class="card-title">Flutter-Text的使用</span>
+                        <span class="card-title">ModernC++的一些特性</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-关注 https://github.com/jiangkang/flutter-system 了解更多Flutter相关的知识
-
-文本作为UI最基本的元素，最基本的用法有这些：
-
-字体
-文字大小、颜色
-一些常用样式，比如倾斜，加粗，下划线
+                            Modern C++Modern C++指的是C++11/C++14/C++17/C++20等版本,新增和改进了C++语法,提升开发效率.
+nullptrnullptr是用来替换NULL的
+constexpr常量表达式
+constexpr 
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Flutter/" class="post-category">
-                                    Flutter
+                            <a href="/categories/C/" class="post-category">
+                                    C++
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Flutter/">
-                        <span class="chip bg-color">Flutter</span>
-                    </a>
-                    
-                    <a href="/tags/Text/">
-                        <span class="chip bg-color">Text</span>
+                    <a href="/tags/%E8%AF%AD%E6%B3%95/">
+                        <span class="chip bg-color">语法</span>
                     </a>
                     
                 </div>
@@ -896,40 +965,34 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/08/flutter/flutter-shi-jian-chu-li/">
+                <a href="/2020/05/18/tu-xing-xuan-ran/skia-de-bian-yi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Flutter时间处理">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Skia的编译">
                         
-                        <span class="card-title">Flutter时间处理</span>
+                        <span class="card-title">Skia的编译</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Flutter 中在时间处理方面还是比较简单的，我们主要用到的有两个类：
-
-DateTime
-表示一个指定的时间点，包括年月日时分秒
-
-TimeOfDay
-表示一天中的一个时间点，可以区分上午，下午，12小时制，24小时制等
-
-
-获取当前时
+                            源码地址https://github.com/google/skia
+https://skia.googlesource.com/skia
+这两个都可以,如果不能科学上网,建议使用github上的镜像.
+编译bin/gn gen out/S
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Flutter/" class="post-category">
-                                    Flutter
+                            <a href="/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/" class="post-category">
+                                    图形渲染
                                 </a>
                             
                             
@@ -939,12 +1002,12 @@ TimeOfDay
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Flutter/">
-                        <span class="chip bg-color">Flutter</span>
+                    <a href="/tags/Skia/">
+                        <span class="chip bg-color">Skia</span>
                     </a>
                     
-                    <a href="/tags/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/">
-                        <span class="chip bg-color">时间处理</span>
+                    <a href="/tags/%E7%BC%96%E8%AF%91/">
+                        <span class="chip bg-color">编译</span>
                     </a>
                     
                 </div>
