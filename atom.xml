@@ -39,9 +39,9 @@
       <category term="C++" scheme="https://www.jiangkang.tech/categories/C/"/>
     
     
-      <category term="编译" scheme="https://www.jiangkang.tech/tags/%E7%BC%96%E8%AF%91/"/>
-    
       <category term="GN" scheme="https://www.jiangkang.tech/tags/GN/"/>
+    
+      <category term="编译" scheme="https://www.jiangkang.tech/tags/%E7%BC%96%E8%AF%91/"/>
     
   </entry>
   
@@ -67,9 +67,9 @@
       <category term="C++" scheme="https://www.jiangkang.tech/categories/C/"/>
     
     
-      <category term="CMake" scheme="https://www.jiangkang.tech/tags/CMake/"/>
-    
       <category term="编译" scheme="https://www.jiangkang.tech/tags/%E7%BC%96%E8%AF%91/"/>
+    
+      <category term="CMake" scheme="https://www.jiangkang.tech/tags/CMake/"/>
     
   </entry>
   
@@ -211,9 +211,9 @@
     
       <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-      <category term="Map" scheme="https://www.jiangkang.tech/tags/Map/"/>
-    
       <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
+    
+      <category term="Map" scheme="https://www.jiangkang.tech/tags/Map/"/>
     
   </entry>
   
@@ -241,9 +241,9 @@
     
       <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
-    
       <category term="List" scheme="https://www.jiangkang.tech/tags/List/"/>
+    
+      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
     
   </entry>
   
