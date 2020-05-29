@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>GN构建C++项目之HelloWorld</title>
+      <link href="/2020/05/29/c/gn-gou-jian-c-xiang-mu-zhi-helloworld/"/>
+      <url>/2020/05/29/c/gn-gou-jian-c-xiang-mu-zhi-helloworld/</url>
+      
+        <content type="html"><![CDATA[<p>使用Google的gn工具构建C++项目,但是官方的demo构建脚本还是不够简单,这里写一个最简单的构建结构.</p><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p><img src="https://oss.jiangkang.tech/jk/gn-tree.png" alt="目录结构"></p><h2 id="必要的几个文件"><a href="#必要的几个文件" class="headerlink" title="必要的几个文件"></a>必要的几个文件</h2><ul><li>.gn</li><li>根目录下的BUIlD.gn</li><li>BUILDCONFIG.gn</li></ul><h2 id="gn"><a href="#gn" class="headerlink" title=".gn"></a>.gn</h2><pre><code># gn help dotfilebuildconfig = &quot;//build/config/BUILDCONFIG.gn&quot;</code></pre><p>这里就指定个最简单的buildconfig文件即可.</p><h2 id="BUILD-gn"><a href="#BUILD-gn" class="headerlink" title="BUILD.gn"></a>BUILD.gn</h2><pre><code>executable(&quot;gn-demo&quot;) {    sources = [        &quot;main.cpp&quot;    ]}</code></pre><p>代表着要构建可执行文件.</p><h2 id="BUILDCONFIG-gn"><a href="#BUILDCONFIG-gn" class="headerlink" title="BUILDCONFIG.gn"></a>BUILDCONFIG.gn</h2><pre><code>set_default_toolchain(&quot;//build/config/toolchains:mac&quot;)</code></pre><p>这里指定了使用的默认工具链</p><h2 id="toolchains"><a href="#toolchains" class="headerlink" title="toolchains"></a>toolchains</h2><p>build/config/toolchains/BUILD.gn</p><pre><code>toolchain(&quot;mac&quot;) {    tool(&quot;cxx&quot;){        command = &quot;clang++ -c {{source}} -o {{output}}&quot;        outputs = [ &quot;{{source_out_dir}}/{{target_output_name}}.o&quot; ]    }    tool(&quot;link&quot;){        exe_name = &quot;{{root_out_dir}}/{{target_output_name}}{{output_extension}}&quot;        command = &quot;clang++ {{inputs}} -o $exe_name&quot;        outputs = [&quot;$exe_name&quot;]    }}</code></pre><p>写工具链的脚本,需要大致明白C++的编译流程.</p><p>其中<code>cxx</code>:代表编译C++,<code>link</code>代表链接.由于我使用的是Mac,所以这里使用clang进行编译.</p><h2 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h2><pre class=" language-shell"><code class="language-shell">gn gen out/Debugninja -C out/Debug</code></pre><p>可执行文件就构建成功了.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> GN </tag>
+            
+            <tag> 编译 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CMake的简单使用</title>
       <link href="/2020/05/25/c/cmake-de-jian-dan-shi-yong/"/>
       <url>/2020/05/25/c/cmake-de-jian-dan-shi-yong/</url>
@@ -70,9 +97,9 @@
       
         <tags>
             
-            <tag> Skia </tag>
-            
             <tag> 编译 </tag>
+            
+            <tag> Skia </tag>
             
         </tags>
       
@@ -122,9 +149,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> Lock </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -149,11 +176,11 @@
       
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> 数据结构 </tag>
             
             <tag> Map </tag>
-            
-            <tag> Java </tag>
             
         </tags>
       
@@ -178,9 +205,9 @@
       
         <tags>
             
-            <tag> 数据结构 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 数据结构 </tag>
             
             <tag> List </tag>
             
@@ -207,9 +234,9 @@
       
         <tags>
             
-            <tag> 数据结构 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 数据结构 </tag>
             
             <tag> 队列 </tag>
             
@@ -261,9 +288,9 @@
       
         <tags>
             
-            <tag> Golang </tag>
-            
             <tag> 语法 </tag>
+            
+            <tag> Golang </tag>
             
         </tags>
       

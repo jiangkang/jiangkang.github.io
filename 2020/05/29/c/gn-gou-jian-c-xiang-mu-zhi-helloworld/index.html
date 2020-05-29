@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="调试flutter_tools, 姜康,天津大学,Android,Golang">
+    <meta name="keywords" content="GN构建C++项目之HelloWorld, 姜康,天津大学,Android,Golang">
     <meta name="description" content="姜康的技术博客:用技术解决实际问题">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>调试flutter_tools | 姜康的技术博客</title>
+    <title>GN构建C++项目之HelloWorld | 姜康的技术博客</title>
     <link rel="icon" type="image/jpeg" href="/medias/avatar.jpeg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -265,12 +265,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">调试flutter_tools</h1>
+                    <h1 class="description center-align post-title">GN构建C++项目之HelloWorld</h1>
                 </div>
             </div>
         </div>
@@ -387,8 +387,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/flutter-tools/">
-                                <span class="chip bg-color">flutter tools</span>
+                            <a href="/tags/GN/">
+                                <span class="chip bg-color">GN</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%BC%96%E8%AF%91/">
+                                <span class="chip bg-color">编译</span>
                             </a>
                         
                     </div>
@@ -399,8 +403,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Flutter/" class="post-category">
-                                Flutter
+                            <a href="/categories/C/" class="post-category">
+                                C++
                             </a>
                         
                     </div>
@@ -412,7 +416,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-15
+                    2020-05-29
                 </div>
                 
 
@@ -421,7 +425,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    117
+                    249
                 </div>
                 
 
@@ -438,12 +442,41 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>在运行<code>flutter</code>命令的时候,比如<code>flutter run</code>,实际上执行的是<code>flutter_tools.snapshots</code>,而这个快照文件的源码入口就是<code>flutter_tools.dart</code>.</p>
-<p>既然是普通的dart命令行程序,那么按照Dart命令行程序的调试方法进行调试即可.</p>
-<p>建议提前下载一个flutter项目的源码.下载源码之后,按照下面的步骤就可以进行调试了:</p>
-<h2 id="配置-Dart-SDK"><a href="#配置-Dart-SDK" class="headerlink" title="配置 Dart SDK"></a>配置 Dart SDK</h2><p><img src="https://oss.jiangkang.tech/jk/flutter_tools_dart_sdk.png" alt="配置Dart SDK"></p>
-<h2 id="添加Configuration"><a href="#添加Configuration" class="headerlink" title="添加Configuration"></a>添加Configuration</h2><p><img src="https://oss.jiangkang.tech/jk/flutter_tools_config.png" alt="Configuration"></p>
-<h2 id="执行调试"><a href="#执行调试" class="headerlink" title="执行调试"></a>执行调试</h2><p><img src="https://oss.jiangkang.tech/jk/flutter_tools_debug.png" alt="调试"></p>
+                <p>使用Google的gn工具构建C++项目,但是官方的demo构建脚本还是不够简单,这里写一个最简单的构建结构.</p>
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p><img src="https://oss.jiangkang.tech/jk/gn-tree.png" alt="目录结构"></p>
+<h2 id="必要的几个文件"><a href="#必要的几个文件" class="headerlink" title="必要的几个文件"></a>必要的几个文件</h2><ul>
+<li>.gn</li>
+<li>根目录下的BUIlD.gn</li>
+<li>BUILDCONFIG.gn</li>
+</ul>
+<h2 id="gn"><a href="#gn" class="headerlink" title=".gn"></a>.gn</h2><pre><code># gn help dotfile
+
+buildconfig = &quot;//build/config/BUILDCONFIG.gn&quot;</code></pre><p>这里就指定个最简单的buildconfig文件即可.</p>
+<h2 id="BUILD-gn"><a href="#BUILD-gn" class="headerlink" title="BUILD.gn"></a>BUILD.gn</h2><pre><code>executable(&quot;gn-demo&quot;) {
+    sources = [
+        &quot;main.cpp&quot;
+    ]
+}</code></pre><p>代表着要构建可执行文件.</p>
+<h2 id="BUILDCONFIG-gn"><a href="#BUILDCONFIG-gn" class="headerlink" title="BUILDCONFIG.gn"></a>BUILDCONFIG.gn</h2><pre><code>set_default_toolchain(&quot;//build/config/toolchains:mac&quot;)</code></pre><p>这里指定了使用的默认工具链</p>
+<h2 id="toolchains"><a href="#toolchains" class="headerlink" title="toolchains"></a>toolchains</h2><p>build/config/toolchains/BUILD.gn</p>
+<pre><code>toolchain(&quot;mac&quot;) {
+
+    tool(&quot;cxx&quot;){
+        command = &quot;clang++ -c {{source}} -o {{output}}&quot;
+        outputs = [ &quot;{{source_out_dir}}/{{target_output_name}}.o&quot; ]
+
+    }
+
+    tool(&quot;link&quot;){
+        exe_name = &quot;{{root_out_dir}}/{{target_output_name}}{{output_extension}}&quot;
+        command = &quot;clang++ {{inputs}} -o $exe_name&quot;
+        outputs = [&quot;$exe_name&quot;]
+    }
+}</code></pre><p>写工具链的脚本,需要大致明白C++的编译流程.</p>
+<p>其中<code>cxx</code>:代表编译C++,<code>link</code>代表链接.由于我使用的是Mac,所以这里使用clang进行编译.</p>
+<h2 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h2><pre class=" language-shell"><code class="language-shell">gn gen out/Debug
+ninja -C out/Debug</code></pre>
+<p>可执行文件就构建成功了.</p>
 
             </div>
             <hr/>
@@ -469,7 +502,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.jiangkang.tech/2020/05/15/flutter/diao-shi-flutter-tools/">https://www.jiangkang.tech/2020/05/15/flutter/diao-shi-flutter-tools/</a>
+                    <a href="https://www.jiangkang.tech/2020/05/29/c/gn-gou-jian-c-xiang-mu-zhi-helloworld/">https://www.jiangkang.tech/2020/05/29/c/gn-gou-jian-c-xiang-mu-zhi-helloworld/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -507,8 +540,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/flutter-tools/">
-                                    <span class="chip bg-color">flutter tools</span>
+                                <a href="/tags/GN/">
+                                    <span class="chip bg-color">GN</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BC%96%E8%AF%91/">
+                                    <span class="chip bg-color">编译</span>
                                 </a>
                             
                         </div>
@@ -679,7 +716,7 @@
         repo: 'jiangkang.github.io',
         owner: 'jiangkang',
         admin: ["jiangkang"],
-        id: '2020-05-15T19-42-45',
+        id: '2020-05-29T22-41-27',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -703,53 +740,59 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/18/tu-xing-xuan-ran/skia-de-bian-yi/">
+                <a href="/2020/05/29/c/gn-gou-jian-c-xiang-mu-zhi-helloworld/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Skia的编译">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="GN构建C++项目之HelloWorld">
                         
-                        <span class="card-title">Skia的编译</span>
+                        <span class="card-title">GN构建C++项目之HelloWorld</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            源码地址https://github.com/google/skia
-https://skia.googlesource.com/skia
-这两个都可以,如果不能科学上网,建议使用github上的镜像.
-编译bin/gn gen out/S
+                            使用Google的gn工具构建C++项目,但是官方的demo构建脚本还是不够简单,这里写一个最简单的构建结构.
+目录结构
+必要的几个文件
+.gn
+根目录下的BUIlD.gn
+BUILDCONFIG.gn
+
+.gn# gn help dotf
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/" class="post-category">
-                                    图形渲染
+                            <a href="/categories/C/" class="post-category">
+                                    C++
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BC%96%E8%AF%91/">
-                        <span class="chip bg-color">编译</span>
+                    <a href="/tags/GN/">
+                        <span class="chip bg-color">GN</span>
                     </a>
                     
-                    <a href="/tags/Skia/">
-                        <span class="chip bg-color">Skia</span>
+                    <a href="/tags/%E7%BC%96%E8%AF%91/">
+                        <span class="chip bg-color">编译</span>
                     </a>
                     
                 </div>
@@ -763,35 +806,32 @@ https://skia.googlesource.com/skia
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/15/android/java-zhong-de-lock/">
+                <a href="/2020/05/25/c/cmake-de-jian-dan-shi-yong/">
                     <div class="card-image">
                         
-                        <img src="https://oss.jiangkang.tech/jk/Lock.png" class="responsive-img" alt="Java中的Lock">
+                        <img src="https://oss.jiangkang.tech/jk/cmake.jpg" class="responsive-img" alt="CMake的简单使用">
                         
-                        <span class="card-title">Java中的Lock</span>
+                        <span class="card-title">CMake的简单使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Java 中保证线程安全，操作同步的方法有很多种，比如：
-
-使用synchronized关键字
-使用Lock的实现类
-
-其中synchronized属于语言级别的处理，无需我们去处理细节，而Lock则是一个接口，我们可以自定义Lock或者使
+                            构建可执行程序add_executable( [WIN32] [MACOSX_BUNDLE]
+               [EXCLUDE_FROM_ALL]
+               [source1] [source2 ...])
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-25
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Android/" class="post-category">
-                                    Android
+                            <a href="/categories/C/" class="post-category">
+                                    C++
                                 </a>
                             
                             
@@ -801,12 +841,8 @@ https://skia.googlesource.com/skia
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Lock/">
-                        <span class="chip bg-color">Lock</span>
-                    </a>
-                    
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/CMake/">
+                        <span class="chip bg-color">CMake</span>
                     </a>
                     
                 </div>

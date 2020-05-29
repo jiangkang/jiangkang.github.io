@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.jiangkang.tech/"/>
-  <updated>2020-05-25T10:54:38.789Z</updated>
+  <updated>2020-05-29T14:42:58.199Z</updated>
   <id>https://www.jiangkang.tech/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GN构建C++项目之HelloWorld</title>
+    <link href="https://www.jiangkang.tech/2020/05/29/c/gn-gou-jian-c-xiang-mu-zhi-helloworld/"/>
+    <id>https://www.jiangkang.tech/2020/05/29/c/gn-gou-jian-c-xiang-mu-zhi-helloworld/</id>
+    <published>2020-05-29T14:41:27.000Z</published>
+    <updated>2020-05-29T14:42:58.199Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用Google的gn工具构建C++项目,但是官方的demo构建脚本还是不够简单,这里写一个最简单的构建结构.</p><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p><img src="https://oss.jiangkang.tech/jk/gn-tree.png" alt="目录结构"></p><h2 id="必要的几个文件"><a href="#必要的几个文件" class="headerlink" title="必要的几个文件"></a>必要的几个文件</h2><ul><li>.gn</li><li>根目录下的BUIlD.gn</li><li>BUILDCONFIG.gn</li></ul><h2 id="gn"><a href="#gn" class="headerlink" title=".gn"></a>.gn</h2><pre><code># gn help dotfilebuildconfig = &quot;//build/config/BUILDCONFIG.gn&quot;</code></pre><p>这里就指定个最简单的buildconfig文件即可.</p><h2 id="BUILD-gn"><a href="#BUILD-gn" class="headerlink" title="BUILD.gn"></a>BUILD.gn</h2><pre><code>executable(&quot;gn-demo&quot;) {    sources = [        &quot;main.cpp&quot;    ]}</code></pre><p>代表着要构建可执行文件.</p><h2 id="BUILDCONFIG-gn"><a href="#BUILDCONFIG-gn" class="headerlink" title="BUILDCONFIG.gn"></a>BUILDCONFIG.gn</h2><pre><code>set_default_toolchain(&quot;//build/config/toolchains:mac&quot;)</code></pre><p>这里指定了使用的默认工具链</p><h2 id="toolchains"><a href="#toolchains" class="headerlink" title="toolchains"></a>toolchains</h2><p>build/config/toolchains/BUILD.gn</p><pre><code>toolchain(&quot;mac&quot;) {    tool(&quot;cxx&quot;){        command = &quot;clang++ -c {{source}} -o {{output}}&quot;        outputs = [ &quot;{{source_out_dir}}/{{target_output_name}}.o&quot; ]    }    tool(&quot;link&quot;){        exe_name = &quot;{{root_out_dir}}/{{target_output_name}}{{output_extension}}&quot;        command = &quot;clang++ {{inputs}} -o $exe_name&quot;        outputs = [&quot;$exe_name&quot;]    }}</code></pre><p>写工具链的脚本,需要大致明白C++的编译流程.</p><p>其中<code>cxx</code>:代表编译C++,<code>link</code>代表链接.由于我使用的是Mac,所以这里使用clang进行编译.</p><h2 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h2><pre class=" language-shell"><code class="language-shell">gn gen out/Debugninja -C out/Debug</code></pre><p>可执行文件就构建成功了.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;使用Google的gn工具构建C++项目,但是官方的demo构建脚本还是不够简单,这里写一个最简单的构建结构.&lt;/p&gt;
+&lt;h2 id=&quot;目录结构&quot;&gt;&lt;a href=&quot;#目录结构&quot; class=&quot;headerlink&quot; title=&quot;目录结构&quot;&gt;&lt;/a&gt;目录结构&lt;/h2&gt;&lt;p
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="https://www.jiangkang.tech/categories/C/"/>
+    
+    
+      <category term="GN" scheme="https://www.jiangkang.tech/tags/GN/"/>
+    
+      <category term="编译" scheme="https://www.jiangkang.tech/tags/%E7%BC%96%E8%AF%91/"/>
+    
+  </entry>
   
   <entry>
     <title>CMake的简单使用</title>
@@ -90,9 +119,9 @@
       <category term="图形渲染" scheme="https://www.jiangkang.tech/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/"/>
     
     
-      <category term="Skia" scheme="https://www.jiangkang.tech/tags/Skia/"/>
-    
       <category term="编译" scheme="https://www.jiangkang.tech/tags/%E7%BC%96%E8%AF%91/"/>
+    
+      <category term="Skia" scheme="https://www.jiangkang.tech/tags/Skia/"/>
     
   </entry>
   
@@ -149,9 +178,9 @@
       <category term="Android" scheme="https://www.jiangkang.tech/categories/Android/"/>
     
     
-      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
-    
       <category term="Lock" scheme="https://www.jiangkang.tech/tags/Lock/"/>
+    
+      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
     
   </entry>
   
@@ -178,11 +207,11 @@
       <category term="Android" scheme="https://www.jiangkang.tech/categories/Android/"/>
     
     
+      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
+    
       <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="Map" scheme="https://www.jiangkang.tech/tags/Map/"/>
-    
-      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
     
   </entry>
   
@@ -208,9 +237,9 @@
       <category term="Android" scheme="https://www.jiangkang.tech/categories/Android/"/>
     
     
-      <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
       <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
+    
+      <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="List" scheme="https://www.jiangkang.tech/tags/List/"/>
     
@@ -240,9 +269,9 @@
       <category term="Android" scheme="https://www.jiangkang.tech/categories/Android/"/>
     
     
-      <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
       <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
+    
+      <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="队列" scheme="https://www.jiangkang.tech/tags/%E9%98%9F%E5%88%97/"/>
     
@@ -298,9 +327,9 @@
       <category term="Golang" scheme="https://www.jiangkang.tech/categories/Golang/"/>
     
     
-      <category term="Golang" scheme="https://www.jiangkang.tech/tags/Golang/"/>
-    
       <category term="语法" scheme="https://www.jiangkang.tech/tags/%E8%AF%AD%E6%B3%95/"/>
+    
+      <category term="Golang" scheme="https://www.jiangkang.tech/tags/Golang/"/>
     
   </entry>
   
@@ -563,39 +592,6 @@
     
     
       <category term="SDL" scheme="https://www.jiangkang.tech/tags/SDL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Flutter-Timeline</title>
-    <link href="https://www.jiangkang.tech/2020/05/08/flutter/flutter-timeline/"/>
-    <id>https://www.jiangkang.tech/2020/05/08/flutter/flutter-timeline/</id>
-    <published>2020-05-08T09:55:35.000Z</published>
-    <updated>2020-05-25T10:54:38.792Z</updated>
-    
-    <content type="html"><![CDATA[<p>Flutter有三种构建模式：</p><ul><li>debug</li><li>release</li><li>profile</li></ul><p>在profile模式下，我们可以看到frame rendering图：</p><h2 id="Frame-Rendering-Chart"><a href="#Frame-Rendering-Chart" class="headerlink" title="Frame Rendering Chart"></a>Frame Rendering Chart</h2><p><img src="https://oss.jiangkang.tech/jk/Timeline.png" alt="渲染图"></p><p>横轴表示每一帧，纵轴表示帧渲染时间。红色表示jank，每一个柱状条可以点击，展开之后可以看到该帧的详细信息。</p><blockquote><p>需要注意的是：</p><ol><li><p>profile模式不支持模拟器</p></li><li><p>profile模式下才可以看到Frame rendering 图</p></li><li><p>开启profile模式的命令是：</p><pre class=" language-shell"><code class="language-shell">flutter run --profile</code></pre></li></ol></blockquote><p>frame rendering 包含两个过程，UI和GPU执行时间：</p><h3 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h3><p>UI线程在DartVM中执行dart代码。当你的app创建并在屏幕上显示图像时，UI线程会创建一个layer tree（一个包含了与设备无关的绘制命令的轻量级对象），然后将layer tree发送给GPU去渲染。</p><h3 id="GPU"><a href="#GPU" class="headerlink" title="GPU"></a>GPU</h3><p>GPU线程在Flutter Engine中执行图形代码。该线程接收layer tree作为输入，然后发送给GPU进行图形渲染。应用开发者一般不能直接访问GPU线程和它的数据(但是如果GPU线程很慢，则多半是你写的Dart代码的问题)。</p><p>Skia就是运行在GPU线程上的。</p><blockquote><p>GPU线程有时候也叫rasterizer thread（光栅化线程）</p></blockquote><p>有时候layer tree很容易构建，但是在GPU线程上的渲染成本很高，正如前面所说，这个时候你应该检查一个自己的代码为什么导致GPU渲染代码变慢。</p><h3 id="jank"><a href="#jank" class="headerlink" title="jank"></a>jank</h3><p>国内一般叫做卡顿（渲染时间超过16ms），在frame rendering图中会以红色来表示。</p><p>Timeline View有三种层级：</p><ul><li>Frame Rendering 图</li><li>Frame events 图</li><li>CPU分析图</li></ul><p>前文说的就是Frame Rendering图，下面说一下后面的两种图标。</p><h2 id="Frame-Events-Chart"><a href="#Frame-Events-Chart" class="headerlink" title="Frame Events Chart"></a>Frame Events Chart</h2><p><img src="https://oss.jiangkang.tech/jk/timeline_frame_events_chart.png" alt="事件图"></p><p>如图所示，event是自上而下产生的。</p><p>UI和GPU是独立的事件流，但是它们公用同一个Timeline View。</p><p>同样地，每一个Event信息也都可以点击，这样就会展开更加详细的信息，也就是CPU Profile图。</p><h2 id="CPU-Profile-Chart"><a href="#CPU-Profile-Chart" class="headerlink" title="CPU Profile Chart"></a>CPU Profile Chart</h2><p><img src="https://oss.jiangkang.tech/jk/timeline_cpu_profiler_flame_chart.png" alt="CPU"></p><p>有三种采样粒度：</p><ul><li>low ： 1 sample / 50 μs</li><li>medium（默认）：1 sample / 250 μs</li><li>high ： 1 sample / 1000 μs</li></ul><p>高采样率会影响APP性能。</p><p>CPU profile图和Android Studio上的类似，一般也就是火焰图，调用图，自底向上调用图等，具体的看图方法可以看官方文档。</p><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol><li><a href="https://flutter.dev/docs/development/tools/devtools/timeline" target="_blank" rel="noopener">https://flutter.dev/docs/development/tools/devtools/timeline</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Flutter有三种构建模式：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;debug&lt;/li&gt;
-&lt;li&gt;release&lt;/li&gt;
-&lt;li&gt;profile&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;在profile模式下，我们可以看到frame rendering图：&lt;/p&gt;
-&lt;h2 id=&quot;Frame-
-      
-    
-    </summary>
-    
-    
-      <category term="Flutter" scheme="https://www.jiangkang.tech/categories/Flutter/"/>
-    
-    
-      <category term="Flutter" scheme="https://www.jiangkang.tech/tags/Flutter/"/>
     
   </entry>
   
