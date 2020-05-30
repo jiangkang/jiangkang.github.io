@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>近期学习计划</title>
+      <link href="/2020/05/30/ji-hua/jin-qi-xue-xi-ji-hua/"/>
+      <url>/2020/05/30/ji-hua/jin-qi-xue-xi-ji-hua/</url>
+      
+        <content type="html"><![CDATA[<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><ul><li>数据结构</li><li>基本算法</li><li>GUI设计原理与解决方案</li><li>操作系统(Linux)</li><li>图形渲染</li><li>图片编解码</li></ul><h2 id="flutter框架"><a href="#flutter框架" class="headerlink" title="flutter框架"></a>flutter框架</h2><ul><li>gn</li><li>skia</li><li>flutter engine</li><li>flutter frameworks</li><li>flutter tools</li><li>flutter 使用</li></ul><h2 id="领域知识学习"><a href="#领域知识学习" class="headerlink" title="领域知识学习"></a>领域知识学习</h2><ul><li>音视频</li><li>物联网</li><li>系统层开发</li></ul><h2 id="产品设计"><a href="#产品设计" class="headerlink" title="产品设计"></a>产品设计</h2><ul><li>音视频类</li><li>小说/阅读类</li><li>资讯/新闻类</li><li>通信/社交类</li></ul><h2 id="模块设计"><a href="#模块设计" class="headerlink" title="模块设计"></a>模块设计</h2><ul><li>登陆/注册认证</li><li>分享</li><li>下载</li><li>图片编解码</li><li>网络框架</li><li>存储框架</li><li>采集/分析框架</li><li>性能监控方案</li></ul><h2 id="完成情况"><a href="#完成情况" class="headerlink" title="完成情况"></a>完成情况</h2>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 计划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>GN构建C++项目之HelloWorld</title>
       <link href="/2020/05/29/c/gn-gou-jian-c-xiang-mu-zhi-helloworld/"/>
       <url>/2020/05/29/c/gn-gou-jian-c-xiang-mu-zhi-helloworld/</url>
@@ -20,9 +39,9 @@
       
         <tags>
             
-            <tag> GN </tag>
-            
             <tag> 编译 </tag>
+            
+            <tag> GN </tag>
             
         </tags>
       
@@ -47,9 +66,9 @@
       
         <tags>
             
-            <tag> 编译 </tag>
-            
             <tag> CMake </tag>
+            
+            <tag> 编译 </tag>
             
         </tags>
       
@@ -151,9 +170,9 @@
       
         <tags>
             
-            <tag> Lock </tag>
-            
             <tag> Java </tag>
+            
+            <tag> Lock </tag>
             
         </tags>
       
@@ -178,9 +197,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 数据结构 </tag>
+            
+            <tag> Java </tag>
             
             <tag> Map </tag>
             
@@ -207,11 +226,11 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 数据结构 </tag>
             
             <tag> List </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -236,9 +255,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 数据结构 </tag>
+            
+            <tag> Java </tag>
             
             <tag> 队列 </tag>
             

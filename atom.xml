@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.jiangkang.tech/"/>
-  <updated>2020-05-29T14:42:58.199Z</updated>
+  <updated>2020-05-30T12:23:02.261Z</updated>
   <id>https://www.jiangkang.tech/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>近期学习计划</title>
+    <link href="https://www.jiangkang.tech/2020/05/30/ji-hua/jin-qi-xue-xi-ji-hua/"/>
+    <id>https://www.jiangkang.tech/2020/05/30/ji-hua/jin-qi-xue-xi-ji-hua/</id>
+    <published>2020-05-30T12:02:57.000Z</published>
+    <updated>2020-05-30T12:23:02.261Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><ul><li>数据结构</li><li>基本算法</li><li>GUI设计原理与解决方案</li><li>操作系统(Linux)</li><li>图形渲染</li><li>图片编解码</li></ul><h2 id="flutter框架"><a href="#flutter框架" class="headerlink" title="flutter框架"></a>flutter框架</h2><ul><li>gn</li><li>skia</li><li>flutter engine</li><li>flutter frameworks</li><li>flutter tools</li><li>flutter 使用</li></ul><h2 id="领域知识学习"><a href="#领域知识学习" class="headerlink" title="领域知识学习"></a>领域知识学习</h2><ul><li>音视频</li><li>物联网</li><li>系统层开发</li></ul><h2 id="产品设计"><a href="#产品设计" class="headerlink" title="产品设计"></a>产品设计</h2><ul><li>音视频类</li><li>小说/阅读类</li><li>资讯/新闻类</li><li>通信/社交类</li></ul><h2 id="模块设计"><a href="#模块设计" class="headerlink" title="模块设计"></a>模块设计</h2><ul><li>登陆/注册认证</li><li>分享</li><li>下载</li><li>图片编解码</li><li>网络框架</li><li>存储框架</li><li>采集/分析框架</li><li>性能监控方案</li></ul><h2 id="完成情况"><a href="#完成情况" class="headerlink" title="完成情况"></a>完成情况</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;基础&quot;&gt;&lt;a href=&quot;#基础&quot; class=&quot;headerlink&quot; title=&quot;基础&quot;&gt;&lt;/a&gt;基础&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;数据结构&lt;/li&gt;
+&lt;li&gt;基本算法&lt;/li&gt;
+&lt;li&gt;GUI设计原理与解决方案&lt;/li&gt;
+&lt;li&gt;操作系统(Linux)&lt;/l
+      
+    
+    </summary>
+    
+    
+    
+      <category term="计划" scheme="https://www.jiangkang.tech/tags/%E8%AE%A1%E5%88%92/"/>
+    
+  </entry>
   
   <entry>
     <title>GN构建C++项目之HelloWorld</title>
@@ -39,9 +67,9 @@
       <category term="C++" scheme="https://www.jiangkang.tech/categories/C/"/>
     
     
-      <category term="GN" scheme="https://www.jiangkang.tech/tags/GN/"/>
-    
       <category term="编译" scheme="https://www.jiangkang.tech/tags/%E7%BC%96%E8%AF%91/"/>
+    
+      <category term="GN" scheme="https://www.jiangkang.tech/tags/GN/"/>
     
   </entry>
   
@@ -67,9 +95,9 @@
       <category term="C++" scheme="https://www.jiangkang.tech/categories/C/"/>
     
     
-      <category term="编译" scheme="https://www.jiangkang.tech/tags/%E7%BC%96%E8%AF%91/"/>
-    
       <category term="CMake" scheme="https://www.jiangkang.tech/tags/CMake/"/>
+    
+      <category term="编译" scheme="https://www.jiangkang.tech/tags/%E7%BC%96%E8%AF%91/"/>
     
   </entry>
   
@@ -180,9 +208,9 @@
       <category term="Android" scheme="https://www.jiangkang.tech/categories/Android/"/>
     
     
-      <category term="Lock" scheme="https://www.jiangkang.tech/tags/Lock/"/>
-    
       <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
+    
+      <category term="Lock" scheme="https://www.jiangkang.tech/tags/Lock/"/>
     
   </entry>
   
@@ -209,9 +237,9 @@
       <category term="Android" scheme="https://www.jiangkang.tech/categories/Android/"/>
     
     
-      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
-    
       <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
     
       <category term="Map" scheme="https://www.jiangkang.tech/tags/Map/"/>
     
@@ -239,11 +267,11 @@
       <category term="Android" scheme="https://www.jiangkang.tech/categories/Android/"/>
     
     
-      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
-    
       <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="List" scheme="https://www.jiangkang.tech/tags/List/"/>
+    
+      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
     
   </entry>
   
@@ -271,9 +299,9 @@
       <category term="Android" scheme="https://www.jiangkang.tech/categories/Android/"/>
     
     
-      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
-    
       <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
     
       <category term="队列" scheme="https://www.jiangkang.tech/tags/%E9%98%9F%E5%88%97/"/>
     
@@ -568,32 +596,6 @@
       <category term="存储" scheme="https://www.jiangkang.tech/tags/%E5%AD%98%E5%82%A8/"/>
     
       <category term="Android" scheme="https://www.jiangkang.tech/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>初识SDL</title>
-    <link href="https://www.jiangkang.tech/2020/05/08/c/chu-shi-sdl/"/>
-    <id>https://www.jiangkang.tech/2020/05/08/c/chu-shi-sdl/</id>
-    <published>2020-05-08T10:34:02.000Z</published>
-    <updated>2020-05-23T09:51:31.418Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="SDL是什么"><a href="#SDL是什么" class="headerlink" title="SDL是什么"></a>SDL是什么</h2><p>Simple DirectMedia Layer 是一个跨平台的开发库,它提供了对音频,键盘,鼠标,游戏手柄的底层访问接口.以及通过OpenGL或者Direct3D控制图形硬件的接口.</p><p>目前支持以下平台:</p><ul><li><p>Windows </p></li><li><p>Linux</p></li><li><p>Android</p></li><li><p>IOS</p></li><li><p>MacOS</p></li></ul><h2 id="SDL可以做什么"><a href="#SDL可以做什么" class="headerlink" title="SDL可以做什么"></a>SDL可以做什么</h2><ul><li><p>视频播放器</p></li><li><p>音频处理</p></li><li><p>输入事件处理,比如键盘,鼠标等</p></li><li><p>文件I/O</p></li><li><p>线程,定时器等其余功能</p></li></ul><h2 id="SDL的核心架构"><a href="#SDL的核心架构" class="headerlink" title="SDL的核心架构"></a>SDL的核心架构</h2><h3 id="几个子系统"><a href="#几个子系统" class="headerlink" title="几个子系统"></a>几个子系统</h3><ul><li><p>Video:图像控制以及线程和事件管理</p></li><li><p>Audio:声音控制</p></li><li><p>Joystick: 游戏摇杆控制</p></li><li><p>Window: 视窗管理与集成</p></li><li><p>Event: 事件驱动处理</p></li><li><p>Haptic: 触摸事件处理</p></li><li><p>Timer : 时间,计时器管理</p></li></ul><p>SDL本身其实不复杂,甚至有些简陋,单靠SDL你是无法实现一个完善的产品的,往往都需要其他功能库的支持.比如SDL广泛用于音视频播放器开发,但是SDL很多时候只是作为一个跨平台,Window的集成功能,而视频编解码则是通过其他功能库,如FFMPEG等处理的.</p><p>所以,SDL核心之一就是<strong>跨平台</strong>.</p><p>想一个问题,如何将一幅图像显示到屏幕上,我们知道视频其实是有一帧帧的图像数据组成,解决了图像显示到屏幕上的问题就解决了大部分问题.首先我们得从固定格式的图像中,比如JPEG,PNG等格式中解析出原始的图像数据,然后利用OPenGL操作GPU进行处理,经过渲染管线处理,形成像素数据存储到内存中,显示器按照刷新率刷新时,将像素数据映射到屏幕上,形成了我们看到的图像.</p><p>而SDL主要做两件事,一个就是<strong>加载各种格式的图像数据</strong>,一个就是<strong>封装OpenGL或者Direct3D API,更简单的渲染</strong></p><p>还有一个就是<strong>视窗管理与集成</strong>,这个功能也有一些其他的代替库,比如GLFW之类的.</p><h3 id="拓展模块"><a href="#拓展模块" class="headerlink" title="拓展模块"></a>拓展模块</h3><ul><li>SDL_image : 各种图像格式解析与载入,如png,jpeg等</li><li>SDL_mixer : 声音输出方法和声音格式支持,比如mp3,ogg等</li><li>SDL_net : 网络支持</li><li>SDL_ttf : TrueType字体渲染支持</li><li>SDL_rtf: RTF渲染支持</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;SDL是什么&quot;&gt;&lt;a href=&quot;#SDL是什么&quot; class=&quot;headerlink&quot; title=&quot;SDL是什么&quot;&gt;&lt;/a&gt;SDL是什么&lt;/h2&gt;&lt;p&gt;Simple DirectMedia Layer 是一个跨平台的开发库,它提供了对音频,键盘,鼠标,游戏手柄
-      
-    
-    </summary>
-    
-    
-      <category term="C++" scheme="https://www.jiangkang.tech/categories/C/"/>
-    
-    
-      <category term="SDL" scheme="https://www.jiangkang.tech/tags/SDL/"/>
     
   </entry>
   
