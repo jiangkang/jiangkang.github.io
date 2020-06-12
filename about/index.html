@@ -302,7 +302,7 @@
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/banner/6.jpg)');
+    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/banner/5.jpg)');
 </script>
 
 
@@ -318,7 +318,7 @@
                     <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
                         
 <div class="statis">
-    <span class="count"><a href="/">22</a></span>
+    <span class="count"><a href="/">25</a></span>
     <span class="name">文章</span>
 </div>
 
@@ -332,7 +332,7 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">25</a></span>
+    <span class="count"><a href="/tags">28</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -348,7 +348,7 @@
                                 <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
                                     
 <div class="statis">
-    <span class="count"><a href="/">22</a></span>
+    <span class="count"><a href="/">25</a></span>
     <span class="name">文章</span>
 </div>
 
@@ -362,7 +362,7 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">25</a></span>
+    <span class="count"><a href="/tags">28</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -504,7 +504,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ["2019-05","2019-06","2019-07","2019-08","2019-09","2019-10","2019-11","2019-12","2020-01","2020-02","2020-03","2020-04","2020-05"]
+            data: ["2019-06","2019-07","2019-08","2019-09","2019-10","2019-11","2019-12","2020-01","2020-02","2020-03","2020-04","2020-05","2020-06"]
         },
         yAxis: {
             type: 'value',
@@ -514,7 +514,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,0,0,22],
+                data: [0,0,0,0,0,0,0,0,0,0,0,22,3],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -556,7 +556,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"C++","value":4},{"name":"Android","value":6},{"name":"Flutter","value":8},{"name":"Golang","value":2},{"name":"图形渲染","value":1}],
+                data: [{"name":"Android","value":9},{"name":"C++","value":4},{"name":"Flutter","value":8},{"name":"Golang","value":2},{"name":"图形渲染","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -580,7 +580,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["Flutter","Java","编译","数据结构","语法","Golang","CMake","GN","存储","Android"]
+                data: ["Flutter","编译","Java","数据结构","源码分析","语法","Golang","Android开机动画","存储","Android"]
             }
         ],
         yAxis: [
@@ -593,7 +593,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [7,4,3,3,2,2,1,1,1,1],
+                data: [7,4,4,3,2,2,2,1,1,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -750,20 +750,14 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/CMake/">
-                <span class="chip center-align waves-effect waves-light chip-default">CMake</span>
+            <a href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
+                <span class="chip center-align waves-effect waves-light chip-default">源码分析</span>
             </a>
             
             
             
-            <a href="/tags/%E7%BC%96%E8%AF%91/">
-                <span class="chip center-align waves-effect waves-light chip-default">编译</span>
-            </a>
-            
-            
-            
-            <a href="/tags/GN/">
-                <span class="chip center-align waves-effect waves-light chip-default">GN</span>
+            <a href="/tags/Android%E5%BC%80%E6%9C%BA%E5%8A%A8%E7%94%BB/">
+                <span class="chip center-align waves-effect waves-light chip-default">Android开机动画</span>
             </a>
             
             
@@ -776,32 +770,14 @@
             
             
             
-            <a href="/tags/%E8%AF%AD%E6%B3%95/">
-                <span class="chip center-align waves-effect waves-light chip-default">语法</span>
+            <a href="/tags/%E7%BC%96%E8%AF%91/">
+                <span class="chip center-align waves-effect waves-light chip-default">编译</span>
             </a>
             
             
             
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                <span class="chip center-align waves-effect waves-light chip-default">数据结构</span>
-            </a>
-            
-            
-            
-            <a href="/tags/List/">
-                <span class="chip center-align waves-effect waves-light chip-default">List</span>
-            </a>
-            
-            
-            
-            <a href="/tags/Java/">
-                <span class="chip center-align waves-effect waves-light chip-default">Java</span>
-            </a>
-            
-            
-            
-            <a href="/tags/Gradle/">
-                <span class="chip center-align waves-effect waves-light chip-default">Gradle</span>
+            <a href="/tags/Android%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/">
+                <span class="chip center-align waves-effect waves-light chip-default">Android启动流程</span>
             </a>
             
             
@@ -812,14 +788,14 @@
             
             
             
-            <a href="/tags/Map/">
-                <span class="chip center-align waves-effect waves-light chip-default">Map</span>
+            <a href="/tags/Java/">
+                <span class="chip center-align waves-effect waves-light chip-default">Java</span>
             </a>
             
             
             
-            <a href="/tags/SDL/">
-                <span class="chip center-align waves-effect waves-light chip-default">SDL</span>
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                <span class="chip center-align waves-effect waves-light chip-default">数据结构</span>
             </a>
             
             
@@ -830,14 +806,50 @@
             
             
             
-            <a href="/tags/Flutter/">
-                <span class="chip center-align waves-effect waves-light chip-default">Flutter</span>
+            <a href="/tags/Map/">
+                <span class="chip center-align waves-effect waves-light chip-default">Map</span>
             </a>
             
             
             
-            <a href="/tags/Dart/">
-                <span class="chip center-align waves-effect waves-light chip-default">Dart</span>
+            <a href="/tags/Gradle/">
+                <span class="chip center-align waves-effect waves-light chip-default">Gradle</span>
+            </a>
+            
+            
+            
+            <a href="/tags/List/">
+                <span class="chip center-align waves-effect waves-light chip-default">List</span>
+            </a>
+            
+            
+            
+            <a href="/tags/CMake/">
+                <span class="chip center-align waves-effect waves-light chip-default">CMake</span>
+            </a>
+            
+            
+            
+            <a href="/tags/GN/">
+                <span class="chip center-align waves-effect waves-light chip-default">GN</span>
+            </a>
+            
+            
+            
+            <a href="/tags/SDL/">
+                <span class="chip center-align waves-effect waves-light chip-default">SDL</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E8%AF%AD%E6%B3%95/">
+                <span class="chip center-align waves-effect waves-light chip-default">语法</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Flutter/">
+                <span class="chip center-align waves-effect waves-light chip-default">Flutter</span>
             </a>
             
             
@@ -848,14 +860,26 @@
             
             
             
+            <a href="/tags/%E5%9C%86%E8%A7%92/">
+                <span class="chip center-align waves-effect waves-light chip-default">圆角</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Dart/">
+                <span class="chip center-align waves-effect waves-light chip-default">Dart</span>
+            </a>
+            
+            
+            
             <a href="/tags/Text/">
                 <span class="chip center-align waves-effect waves-light chip-default">Text</span>
             </a>
             
             
             
-            <a href="/tags/%E5%9C%86%E8%A7%92/">
-                <span class="chip center-align waves-effect waves-light chip-default">圆角</span>
+            <a href="/tags/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/">
+                <span class="chip center-align waves-effect waves-light chip-default">时间处理</span>
             </a>
             
             
@@ -865,18 +889,6 @@
             </a>
             
             
-            
-            <a href="/tags/flutter-tools/">
-                <span class="chip center-align waves-effect waves-light chip-default">flutter tools</span>
-            </a>
-            
-            
-            
-            
-            
-            <a href="/tags/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/">
-                <span class="chip center-align waves-effect waves-light chip-default">时间处理</span>
-            </a>
             
             
             
@@ -888,6 +900,12 @@
             
             <a href="/tags/%E8%AE%A1%E5%88%92/">
                 <span class="chip center-align waves-effect waves-light chip-default">计划</span>
+            </a>
+            
+            
+            
+            <a href="/tags/flutter-tools/">
+                <span class="chip center-align waves-effect waves-light chip-default">flutter tools</span>
             </a>
             
             
@@ -919,7 +937,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19.2k</span>&nbsp;字
+                class="white-color">23k</span>&nbsp;字
             
             
             

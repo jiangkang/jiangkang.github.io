@@ -295,7 +295,7 @@
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/banner/6.jpg)');
+    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/banner/5.jpg)');
 </script>
 
 
@@ -316,20 +316,20 @@
                 
                 
                 
-                <a href="/categories/C/" title="C++: 4">
+                <a href="/categories/Android/" title="Android: 9">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F9EBEA;">C++
-                        <span class="tag-length">4</span>
+                             chip-active "
+                            style="background-color: #F9EBEA;">Android
+                        <span class="tag-length">9</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/Android/" title="Android: 6">
+                <a href="/categories/C/" title="C++: 4">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            style="background-color: #F5EEF8;">Android
-                        <span class="tag-length">6</span>
+                             chip-default "
+                            style="background-color: #F5EEF8;">C++
+                        <span class="tag-length">4</span>
                     </span>
                 </a>
                 
@@ -374,6 +374,162 @@
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2020/06/12/android/aosp-de-bian-yi/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/4.jpg" class="responsive-img" alt="AOSP的编译">
+                            
+                            <span class="card-title">AOSP的编译</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                aosp现在使用soong编译工具进行编译了,比之前的老版本编译要容易方便得多了.
+步骤
+
+配置好repo等工具
+下载aosp源码
+开始编译
+模拟器演示或者刷写到真实设备上
+
+其实这几个步骤都没什么好说的.第一二步按照要求下载工具和源码即可
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-12
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Android/" class="post-category">
+                                    Android
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E7%BC%96%E8%AF%91/">
+                            <span class="chip bg-color">编译</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/06/12/android/android-kai-ji-dong-hua-fen-xi/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/6.jpg" class="responsive-img" alt="Android开机动画分析">
+                            
+                            <span class="card-title">Android开机动画分析</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                开机动画系统会按照下面的顺序选择一个开机动画资源(一个zip文件,比如bootanimation.zip):
+/system/media/bootanimation-encrypted.zip (if getprop(&quot;vold.
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-12
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Android/" class="post-category">
+                                    Android
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
+                            <span class="chip bg-color">源码分析</span>
+                        </a>
+                        
+                        <a href="/tags/Android%E5%BC%80%E6%9C%BA%E5%8A%A8%E7%94%BB/">
+                            <span class="chip bg-color">Android开机动画</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/06/12/android/android-xi-tong-qi-dong-liu-cheng-fen-xi/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/4.jpg" class="responsive-img" alt="Android系统启动流程分析">
+                            
+                            <span class="card-title">Android系统启动流程分析</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Boot ROM当按下电源键,硬件上电之后,会从一个固定的内存区域读取程序.这个程序是烧写到硬件上的(ROM),用于将bootloader加载到RAM中,并开始执行它.
+bootloaderbootloader用于告诉设备如何找到系统内核,
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-12
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Android/" class="post-category">
+                                    Android
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
+                            <span class="chip bg-color">源码分析</span>
+                        </a>
+                        
+                        <a href="/tags/Android%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/">
+                            <span class="chip bg-color">Android启动流程</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2020/05/15/android/java-zhong-de-lock/">
                         <div class="card-image tag-image">
                             
@@ -413,12 +569,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Java/">
-                            <span class="chip bg-color">Java</span>
-                        </a>
-                        
                         <a href="/tags/Lock/">
                             <span class="chip bg-color">Lock</span>
+                        </a>
+                        
+                        <a href="/tags/Java/">
+                            <span class="chip bg-color">Java</span>
                         </a>
                         
                     </div>
@@ -465,12 +621,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                            <span class="chip bg-color">数据结构</span>
-                        </a>
-                        
                         <a href="/tags/Java/">
                             <span class="chip bg-color">Java</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                            <span class="chip bg-color">数据结构</span>
                         </a>
                         
                         <a href="/tags/Map/">
@@ -521,16 +677,16 @@ ArrayList由于通过数组索引定位，所以查找效率比
                     
                     <div class="card-action article-tags">
                         
+                        <a href="/tags/Java/">
+                            <span class="chip bg-color">Java</span>
+                        </a>
+                        
                         <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                             <span class="chip bg-color">数据结构</span>
                         </a>
                         
                         <a href="/tags/List/">
                             <span class="chip bg-color">List</span>
-                        </a>
-                        
-                        <a href="/tags/Java/">
-                            <span class="chip bg-color">Java</span>
                         </a>
                         
                     </div>
@@ -579,12 +735,12 @@ public interface Queue&lt;E> extends Collection&lt;E> {
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                            <span class="chip bg-color">数据结构</span>
-                        </a>
-                        
                         <a href="/tags/Java/">
                             <span class="chip bg-color">Java</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                            <span class="chip bg-color">数据结构</span>
                         </a>
                         
                         <a href="/tags/%E9%98%9F%E5%88%97/">
@@ -715,7 +871,7 @@ build.gradle 可以直接获取同级目录和上层目录的properties文件.
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19.2k</span>&nbsp;字
+                class="white-color">23k</span>&nbsp;字
             
             
             
