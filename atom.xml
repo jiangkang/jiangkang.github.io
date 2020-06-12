@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.jiangkang.tech/"/>
-  <updated>2020-06-12T12:14:24.966Z</updated>
+  <updated>2020-06-12T15:59:14.011Z</updated>
   <id>https://www.jiangkang.tech/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ARM架构基础知识</title>
+    <link href="https://www.jiangkang.tech/2020/06/12/ying-jian/arm-jia-gou-ji-chu-zhi-shi/"/>
+    <id>https://www.jiangkang.tech/2020/06/12/ying-jian/arm-jia-gou-ji-chu-zhi-shi/</id>
+    <published>2020-06-12T15:56:17.000Z</published>
+    <updated>2020-06-12T15:59:14.011Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>Architecture 中文可以是体系结构,也可以是架构,我这里用架构</p><p>一些专业术语可以在本科课程/书籍《计算机体系结构》中找到.</p></blockquote><h2 id="三种配置"><a href="#三种配置" class="headerlink" title="三种配置"></a>三种配置</h2><ul><li><p>A-Profile(Applications)</p><p>性能最高,用于运行复杂的操作系统,比如Linux,Windows</p></li><li><p>R-Profile(Real-time)</p><p>用于运行对实时性有要求的系统</p></li><li><p>M-Profile(Microcontroller)</p><p>低功耗,高能效,常用于一些IOT设备</p></li></ul><p>Arm Cortex是一个Arm处理器IP产品(硬件中的知识产权核,可以类比为模块设计)的品牌.</p><p><img src="https://oss.jiangkang.tech/jk/arm.png" alt="arm"></p><h2 id="ARM架构是什么"><a href="#ARM架构是什么" class="headerlink" title="ARM架构是什么?"></a>ARM架构是什么?</h2><p>所谓Arm架构说的就是Arm处理器的功能规范,它有什么指令集,指令集都做些什么.</p><p>可以把Arm架构当作是硬件与软件间的一种协议,描述了软件可以使用哪些硬件提供的功能.</p><p>架构一般会指定下面这些内容:</p><ul><li>指令集(Instruction set)<ul><li>每个指令的功能</li><li>指令在内存中是如何表示的(指令的编码)</li></ul></li><li>寄存器集(Register set)<ul><li>有多少个寄存器</li><li>寄存器的大小</li><li>寄存器的功能</li><li>寄存器的初始化状态</li></ul></li><li>异常模型(Exception model)<ul><li>不同级别的特权</li><li>异常的类型</li><li>当从一个异常返回时会发生什么</li></ul></li><li>内存模型(Memory model)<ul><li>内存访问的顺序</li><li>缓存的运行方式,软件应该什么时候,怎么显示的维护缓存</li></ul></li><li>调试,跟踪,性能相关(Debug, trace, and profiling)<ul><li>如何设置和触发断点</li><li>trace工具可以以什么格式,捕获什么信息</li></ul></li></ul><h2 id="架构与微架构"><a href="#架构与微架构" class="headerlink" title="架构与微架构"></a>架构与微架构</h2><p>架构不会描述处理器是如何构建和工作的.</p><p>处理器的构建(实现)和设计称为微架构.微架构会告诉你一个处理器是如何工作的.</p><p>微架构包含以下内容:</p><ul><li>流水线(pipeline)的长度和布局</li><li>缓存的数量和大小</li><li>单个指令的循环计数</li><li>实现了哪些可选的特性</li></ul><p>比如Cortex-A53和Cortex-A72都是Armv8-A架构的实现.也就是说它们拥有相同的架构,不同的微架构.</p><p><img src="https://oss.jiangkang.tech/jk/cortext.png" alt="image-20200612231401573"></p><p>上面这张图描述的就是微架构.</p><p>在架构上兼容的软件可以在Cortex-A53和Cortex-A72上运行,而无需修改,因为它们实现了相同的架构.</p><h2 id="Arm架构的开发"><a href="#Arm架构的开发" class="headerlink" title="Arm架构的开发"></a>Arm架构的开发</h2><p>Arm架构是与时俱进,不断改进的,每个版本都是建立在以前的基础之上的.</p><p>比如常见的Armv8-A架构,意思是A系列的第8版架构,也可缩写成V8-A</p><p><img src="https://oss.jiangkang.tech/jk/arm%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B.png" alt="image-20200612232247179"></p><p>Armv8-A架构是一个里程碑.因为它使用的是64位(同时兼容32位),而它之前的版本都是32位(v5,v6,v7).</p><h2 id="其他架构"><a href="#其他架构" class="headerlink" title="其他架构"></a>其他架构</h2><p>除了arm架构,也有其他架构:</p><p><img src="https://oss.jiangkang.tech/jk/server-arm.png" alt="image-20200612233518408"></p><p>比如用于服务端的架构.</p><h2 id="文档类型"><a href="#文档类型" class="headerlink" title="文档类型"></a>文档类型</h2><ul><li>Arm架构参考手册( Reference Manual ):描述架构规范</li><li>每个Arm Cortex处理器都有一个技术参考手册(Reference Manual,TRM):描述了处理器的特点,通常不会重复arm架构参考手册的内容</li><li>每个Arm Cortex处理器都有一个配置或者集成参考手册(CIM):描述了如何将处理器集成到系统中,通常这个文档只与Soc设计者相关,并且只对有IP授权的厂商可用(但是没有license也可以下载)</li></ul><p>上面这三种文档都不会告诉你如何使用处理器(这部分内容在指南中,即Guides)</p><h2 id="通用架构术语"><a href="#通用架构术语" class="headerlink" title="通用架构术语"></a>通用架构术语</h2><p>架构描述中有许多简写,也就是术语.</p><h3 id="PE-Processing-Element-处理单元"><a href="#PE-Processing-Element-处理单元" class="headerlink" title="PE(Processing Element)/处理单元"></a>PE(Processing Element)/处理单元</h3><p>PE是一个Arm架构实现的通用术语,任何有它自己的程序计数器,并且可以执行一个程序的东西都可以看作是一个PE.</p><p>同一个架构可能有多种微架构实现,比如Arm Cortex-A处理器的微架构可以是:</p><ul><li>Cortex-A8是一个单核,单线程处理器,整个处理器就是一个PE</li><li>Cortex-A53是一个多核处理器,每个核是一个单线程,每个核就是一个PE</li><li>Cortex-A53AE是一个多核处理器,每个核有两个线程,每个线程就是一个PE.</li></ul><h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="https://developer.arm.com/" target="_blank" rel="noopener">https://developer.arm.com/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;Architecture 中文可以是体系结构,也可以是架构,我这里用架构&lt;/p&gt;
+&lt;p&gt;一些专业术语可以在本科课程/书籍《计算机体系结构》中找到.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;三种配置&quot;&gt;&lt;a href=&quot;#三种配置&quot; cl
+      
+    
+    </summary>
+    
+    
+      <category term="硬件" scheme="https://www.jiangkang.tech/categories/%E7%A1%AC%E4%BB%B6/"/>
+    
+    
+      <category term="ARM架构" scheme="https://www.jiangkang.tech/tags/ARM%E6%9E%B6%E6%9E%84/"/>
+    
+      <category term="ARM" scheme="https://www.jiangkang.tech/tags/ARM/"/>
+    
+  </entry>
   
   <entry>
     <title>AOSP的编译</title>
@@ -571,35 +603,6 @@
       <category term="Flutter" scheme="https://www.jiangkang.tech/tags/Flutter/"/>
     
       <category term="Dart" scheme="https://www.jiangkang.tech/tags/Dart/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Flutter-实现图片圆角的几种方式</title>
-    <link href="https://www.jiangkang.tech/2020/05/08/flutter/flutter-shi-xian-tu-pian-yuan-jiao-de-ji-chong-fang-shi/"/>
-    <id>https://www.jiangkang.tech/2020/05/08/flutter/flutter-shi-xian-tu-pian-yuan-jiao-de-ji-chong-fang-shi/</id>
-    <published>2020-05-08T13:44:09.000Z</published>
-    <updated>2020-05-25T10:54:38.791Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>关注 <a href="https://github.com/jiangkang/flutter-system" target="_blank" rel="noopener">https://github.com/jiangkang/flutter-system</a> 了解更多Flutter相关的知识</p></blockquote><p>图片圆角在开发中还是非常常见的，用Flutter实现圆角还是非常简单的，目前了解的大概有下面这几种：</p><ul><li>通过Card的shape属性</li><li>通过Container的decoration</li><li>直接使用ClipRRect</li></ul><h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><img src="https://oss.jiangkang.tech/jk/tupianyuanjiao.png" style="zoom:50%;" /><h2 id="通过Card的shape属性"><a href="#通过Card的shape属性" class="headerlink" title="通过Card的shape属性"></a>通过Card的shape属性</h2><pre class=" language-dart"><code class="language-dart"><span class="token function">Card</span><span class="token punctuation">(</span>            shape<span class="token punctuation">:</span> <span class="token function">RoundedRectangleBorder</span><span class="token punctuation">(</span>                borderRadius<span class="token punctuation">:</span> BorderRadiusDirectional<span class="token punctuation">.</span><span class="token function">circular</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>            clipBehavior<span class="token punctuation">:</span> Clip<span class="token punctuation">.</span>antiAlias<span class="token punctuation">,</span>            child<span class="token punctuation">:</span> Image<span class="token punctuation">.</span><span class="token function">asset</span><span class="token punctuation">(</span>              <span class="token string">"images/landscape0.jpeg"</span><span class="token punctuation">,</span>              width<span class="token punctuation">:</span> double<span class="token punctuation">.</span>maxFinite<span class="token punctuation">,</span>            <span class="token punctuation">)</span><span class="token punctuation">,</span>          <span class="token punctuation">)</span></code></pre><p>唯一值的注意的地方就是borderRadius看准了，不要用错了，要不然没效果。</p><h2 id="通过Container的decoration"><a href="#通过Container的decoration" class="headerlink" title="通过Container的decoration"></a>通过Container的decoration</h2><pre class=" language-dart"><code class="language-dart"><span class="token function">Container</span><span class="token punctuation">(</span>          decoration<span class="token punctuation">:</span> <span class="token function">ShapeDecoration</span><span class="token punctuation">(</span>              image<span class="token punctuation">:</span> <span class="token function">DecorationImage</span><span class="token punctuation">(</span>                  image<span class="token punctuation">:</span> <span class="token function">AssetImage</span><span class="token punctuation">(</span><span class="token string">"images/landscape1.jpeg"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>                  fit<span class="token punctuation">:</span> BoxFit<span class="token punctuation">.</span>fitWidth<span class="token punctuation">)</span><span class="token punctuation">,</span>              shape<span class="token punctuation">:</span> <span class="token function">RoundedRectangleBorder</span><span class="token punctuation">(</span>                  borderRadius<span class="token punctuation">:</span> BorderRadiusDirectional<span class="token punctuation">.</span><span class="token function">circular</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>          width<span class="token punctuation">:</span> double<span class="token punctuation">.</span>maxFinite<span class="token punctuation">,</span>          height<span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span>          child<span class="token punctuation">:</span> <span class="token function">Align</span><span class="token punctuation">(</span>            child<span class="token punctuation">:</span> <span class="token function">Padding</span><span class="token punctuation">(</span>              padding<span class="token punctuation">:</span> <span class="token keyword">const</span> EdgeInsets<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token number">8.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>              child<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>                <span class="token string">"Container decoration实现圆角(radius = 20)"</span><span class="token punctuation">,</span>                style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>white<span class="token punctuation">)</span><span class="token punctuation">,</span>              <span class="token punctuation">)</span><span class="token punctuation">,</span>            <span class="token punctuation">)</span><span class="token punctuation">,</span>            alignment<span class="token punctuation">:</span> Alignment<span class="token punctuation">.</span>bottomCenter<span class="token punctuation">,</span>          <span class="token punctuation">)</span><span class="token punctuation">,</span>        <span class="token punctuation">)</span></code></pre><p>使用的DecorationImage，相当于把图片当做一个背景，这里需要注意的就是Container的child的尺寸问题，就算不放内容，也需要设置一个带尺寸的child Widget。</p><h2 id="直接使用ClipRRect"><a href="#直接使用ClipRRect" class="headerlink" title="直接使用ClipRRect"></a>直接使用ClipRRect</h2><pre class=" language-dart"><code class="language-dart"><span class="token function">ClipRRect</span><span class="token punctuation">(</span>              borderRadius<span class="token punctuation">:</span> BorderRadius<span class="token punctuation">.</span><span class="token function">circular</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>              child<span class="token punctuation">:</span> Image<span class="token punctuation">.</span><span class="token function">asset</span><span class="token punctuation">(</span><span class="token string">"images/landscape2.jpeg"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>            <span class="token punctuation">)</span><span class="token punctuation">,</span></code></pre><p>这种方式是最简单的，直接使用即可。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;关注 &lt;a href=&quot;https://github.com/jiangkang/flutter-system&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/jiangkang/flutter
-      
-    
-    </summary>
-    
-    
-      <category term="Flutter" scheme="https://www.jiangkang.tech/categories/Flutter/"/>
-    
-    
-      <category term="Flutter" scheme="https://www.jiangkang.tech/tags/Flutter/"/>
-    
-      <category term="圆角" scheme="https://www.jiangkang.tech/tags/%E5%9C%86%E8%A7%92/"/>
     
   </entry>
   

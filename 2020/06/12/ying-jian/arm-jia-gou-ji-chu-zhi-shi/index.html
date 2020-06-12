@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Java中的Map, 姜康,天津大学,Android,Golang">
+    <meta name="keywords" content="ARM架构基础知识, 姜康,天津大学,Android,Golang">
     <meta name="description" content="姜康的技术博客:用技术解决实际问题">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Java中的Map | 姜康的技术博客</title>
+    <title>ARM架构基础知识 | 姜康的技术博客</title>
     <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/avatar.jpeg">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/awesome/css/all.css">
@@ -278,12 +278,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://oss.jiangkang.tech/jk/Map.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://oss.jiangkang.tech/jk/arm.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Java中的Map</h1>
+                    <h1 class="description center-align post-title">ARM架构基础知识</h1>
                 </div>
             </div>
         </div>
@@ -400,16 +400,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                                <span class="chip bg-color">数据结构</span>
+                            <a href="/tags/ARM%E6%9E%B6%E6%9E%84/">
+                                <span class="chip bg-color">ARM架构</span>
                             </a>
                         
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
-                            </a>
-                        
-                            <a href="/tags/Map/">
-                                <span class="chip bg-color">Map</span>
+                            <a href="/tags/ARM/">
+                                <span class="chip bg-color">ARM</span>
                             </a>
                         
                     </div>
@@ -420,8 +416,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Android/" class="post-category">
-                                Android
+                            <a href="/categories/%E7%A1%AC%E4%BB%B6/" class="post-category">
+                                硬件
                             </a>
                         
                     </div>
@@ -433,7 +429,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-15
+                    2020-06-12
                 </div>
                 
 
@@ -442,7 +438,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    887
+                    1.1k
                 </div>
                 
 
@@ -459,123 +455,91 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="https://oss.jiangkang.tech/jk/Map.png" alt="Map"></p>
-<h2 id="哈希表-散列表"><a href="#哈希表-散列表" class="headerlink" title="哈希表/散列表"></a>哈希表/散列表</h2><p><img src="https://oss.jiangkang.tech/jk/HashMap%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84.png" alt=""></p>
-<p>通俗的说就是，使用散列函数将key值映射到数组下标，这样就可以根据key值直接访问到元素存储位置，这种结构就叫哈希表（散列表）。</p>
-<p>将key值映射到数组下标的函数就做散列函数，这个映射过程是一个key值压缩的过程，因而不可避免会存在两个不同的值映射到了相同的下标的情况，这种情况叫做<strong>哈希冲突</strong>。</p>
-<p>散列函数的选取也是有套路可循的，比如除数取余法，平方取中法，数字分析法，折叠法扥等。</p>
-<p>解决哈希冲突一般有两种方法：</p>
-<ul>
-<li><p>开放定址法</p>
-<p>如果遇到冲突，则向后几步再存；</p>
+                <blockquote>
+<p>Architecture 中文可以是体系结构,也可以是架构,我这里用架构</p>
+<p>一些专业术语可以在本科课程/书籍《计算机体系结构》中找到.</p>
+</blockquote>
+<h2 id="三种配置"><a href="#三种配置" class="headerlink" title="三种配置"></a>三种配置</h2><ul>
+<li><p>A-Profile(Applications)</p>
+<p>性能最高,用于运行复杂的操作系统,比如Linux,Windows</p>
 </li>
-<li><p>链接法（拉链法）</p>
-<p>如果遇到冲突，则在对应位置后面添加一个链表节点。</p>
+<li><p>R-Profile(Real-time)</p>
+<p>用于运行对实时性有要求的系统</p>
+</li>
+<li><p>M-Profile(Microcontroller)</p>
+<p>低功耗,高能效,常用于一些IOT设备</p>
 </li>
 </ul>
-<h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><p>允许key和value为null。</p>
-<p>使用一个链表数组（bucket，也叫哈希表，散列表）来存储数据。</p>
-<p>线程安全的。</p>
-<p>查询的效率可以达到O(1)。</p>
-<p>Java8中大部分情况是基于哈希表实现，当链表长度达到8的时候，转为红黑树实现。</p>
-<p>不保证存取顺序；</p>
-<p><img src="https://oss.jiangkang.tech/jk/HashMap-%E7%BA%A2%E9%BB%91%E6%A0%91.png" alt=""></p>
-<p>具体的看存储结构：</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Node</span><span class="token operator">&lt;</span>K<span class="token punctuation">,</span>V<span class="token operator">></span> <span class="token keyword">implements</span> <span class="token class-name">Map<span class="token punctuation">.</span>Entry</span><span class="token operator">&lt;</span>K<span class="token punctuation">,</span>V<span class="token operator">></span> <span class="token punctuation">{</span>
-        <span class="token keyword">final</span> <span class="token keyword">int</span> hash<span class="token punctuation">;</span>
-        <span class="token keyword">final</span> K key<span class="token punctuation">;</span>
-        V value<span class="token punctuation">;</span>
-        Node<span class="token operator">&lt;</span>K<span class="token punctuation">,</span>V<span class="token operator">></span> next<span class="token punctuation">;</span>
-
-        <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> Objects<span class="token punctuation">.</span><span class="token function">hashCode</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">^</span> Objects<span class="token punctuation">.</span><span class="token function">hashCode</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">equals</span><span class="token punctuation">(</span>Object o<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>o <span class="token operator">==</span> <span class="token keyword">this</span><span class="token punctuation">)</span>
-                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>o <span class="token keyword">instanceof</span> <span class="token class-name">Map<span class="token punctuation">.</span>Entry</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                Map<span class="token punctuation">.</span>Entry<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token punctuation">,</span><span class="token operator">?</span><span class="token operator">></span> e <span class="token operator">=</span> <span class="token punctuation">(</span>Map<span class="token punctuation">.</span>Entry<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token punctuation">,</span><span class="token operator">?</span><span class="token operator">></span><span class="token punctuation">)</span>o<span class="token punctuation">;</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>Objects<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> e<span class="token punctuation">.</span><span class="token function">getKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
-                    Objects<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> e<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span></code></pre>
-<p>看看树节点：</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">TreeNode</span><span class="token operator">&lt;</span>K<span class="token punctuation">,</span>V<span class="token operator">></span> <span class="token keyword">extends</span> <span class="token class-name">LinkedHashMap<span class="token punctuation">.</span>Entry</span><span class="token operator">&lt;</span>K<span class="token punctuation">,</span>V<span class="token operator">></span> <span class="token punctuation">{</span>
-        TreeNode<span class="token operator">&lt;</span>K<span class="token punctuation">,</span>V<span class="token operator">></span> parent<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// red-black tree links</span>
-        TreeNode<span class="token operator">&lt;</span>K<span class="token punctuation">,</span>V<span class="token operator">></span> left<span class="token punctuation">;</span>
-        TreeNode<span class="token operator">&lt;</span>K<span class="token punctuation">,</span>V<span class="token operator">></span> right<span class="token punctuation">;</span>
-        TreeNode<span class="token operator">&lt;</span>K<span class="token punctuation">,</span>V<span class="token operator">></span> prev<span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// needed to unlink next upon deletion</span>
-        <span class="token keyword">boolean</span> red<span class="token punctuation">;</span>    
-<span class="token punctuation">}</span></code></pre>
-<h2 id="HashTable"><a href="#HashTable" class="headerlink" title="HashTable"></a>HashTable</h2><p>不允许key和value为null。</p>
-<p>使用一个链表数组（bucket，也叫哈希表，散列表）来存储数据。</p>
-<p>线程不安全的。</p>
-<p>先来看看查找的关键代码：</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">synchronized</span> V <span class="token function">get</span><span class="token punctuation">(</span>Object key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        Entry<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token punctuation">,</span><span class="token operator">?</span><span class="token operator">></span> tab<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> table<span class="token punctuation">;</span>
-        <span class="token keyword">int</span> hash <span class="token operator">=</span> key<span class="token punctuation">.</span><span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token punctuation">(</span>hash <span class="token operator">&amp;</span> <span class="token number">0x7FFFFFFF</span><span class="token punctuation">)</span> <span class="token operator">%</span> tab<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span>Entry<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token punctuation">,</span><span class="token operator">?</span><span class="token operator">></span> e <span class="token operator">=</span> tab<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token punctuation">;</span> e <span class="token operator">!=</span> null <span class="token punctuation">;</span> e <span class="token operator">=</span> e<span class="token punctuation">.</span>next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>hash <span class="token operator">==</span> hash<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> e<span class="token punctuation">.</span>key<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">return</span> <span class="token punctuation">(</span>V<span class="token punctuation">)</span>e<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> null<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span></code></pre>
-<p>可以看到，就是先取key的hash值，然后对表长取余确定好数组下标。然后从数组下标处的链表开始查找。</p>
-<p>再来看看put操作的代码：</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">synchronized</span> V <span class="token function">put</span><span class="token punctuation">(</span>K key<span class="token punctuation">,</span> V value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Make sure the value is not null</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">NullPointerException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token comment" spellcheck="true">// Makes sure the key is not already in the hashtable.</span>
-        Entry<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token punctuation">,</span><span class="token operator">?</span><span class="token operator">></span> tab<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> table<span class="token punctuation">;</span>
-        <span class="token keyword">int</span> hash <span class="token operator">=</span> key<span class="token punctuation">.</span><span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> index <span class="token operator">=</span> <span class="token punctuation">(</span>hash <span class="token operator">&amp;</span> <span class="token number">0x7FFFFFFF</span><span class="token punctuation">)</span> <span class="token operator">%</span> tab<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-        <span class="token annotation punctuation">@SuppressWarnings</span><span class="token punctuation">(</span><span class="token string">"unchecked"</span><span class="token punctuation">)</span>
-        Entry<span class="token operator">&lt;</span>K<span class="token punctuation">,</span>V<span class="token operator">></span> entry <span class="token operator">=</span> <span class="token punctuation">(</span>Entry<span class="token operator">&lt;</span>K<span class="token punctuation">,</span>V<span class="token operator">></span><span class="token punctuation">)</span>tab<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token punctuation">;</span> entry <span class="token operator">!=</span> null <span class="token punctuation">;</span> entry <span class="token operator">=</span> entry<span class="token punctuation">.</span>next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>entry<span class="token punctuation">.</span>hash <span class="token operator">==</span> hash<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> entry<span class="token punctuation">.</span>key<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                V old <span class="token operator">=</span> entry<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
-                entry<span class="token punctuation">.</span>value <span class="token operator">=</span> value<span class="token punctuation">;</span>
-                <span class="token keyword">return</span> old<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token function">addEntry</span><span class="token punctuation">(</span>hash<span class="token punctuation">,</span> key<span class="token punctuation">,</span> value<span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> null<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-<span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">addEntry</span><span class="token punctuation">(</span><span class="token keyword">int</span> hash<span class="token punctuation">,</span> K key<span class="token punctuation">,</span> V value<span class="token punctuation">,</span> <span class="token keyword">int</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        modCount<span class="token operator">++</span><span class="token punctuation">;</span>
-
-        Entry<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token punctuation">,</span><span class="token operator">?</span><span class="token operator">></span> tab<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> table<span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>count <span class="token operator">>=</span> threshold<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// Rehash the table if the threshold is exceeded</span>
-            <span class="token function">rehash</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-            tab <span class="token operator">=</span> table<span class="token punctuation">;</span>
-            hash <span class="token operator">=</span> key<span class="token punctuation">.</span><span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            index <span class="token operator">=</span> <span class="token punctuation">(</span>hash <span class="token operator">&amp;</span> <span class="token number">0x7FFFFFFF</span><span class="token punctuation">)</span> <span class="token operator">%</span> tab<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-        <span class="token comment" spellcheck="true">// Creates the new entry.</span>
-        <span class="token annotation punctuation">@SuppressWarnings</span><span class="token punctuation">(</span><span class="token string">"unchecked"</span><span class="token punctuation">)</span>
-        Entry<span class="token operator">&lt;</span>K<span class="token punctuation">,</span>V<span class="token operator">></span> e <span class="token operator">=</span> <span class="token punctuation">(</span>Entry<span class="token operator">&lt;</span>K<span class="token punctuation">,</span>V<span class="token operator">></span><span class="token punctuation">)</span> tab<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        tab<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Entry</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span>hash<span class="token punctuation">,</span> key<span class="token punctuation">,</span> value<span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        count<span class="token operator">++</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span></code></pre>
-<p>还是通过对key做hash运算，然后取余得到数组下标，再进行遍历，如果已经存在对应的key，则替换新值；如果是新key，则添加到链表最前面。</p>
-<p>并且可以看到value不可以为null，否则抛出异常。key也不能为null，要不然也会抛出空指针异常。</p>
-<p>可以看到看到get/put方法都是同步的，保证了线程安全。</p>
-<h2 id="LinkedHashMap"><a href="#LinkedHashMap" class="headerlink" title="LinkedHashMap"></a>LinkedHashMap</h2><p>双向链表与HashMap的结合。</p>
-<p>保证插入的顺序，遍历的时候先得到的是先插入的元素。</p>
+<p>Arm Cortex是一个Arm处理器IP产品(硬件中的知识产权核,可以类比为模块设计)的品牌.</p>
+<p><img src="https://oss.jiangkang.tech/jk/arm.png" alt="arm"></p>
+<h2 id="ARM架构是什么"><a href="#ARM架构是什么" class="headerlink" title="ARM架构是什么?"></a>ARM架构是什么?</h2><p>所谓Arm架构说的就是Arm处理器的功能规范,它有什么指令集,指令集都做些什么.</p>
+<p>可以把Arm架构当作是硬件与软件间的一种协议,描述了软件可以使用哪些硬件提供的功能.</p>
+<p>架构一般会指定下面这些内容:</p>
+<ul>
+<li>指令集(Instruction set)<ul>
+<li>每个指令的功能</li>
+<li>指令在内存中是如何表示的(指令的编码)</li>
+</ul>
+</li>
+<li>寄存器集(Register set)<ul>
+<li>有多少个寄存器</li>
+<li>寄存器的大小</li>
+<li>寄存器的功能</li>
+<li>寄存器的初始化状态</li>
+</ul>
+</li>
+<li>异常模型(Exception model)<ul>
+<li>不同级别的特权</li>
+<li>异常的类型</li>
+<li>当从一个异常返回时会发生什么</li>
+</ul>
+</li>
+<li>内存模型(Memory model)<ul>
+<li>内存访问的顺序</li>
+<li>缓存的运行方式,软件应该什么时候,怎么显示的维护缓存</li>
+</ul>
+</li>
+<li>调试,跟踪,性能相关(Debug, trace, and profiling)<ul>
+<li>如何设置和触发断点</li>
+<li>trace工具可以以什么格式,捕获什么信息</li>
+</ul>
+</li>
+</ul>
+<h2 id="架构与微架构"><a href="#架构与微架构" class="headerlink" title="架构与微架构"></a>架构与微架构</h2><p>架构不会描述处理器是如何构建和工作的.</p>
+<p>处理器的构建(实现)和设计称为微架构.微架构会告诉你一个处理器是如何工作的.</p>
+<p>微架构包含以下内容:</p>
+<ul>
+<li>流水线(pipeline)的长度和布局</li>
+<li>缓存的数量和大小</li>
+<li>单个指令的循环计数</li>
+<li>实现了哪些可选的特性</li>
+</ul>
+<p>比如Cortex-A53和Cortex-A72都是Armv8-A架构的实现.也就是说它们拥有相同的架构,不同的微架构.</p>
+<p><img src="https://oss.jiangkang.tech/jk/cortext.png" alt="image-20200612231401573"></p>
+<p>上面这张图描述的就是微架构.</p>
+<p>在架构上兼容的软件可以在Cortex-A53和Cortex-A72上运行,而无需修改,因为它们实现了相同的架构.</p>
+<h2 id="Arm架构的开发"><a href="#Arm架构的开发" class="headerlink" title="Arm架构的开发"></a>Arm架构的开发</h2><p>Arm架构是与时俱进,不断改进的,每个版本都是建立在以前的基础之上的.</p>
+<p>比如常见的Armv8-A架构,意思是A系列的第8版架构,也可缩写成V8-A</p>
+<p><img src="https://oss.jiangkang.tech/jk/arm%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B.png" alt="image-20200612232247179"></p>
+<p>Armv8-A架构是一个里程碑.因为它使用的是64位(同时兼容32位),而它之前的版本都是32位(v5,v6,v7).</p>
+<h2 id="其他架构"><a href="#其他架构" class="headerlink" title="其他架构"></a>其他架构</h2><p>除了arm架构,也有其他架构:</p>
+<p><img src="https://oss.jiangkang.tech/jk/server-arm.png" alt="image-20200612233518408"></p>
+<p>比如用于服务端的架构.</p>
+<h2 id="文档类型"><a href="#文档类型" class="headerlink" title="文档类型"></a>文档类型</h2><ul>
+<li>Arm架构参考手册( Reference Manual ):描述架构规范</li>
+<li>每个Arm Cortex处理器都有一个技术参考手册(Reference Manual,TRM):描述了处理器的特点,通常不会重复arm架构参考手册的内容</li>
+<li>每个Arm Cortex处理器都有一个配置或者集成参考手册(CIM):描述了如何将处理器集成到系统中,通常这个文档只与Soc设计者相关,并且只对有IP授权的厂商可用(但是没有license也可以下载)</li>
+</ul>
+<p>上面这三种文档都不会告诉你如何使用处理器(这部分内容在指南中,即Guides)</p>
+<h2 id="通用架构术语"><a href="#通用架构术语" class="headerlink" title="通用架构术语"></a>通用架构术语</h2><p>架构描述中有许多简写,也就是术语.</p>
+<h3 id="PE-Processing-Element-处理单元"><a href="#PE-Processing-Element-处理单元" class="headerlink" title="PE(Processing Element)/处理单元"></a>PE(Processing Element)/处理单元</h3><p>PE是一个Arm架构实现的通用术语,任何有它自己的程序计数器,并且可以执行一个程序的东西都可以看作是一个PE.</p>
+<p>同一个架构可能有多种微架构实现,比如Arm Cortex-A处理器的微架构可以是:</p>
+<ul>
+<li>Cortex-A8是一个单核,单线程处理器,整个处理器就是一个PE</li>
+<li>Cortex-A53是一个多核处理器,每个核是一个单线程,每个核就是一个PE</li>
+<li>Cortex-A53AE是一个多核处理器,每个核有两个线程,每个线程就是一个PE.</li>
+</ul>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="https://developer.arm.com/" target="_blank" rel="noopener">https://developer.arm.com/</a></p>
 
             </div>
             <hr/>
@@ -601,7 +565,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-map/">https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-map/</a>
+                    <a href="https://www.jiangkang.tech/2020/06/12/ying-jian/arm-jia-gou-ji-chu-zhi-shi/">https://www.jiangkang.tech/2020/06/12/ying-jian/arm-jia-gou-ji-chu-zhi-shi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -639,16 +603,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                                    <span class="chip bg-color">数据结构</span>
+                                <a href="/tags/ARM%E6%9E%B6%E6%9E%84/">
+                                    <span class="chip bg-color">ARM架构</span>
                                 </a>
                             
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
-                                </a>
-                            
-                                <a href="/tags/Map/">
-                                    <span class="chip bg-color">Map</span>
+                                <a href="/tags/ARM/">
+                                    <span class="chip bg-color">ARM</span>
                                 </a>
                             
                         </div>
@@ -819,7 +779,7 @@
         repo: 'jiangkang.github.io',
         owner: 'jiangkang',
         admin: ["jiangkang"],
-        id: '2020-05-15T13-30-26',
+        id: '2020-06-12T23-56-17',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -843,54 +803,57 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/15/android/java-zhong-de-lock/">
+                <a href="/2020/06/12/ying-jian/arm-jia-gou-ji-chu-zhi-shi/">
                     <div class="card-image">
                         
-                        <img src="https://oss.jiangkang.tech/jk/Lock.png" class="responsive-img" alt="Java中的Lock">
+                        <img src="https://oss.jiangkang.tech/jk/arm.png" class="responsive-img" alt="ARM架构基础知识">
                         
-                        <span class="card-title">Java中的Lock</span>
+                        <span class="card-title">ARM架构基础知识</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Java 中保证线程安全，操作同步的方法有很多种，比如：
+                            
+Architecture 中文可以是体系结构,也可以是架构,我这里用架构
+一些专业术语可以在本科课程/书籍《计算机体系结构》中找到.
 
-使用synchronized关键字
-使用Lock的实现类
-
-其中synchronized属于语言级别的处理，无需我们去处理细节，而Lock则是一个接口，我们可以自定义Lock或者使
+三种配置
+A-Profile(Applications)
+性能最高,用于运行复杂的操作系统,比如Lin
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Android/" class="post-category">
-                                    Android
+                            <a href="/categories/%E7%A1%AC%E4%BB%B6/" class="post-category">
+                                    硬件
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/ARM%E6%9E%B6%E6%9E%84/">
+                        <span class="chip bg-color">ARM架构</span>
                     </a>
                     
-                    <a href="/tags/Lock/">
-                        <span class="chip bg-color">Lock</span>
+                    <a href="/tags/ARM/">
+                        <span class="chip bg-color">ARM</span>
                     </a>
                     
                 </div>
@@ -904,26 +867,32 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/15/android/java-zhong-de-list/">
+                <a href="/2020/06/12/android/aosp-de-bian-yi/">
                     <div class="card-image">
                         
-                        <img src="https://oss.jiangkang.tech/jk/UML-List.png" class="responsive-img" alt="Java中的List">
                         
-                        <span class="card-title">Java中的List</span>
+                        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/4.jpg" class="responsive-img" alt="AOSP的编译">
+                        
+                        <span class="card-title">AOSP的编译</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            List
-ArrayList通过动态数组存储数据的，数组默认长度为10，实际使用过程中可以通过trimToSize()方法剪裁到实际的list大小。
-ArrayList是线程不安全的；
-ArrayList由于通过数组索引定位，所以查找效率比
+                            aosp现在使用soong编译工具进行编译了,比之前的老版本编译要容易方便得多了.
+步骤
+
+配置好repo等工具
+下载aosp源码
+开始编译
+模拟器演示或者刷写到真实设备上
+
+其实这几个步骤都没什么好说的.第一二步按照要求下载工具和源码即可
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-12
                             </span>
                         <span class="publish-author">
                             
@@ -940,16 +909,8 @@ ArrayList由于通过数组索引定位，所以查找效率比
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="chip bg-color">数据结构</span>
-                    </a>
-                    
-                    <a href="/tags/List/">
-                        <span class="chip bg-color">List</span>
-                    </a>
-                    
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/%E7%BC%96%E8%AF%91/">
+                        <span class="chip bg-color">编译</span>
                     </a>
                     
                 </div>
