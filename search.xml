@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>UART</title>
+      <link href="/2020/06/13/ying-jian/uart/"/>
+      <url>/2020/06/13/ying-jian/uart/</url>
+      
+        <content type="html"><![CDATA[<h2 id="UART"><a href="#UART" class="headerlink" title="UART"></a>UART</h2><p>Universal Asynchronous Receiver/Transmitter,即通用异步收发传输器</p><p>UART是一种串行(串口),异步,收发协议.</p><p>作用:将并行数据转换成串行数据,所谓串行就是一位一位的传输.</p><p>像GPS模块,LCD显示器等就是使用UART串口通信.</p><h2 id="为何说它是通用-异步的"><a href="#为何说它是通用-异步的" class="headerlink" title="为何说它是通用,异步的?"></a>为何说它是通用,异步的?</h2><p>说它是“通用”的,是因为数据传输速度和数据字节格式都是可以配置的;</p><p>说它是“异步”的,是因为它并没有使用时钟来同步两个设备之间的数据传输.</p><p>硬件设备一般会在FIFO缓存区中收集数据,直到APP读取数据.</p><p>UART也是全双工通信,即可以同时发送和接收数据,它通常比I2C快,但是由于缺少共享时钟,因此两个设备必须协商好传输速度.</p><h2 id="硬件连接"><a href="#硬件连接" class="headerlink" title="硬件连接"></a>硬件连接</h2><p>有两种方式:</p><ul><li><p>3线</p><p><img src="https://oss.jiangkang.tech/jk/uart-connections.png" alt=""></p></li><li><p>5线(硬件流控制)</p><p><img src="https://oss.jiangkang.tech/jk/uart-flow-control.png" alt="&quot;uart-flow-control&quot;"></p></li></ul><p>5线的模块新增了两个端口,一个是RTS(request to send),一个是CTS(clear to send)</p><h2 id="软件通信协议"><a href="#软件通信协议" class="headerlink" title="软件通信协议"></a>软件通信协议</h2><p><img src="https://oss.jiangkang.tech/jk/uart-frame.png" alt="&quot;uart-frame&quot;"></p><ul><li><p>空闲</p><p>总线空闲的时候,处于高电平“1”</p></li><li><p>起始位</p><p>开始传输数据前,发送一个低电平“0”,表示开始传输字符的开始</p></li><li><p>数据</p><p>数据可以是5~8位,更少的位表示字符可以提升传输效率 </p></li><li><p>校验位</p><p>可选的位,即可以不设置这个位.如果设置就是奇偶校验:</p><ul><li>奇校验(odd):数据位中“1”的个数是奇数,则为“0”,否则为“1”</li><li>偶校验(even):数据位中“1”的个数是偶数,则为“0”,否则为“1”</li></ul><p>也存在仅作为标记作用的“1”位,和空的校验位“0”</p></li><li><p>停止位</p><p>数据结束标志,可以是1,1.5,2位的高电平</p></li></ul><h2 id="波特率-baud-rate"><a href="#波特率-baud-rate" class="headerlink" title="波特率(baud rate)"></a>波特率(baud rate)</h2><p>通过UART传输数据的速度叫做波特率.它表示发送/接收的速度,单位是bit/s</p><p>因为使用UART连接的两个设备并没有使用共享时钟,因此必须提升设置好波特率.</p><p>常见的波特率有 9600, 19200, 38400, 57600, 115200, 和 921600.</p><p>这个速率包括整个数据帧(起始位,数据位,校验位,停止位),因此实际有效的传输率比设置的低.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 硬件 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> UART </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ARM架构基础知识</title>
       <link href="/2020/06/12/ying-jian/arm-jia-gou-ji-chu-zhi-shi/"/>
       <url>/2020/06/12/ying-jian/arm-jia-gou-ji-chu-zhi-shi/</url>
@@ -35,7 +60,7 @@
       <link href="/2020/06/12/android/aosp-de-bian-yi/"/>
       <url>/2020/06/12/android/aosp-de-bian-yi/</url>
       
-        <content type="html"><![CDATA[<p>aosp现在使用soong编译工具进行编译了,比之前的老版本编译要容易方便得多了.</p><p>步骤</p><ol><li>配置好repo等工具</li><li>下载aosp源码</li><li>开始编译</li><li>模拟器演示或者刷写到真实设备上</li></ol><p>其实这几个步骤都没什么好说的.第一二步按照要求下载工具和源码即可,当然最好有一个科学上网的环境,不行的化用清华的镜像源也是可以的.</p><p>编译</p><p>进入源码根目录,然后执行:</p><pre><code>. build/envsetup.shlunch</code></pre><p>这一步会让你选择构建的Android系统类型</p><pre><code>m droid</code></pre><p>大概需要编译10万个C/C++文件,耗时1~4个小时.</p><p>编译时可能出现的问题</p><ol><li>大小写敏感的磁盘格式问题<br>Android官方文档有格式化的办法构建编译环境</li><li>too many files<br>我用的是MacOS,出现这种问题是因为系统对打开的文件个数有限制.<br>可以在环境变量中设置最大打开文件的个数(.bash_profile,或者.zshrc之类的):<pre><code># set the number of open files to be 1024ulimit -S -n 2048</code></pre></li></ol>]]></content>
+        <content type="html"><![CDATA[<p>aosp现在使用soong编译工具进行编译了,比之前的老版本编译要容易方便得多了.</p><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol><li>配置好repo等工具</li><li>下载aosp源码</li><li>开始编译</li><li>模拟器演示或者刷写到真实设备上</li></ol><p>其实这几个步骤都没什么好说的.第一二步按照要求下载工具和源码即可,当然最好有一个科学上网的环境,不行的化用清华的镜像源也是可以的.</p><h2 id="查看分支-切换分支"><a href="#查看分支-切换分支" class="headerlink" title="查看分支/切换分支"></a>查看分支/切换分支</h2><p>在已经下载好源码之后:</p><ul><li><p>查看分支</p><pre class=" language-shell"><code class="language-shell">cd .repo/manifestsgit branch -a | cut -d / -f 3</code></pre></li><li><p>切换分支</p><pre class=" language-shell"><code class="language-shell">repo checkout xx_branch</code></pre></li></ul><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>进入源码根目录,然后执行:</p><pre class=" language-shell"><code class="language-shell">. build/envsetup.sh</code></pre><pre class=" language-shell"><code class="language-shell">lunch</code></pre><p>这一步会让你选择构建的Android系统类型</p><pre class=" language-shell"><code class="language-shell">m droid</code></pre><p>大概需要编译10万个C/C++文件,耗时1~4个小时.</p><h2 id="编译时可能出现的问题"><a href="#编译时可能出现的问题" class="headerlink" title="编译时可能出现的问题"></a>编译时可能出现的问题</h2><ol><li><p>大小写敏感的磁盘格式问题</p><p>Android官方文档有格式化的办法<a href="https://source.android.google.cn/setup/build/initializing?hl=zh-cn" target="_blank" rel="noopener">构建编译环境</a></p></li><li><p>too many files</p><p>我用的是MacOS,出现这种问题是因为系统对打开的文件个数有限制.</p><p>可以在环境变量中设置最大打开文件的个数(.bash_profile,或者.zshrc之类的):</p><pre class=" language-shell"><code class="language-shell"># set the number of open files to be 1024ulimit -S -n 2048</code></pre></li></ol>]]></content>
       
       
       <categories>
@@ -276,9 +301,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> Lock </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -303,9 +328,9 @@
       
         <tags>
             
-            <tag> 数据结构 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 数据结构 </tag>
             
             <tag> Map </tag>
             
@@ -332,11 +357,11 @@
       
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> 数据结构 </tag>
             
             <tag> List </tag>
-            
-            <tag> Java </tag>
             
         </tags>
       
@@ -361,9 +386,9 @@
       
         <tags>
             
-            <tag> 数据结构 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 数据结构 </tag>
             
             <tag> 队列 </tag>
             

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Flutter-Text的使用, 姜康,天津大学,Android,Golang">
+    <meta name="keywords" content="UART, 姜康,天津大学,Android,Golang">
     <meta name="description" content="姜康的技术博客:用技术解决实际问题">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Flutter-Text的使用 | 姜康的技术博客</title>
+    <title>UART | 姜康的技术博客</title>
     <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/avatar.jpeg">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/awesome/css/all.css">
@@ -278,12 +278,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Flutter-Text的使用</h1>
+                    <h1 class="description center-align post-title">UART</h1>
                 </div>
             </div>
         </div>
@@ -400,12 +400,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Flutter/">
-                                <span class="chip bg-color">Flutter</span>
-                            </a>
-                        
-                            <a href="/tags/Text/">
-                                <span class="chip bg-color">Text</span>
+                            <a href="/tags/UART/">
+                                <span class="chip bg-color">UART</span>
                             </a>
                         
                     </div>
@@ -416,8 +412,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Flutter/" class="post-category">
-                                Flutter
+                            <a href="/categories/%E7%A1%AC%E4%BB%B6/" class="post-category">
+                                硬件
                             </a>
                         
                     </div>
@@ -429,7 +425,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-08
+                    2020-06-13
                 </div>
                 
 
@@ -438,14 +434,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    768
+                    568
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
 
@@ -455,145 +451,51 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>关注 <a href="https://github.com/jiangkang/flutter-system" target="_blank" rel="noopener">https://github.com/jiangkang/flutter-system</a> 了解更多Flutter相关的知识</p>
-</blockquote>
-<p>文本作为UI最基本的元素，最基本的用法有这些：</p>
+                <h2 id="UART"><a href="#UART" class="headerlink" title="UART"></a>UART</h2><p>Universal Asynchronous Receiver/Transmitter,即通用异步收发传输器</p>
+<p>UART是一种串行(串口),异步,收发协议.</p>
+<p>作用:将并行数据转换成串行数据,所谓串行就是一位一位的传输.</p>
+<p>像GPS模块,LCD显示器等就是使用UART串口通信.</p>
+<h2 id="为何说它是通用-异步的"><a href="#为何说它是通用-异步的" class="headerlink" title="为何说它是通用,异步的?"></a>为何说它是通用,异步的?</h2><p>说它是“通用”的,是因为数据传输速度和数据字节格式都是可以配置的;</p>
+<p>说它是“异步”的,是因为它并没有使用时钟来同步两个设备之间的数据传输.</p>
+<p>硬件设备一般会在FIFO缓存区中收集数据,直到APP读取数据.</p>
+<p>UART也是全双工通信,即可以同时发送和接收数据,它通常比I2C快,但是由于缺少共享时钟,因此两个设备必须协商好传输速度.</p>
+<h2 id="硬件连接"><a href="#硬件连接" class="headerlink" title="硬件连接"></a>硬件连接</h2><p>有两种方式:</p>
 <ul>
-<li>字体</li>
-<li>文字大小、颜色</li>
-<li>一些常用样式，比如倾斜，加粗，下划线，删除线等</li>
-<li>文字超出边界之后如何显示</li>
-<li>文字的单行，多行控制</li>
-<li>文字的显示方向</li>
-<li>富文本的显示</li>
-<li>文字渐变，阴影</li>
-<li>文本点击事件</li>
+<li><p>3线</p>
+<p><img src="https://oss.jiangkang.tech/jk/uart-connections.png" alt=""></p>
+</li>
+<li><p>5线(硬件流控制)</p>
+<p><img src="https://oss.jiangkang.tech/jk/uart-flow-control.png" alt="&quot;uart-flow-control&quot;"></p>
+</li>
 </ul>
-<h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><p>如果需要使用自定义字体，则需要在项目中的fonts文件夹下放置字体文件，然后在配置文件pubspec.yaml中进行配置：</p>
-<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">flutter</span><span class="token punctuation">:</span>
-  <span class="token key atrule">fonts</span><span class="token punctuation">:</span>
-    <span class="token punctuation">-</span> <span class="token key atrule">family</span><span class="token punctuation">:</span> Raleway
-      <span class="token key atrule">fonts</span><span class="token punctuation">:</span>
-        <span class="token punctuation">-</span> <span class="token key atrule">asset</span><span class="token punctuation">:</span> fonts/Raleway<span class="token punctuation">-</span>Regular.ttf
-        <span class="token punctuation">-</span> <span class="token key atrule">asset</span><span class="token punctuation">:</span> fonts/Raleway<span class="token punctuation">-</span>Italic.ttf
-          <span class="token key atrule">style</span><span class="token punctuation">:</span> italic
-    <span class="token punctuation">-</span> <span class="token key atrule">family</span><span class="token punctuation">:</span> RobotoMono
-      <span class="token key atrule">fonts</span><span class="token punctuation">:</span>
-        <span class="token punctuation">-</span> <span class="token key atrule">asset</span><span class="token punctuation">:</span> fonts/RobotoMono<span class="token punctuation">-</span>Regular.ttf
-        <span class="token punctuation">-</span> <span class="token key atrule">asset</span><span class="token punctuation">:</span> fonts/RobotoMono<span class="token punctuation">-</span>Bold.ttf
-          <span class="token key atrule">weight</span><span class="token punctuation">:</span> <span class="token number">700</span>
-</code></pre>
-<p>使用字体主要有两种方式，一种是通过主题设置统一的字体，一种是为单独的Widget设置字体。</p>
-<p><strong>通过主题设置字体：</strong></p>
-<pre class=" language-dart"><code class="language-dart"><span class="token function">MaterialApp</span><span class="token punctuation">(</span>
-  title<span class="token punctuation">:</span> <span class="token string">'Custom Fonts'</span><span class="token punctuation">,</span>
-  <span class="token comment" spellcheck="true">// Set Raleway as the default app font.</span>
-  theme<span class="token punctuation">:</span> <span class="token function">ThemeData</span><span class="token punctuation">(</span>fontFamily<span class="token punctuation">:</span> <span class="token string">'Raleway'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  home<span class="token punctuation">:</span> <span class="token function">MyHomePage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p><strong>单独设置字体：</strong></p>
-<pre class=" language-dart"><code class="language-dart"><span class="token function">Text</span><span class="token punctuation">(</span>
-  <span class="token string">'Roboto Mono sample'</span><span class="token punctuation">,</span>
-  style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>fontFamily<span class="token punctuation">:</span> <span class="token string">'RobotoMono'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h3 id="文字大小，颜色，倾斜，加粗"><a href="#文字大小，颜色，倾斜，加粗" class="headerlink" title="文字大小，颜色，倾斜，加粗"></a>文字大小，颜色，倾斜，加粗</h3><p>这些样式也都是在TextStyle中设置的：</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">"style: color,fontWeight,fontSize,fontStyle"</span><span class="token punctuation">,</span>
-              style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>
-                color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>blueAccent<span class="token punctuation">,</span>
-                fontWeight<span class="token punctuation">:</span> FontWeight<span class="token punctuation">.</span>bold<span class="token punctuation">,</span>
-                fontSize<span class="token punctuation">:</span> <span class="token number">28</span><span class="token punctuation">,</span>
-                fontStyle<span class="token punctuation">:</span> FontStyle<span class="token punctuation">.</span>italic<span class="token punctuation">,</span>
-              <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span></code></pre>
-<p>其中fontSize使用的是逻辑像素，默认为14，FontWeight.bold表示加粗，当然还可以设置指定的值，fontStyle可以用来控制文本是否倾斜。</p>
-<h3 id="下划线-上划线，删除线，波浪线"><a href="#下划线-上划线，删除线，波浪线" class="headerlink" title="下划线/上划线，删除线，波浪线"></a>下划线/上划线，删除线，波浪线</h3><p>下划线，删除线等属于文本装饰的一种，在TextStyle中通过decoration属性描述：</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token function">TextStyle</span><span class="token punctuation">(</span>
-                decoration<span class="token punctuation">:</span> TextDecoration<span class="token punctuation">.</span>underline<span class="token punctuation">,</span>
-                decorationColor<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>blueAccent<span class="token punctuation">,</span>
-                decorationStyle<span class="token punctuation">:</span> TextDecorationStyle<span class="token punctuation">.</span>solid<span class="token punctuation">)</span><span class="token punctuation">,</span>
-          <span class="token punctuation">)</span><span class="token punctuation">,</span></code></pre>
-<p>效果如下：<br><img src="https://oss.jiangkang.tech/jk/text_underline.png" alt=""></p>
-<p>可以指定下划线的颜色，样式，比如线的实现，还是虚线，还是波浪线等;<br>对于这些装饰，还可以设置双下划线，点线等效果。<br><img src="https://oss.jiangkang.tech/jk/text_underline_double.png" alt=""></p>
-<h3 id="文字超出边界如何显示"><a href="#文字超出边界如何显示" class="headerlink" title="文字超出边界如何显示"></a>文字超出边界如何显示</h3><p>超出边界的显示有三种类型：</p>
+<p>5线的模块新增了两个端口,一个是RTS(request to send),一个是CTS(clear to send)</p>
+<h2 id="软件通信协议"><a href="#软件通信协议" class="headerlink" title="软件通信协议"></a>软件通信协议</h2><p><img src="https://oss.jiangkang.tech/jk/uart-frame.png" alt="&quot;uart-frame&quot;"></p>
 <ul>
-<li>显示省略号</li>
-<li>直接截断</li>
-<li>渐隐</li>
+<li><p>空闲</p>
+<p>总线空闲的时候,处于高电平“1”</p>
+</li>
+<li><p>起始位</p>
+<p>开始传输数据前,发送一个低电平“0”,表示开始传输字符的开始</p>
+</li>
+<li><p>数据</p>
+<p>数据可以是5~8位,更少的位表示字符可以提升传输效率 </p>
+</li>
+<li><p>校验位</p>
+<p>可选的位,即可以不设置这个位.如果设置就是奇偶校验:</p>
+<ul>
+<li>奇校验(odd):数据位中“1”的个数是奇数,则为“0”,否则为“1”</li>
+<li>偶校验(even):数据位中“1”的个数是偶数,则为“0”,否则为“1”</li>
 </ul>
-<p>这几种显示样式都是通过overflow属性控制的：</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token function">ListTile</span><span class="token punctuation">(</span>
-          title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>
-            <span class="token string">"overflow: TextOverflow.ellipsis;overflow: TextOverflow.ellipsis;overflow: TextOverflow.ellipsis;"</span><span class="token punctuation">,</span>
-            overflow<span class="token punctuation">:</span> TextOverflow<span class="token punctuation">.</span>ellipsis<span class="token punctuation">,</span>
-            softWrap<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-          <span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token function">ListTile</span><span class="token punctuation">(</span>
-          title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>
-            <span class="token string">"overflow: TextOverflow.clip;overflow: TextOverflow.clip;overflow: TextOverflow.clip;"</span><span class="token punctuation">,</span>
-            overflow<span class="token punctuation">:</span> TextOverflow<span class="token punctuation">.</span>clip<span class="token punctuation">,</span>
-            softWrap<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-          <span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token function">ListTile</span><span class="token punctuation">(</span>
-          title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>
-            <span class="token string">"overflow: TextOverflow.fade,overflow: TextOverflow.fade,overflow: TextOverflow.fade,overflow: TextOverflow.fade,"</span><span class="token punctuation">,</span>
-            overflow<span class="token punctuation">:</span> TextOverflow<span class="token punctuation">.</span>fade<span class="token punctuation">,</span>
-            softWrap<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-          <span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token punctuation">)</span><span class="token punctuation">,</span></code></pre>
-<h3 id="文字的单行与多行显示"><a href="#文字的单行与多行显示" class="headerlink" title="文字的单行与多行显示"></a>文字的单行与多行显示</h3><p>文本的多行显示，可以通过maxLines属性和softWrap属性控制，其中maxLines控制最大行数，softWrap控制是否自动换行。</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token function">Text</span><span class="token punctuation">(</span>
-            <span class="token string">"softWrap: false;softWrap: false;softWrap: false;softWrap: false;softWrap: false;softWrap: false;"</span><span class="token punctuation">,</span>
-            softWrap<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-          <span class="token punctuation">)</span></code></pre>
-<pre class=" language-dart"><code class="language-dart"><span class="token function">Text</span><span class="token punctuation">(</span>
-            <span class="token string">"softWrap: true;softWrap: true;softWrap: true;softWrap: true;softWrap: true;"</span><span class="token punctuation">,</span>
-            softWrap<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-          <span class="token punctuation">)</span></code></pre>
-<h3 id="富文本"><a href="#富文本" class="headerlink" title="富文本"></a>富文本</h3><p>可以使用Text.rich/ RichText + TextSpan来显示富文本：</p>
-<pre class=" language-dart"><code class="language-dart">Text<span class="token punctuation">.</span><span class="token function">rich</span><span class="token punctuation">(</span>
-            <span class="token function">TextSpan</span><span class="token punctuation">(</span>
-              text<span class="token punctuation">:</span> <span class="token string">"plain text "</span><span class="token punctuation">,</span>
-              children<span class="token punctuation">:</span> <span class="token operator">&lt;</span>TextSpan<span class="token operator">></span><span class="token punctuation">[</span>
-                <span class="token function">TextSpan</span><span class="token punctuation">(</span>
-                    text<span class="token punctuation">:</span> <span class="token string">"color"</span><span class="token punctuation">,</span> style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>pinkAccent<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                <span class="token function">TextSpan</span><span class="token punctuation">(</span>text<span class="token punctuation">:</span> <span class="token string">"fontSize"</span><span class="token punctuation">,</span> style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>fontSize<span class="token punctuation">:</span> <span class="token number">28</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                <span class="token function">TextSpan</span><span class="token punctuation">(</span>
-                    text<span class="token punctuation">:</span> <span class="token string">"decoration"</span><span class="token punctuation">,</span>
-                    style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>decoration<span class="token punctuation">:</span> TextDecoration<span class="token punctuation">.</span>lineThrough<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-              <span class="token punctuation">]</span><span class="token punctuation">,</span>
-            <span class="token punctuation">)</span><span class="token punctuation">,</span>
-          <span class="token punctuation">)</span></code></pre>
-<p><img src="https://oss.jiangkang.tech/jk/rich_text_1.png" alt=""></p>
-<pre class=" language-dart"><code class="language-dart"><span class="token function">RichText</span><span class="token punctuation">(</span>
-              text<span class="token punctuation">:</span> <span class="token function">TextSpan</span><span class="token punctuation">(</span>
-            children<span class="token punctuation">:</span> <span class="token operator">&lt;</span>TextSpan<span class="token operator">></span><span class="token punctuation">[</span>
-              <span class="token function">TextSpan</span><span class="token punctuation">(</span>
-                  text<span class="token punctuation">:</span> <span class="token string">"Text 1"</span><span class="token punctuation">,</span> style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>blueAccent<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-              <span class="token function">TextSpan</span><span class="token punctuation">(</span>
-                  text<span class="token punctuation">:</span> <span class="token string">"Text 2"</span><span class="token punctuation">,</span>
-                  style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>pinkAccent<span class="token punctuation">,</span> fontSize<span class="token punctuation">:</span> <span class="token number">28</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            <span class="token punctuation">]</span><span class="token punctuation">,</span>
-          <span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<p><img src="https://oss.jiangkang.tech/jk/rich_text_2.png" alt=""></p>
-<h3 id="文字阴影"><a href="#文字阴影" class="headerlink" title="文字阴影"></a>文字阴影</h3><p>文字的阴影可以通过TextStyle中的shadows属性进行控制：</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token function">Text</span><span class="token punctuation">(</span>
-            <span class="token string">"style: letterSpacing,shadows"</span><span class="token punctuation">,</span>
-            style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>
-              shadows<span class="token punctuation">:</span> <span class="token operator">&lt;</span>Shadow<span class="token operator">></span><span class="token punctuation">[</span>
-                <span class="token function">Shadow</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>pink<span class="token punctuation">,</span> offset<span class="token punctuation">:</span> <span class="token function">Offset</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-              <span class="token punctuation">]</span><span class="token punctuation">,</span>
-            <span class="token punctuation">)</span><span class="token punctuation">,</span>
-          <span class="token punctuation">)</span></code></pre>
-<p><img src="https://oss.jiangkang.tech/jk/text_shadow.png" alt=""></p>
-<h3 id="Text的点击事件"><a href="#Text的点击事件" class="headerlink" title="Text的点击事件"></a>Text的点击事件</h3><p>可以使用GestureDetector，也可以使用InkWell：</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token function">InkWell</span><span class="token punctuation">(</span>
-            child<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>
-              <span class="token string">"Default Text"</span><span class="token punctuation">,</span>
-            <span class="token punctuation">)</span><span class="token punctuation">,</span>
-            onTap<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token function">debugPrint</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-          <span class="token punctuation">)</span></code></pre>
+<p>也存在仅作为标记作用的“1”位,和空的校验位“0”</p>
+</li>
+<li><p>停止位</p>
+<p>数据结束标志,可以是1,1.5,2位的高电平</p>
+</li>
+</ul>
+<h2 id="波特率-baud-rate"><a href="#波特率-baud-rate" class="headerlink" title="波特率(baud rate)"></a>波特率(baud rate)</h2><p>通过UART传输数据的速度叫做波特率.它表示发送/接收的速度,单位是bit/s</p>
+<p>因为使用UART连接的两个设备并没有使用共享时钟,因此必须提升设置好波特率.</p>
+<p>常见的波特率有 9600, 19200, 38400, 57600, 115200, 和 921600.</p>
+<p>这个速率包括整个数据帧(起始位,数据位,校验位,停止位),因此实际有效的传输率比设置的低.</p>
 
             </div>
             <hr/>
@@ -619,7 +521,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.jiangkang.tech/2020/05/08/flutter/flutter-text-de-shi-yong/">https://www.jiangkang.tech/2020/05/08/flutter/flutter-text-de-shi-yong/</a>
+                    <a href="https://www.jiangkang.tech/2020/06/13/ying-jian/uart/">https://www.jiangkang.tech/2020/06/13/ying-jian/uart/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -657,12 +559,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Flutter/">
-                                    <span class="chip bg-color">Flutter</span>
-                                </a>
-                            
-                                <a href="/tags/Text/">
-                                    <span class="chip bg-color">Text</span>
+                                <a href="/tags/UART/">
+                                    <span class="chip bg-color">UART</span>
                                 </a>
                             
                         </div>
@@ -833,7 +731,7 @@
         repo: 'jiangkang.github.io',
         owner: 'jiangkang',
         admin: ["jiangkang"],
-        id: '2020-05-08T21-56-58',
+        id: '2020-06-13T23-55-29',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -857,58 +755,51 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/09/golang/golang-yu-fa-kuai-su-ru-men/">
+                <a href="/2020/06/13/ying-jian/uart/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/7.jpg" class="responsive-img" alt="Golang语法快速入门">
+                        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/10.jpg" class="responsive-img" alt="UART">
                         
-                        <span class="card-title">Golang语法快速入门</span>
+                        <span class="card-title">UART</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            if/else 变体if statement; condition {  
-}
-
-if condition{
-
-
-}
-switchswitch 下的每个case不必带break,匹配到了某个case之后会自动跳出.
-可以使用fallthro
+                            UARTUniversal Asynchronous Receiver/Transmitter,即通用异步收发传输器
+UART是一种串行(串口),异步,收发协议.
+作用:将并行数据转换成串行数据,所谓串行就是一位一位的传输.
+像GPS模块,
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Golang/" class="post-category">
-                                    Golang
+                            <a href="/categories/%E7%A1%AC%E4%BB%B6/" class="post-category">
+                                    硬件
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AF%AD%E6%B3%95/">
-                        <span class="chip bg-color">语法</span>
-                    </a>
-                    
-                    <a href="/tags/Golang/">
-                        <span class="chip bg-color">Golang</span>
+                    <a href="/tags/UART/">
+                        <span class="chip bg-color">UART</span>
                     </a>
                     
                 </div>
@@ -922,37 +813,36 @@ switchswitch 下的每个case不必带break,匹配到了某个case之后会自�
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/08/flutter/flutter-tabs-de-shi-yong/">
+                <a href="/2020/06/12/ying-jian/arm-jia-gou-ji-chu-zhi-shi/">
                     <div class="card-image">
                         
-                        <img src="https://oss.jiangkang.tech/jk/tabs1.png" class="responsive-img" alt="Flutter-Tabs的使用">
+                        <img src="https://oss.jiangkang.tech/jk/arm.png" class="responsive-img" alt="ARM架构基础知识">
                         
-                        <span class="card-title">Flutter-Tabs的使用</span>
+                        <span class="card-title">ARM架构基础知识</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Flutter中使用tabs还是非常的简单的，可以用在顶部导航栏，也可以用在底部导航栏。
+                            
+Architecture 中文可以是体系结构,也可以是架构,我这里用架构
+一些专业术语可以在本科课程/书籍《计算机体系结构》中找到.
 
-  
-  
-  
-
-
-使用Tabs需要用到两个widget，一个是TabBar,用于顶导航或者底导航；一个是TabBarView，用于Tab下具体的
+三种配置
+A-Profile(Applications)
+性能最高,用于运行复杂的操作系统,比如Lin
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-12
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Flutter/" class="post-category">
-                                    Flutter
+                            <a href="/categories/%E7%A1%AC%E4%BB%B6/" class="post-category">
+                                    硬件
                                 </a>
                             
                             
@@ -962,12 +852,12 @@ switchswitch 下的每个case不必带break,匹配到了某个case之后会自�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Flutter/">
-                        <span class="chip bg-color">Flutter</span>
+                    <a href="/tags/ARM%E6%9E%B6%E6%9E%84/">
+                        <span class="chip bg-color">ARM架构</span>
                     </a>
                     
-                    <a href="/tags/Tab/">
-                        <span class="chip bg-color">Tab</span>
+                    <a href="/tags/ARM/">
+                        <span class="chip bg-color">ARM</span>
                     </a>
                     
                 </div>

@@ -434,7 +434,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    285
+                    327
                 </div>
                 
 
@@ -452,25 +452,39 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>aosp现在使用soong编译工具进行编译了,比之前的老版本编译要容易方便得多了.</p>
-<p>步骤</p>
-<ol>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
 <li>配置好repo等工具</li>
 <li>下载aosp源码</li>
 <li>开始编译</li>
 <li>模拟器演示或者刷写到真实设备上</li>
 </ol>
 <p>其实这几个步骤都没什么好说的.第一二步按照要求下载工具和源码即可,当然最好有一个科学上网的环境,不行的化用清华的镜像源也是可以的.</p>
-<p>编译</p>
-<p>进入源码根目录,然后执行:</p>
-<pre><code>. build/envsetup.sh
-
-lunch</code></pre><p>这一步会让你选择构建的Android系统类型</p>
-<pre><code>m droid</code></pre><p>大概需要编译10万个C/C++文件,耗时1~4个小时.</p>
-<p>编译时可能出现的问题</p>
-<ol>
-<li>大小写敏感的磁盘格式问题<br>Android官方文档有格式化的办法构建编译环境</li>
-<li>too many files<br>我用的是MacOS,出现这种问题是因为系统对打开的文件个数有限制.<br>可以在环境变量中设置最大打开文件的个数(.bash_profile,或者.zshrc之类的):<pre><code># set the number of open files to be 1024
-ulimit -S -n 2048</code></pre></li>
+<h2 id="查看分支-切换分支"><a href="#查看分支-切换分支" class="headerlink" title="查看分支/切换分支"></a>查看分支/切换分支</h2><p>在已经下载好源码之后:</p>
+<ul>
+<li><p>查看分支</p>
+<pre class=" language-shell"><code class="language-shell">cd .repo/manifests
+git branch -a | cut -d / -f 3</code></pre>
+</li>
+<li><p>切换分支</p>
+<pre class=" language-shell"><code class="language-shell">repo checkout xx_branch</code></pre>
+</li>
+</ul>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>进入源码根目录,然后执行:</p>
+<pre class=" language-shell"><code class="language-shell">. build/envsetup.sh</code></pre>
+<pre class=" language-shell"><code class="language-shell">lunch</code></pre>
+<p>这一步会让你选择构建的Android系统类型</p>
+<pre class=" language-shell"><code class="language-shell">m droid</code></pre>
+<p>大概需要编译10万个C/C++文件,耗时1~4个小时.</p>
+<h2 id="编译时可能出现的问题"><a href="#编译时可能出现的问题" class="headerlink" title="编译时可能出现的问题"></a>编译时可能出现的问题</h2><ol>
+<li><p>大小写敏感的磁盘格式问题</p>
+<p>Android官方文档有格式化的办法<a href="https://source.android.google.cn/setup/build/initializing?hl=zh-cn" target="_blank" rel="noopener">构建编译环境</a></p>
+</li>
+<li><p>too many files</p>
+<p>我用的是MacOS,出现这种问题是因为系统对打开的文件个数有限制.</p>
+<p>可以在环境变量中设置最大打开文件的个数(.bash_profile,或者.zshrc之类的):</p>
+<pre class=" language-shell"><code class="language-shell"># set the number of open files to be 1024
+ulimit -S -n 2048</code></pre>
+</li>
 </ol>
 
             </div>
@@ -1023,7 +1037,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">24.1k</span>&nbsp;字
+                class="white-color">24.7k</span>&nbsp;字
             
             
             
