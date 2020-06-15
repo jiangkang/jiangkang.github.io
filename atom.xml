@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.jiangkang.tech/"/>
-  <updated>2020-06-13T15:56:07.939Z</updated>
+  <updated>2020-06-15T11:33:49.958Z</updated>
   <id>https://www.jiangkang.tech/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux使用fork方式创建进程</title>
+    <link href="https://www.jiangkang.tech/2020/06/15/c/linux-shi-yong-fork-fang-shi-chuang-jian-jin-cheng/"/>
+    <id>https://www.jiangkang.tech/2020/06/15/c/linux-shi-yong-fork-fang-shi-chuang-jian-jin-cheng/</id>
+    <published>2020-06-15T11:32:43.000Z</published>
+    <updated>2020-06-15T11:33:49.958Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h></span></span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"fork之前\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    pid_t fpid<span class="token punctuation">;</span>    fpid <span class="token operator">=</span> <span class="token function">fork</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"fork之后\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">if</span> <span class="token punctuation">(</span>fpid <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span>    <span class="token punctuation">{</span>        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"error during fork"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>fpid <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>    <span class="token punctuation">{</span>        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"current process is child process : pid = %d,parent pid = %d\n"</span><span class="token punctuation">,</span> <span class="token function">getpid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">getppid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token keyword">else</span>    <span class="token punctuation">{</span>        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"current process is parent process : pid = %d,parent pid = %d\n"</span><span class="token punctuation">,</span> <span class="token function">getpid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">getppid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><p>编译执行后输出结果:</p><pre><code>fork之前fork之后current process is parent process : pid = 71370,parent pid = 62785fork之后current process is child process : pid = 71371,parent pid = 1</code></pre><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>fork 之前,只有一个进程在执行这段代码;</p><p>fork之后,就有两个基本上一模一样的进程了,都会执行fork行之后的代码;</p><p>而且可以看到两个进程的pid不一样,这是为什么?</p><p>fork是执行一次,返回两次,可能有三种返回值:</p><ul><li>在父进程中,fork返回新创建的子进程的pid;</li><li>在子进程中,fork返回0;</li><li>如果出现错误,fork返回一个负值;</li></ul><p>两个进程的执行没有固定的顺序,得看系统进程调度策略.</p><p>fork失败可能的原因是:</p><ul><li>进程数量达到最大限制</li><li>内存不足</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;代码&quot;&gt;&lt;a href=&quot;#代码&quot; class=&quot;headerlink&quot; title=&quot;代码&quot;&gt;&lt;/a&gt;代码&lt;/h2&gt;&lt;pre class=&quot; language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token macr
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="https://www.jiangkang.tech/categories/C/"/>
+    
+    
+      <category term="fork" scheme="https://www.jiangkang.tech/tags/fork/"/>
+    
+      <category term="进程" scheme="https://www.jiangkang.tech/tags/%E8%BF%9B%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>UART</title>
@@ -211,9 +239,9 @@
       <category term="C++" scheme="https://www.jiangkang.tech/categories/C/"/>
     
     
-      <category term="编译" scheme="https://www.jiangkang.tech/tags/%E7%BC%96%E8%AF%91/"/>
-    
       <category term="GN" scheme="https://www.jiangkang.tech/tags/GN/"/>
+    
+      <category term="编译" scheme="https://www.jiangkang.tech/tags/%E7%BC%96%E8%AF%91/"/>
     
   </entry>
   
@@ -352,9 +380,9 @@
       <category term="Android" scheme="https://www.jiangkang.tech/categories/Android/"/>
     
     
-      <category term="Lock" scheme="https://www.jiangkang.tech/tags/Lock/"/>
-    
       <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
+    
+      <category term="Lock" scheme="https://www.jiangkang.tech/tags/Lock/"/>
     
   </entry>
   
@@ -381,9 +409,9 @@
       <category term="Android" scheme="https://www.jiangkang.tech/categories/Android/"/>
     
     
-      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
-    
       <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
     
       <category term="Map" scheme="https://www.jiangkang.tech/tags/Map/"/>
     
@@ -411,11 +439,11 @@
       <category term="Android" scheme="https://www.jiangkang.tech/categories/Android/"/>
     
     
-      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
-    
       <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="List" scheme="https://www.jiangkang.tech/tags/List/"/>
+    
+      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
     
   </entry>
   
@@ -443,9 +471,9 @@
       <category term="Android" scheme="https://www.jiangkang.tech/categories/Android/"/>
     
     
-      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
-    
       <category term="数据结构" scheme="https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="Java" scheme="https://www.jiangkang.tech/tags/Java/"/>
     
       <category term="队列" scheme="https://www.jiangkang.tech/tags/%E9%98%9F%E5%88%97/"/>
     
@@ -501,9 +529,9 @@
       <category term="Golang" scheme="https://www.jiangkang.tech/categories/Golang/"/>
     
     
-      <category term="语法" scheme="https://www.jiangkang.tech/tags/%E8%AF%AD%E6%B3%95/"/>
-    
       <category term="Golang" scheme="https://www.jiangkang.tech/tags/Golang/"/>
+    
+      <category term="语法" scheme="https://www.jiangkang.tech/tags/%E8%AF%AD%E6%B3%95/"/>
     
   </entry>
   
@@ -563,40 +591,6 @@
       <category term="Flutter" scheme="https://www.jiangkang.tech/tags/Flutter/"/>
     
       <category term="Tab" scheme="https://www.jiangkang.tech/tags/Tab/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Flutter时间处理</title>
-    <link href="https://www.jiangkang.tech/2020/05/08/flutter/flutter-shi-jian-chu-li/"/>
-    <id>https://www.jiangkang.tech/2020/05/08/flutter/flutter-shi-jian-chu-li/</id>
-    <published>2020-05-08T13:47:29.000Z</published>
-    <updated>2020-05-08T13:48:04.656Z</updated>
-    
-    <content type="html"><![CDATA[<p>Flutter 中在时间处理方面还是比较简单的，我们主要用到的有两个类：</p><ul><li><p>DateTime</p><p>表示一个指定的时间点，包括年月日时分秒</p></li><li><p>TimeOfDay</p><p>表示一天中的一个时间点，可以区分上午，下午，12小时制，24小时制等</p></li></ul><h3 id="获取当前时间"><a href="#获取当前时间" class="headerlink" title="获取当前时间"></a>获取当前时间</h3><pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> now <span class="token operator">=</span> DateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>这里就得到了一个当前时间的DateTime对象，然后就可以拿到你想要的信息：</p><pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> year <span class="token operator">=</span> now<span class="token punctuation">.</span>year<span class="token punctuation">;</span><span class="token keyword">final</span> month <span class="token operator">=</span> now<span class="token punctuation">.</span>month<span class="token punctuation">;</span><span class="token keyword">final</span> day <span class="token operator">=</span> now<span class="token punctuation">.</span>day<span class="token punctuation">;</span></code></pre><p>还可以获取当前时星期几：</p><pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> week <span class="token operator">=</span> now<span class="token punctuation">.</span>weekday<span class="token punctuation">;</span></code></pre><h3 id="转时间戳"><a href="#转时间戳" class="headerlink" title="转时间戳"></a>转时间戳</h3><pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> now <span class="token operator">=</span> DateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>String timestamp <span class="token operator">=</span> now<span class="token punctuation">.</span>millisecondsSinceEpoch<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h3 id="时间运算"><a href="#时间运算" class="headerlink" title="时间运算"></a>时间运算</h3><ul><li><p>前2天</p><pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> now <span class="token operator">=</span> DateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">final</span> before <span class="token operator">=</span> now<span class="token punctuation">.</span><span class="token function">subtract</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>days<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></li></ul><ul><li><p>后2天</p><pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> now <span class="token operator">=</span> DateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">final</span> after <span class="token operator">=</span> now<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>days<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></li></ul><ul><li><p>两个时间点相隔的时间数</p><pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> now <span class="token operator">=</span> DateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">final</span> after <span class="token operator">=</span> now<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>days<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">final</span> diff <span class="token operator">=</span> after<span class="token punctuation">.</span><span class="token function">difference</span><span class="token punctuation">(</span>now<span class="token punctuation">)</span><span class="token punctuation">.</span>inHours<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 相隔的小时数，也可以是分钟数，秒数</span></code></pre></li></ul><h3 id="上午还是下午"><a href="#上午还是下午" class="headerlink" title="上午还是下午"></a>上午还是下午</h3><p>可以使用TimeOfDay来处理：</p><pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> timeOfDay <span class="token operator">=</span> TimeOfDay<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">final</span> amOrPm <span class="token operator">=</span> timeOfDay<span class="token punctuation">.</span>period<span class="token punctuation">;</span></code></pre><p>其中timeOfDay.period实际上是一个枚举对象：</p><pre class=" language-dart"><code class="language-dart"><span class="token keyword">enum</span> DayPeriod <span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">/// Ante meridiem (before noon).</span>  am<span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">/// Post meridiem (after noon).</span>  pm<span class="token punctuation">,</span><span class="token punctuation">}</span></code></pre><p>这样可以判断是上午还是下午了。</p><h3 id="12-24小时制"><a href="#12-24小时制" class="headerlink" title="12/24小时制"></a>12/24小时制</h3><ul><li><p>24小时</p><pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> hour24 <span class="token operator">=</span> timeOfDay<span class="token punctuation">.</span>hour<span class="token punctuation">;</span></code></pre></li></ul><ul><li><p>12小时</p><pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> hour12 <span class="token operator">=</span> timeOfDay<span class="token punctuation">.</span>hourOfPeriod<span class="token punctuation">;</span></code></pre></li></ul><p>还可以格式化输出当前的分钟小时数：</p><pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> timeStr <span class="token operator">=</span> timeOfDay<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 11:49 PM</span></code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Flutter 中在时间处理方面还是比较简单的，我们主要用到的有两个类：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;DateTime&lt;/p&gt;
-&lt;p&gt;表示一个指定的时间点，包括年月日时分秒&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;TimeOfDay&lt;/p&gt;
-&lt;p&gt;表示一天中的一个时间点，可以
-      
-    
-    </summary>
-    
-    
-      <category term="Flutter" scheme="https://www.jiangkang.tech/categories/Flutter/"/>
-    
-    
-      <category term="Flutter" scheme="https://www.jiangkang.tech/tags/Flutter/"/>
-    
-      <category term="时间处理" scheme="https://www.jiangkang.tech/tags/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/"/>
     
   </entry>
   

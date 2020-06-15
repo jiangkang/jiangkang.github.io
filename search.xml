@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>linux使用fork方式创建进程</title>
+      <link href="/2020/06/15/c/linux-shi-yong-fork-fang-shi-chuang-jian-jin-cheng/"/>
+      <url>/2020/06/15/c/linux-shi-yong-fork-fang-shi-chuang-jian-jin-cheng/</url>
+      
+        <content type="html"><![CDATA[<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h></span></span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"fork之前\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    pid_t fpid<span class="token punctuation">;</span>    fpid <span class="token operator">=</span> <span class="token function">fork</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"fork之后\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">if</span> <span class="token punctuation">(</span>fpid <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span>    <span class="token punctuation">{</span>        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"error during fork"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>fpid <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>    <span class="token punctuation">{</span>        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"current process is child process : pid = %d,parent pid = %d\n"</span><span class="token punctuation">,</span> <span class="token function">getpid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">getppid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token keyword">else</span>    <span class="token punctuation">{</span>        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"current process is parent process : pid = %d,parent pid = %d\n"</span><span class="token punctuation">,</span> <span class="token function">getpid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">getppid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><p>编译执行后输出结果:</p><pre><code>fork之前fork之后current process is parent process : pid = 71370,parent pid = 62785fork之后current process is child process : pid = 71371,parent pid = 1</code></pre><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>fork 之前,只有一个进程在执行这段代码;</p><p>fork之后,就有两个基本上一模一样的进程了,都会执行fork行之后的代码;</p><p>而且可以看到两个进程的pid不一样,这是为什么?</p><p>fork是执行一次,返回两次,可能有三种返回值:</p><ul><li>在父进程中,fork返回新创建的子进程的pid;</li><li>在子进程中,fork返回0;</li><li>如果出现错误,fork返回一个负值;</li></ul><p>两个进程的执行没有固定的顺序,得看系统进程调度策略.</p><p>fork失败可能的原因是:</p><ul><li>进程数量达到最大限制</li><li>内存不足</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> fork </tag>
+            
+            <tag> 进程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>UART</title>
       <link href="/2020/06/13/ying-jian/uart/"/>
       <url>/2020/06/13/ying-jian/uart/</url>
@@ -170,9 +197,9 @@
       
         <tags>
             
-            <tag> 编译 </tag>
-            
             <tag> GN </tag>
+            
+            <tag> 编译 </tag>
             
         </tags>
       
@@ -301,9 +328,9 @@
       
         <tags>
             
-            <tag> Lock </tag>
-            
             <tag> Java </tag>
+            
+            <tag> Lock </tag>
             
         </tags>
       
@@ -328,9 +355,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 数据结构 </tag>
+            
+            <tag> Java </tag>
             
             <tag> Map </tag>
             
@@ -357,11 +384,11 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 数据结构 </tag>
             
             <tag> List </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -386,9 +413,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 数据结构 </tag>
+            
+            <tag> Java </tag>
             
             <tag> 队列 </tag>
             
@@ -440,9 +467,9 @@
       
         <tags>
             
-            <tag> 语法 </tag>
-            
             <tag> Golang </tag>
+            
+            <tag> 语法 </tag>
             
         </tags>
       

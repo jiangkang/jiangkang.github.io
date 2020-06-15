@@ -296,7 +296,7 @@
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/banner/6.jpg)');
+    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/banner/1.jpg)');
 </script>
 
 
@@ -313,6 +313,61 @@
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/05/15/android/java-zhong-de-lock/">
+                        <div class="card-image">
+                            
+                            <img src="https://oss.jiangkang.tech/jk/Lock.png" class="responsive-img" alt="Java中的Lock">
+                            
+                            <span class="card-title">Java中的Lock</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Java 中保证线程安全，操作同步的方法有很多种，比如：
+
+使用synchronized关键字
+使用Lock的实现类
+
+其中synchronized属于语言级别的处理，无需我们去处理细节，而Lock则是一个接口，我们可以自定义Lock或者使
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-15
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Android/" class="post-category">
+                                    Android
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Java/">
+                            <span class="chip bg-color">Java</span>
+                        </a>
+                        
+                        <a href="/tags/Lock/">
+                            <span class="chip bg-color">Lock</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -354,12 +409,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Java/">
-                            <span class="chip bg-color">Java</span>
-                        </a>
-                        
                         <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                             <span class="chip bg-color">数据结构</span>
+                        </a>
+                        
+                        <a href="/tags/Java/">
+                            <span class="chip bg-color">Java</span>
                         </a>
                         
                         <a href="/tags/Map/">
@@ -411,16 +466,16 @@ ArrayList由于通过数组索引定位，所以查找效率比
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Java/">
-                            <span class="chip bg-color">Java</span>
-                        </a>
-                        
                         <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                             <span class="chip bg-color">数据结构</span>
                         </a>
                         
                         <a href="/tags/List/">
                             <span class="chip bg-color">List</span>
+                        </a>
+                        
+                        <a href="/tags/Java/">
+                            <span class="chip bg-color">Java</span>
                         </a>
                         
                     </div>
@@ -470,12 +525,12 @@ public interface Queue&lt;E> extends Collection&lt;E> {
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Java/">
-                            <span class="chip bg-color">Java</span>
-                        </a>
-                        
                         <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                             <span class="chip bg-color">数据结构</span>
+                        </a>
+                        
+                        <a href="/tags/Java/">
+                            <span class="chip bg-color">Java</span>
                         </a>
                         
                         <a href="/tags/%E9%98%9F%E5%88%97/">
@@ -582,12 +637,12 @@ switchswitch 下的每个case不必带break,匹配到了某个case之后会自�
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E8%AF%AD%E6%B3%95/">
-                            <span class="chip bg-color">语法</span>
-                        </a>
-                        
                         <a href="/tags/Golang/">
                             <span class="chip bg-color">Golang</span>
+                        </a>
+                        
+                        <a href="/tags/%E8%AF%AD%E6%B3%95/">
+                            <span class="chip bg-color">语法</span>
                         </a>
                         
                     </div>
@@ -931,56 +986,6 @@ BrightnessFlutter中有一个Brightness的概念，用来表示主题和
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/05/08/golang/golang-zhong-de-init-fang-fa/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="Golang中的init方法">
-                            
-                            <span class="card-title">Golang中的init方法</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                init方法是什么我们都知道程序的入口在main包下的main()方法,其实还有一个方法会在main方法之前执行,这个方法就是init()
-init()方法用于package级别的一些初始化操作.
-主要特点
-init先于main自动执行,不
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Golang/" class="post-category">
-                                    Golang
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Golang/">
-                            <span class="chip bg-color">Golang</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -1026,7 +1031,7 @@ init先于main自动执行,不
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">24.7k</span>&nbsp;字
+                class="white-color">25k</span>&nbsp;字
             
             
             
