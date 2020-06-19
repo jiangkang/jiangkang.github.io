@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.jiangkang.tech/2020/06/19/android/android-zhong-de-anativewindow/</loc>
+    
+    <lastmod>2020-06-19T14:00:06.552Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/05/08/android/android-zhong-de-cun-chu-lu-jing/</loc>
+    
+    <lastmod>2020-06-19T13:59:41.084Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.jiangkang.tech/2020/06/15/c/linux-shi-yong-fork-fang-shi-chuang-jian-jin-cheng/</loc>
     
     <lastmod>2020-06-15T11:33:49.958Z</lastmod>
@@ -187,13 +201,6 @@
     <loc>https://www.jiangkang.tech/2020/05/08/golang/golang-zhong-de-init-fang-fa/</loc>
     
     <lastmod>2020-05-08T10:41:16.163Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/05/08/android/android-zhong-de-cun-chu-lu-jing/</loc>
-    
-    <lastmod>2020-05-08T10:37:30.228Z</lastmod>
     
   </url>
   
