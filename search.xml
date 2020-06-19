@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Flutter-自定义闪屏页/SplashScreen</title>
+      <link href="/2020/06/19/flutter/flutter-zi-ding-yi-shan-ping-ye-splashscreen/"/>
+      <url>/2020/06/19/flutter/flutter-zi-ding-yi-shan-ping-ye-splashscreen/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Splash-Screen"><a href="#Splash-Screen" class="headerlink" title="Splash Screen?"></a>Splash Screen?</h2><p>对于Android应用来说,Splash Screen最熟悉不过了.比如为了让启动的时候app不现实白屏,或者为了弄个开屏广告用来盈利,都会用到Splash Screen.</p><p><img src="https://oss.jiangkang.tech/jk/splash.gif" alt="splash"></p><h2 id="Flutter中如何自定义Splash页面"><a href="#Flutter中如何自定义Splash页面" class="headerlink" title="Flutter中如何自定义Splash页面"></a>Flutter中如何自定义Splash页面</h2><p>这里先说一个Android中最基础的:</p><h3 id="设置启动主题-并设置一个windowBackground"><a href="#设置启动主题-并设置一个windowBackground" class="headerlink" title="设置启动主题,并设置一个windowBackground"></a>设置启动主题,并设置一个windowBackground</h3><p>至于怎么设置主题,太简单了没什么好说的,贴个背景资源代码:</p><pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8"?></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>layer-list</span> <span class="token attr-name"><span class="token namespace">xmlns:</span>android</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://schemas.android.com/apk/res/android<span class="token punctuation">"</span></span>    <span class="token attr-name"><span class="token namespace">android:</span>opacity</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>opaque<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>item</span> <span class="token attr-name"><span class="token namespace">android:</span>drawable</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@android:color/white<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>item</span><span class="token punctuation">></span></span>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bitmap</span>            <span class="token attr-name"><span class="token namespace">android:</span>gravity</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>center<span class="token punctuation">"</span></span>            <span class="token attr-name"><span class="token namespace">android:</span>src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@drawable/ic_launcher<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>item</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>layer-list</span><span class="token punctuation">></span></span></code></pre><p>可以看到这里用了一个白色背景和一个图片.</p><p><strong>在Flutter中,只设置这个是不够的</strong>,为什么?</p><p><strong>在MainActivity启动之后,Flutter中的UI数据加载之前</strong>这段时间里我们还得设置一个自定义的splash图或者页面,要不然很可能会导致黑屏.</p><p>这里也有很多种方法,主要说下经过源码分析之后得到的两种方案:</p><h3 id="manifest中通过meta-data设置一个splash资源"><a href="#manifest中通过meta-data设置一个splash资源" class="headerlink" title="manifest中通过meta-data设置一个splash资源"></a>manifest中通过<code>meta-data</code>设置一个splash资源</h3><pre class=" language-xml"><code class="language-xml">            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta-data</span>                <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>io.flutter.embedding.android.SplashScreenDrawable<span class="token punctuation">"</span></span>                <span class="token attr-name"><span class="token namespace">android:</span>resource</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@drawable/splash_screen<span class="token punctuation">"</span></span>                <span class="token punctuation">/></span></span></code></pre><p>这个节点放到MainActivity节点下.</p><p>这样就会有在Flutter UI加载完之前显示一个过渡的图片了.</p><p>如果只是设置个图片,在实际产品中基本上没什么用,来看看正式一点的做法吧:</p><h3 id="自己实现SplashScreen接口"><a href="#自己实现SplashScreen接口" class="headerlink" title="自己实现SplashScreen接口"></a>自己实现<code>SplashScreen</code>接口</h3><p>这个接口很简单,就两个方法:</p><ul><li><code>createSplashView</code>:创建一个View用于展示Splash页面</li><li><code>transitionToFlutter</code>:过渡到Flutter</li></ul><p>代码也比较简单,我这里直接用代码手写一个Lotiie的基本布局:</p><pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">package</span> com<span class="token punctuation">.</span>jiangkang<span class="token punctuation">.</span>flutter_system<span class="token keyword">import</span> android<span class="token punctuation">.</span>app<span class="token punctuation">.</span>Activity<span class="token keyword">import</span> android<span class="token punctuation">.</span>content<span class="token punctuation">.</span>Context<span class="token keyword">import</span> android<span class="token punctuation">.</span>graphics<span class="token punctuation">.</span>Color<span class="token keyword">import</span> android<span class="token punctuation">.</span>graphics<span class="token punctuation">.</span>drawable<span class="token punctuation">.</span>ColorDrawable<span class="token keyword">import</span> android<span class="token punctuation">.</span>os<span class="token punctuation">.</span>Bundle<span class="token keyword">import</span> android<span class="token punctuation">.</span>os<span class="token punctuation">.</span>Handler<span class="token keyword">import</span> android<span class="token punctuation">.</span>os<span class="token punctuation">.</span>Looper<span class="token keyword">import</span> android<span class="token punctuation">.</span>view<span class="token punctuation">.</span>Gravity<span class="token keyword">import</span> android<span class="token punctuation">.</span>view<span class="token punctuation">.</span>View<span class="token keyword">import</span> android<span class="token punctuation">.</span>view<span class="token punctuation">.</span>ViewGroup<span class="token keyword">import</span> android<span class="token punctuation">.</span>widget<span class="token punctuation">.</span>FrameLayout<span class="token keyword">import</span> com<span class="token punctuation">.</span>airbnb<span class="token punctuation">.</span>lottie<span class="token punctuation">.</span>LottieAnimationView<span class="token keyword">import</span> com<span class="token punctuation">.</span>airbnb<span class="token punctuation">.</span>lottie<span class="token punctuation">.</span>LottieDrawable<span class="token keyword">import</span> io<span class="token punctuation">.</span>flutter<span class="token punctuation">.</span>embedding<span class="token punctuation">.</span>android<span class="token punctuation">.</span>SplashScreen<span class="token keyword">import</span> kotlin<span class="token punctuation">.</span>random<span class="token punctuation">.</span>Random<span class="token comment" spellcheck="true">/** * A Splash Screen based lottie animation * it will pause 1s,then enter the main page */</span><span class="token keyword">class</span> LottieSplashScreen <span class="token operator">:</span> SplashScreen<span class="token punctuation">{</span>    <span class="token keyword">private</span> <span class="token keyword">val</span> lottieRawIds <span class="token operator">=</span> <span class="token function">arrayOf</span><span class="token punctuation">(</span>            R<span class="token punctuation">.</span>raw<span class="token punctuation">.</span>lottie1<span class="token punctuation">,</span>            R<span class="token punctuation">.</span>raw<span class="token punctuation">.</span>lottie2<span class="token punctuation">,</span>            R<span class="token punctuation">.</span>raw<span class="token punctuation">.</span>lottie3<span class="token punctuation">,</span>            R<span class="token punctuation">.</span>raw<span class="token punctuation">.</span>lottie4<span class="token punctuation">,</span>            R<span class="token punctuation">.</span>raw<span class="token punctuation">.</span>lottie5<span class="token punctuation">,</span>            R<span class="token punctuation">.</span>raw<span class="token punctuation">.</span>lottie6<span class="token punctuation">,</span>            R<span class="token punctuation">.</span>raw<span class="token punctuation">.</span>lottie7<span class="token punctuation">,</span>            R<span class="token punctuation">.</span>raw<span class="token punctuation">.</span>lottie8    <span class="token punctuation">)</span>    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">createSplashView</span><span class="token punctuation">(</span>context<span class="token operator">:</span> Context<span class="token punctuation">,</span> savedInstanceState<span class="token operator">:</span> Bundle<span class="token operator">?</span><span class="token punctuation">)</span><span class="token operator">:</span> View<span class="token operator">?</span> <span class="token punctuation">{</span>        <span class="token keyword">val</span> lottieView <span class="token operator">=</span> <span class="token function">LottieAnimationView</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span>        lottieView<span class="token punctuation">.</span><span class="token function">apply</span> <span class="token punctuation">{</span>            repeatMode <span class="token operator">=</span> LottieDrawable<span class="token punctuation">.</span>RESTART            repeatCount <span class="token operator">=</span> LottieDrawable<span class="token punctuation">.</span>INFINITE            <span class="token function">setAnimation</span><span class="token punctuation">(</span>lottieRawIds<span class="token punctuation">[</span><span class="token function">Random</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>lottieRawIds<span class="token punctuation">.</span>size<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>        <span class="token punctuation">}</span><span class="token punctuation">.</span><span class="token function">playAnimation</span><span class="token punctuation">(</span><span class="token punctuation">)</span>        <span class="token punctuation">(</span>context <span class="token keyword">as</span> Activity<span class="token punctuation">)</span><span class="token punctuation">.</span>window<span class="token punctuation">.</span><span class="token function">setBackgroundDrawable</span><span class="token punctuation">(</span><span class="token function">ColorDrawable</span><span class="token punctuation">(</span>Color<span class="token punctuation">.</span>WHITE<span class="token punctuation">)</span><span class="token punctuation">)</span>        <span class="token keyword">val</span> layoutParamsLottie <span class="token operator">=</span> FrameLayout<span class="token punctuation">.</span><span class="token function">LayoutParams</span><span class="token punctuation">(</span>ViewGroup<span class="token punctuation">.</span>LayoutParams<span class="token punctuation">.</span>MATCH_PARENT<span class="token punctuation">,</span>ViewGroup<span class="token punctuation">.</span>LayoutParams<span class="token punctuation">.</span>WRAP_CONTENT<span class="token punctuation">)</span>                <span class="token punctuation">.</span><span class="token function">apply</span> <span class="token punctuation">{</span>                    gravity <span class="token operator">=</span> Gravity<span class="token punctuation">.</span>CENTER                <span class="token punctuation">}</span>        <span class="token keyword">val</span> rootView <span class="token operator">=</span> <span class="token function">FrameLayout</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span>        rootView<span class="token punctuation">.</span><span class="token function">apply</span> <span class="token punctuation">{</span>            layoutParams <span class="token operator">=</span> FrameLayout<span class="token punctuation">.</span><span class="token function">LayoutParams</span><span class="token punctuation">(</span>ViewGroup<span class="token punctuation">.</span>LayoutParams<span class="token punctuation">.</span>MATCH_PARENT<span class="token punctuation">,</span>ViewGroup<span class="token punctuation">.</span>LayoutParams<span class="token punctuation">.</span>MATCH_PARENT<span class="token punctuation">)</span>            <span class="token function">setBackgroundColor</span><span class="token punctuation">(</span>Color<span class="token punctuation">.</span>WHITE<span class="token punctuation">)</span>            <span class="token function">addView</span><span class="token punctuation">(</span>lottieView<span class="token punctuation">,</span>layoutParamsLottie<span class="token punctuation">)</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> rootView    <span class="token punctuation">}</span>    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">transitionToFlutter</span><span class="token punctuation">(</span>onTransitionComplete<span class="token operator">:</span> Runnable<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token function">Handler</span><span class="token punctuation">(</span>Looper<span class="token punctuation">.</span><span class="token function">getMainLooper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">postDelayed</span><span class="token punctuation">(</span>onTransitionComplete<span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><p>然后在MainActivity中重写一个方法即可:</p><pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">import</span> io<span class="token punctuation">.</span>flutter<span class="token punctuation">.</span>embedding<span class="token punctuation">.</span>android<span class="token punctuation">.</span>FlutterActivity<span class="token keyword">import</span> io<span class="token punctuation">.</span>flutter<span class="token punctuation">.</span>embedding<span class="token punctuation">.</span>android<span class="token punctuation">.</span>SplashScreen<span class="token keyword">class</span> MainActivity <span class="token operator">:</span> <span class="token function">FlutterActivity</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">provideSplashScreen</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> SplashScreen<span class="token operator">?</span> <span class="token punctuation">{</span>        <span class="token keyword">return</span> <span class="token function">LottieSplashScreen</span><span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><p>Flutter Engine在新版本中使用了新的<code>FlutterActivity</code>,这一点稍微注意一下(我这里用的就是最新的).</p><h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/jiangkang/flutter-system" target="_blank" rel="noopener">https://github.com/jiangkang/flutter-system</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Flutter </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Splash Screen </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Android中的ANativeWindow</title>
       <link href="/2020/06/19/android/android-zhong-de-anativewindow/"/>
       <url>/2020/06/19/android/android-zhong-de-anativewindow/</url>
@@ -353,9 +378,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> Lock </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -380,9 +405,9 @@
       
         <tags>
             
-            <tag> 数据结构 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 数据结构 </tag>
             
             <tag> Map </tag>
             
@@ -409,11 +434,11 @@
       
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> 数据结构 </tag>
             
             <tag> List </tag>
-            
-            <tag> Java </tag>
             
         </tags>
       
@@ -438,9 +463,9 @@
       
         <tags>
             
-            <tag> 数据结构 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 数据结构 </tag>
             
             <tag> 队列 </tag>
             
@@ -519,8 +544,6 @@
       
         <tags>
             
-            <tag> Flutter </tag>
-            
             <tag> Text </tag>
             
         </tags>
@@ -545,8 +568,6 @@
       
       
         <tags>
-            
-            <tag> Flutter </tag>
             
             <tag> Tab </tag>
             
@@ -573,8 +594,6 @@
       
         <tags>
             
-            <tag> Flutter </tag>
-            
             <tag> 时间处理 </tag>
             
         </tags>
@@ -599,8 +618,6 @@
       
       
         <tags>
-            
-            <tag> Flutter </tag>
             
             <tag> Dart </tag>
             
@@ -627,8 +644,6 @@
       
         <tags>
             
-            <tag> Flutter </tag>
-            
             <tag> 圆角 </tag>
             
         </tags>
@@ -653,8 +668,6 @@
       
       
         <tags>
-            
-            <tag> Flutter </tag>
             
             <tag> 深色模式 </tag>
             
@@ -756,7 +769,7 @@
       
         <tags>
             
-            <tag> Flutter </tag>
+            <tag> Timeline </tag>
             
         </tags>
       

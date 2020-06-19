@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ModernC++的一些特性, 姜康,天津大学,Android,Golang">
+    <meta name="keywords" content="Flutter-自定义闪屏页/SplashScreen, 姜康,天津大学,Android,Golang">
     <meta name="description" content="姜康的技术博客:用技术解决实际问题">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ModernC++的一些特性 | 姜康的技术博客</title>
+    <title>Flutter-自定义闪屏页/SplashScreen | 姜康的技术博客</title>
     <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/avatar.jpeg">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/awesome/css/all.css">
@@ -278,12 +278,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ModernC++的一些特性</h1>
+                    <h1 class="description center-align post-title">Flutter-自定义闪屏页/SplashScreen</h1>
                 </div>
             </div>
         </div>
@@ -400,8 +400,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AF%AD%E6%B3%95/">
-                                <span class="chip bg-color">语法</span>
+                            <a href="/tags/Splash-Screen/">
+                                <span class="chip bg-color">Splash Screen</span>
                             </a>
                         
                     </div>
@@ -412,8 +412,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C/" class="post-category">
-                                C++
+                            <a href="/categories/Flutter/" class="post-category">
+                                Flutter
                             </a>
                         
                     </div>
@@ -425,7 +425,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-23
+                    2020-06-19
                 </div>
                 
 
@@ -434,14 +434,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    211
+                    693
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -451,216 +451,111 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Modern-C"><a href="#Modern-C" class="headerlink" title="Modern C++"></a>Modern C++</h2><p>Modern C++指的是C++11/C++14/C++17/C++20等版本,新增和改进了C++语法,提升开发效率.</p>
-<h2 id="nullptr"><a href="#nullptr" class="headerlink" title="nullptr"></a>nullptr</h2><p>nullptr是用来替换NULL的</p>
-<h2 id="constexpr"><a href="#constexpr" class="headerlink" title="constexpr"></a>constexpr</h2><p>常量表达式</p>
-<pre class=" language-c++"><code class="language-c++">constexpr int num = 1 + 2+ 3;</code></pre>
-<h2 id="if-switch-变量声明强化"><a href="#if-switch-变量声明强化" class="headerlink" title="if/switch 变量声明强化"></a>if/switch 变量声明强化</h2><pre class=" language-c++"><code class="language-c++">    if (int i = num - 1){
+                <h2 id="Splash-Screen"><a href="#Splash-Screen" class="headerlink" title="Splash Screen?"></a>Splash Screen?</h2><p>对于Android应用来说,Splash Screen最熟悉不过了.比如为了让启动的时候app不现实白屏,或者为了弄个开屏广告用来盈利,都会用到Splash Screen.</p>
+<p><img src="https://oss.jiangkang.tech/jk/splash.gif" alt="splash"></p>
+<h2 id="Flutter中如何自定义Splash页面"><a href="#Flutter中如何自定义Splash页面" class="headerlink" title="Flutter中如何自定义Splash页面"></a>Flutter中如何自定义Splash页面</h2><p>这里先说一个Android中最基础的:</p>
+<h3 id="设置启动主题-并设置一个windowBackground"><a href="#设置启动主题-并设置一个windowBackground" class="headerlink" title="设置启动主题,并设置一个windowBackground"></a>设置启动主题,并设置一个windowBackground</h3><p>至于怎么设置主题,太简单了没什么好说的,贴个背景资源代码:</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8"?></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>layer-list</span> <span class="token attr-name"><span class="token namespace">xmlns:</span>android</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://schemas.android.com/apk/res/android<span class="token punctuation">"</span></span>
+    <span class="token attr-name"><span class="token namespace">android:</span>opacity</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>opaque<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>item</span> <span class="token attr-name"><span class="token namespace">android:</span>drawable</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@android:color/white<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>item</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bitmap</span>
+            <span class="token attr-name"><span class="token namespace">android:</span>gravity</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>center<span class="token punctuation">"</span></span>
+            <span class="token attr-name"><span class="token namespace">android:</span>src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@drawable/ic_launcher<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>item</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>layer-list</span><span class="token punctuation">></span></span></code></pre>
+<p>可以看到这里用了一个白色背景和一个图片.</p>
+<p><strong>在Flutter中,只设置这个是不够的</strong>,为什么?</p>
+<p><strong>在MainActivity启动之后,Flutter中的UI数据加载之前</strong>这段时间里我们还得设置一个自定义的splash图或者页面,要不然很可能会导致黑屏.</p>
+<p>这里也有很多种方法,主要说下经过源码分析之后得到的两种方案:</p>
+<h3 id="manifest中通过meta-data设置一个splash资源"><a href="#manifest中通过meta-data设置一个splash资源" class="headerlink" title="manifest中通过meta-data设置一个splash资源"></a>manifest中通过<code>meta-data</code>设置一个splash资源</h3><pre class=" language-xml"><code class="language-xml">            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta-data</span>
+                <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>io.flutter.embedding.android.SplashScreenDrawable<span class="token punctuation">"</span></span>
+                <span class="token attr-name"><span class="token namespace">android:</span>resource</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@drawable/splash_screen<span class="token punctuation">"</span></span>
+                <span class="token punctuation">/></span></span></code></pre>
+<p>这个节点放到MainActivity节点下.</p>
+<p>这样就会有在Flutter UI加载完之前显示一个过渡的图片了.</p>
+<p>如果只是设置个图片,在实际产品中基本上没什么用,来看看正式一点的做法吧:</p>
+<h3 id="自己实现SplashScreen接口"><a href="#自己实现SplashScreen接口" class="headerlink" title="自己实现SplashScreen接口"></a>自己实现<code>SplashScreen</code>接口</h3><p>这个接口很简单,就两个方法:</p>
+<ul>
+<li><code>createSplashView</code>:创建一个View用于展示Splash页面</li>
+<li><code>transitionToFlutter</code>:过渡到Flutter</li>
+</ul>
+<p>代码也比较简单,我这里直接用代码手写一个Lotiie的基本布局:</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">package</span> com<span class="token punctuation">.</span>jiangkang<span class="token punctuation">.</span>flutter_system
 
-    }</code></pre>
-<p>即判断条件中可以直接声明临时变量.</p>
-<h2 id="初始化列表"><a href="#初始化列表" class="headerlink" title="初始化列表"></a>初始化列表</h2><pre class=" language-c++"><code class="language-c++">#include <iostream>
-#include <string>
+<span class="token keyword">import</span> android<span class="token punctuation">.</span>app<span class="token punctuation">.</span>Activity
+<span class="token keyword">import</span> android<span class="token punctuation">.</span>content<span class="token punctuation">.</span>Context
+<span class="token keyword">import</span> android<span class="token punctuation">.</span>graphics<span class="token punctuation">.</span>Color
+<span class="token keyword">import</span> android<span class="token punctuation">.</span>graphics<span class="token punctuation">.</span>drawable<span class="token punctuation">.</span>ColorDrawable
+<span class="token keyword">import</span> android<span class="token punctuation">.</span>os<span class="token punctuation">.</span>Bundle
+<span class="token keyword">import</span> android<span class="token punctuation">.</span>os<span class="token punctuation">.</span>Handler
+<span class="token keyword">import</span> android<span class="token punctuation">.</span>os<span class="token punctuation">.</span>Looper
+<span class="token keyword">import</span> android<span class="token punctuation">.</span>view<span class="token punctuation">.</span>Gravity
+<span class="token keyword">import</span> android<span class="token punctuation">.</span>view<span class="token punctuation">.</span>View
+<span class="token keyword">import</span> android<span class="token punctuation">.</span>view<span class="token punctuation">.</span>ViewGroup
+<span class="token keyword">import</span> android<span class="token punctuation">.</span>widget<span class="token punctuation">.</span>FrameLayout
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>airbnb<span class="token punctuation">.</span>lottie<span class="token punctuation">.</span>LottieAnimationView
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>airbnb<span class="token punctuation">.</span>lottie<span class="token punctuation">.</span>LottieDrawable
+<span class="token keyword">import</span> io<span class="token punctuation">.</span>flutter<span class="token punctuation">.</span>embedding<span class="token punctuation">.</span>android<span class="token punctuation">.</span>SplashScreen
+<span class="token keyword">import</span> kotlin<span class="token punctuation">.</span>random<span class="token punctuation">.</span>Random
 
-using namespace std;
+<span class="token comment" spellcheck="true">/**
+ * A Splash Screen based lottie animation
+ * it will pause 1s,then enter the main page
+ */</span>
+<span class="token keyword">class</span> LottieSplashScreen <span class="token operator">:</span> SplashScreen<span class="token punctuation">{</span>
 
-class Person {
-public:
-    string name;
-    int age;
-    int sex;
+    <span class="token keyword">private</span> <span class="token keyword">val</span> lottieRawIds <span class="token operator">=</span> <span class="token function">arrayOf</span><span class="token punctuation">(</span>
+            R<span class="token punctuation">.</span>raw<span class="token punctuation">.</span>lottie1<span class="token punctuation">,</span>
+            R<span class="token punctuation">.</span>raw<span class="token punctuation">.</span>lottie2<span class="token punctuation">,</span>
+            R<span class="token punctuation">.</span>raw<span class="token punctuation">.</span>lottie3<span class="token punctuation">,</span>
+            R<span class="token punctuation">.</span>raw<span class="token punctuation">.</span>lottie4<span class="token punctuation">,</span>
+            R<span class="token punctuation">.</span>raw<span class="token punctuation">.</span>lottie5<span class="token punctuation">,</span>
+            R<span class="token punctuation">.</span>raw<span class="token punctuation">.</span>lottie6<span class="token punctuation">,</span>
+            R<span class="token punctuation">.</span>raw<span class="token punctuation">.</span>lottie7<span class="token punctuation">,</span>
+            R<span class="token punctuation">.</span>raw<span class="token punctuation">.</span>lottie8
+    <span class="token punctuation">)</span>
 
-    const string &getName() const {
-        return name;
-    }
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">createSplashView</span><span class="token punctuation">(</span>context<span class="token operator">:</span> Context<span class="token punctuation">,</span> savedInstanceState<span class="token operator">:</span> Bundle<span class="token operator">?</span><span class="token punctuation">)</span><span class="token operator">:</span> View<span class="token operator">?</span> <span class="token punctuation">{</span>
+        <span class="token keyword">val</span> lottieView <span class="token operator">=</span> <span class="token function">LottieAnimationView</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span>
+        lottieView<span class="token punctuation">.</span><span class="token function">apply</span> <span class="token punctuation">{</span>
+            repeatMode <span class="token operator">=</span> LottieDrawable<span class="token punctuation">.</span>RESTART
+            repeatCount <span class="token operator">=</span> LottieDrawable<span class="token punctuation">.</span>INFINITE
+            <span class="token function">setAnimation</span><span class="token punctuation">(</span>lottieRawIds<span class="token punctuation">[</span><span class="token function">Random</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>lottieRawIds<span class="token punctuation">.</span>size<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">.</span><span class="token function">playAnimation</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">(</span>context <span class="token keyword">as</span> Activity<span class="token punctuation">)</span><span class="token punctuation">.</span>window<span class="token punctuation">.</span><span class="token function">setBackgroundDrawable</span><span class="token punctuation">(</span><span class="token function">ColorDrawable</span><span class="token punctuation">(</span>Color<span class="token punctuation">.</span>WHITE<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-    int getAge() const {
-        return age;
-    }
+        <span class="token keyword">val</span> layoutParamsLottie <span class="token operator">=</span> FrameLayout<span class="token punctuation">.</span><span class="token function">LayoutParams</span><span class="token punctuation">(</span>ViewGroup<span class="token punctuation">.</span>LayoutParams<span class="token punctuation">.</span>MATCH_PARENT<span class="token punctuation">,</span>ViewGroup<span class="token punctuation">.</span>LayoutParams<span class="token punctuation">.</span>WRAP_CONTENT<span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">apply</span> <span class="token punctuation">{</span>
+                    gravity <span class="token operator">=</span> Gravity<span class="token punctuation">.</span>CENTER
+                <span class="token punctuation">}</span>
+        <span class="token keyword">val</span> rootView <span class="token operator">=</span> <span class="token function">FrameLayout</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span>
+        rootView<span class="token punctuation">.</span><span class="token function">apply</span> <span class="token punctuation">{</span>
+            layoutParams <span class="token operator">=</span> FrameLayout<span class="token punctuation">.</span><span class="token function">LayoutParams</span><span class="token punctuation">(</span>ViewGroup<span class="token punctuation">.</span>LayoutParams<span class="token punctuation">.</span>MATCH_PARENT<span class="token punctuation">,</span>ViewGroup<span class="token punctuation">.</span>LayoutParams<span class="token punctuation">.</span>MATCH_PARENT<span class="token punctuation">)</span>
+            <span class="token function">setBackgroundColor</span><span class="token punctuation">(</span>Color<span class="token punctuation">.</span>WHITE<span class="token punctuation">)</span>
+            <span class="token function">addView</span><span class="token punctuation">(</span>lottieView<span class="token punctuation">,</span>layoutParamsLottie<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> rootView
+    <span class="token punctuation">}</span>
 
-    int getSex() const {
-        return sex;
-    }
-};
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">transitionToFlutter</span><span class="token punctuation">(</span>onTransitionComplete<span class="token operator">:</span> Runnable<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">Handler</span><span class="token punctuation">(</span>Looper<span class="token punctuation">.</span><span class="token function">getMainLooper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">postDelayed</span><span class="token punctuation">(</span>onTransitionComplete<span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>然后在MainActivity中重写一个方法即可:</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">import</span> io<span class="token punctuation">.</span>flutter<span class="token punctuation">.</span>embedding<span class="token punctuation">.</span>android<span class="token punctuation">.</span>FlutterActivity
+<span class="token keyword">import</span> io<span class="token punctuation">.</span>flutter<span class="token punctuation">.</span>embedding<span class="token punctuation">.</span>android<span class="token punctuation">.</span>SplashScreen
 
+<span class="token keyword">class</span> MainActivity <span class="token operator">:</span> <span class="token function">FlutterActivity</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
-void testInit() {
-    Person person = {"jack", 18, 1};
-}</code></pre>
-<p>C++11之前的版本初始化比较麻烦,需要写一些无用代码,这之后比较灵活,可以按照上面的方式进行初始化.</p>
-<h2 id="结构化绑定"><a href="#结构化绑定" class="headerlink" title="结构化绑定"></a>结构化绑定</h2><p>即多返回值的封包/拆包,在Python,Go,Kotlin中比较常见.</p>
-<pre class=" language-c++"><code class="language-c++">#include <iostream>
-#include <tuple>
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">provideSplashScreen</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> SplashScreen<span class="token operator">?</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">LottieSplashScreen</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
 
-using namespace std;
-
-void testTuple() {
-    auto[x, y, z] = make_tuple(1, false, "hello");
-    cout << x << y << z << endl;
-}</code></pre>
-<h2 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h2><p>即类型推断,不用每个变量声明都声明类型.</p>
-<p>需要注意的就是:<strong>auto不能用于函数传参,也不能用于推导数组类型</strong></p>
-<h2 id="decltype"><a href="#decltype" class="headerlink" title="decltype"></a>decltype</h2><p>auto只能用于变量的类型推断,decltype则对表达式类型推断做了补充.</p>
-<pre class=" language-c++"><code class="language-c++">auto x = 1;
-auto y = 2;
-decltype(x+y) z;</code></pre>
-<h2 id="区间for迭代"><a href="#区间for迭代" class="headerlink" title="区间for迭代"></a>区间for迭代</h2><pre class=" language-c++"><code class="language-c++">#include <iostream>
-#include <vector>
-#include <algorithm>
-
-int main() {
-    std::vector<int> vec = {1, 2, 3, 4};
-    if (auto itr = std::find(vec.begin(), vec.end(), 3); itr != vec.end()) *itr = 4;
-    for (auto element : vec)
-        std::cout << element << std::endl; // read only
-    for (auto &element : vec) {
-        element += 1;                      // writeable
-    }
-    for (auto element : vec)
-        std::cout << element << std::endl; // read only
-}</code></pre>
-<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><p>将一切能在编译期解决的问题放在编译期解决,仅在运行时处理核心的动态服务.</p>
-<h3 id="外部模板"><a href="#外部模板" class="headerlink" title="外部模板"></a>外部模板</h3><pre class=" language-c++"><code class="language-c++">template class std::vector<bool>;          // 强行实例化
-extern template class std::vector<double>; // 不在该当前编译文件中实例化模板</code></pre>
-<p>其实就是一个实例化时机的问题.</p>
-<h3 id="类型别名模板"><a href="#类型别名模板" class="headerlink" title="类型别名模板"></a>类型别名模板</h3><p>模板是用来生成类型的.</p>
-<p>类型别名一般这样用:</p>
-<pre class=" language-c++"><code class="language-c++">typedef 原名称 新名称</code></pre>
-<p>对于复杂一点的就显得很难看,可以使用<code>using</code>:</p>
-<pre class=" language-c++"><code class="language-c++">typedef int (*process)(void *);
-using NewProcess = int(*)(void *);
-template<typename T>
-using TrueDarkMagic = MagicType<std::vector<T>, std::string>;
-
-int main() {
-    TrueDarkMagic<bool> you;
-}</code></pre>
-<h2 id="委托构造"><a href="#委托构造" class="headerlink" title="委托构造"></a>委托构造</h2><pre class=" language-c++"><code class="language-c++">#include <iostream>
-class Base {
-public:
-    int value1;
-    int value2;
-    Base() {
-        value1 = 1;
-    }
-    Base(int value) : Base() { // 委托 Base() 构造函数
-        value2 = value;
-    }
-};
-
-int main() {
-    Base b(2);
-    std::cout << b.value1 << std::endl;
-    std::cout << b.value2 << std::endl;
-}</code></pre>
-<p>没什么好说的,其他语言在设计的时候就已经支持了.</p>
-<h2 id="继承构造"><a href="#继承构造" class="headerlink" title="继承构造"></a>继承构造</h2><pre class=" language-c++"><code class="language-c++">#include <iostream>
-class Base {
-public:
-    int value1;
-    int value2;
-    Base() {
-        value1 = 1;
-    }
-    Base(int value) : Base() { // 委托 Base() 构造函数
-        value2 = value;
-    }
-};
-class Subclass : public Base {
-public:
-    using Base::Base; // 继承构造
-};
-int main() {
-    Subclass s(3);
-    std::cout << s.value1 << std::endl;
-    std::cout << s.value2 << std::endl;
-}</code></pre>
-<h2 id="overide-final"><a href="#overide-final" class="headerlink" title="overide , final"></a>overide , final</h2><pre class=" language-c++"><code class="language-c++">struct Base {
-    virtual void foo(int);
-};
-struct SubClass: Base {
-    virtual void foo(int) override; // 合法
-    virtual void foo(float) override; // 非法, 父类没有此虚函数
-};</code></pre>
-<pre class=" language-c++"><code class="language-c++">struct Base {
-    virtual void foo() final;
-};
-struct SubClass1 final: Base {
-}; // 合法
-
-struct SubClass2 : SubClass1 {
-}; // 非法, SubClass1 已 final
-
-struct SubClass3: Base {
-    void foo(); // 非法, foo 已 final
-};</code></pre>
-<p>这两点也没什么好说的,其他语言早就支持了.</p>
-<h2 id="Lambda"><a href="#Lambda" class="headerlink" title="Lambda"></a>Lambda</h2><pre class=" language-c++"><code class="language-c++">[捕获列表](参数列表) mutable(可选) 异常属性 -> 返回类型 {
-// 函数体
-}</code></pre>
-<h3 id="值捕获"><a href="#值捕获" class="headerlink" title="值捕获"></a>值捕获</h3><pre class=" language-c++"><code class="language-c++">void lambda_value_capture() {
-    int value = 1;
-    auto copy_value = [value] {
-        return value;
-    };
-    value = 100;
-    auto stored_value = copy_value();
-    std::cout << "stored_value = " << stored_value << std::endl;
-    // 这时, stored_value == 1, 而 value == 100.
-    // 因为 copy_value 在创建时就保存了一份 value 的拷贝
-}</code></pre>
-<h3 id="引用捕获"><a href="#引用捕获" class="headerlink" title="引用捕获"></a>引用捕获</h3><pre class=" language-c++"><code class="language-c++">void lambda_reference_capture() {
-    int value = 1;
-    auto copy_value = [&value] {
-        return value;
-    };
-    value = 100;
-    auto stored_value = copy_value();
-    std::cout << "stored_value = " << stored_value << std::endl;
-    // 这时, stored_value == 100, value == 100.
-    // 因为 copy_value 保存的是引用
-}</code></pre>
-<h3 id="范型Lambda"><a href="#范型Lambda" class="headerlink" title="范型Lambda"></a>范型Lambda</h3><pre class=" language-c++"><code class="language-c++">auto add = [](auto x, auto y) {
-    return x+y;
-};
-
-add(1, 2);
-add(1.1, 2.2);</code></pre>
-<h2 id="函数对象包装器"><a href="#函数对象包装器" class="headerlink" title="函数对象包装器"></a>函数对象包装器</h2><p>如果不使用<code>std::fucntion()</code>是这样子的:</p>
-<pre class=" language-c++"><code class="language-c++">#include <iostream>
-
-using foo = void(int); // 定义函数类型, using 的使用见上一节中的别名语法
-void functional(foo f) { // 定义在参数列表中的函数类型 foo 被视为退化后的函数指针类型 foo*
-    f(1); // 通过函数指针调用函数
-}
-
-int main() {
-    auto f = [](int value) {
-        std::cout << value << std::endl;
-    };
-    functional(f); // 传递闭包对象，隐式转换为 foo* 类型的函数指针值
-    f(1); // lambda 表达式调用
-    return 0;
-}</code></pre>
-<p>使用了之后是这样的:</p>
-<pre class=" language-c++"><code class="language-c++">#include <functional>
-#include <iostream>
-
-int foo(int para) {
-    return para;
-}
-
-int main() {
-    // std::function 包装了一个返回值为 int, 参数为 int 的函数
-    std::function<int(int)> func = foo;
-
-    int important = 10;
-    std::function<int(int)> func2 = [&](int value) -> int {
-        return 1+value+important;
-    };
-    std::cout << func(10) << std::endl;
-    std::cout << func2(10) << std::endl;
-}</code></pre>
+<span class="token punctuation">}</span></code></pre>
+<p>Flutter Engine在新版本中使用了新的<code>FlutterActivity</code>,这一点稍微注意一下(我这里用的就是最新的).</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/jiangkang/flutter-system" target="_blank" rel="noopener">https://github.com/jiangkang/flutter-system</a></p>
 
             </div>
             <hr/>
@@ -686,7 +581,7 @@ int main() {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.jiangkang.tech/2020/05/23/c/modernc-de-yi-xie-te-xing/">https://www.jiangkang.tech/2020/05/23/c/modernc-de-yi-xie-te-xing/</a>
+                    <a href="https://www.jiangkang.tech/2020/06/19/flutter/flutter-zi-ding-yi-shan-ping-ye-splashscreen/">https://www.jiangkang.tech/2020/06/19/flutter/flutter-zi-ding-yi-shan-ping-ye-splashscreen/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -724,8 +619,8 @@ int main() {
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AF%AD%E6%B3%95/">
-                                    <span class="chip bg-color">语法</span>
+                                <a href="/tags/Splash-Screen/">
+                                    <span class="chip bg-color">Splash Screen</span>
                                 </a>
                             
                         </div>
@@ -896,7 +791,7 @@ int main() {
         repo: 'jiangkang.github.io',
         owner: 'jiangkang',
         admin: ["jiangkang"],
-        id: '2020-05-23T17-51-07',
+        id: '2020-06-19T22-36-29',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -920,51 +815,50 @@ int main() {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/25/c/cmake-de-jian-dan-shi-yong/">
+                <a href="/2020/06/19/flutter/flutter-zi-ding-yi-shan-ping-ye-splashscreen/">
                     <div class="card-image">
                         
-                        <img src="https://oss.jiangkang.tech/jk/cmake.jpg" class="responsive-img" alt="CMake的简单使用">
                         
-                        <span class="card-title">CMake的简单使用</span>
+                        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="Flutter-自定义闪屏页/SplashScreen">
+                        
+                        <span class="card-title">Flutter-自定义闪屏页/SplashScreen</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            构建可执行程序add_executable( [WIN32] [MACOSX_BUNDLE]
-               [EXCLUDE_FROM_ALL]
-               [source1] [source2 ...])
+                            Splash Screen?对于Android应用来说,Splash Screen最熟悉不过了.比如为了让启动的时候app不现实白屏,或者为了弄个开屏广告用来盈利,都会用到Splash Screen.
+
+Flutter中如何自定义Splas
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C/" class="post-category">
-                                    C++
+                            <a href="/categories/Flutter/" class="post-category">
+                                    Flutter
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BC%96%E8%AF%91/">
-                        <span class="chip bg-color">编译</span>
-                    </a>
-                    
-                    <a href="/tags/CMake/">
-                        <span class="chip bg-color">CMake</span>
+                    <a href="/tags/Splash-Screen/">
+                        <span class="chip bg-color">Splash Screen</span>
                     </a>
                     
                 </div>
@@ -978,34 +872,33 @@ int main() {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/18/tu-xing-xuan-ran/skia-de-bian-yi/">
+                <a href="/2020/06/19/android/android-zhong-de-anativewindow/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/1.jpg" class="responsive-img" alt="Skia的编译">
+                        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/6.jpg" class="responsive-img" alt="Android中的ANativeWindow">
                         
-                        <span class="card-title">Skia的编译</span>
+                        <span class="card-title">Android中的ANativeWindow</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            源码地址https://github.com/google/skia
-https://skia.googlesource.com/skia
-这两个都可以,如果不能科学上网,建议使用github上的镜像.
-编译bin/gn gen out/S
+                            ANativeWindow是什么ANativeWindow是C/C++中定义的一个结构体,等同于Java中的Surface.
+Android NDK中可以访问到ANativeWindow.
+ANativeWindow中存放像素信息的结构是:
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-19
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/" class="post-category">
-                                    图形渲染
+                            <a href="/categories/Android/" class="post-category">
+                                    Android
                                 </a>
                             
                             
@@ -1015,12 +908,8 @@ https://skia.googlesource.com/skia
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BC%96%E8%AF%91/">
-                        <span class="chip bg-color">编译</span>
-                    </a>
-                    
-                    <a href="/tags/Skia/">
-                        <span class="chip bg-color">Skia</span>
+                    <a href="/tags/ANativeWindow/">
+                        <span class="chip bg-color">ANativeWindow</span>
                     </a>
                     
                 </div>

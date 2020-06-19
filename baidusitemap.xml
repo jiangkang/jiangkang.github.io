@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.jiangkang.tech/2020/06/19/flutter/flutter-zi-ding-yi-shan-ping-ye-splashscreen/</loc>
+    <lastmod>2020-06-19</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/05/08/flutter/flutter-shi-jian-chu-li/</loc>
+    <lastmod>2020-06-19</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/05/08/flutter/flutter-shen-se-mo-shi/</loc>
+    <lastmod>2020-06-19</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/05/08/flutter/flutter-timeline/</loc>
+    <lastmod>2020-06-19</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/05/08/flutter/flutter-text-de-shi-yong/</loc>
+    <lastmod>2020-06-19</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/05/08/flutter/flutter-tabs-de-shi-yong/</loc>
+    <lastmod>2020-06-19</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/05/08/flutter/flutter-shi-xian-tu-pian-yuan-jiao-de-ji-chong-fang-shi/</loc>
+    <lastmod>2020-06-19</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/05/08/flutter/dart-ji-chu-yu-fa/</loc>
+    <lastmod>2020-06-19</lastmod>
+  </url>  <url>
     <loc>https://www.jiangkang.tech/2020/06/19/android/android-zhong-de-anativewindow/</loc>
     <lastmod>2020-06-19</lastmod>
   </url>  <url>
@@ -40,22 +64,7 @@
     <loc>https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-map/</loc>
     <lastmod>2020-05-25</lastmod>
   </url>  <url>
-    <loc>https://www.jiangkang.tech/2020/05/08/flutter/flutter-tabs-de-shi-yong/</loc>
-    <lastmod>2020-05-25</lastmod>
-  </url>  <url>
-    <loc>https://www.jiangkang.tech/2020/05/08/flutter/flutter-shen-se-mo-shi/</loc>
-    <lastmod>2020-05-25</lastmod>
-  </url>  <url>
     <loc>https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-lock/</loc>
-    <lastmod>2020-05-25</lastmod>
-  </url>  <url>
-    <loc>https://www.jiangkang.tech/2020/05/08/flutter/flutter-text-de-shi-yong/</loc>
-    <lastmod>2020-05-25</lastmod>
-  </url>  <url>
-    <loc>https://www.jiangkang.tech/2020/05/08/flutter/flutter-timeline/</loc>
-    <lastmod>2020-05-25</lastmod>
-  </url>  <url>
-    <loc>https://www.jiangkang.tech/2020/05/08/flutter/flutter-shi-xian-tu-pian-yuan-jiao-de-ji-chong-fang-shi/</loc>
     <lastmod>2020-05-25</lastmod>
   </url>  <url>
     <loc>https://www.jiangkang.tech/2020/05/15/flutter/diao-shi-flutter-tools/</loc>
@@ -78,12 +87,6 @@
   </url>  <url>
     <loc>https://www.jiangkang.tech/2020/05/09/golang/golang-yu-fa-kuai-su-ru-men/</loc>
     <lastmod>2020-05-09</lastmod>
-  </url>  <url>
-    <loc>https://www.jiangkang.tech/2020/05/08/flutter/flutter-shi-jian-chu-li/</loc>
-    <lastmod>2020-05-08</lastmod>
-  </url>  <url>
-    <loc>https://www.jiangkang.tech/2020/05/08/flutter/dart-ji-chu-yu-fa/</loc>
-    <lastmod>2020-05-08</lastmod>
   </url>  <url>
     <loc>https://www.jiangkang.tech/2020/05/08/golang/golang-zhong-de-init-fang-fa/</loc>
     <lastmod>2020-05-08</lastmod>
