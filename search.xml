@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>FFmpeg简介</title>
+      <link href="/2020/06/20/yin-shi-pin-kai-fa/ffmpeg-jian-jie/"/>
+      <url>/2020/06/20/yin-shi-pin-kai-fa/ffmpeg-jian-jie/</url>
+      
+        <content type="html"><![CDATA[<h2 id="模块库"><a href="#模块库" class="headerlink" title="模块库"></a>模块库</h2><ul><li><p>avcodec</p><p>用于音视频编解码,支持自带的MPEG4,AAC,MJPEG等编码格式,还支持第三方的编解码,比如H.264(AVC,使用X264编解码器),H.265(HEVC,使用X265编解码器)</p></li><li><p>avdevice</p><p>多媒体设备输入输出</p></li><li><p>avfilter</p><p>滤镜特效</p></li><li><p>avformat</p><p>封装格式处理,包括封装/解封装,如MP4,FLV,TS等文件封装格式,RTMP,RTSP,HLS等网络协议封装格式,FFmpeg是否支持某种具体的格式,取决于编译时是否包含了该格式的封装库,当然你也可以定制封装格式并添加对应的支持.</p></li><li><p>avutil</p><p>工具库</p></li><li><p>swresample</p><p>音频转换计算模块,提供了高级别的音频重采样API</p></li><li><p>swscale</p><p>视频图像转换计算模块,提供了高级别的图像转换API,运行进行图像缩放和像素格式转换,比如将图像从1080p转换成720p,将图像数据从YUV转成RGB.</p></li></ul><h2 id="ffmpeg"><a href="#ffmpeg" class="headerlink" title="ffmpeg"></a>ffmpeg</h2><pre class=" language-shell"><code class="language-shell">ffmpeg -i input.mp4 output.avi</code></pre><p>这个命令会将input.mp4转换成avi格式;</p><p>当然也可以显示指定格式:</p><pre class=" language-shell"><code class="language-shell">ffmpeg -i input.mp4 -f avi output.avi</code></pre><p>效果是一样的.</p><p>这个命令会执行以下几个步骤:</p><ol><li>解封装(Demux)</li><li>解码(Decode)</li><li>编码(Encode)</li><li>封装(Mux)</li></ol><h2 id="ffplay"><a href="#ffplay" class="headerlink" title="ffplay"></a>ffplay</h2><p>用于测试音视频播放的程序,依赖于SDL.</p><p>比如播放一个测试视频:</p><pre class=" language-shell"><code class="language-shell">ffplay input.mp4</code></pre><h2 id="ffprobe"><a href="#ffprobe" class="headerlink" title="ffprobe"></a>ffprobe</h2><p>一个强大的多媒体分析工具.利用ffprobe可以从音视频文件或者流中获取一些信息,比如音视频参数,容器的参数,音频的格式,视频的格式,视频的总时长,码率等.</p><p>比如:</p><pre class=" language-shell"><code class="language-shell">ffprobe -show_streams bee.mp4</code></pre><p>会输出如下信息:</p><pre class=" language-shell"><code class="language-shell">Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'bee.mp4':  Metadata:    major_brand     : mp42    minor_version   : 0    compatible_brands: mp42mp41isomavc1    creation_time   : 2015-08-10T09:55:17.000000Z  Duration: 00:00:04.04, start: 0.000000, bitrate: 2562 kb/s    Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709), 1280x720 [SAR 1:1 DAR 16:9], 2407 kb/s, 29.97 fps, 29.97 tbr, 30k tbn, 59.94 tbc (default)    Metadata:      creation_time   : 2015-08-10T09:55:17.000000Z      handler_name    : L-SMASH Video Handler      encoder         : AVC Coding    Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 147 kb/s (default)    Metadata:      creation_time   : 2015-08-10T09:55:17.000000Z      handler_name    : L-SMASH Audio Handlerjiangkang@jkmac videos % ffprobe -show_streams bee.mp4ffprobe version 4.3 Copyright (c) 2007-2020 the FFmpeg developers  built with Apple clang version 11.0.3 (clang-1103.0.32.62)  configuration: --prefix=/usr/local/Cellar/ffmpeg/4.3_1 --enable-shared --enable-pthreads --enable-version3 --enable-avresample --cc=clang --host-cflags= --host-ldflags= --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libbluray --enable-libdav1d --enable-libmp3lame --enable-libopus --enable-librav1e --enable-librubberband --enable-libsnappy --enable-libsrt --enable-libtesseract --enable-libtheora --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-librtmp --enable-libspeex --enable-libsoxr --enable-videotoolbox --disable-libjack --disable-indev=jack  libavutil      56. 51.100 / 56. 51.100  libavcodec     58. 91.100 / 58. 91.100  libavformat    58. 45.100 / 58. 45.100  libavdevice    58. 10.100 / 58. 10.100  libavfilter     7. 85.100 /  7. 85.100  libavresample   4.  0.  0 /  4.  0.  0  libswscale      5.  7.100 /  5.  7.100  libswresample   3.  7.100 /  3.  7.100  libpostproc    55.  7.100 / 55.  7.100Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'bee.mp4':  Metadata:    major_brand     : mp42    minor_version   : 0    compatible_brands: mp42mp41isomavc1    creation_time   : 2015-08-10T09:55:17.000000Z  Duration: 00:00:04.04, start: 0.000000, bitrate: 2562 kb/s    Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709), 1280x720 [SAR 1:1 DAR 16:9], 2407 kb/s, 29.97 fps, 29.97 tbr, 30k tbn, 59.94 tbc (default)    Metadata:      creation_time   : 2015-08-10T09:55:17.000000Z      handler_name    : L-SMASH Video Handler      encoder         : AVC Coding    Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 147 kb/s (default)    Metadata:      creation_time   : 2015-08-10T09:55:17.000000Z      handler_name    : L-SMASH Audio Handler[STREAM]index=0codec_name=h264codec_long_name=H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10profile=Highcodec_type=videocodec_time_base=1001/60000codec_tag_string=avc1codec_tag=0x31637661width=1280height=720coded_width=1280coded_height=720closed_captions=0has_b_frames=2sample_aspect_ratio=1:1display_aspect_ratio=16:9pix_fmt=yuv420plevel=31color_range=tvcolor_space=bt709color_transfer=bt709color_primaries=bt709chroma_location=leftfield_order=unknowntimecode=N/Arefs=1is_avc=truenal_length_size=4id=N/Ar_frame_rate=30000/1001avg_frame_rate=30000/1001time_base=1/30000start_pts=0start_time=0.000000duration_ts=121100duration=4.036667bit_rate=2407163max_bit_rate=N/Abits_per_raw_sample=8nb_frames=121nb_read_frames=N/Anb_read_packets=N/ADISPOSITION:default=1DISPOSITION:dub=0DISPOSITION:original=0DISPOSITION:comment=0DISPOSITION:lyrics=0DISPOSITION:karaoke=0DISPOSITION:forced=0DISPOSITION:hearing_impaired=0DISPOSITION:visual_impaired=0DISPOSITION:clean_effects=0DISPOSITION:attached_pic=0DISPOSITION:timed_thumbnails=0TAG:creation_time=2015-08-10T09:55:17.000000ZTAG:language=undTAG:handler_name=L-SMASH Video HandlerTAG:encoder=AVC Coding[/STREAM][STREAM]index=1codec_name=aaccodec_long_name=AAC (Advanced Audio Coding)profile=LCcodec_type=audiocodec_time_base=1/48000codec_tag_string=mp4acodec_tag=0x6134706dsample_fmt=fltpsample_rate=48000channels=2channel_layout=stereobits_per_sample=0id=N/Ar_frame_rate=0/0avg_frame_rate=0/0time_base=1/48000start_pts=0start_time=0.000000duration_ts=193520duration=4.031667bit_rate=147714max_bit_rate=153472bits_per_raw_sample=N/Anb_frames=189nb_read_frames=N/Anb_read_packets=N/ADISPOSITION:default=1DISPOSITION:dub=0DISPOSITION:original=0DISPOSITION:comment=0DISPOSITION:lyrics=0DISPOSITION:karaoke=0DISPOSITION:forced=0DISPOSITION:hearing_impaired=0DISPOSITION:visual_impaired=0DISPOSITION:clean_effects=0DISPOSITION:attached_pic=0DISPOSITION:timed_thumbnails=0TAG:creation_time=2015-08-10T09:55:17.000000ZTAG:language=undTAG:handler_name=L-SMASH Audio Handler[/STREAM]</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 音视频开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> FFmpeg </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Flutter-自定义闪屏页(SplashScreen)</title>
       <link href="/2020/06/19/flutter/flutter-zi-ding-yi-shan-ping-ye-splashscreen/"/>
       <url>/2020/06/19/flutter/flutter-zi-ding-yi-shan-ping-ye-splashscreen/</url>
@@ -274,9 +299,9 @@
       
         <tags>
             
-            <tag> CMake </tag>
-            
             <tag> 编译 </tag>
+            
+            <tag> CMake </tag>
             
         </tags>
       

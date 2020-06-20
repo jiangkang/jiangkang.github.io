@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="GN构建C++项目之HelloWorld, 姜康,天津大学,Android,Golang">
+    <meta name="keywords" content="FFmpeg简介, 姜康,天津大学,Android,Golang">
     <meta name="description" content="姜康的技术博客:用技术解决实际问题">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>GN构建C++项目之HelloWorld | 姜康的技术博客</title>
+    <title>FFmpeg简介 | 姜康的技术博客</title>
     <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/avatar.jpeg">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/awesome/css/all.css">
@@ -278,12 +278,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">GN构建C++项目之HelloWorld</h1>
+                    <h1 class="description center-align post-title">FFmpeg简介</h1>
                 </div>
             </div>
         </div>
@@ -400,12 +400,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%BC%96%E8%AF%91/">
-                                <span class="chip bg-color">编译</span>
-                            </a>
-                        
-                            <a href="/tags/GN/">
-                                <span class="chip bg-color">GN</span>
+                            <a href="/tags/FFmpeg/">
+                                <span class="chip bg-color">FFmpeg</span>
                             </a>
                         
                     </div>
@@ -416,8 +412,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C/" class="post-category">
-                                C++
+                            <a href="/categories/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91/" class="post-category">
+                                音视频开发
                             </a>
                         
                     </div>
@@ -429,7 +425,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-29
+                    2020-06-20
                 </div>
                 
 
@@ -438,14 +434,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    249
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    6 分
                 </div>
                 
 
@@ -455,41 +451,197 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>使用Google的gn工具构建C++项目,但是官方的demo构建脚本还是不够简单,这里写一个最简单的构建结构.</p>
-<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p><img src="https://oss.jiangkang.tech/jk/gn-tree.png" alt="目录结构"></p>
-<h2 id="必要的几个文件"><a href="#必要的几个文件" class="headerlink" title="必要的几个文件"></a>必要的几个文件</h2><ul>
-<li>.gn</li>
-<li>根目录下的BUIlD.gn</li>
-<li>BUILDCONFIG.gn</li>
+                <h2 id="模块库"><a href="#模块库" class="headerlink" title="模块库"></a>模块库</h2><ul>
+<li><p>avcodec</p>
+<p>用于音视频编解码,支持自带的MPEG4,AAC,MJPEG等编码格式,还支持第三方的编解码,比如H.264(AVC,使用X264编解码器),H.265(HEVC,使用X265编解码器)</p>
+</li>
+<li><p>avdevice</p>
+<p>多媒体设备输入输出</p>
+</li>
+<li><p>avfilter</p>
+<p>滤镜特效</p>
+</li>
+<li><p>avformat</p>
+<p>封装格式处理,包括封装/解封装,如MP4,FLV,TS等文件封装格式,RTMP,RTSP,HLS等网络协议封装格式,FFmpeg是否支持某种具体的格式,取决于编译时是否包含了该格式的封装库,当然你也可以定制封装格式并添加对应的支持.</p>
+</li>
+<li><p>avutil</p>
+<p>工具库</p>
+</li>
+<li><p>swresample</p>
+<p>音频转换计算模块,提供了高级别的音频重采样API</p>
+</li>
+<li><p>swscale</p>
+<p>视频图像转换计算模块,提供了高级别的图像转换API,运行进行图像缩放和像素格式转换,比如将图像从1080p转换成720p,将图像数据从YUV转成RGB.</p>
+</li>
 </ul>
-<h2 id="gn"><a href="#gn" class="headerlink" title=".gn"></a>.gn</h2><pre><code># gn help dotfile
-
-buildconfig = &quot;//build/config/BUILDCONFIG.gn&quot;</code></pre><p>这里就指定个最简单的buildconfig文件即可.</p>
-<h2 id="BUILD-gn"><a href="#BUILD-gn" class="headerlink" title="BUILD.gn"></a>BUILD.gn</h2><pre><code>executable(&quot;gn-demo&quot;) {
-    sources = [
-        &quot;main.cpp&quot;
-    ]
-}</code></pre><p>代表着要构建可执行文件.</p>
-<h2 id="BUILDCONFIG-gn"><a href="#BUILDCONFIG-gn" class="headerlink" title="BUILDCONFIG.gn"></a>BUILDCONFIG.gn</h2><pre><code>set_default_toolchain(&quot;//build/config/toolchains:mac&quot;)</code></pre><p>这里指定了使用的默认工具链</p>
-<h2 id="toolchains"><a href="#toolchains" class="headerlink" title="toolchains"></a>toolchains</h2><p>build/config/toolchains/BUILD.gn</p>
-<pre><code>toolchain(&quot;mac&quot;) {
-
-    tool(&quot;cxx&quot;){
-        command = &quot;clang++ -c {{source}} -o {{output}}&quot;
-        outputs = [ &quot;{{source_out_dir}}/{{target_output_name}}.o&quot; ]
-
-    }
-
-    tool(&quot;link&quot;){
-        exe_name = &quot;{{root_out_dir}}/{{target_output_name}}{{output_extension}}&quot;
-        command = &quot;clang++ {{inputs}} -o $exe_name&quot;
-        outputs = [&quot;$exe_name&quot;]
-    }
-}</code></pre><p>写工具链的脚本,需要大致明白C++的编译流程.</p>
-<p>其中<code>cxx</code>:代表编译C++,<code>link</code>代表链接.由于我使用的是Mac,所以这里使用clang进行编译.</p>
-<h2 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h2><pre class=" language-shell"><code class="language-shell">gn gen out/Debug
-ninja -C out/Debug</code></pre>
-<p>可执行文件就构建成功了.</p>
+<h2 id="ffmpeg"><a href="#ffmpeg" class="headerlink" title="ffmpeg"></a>ffmpeg</h2><pre class=" language-shell"><code class="language-shell">ffmpeg -i input.mp4 output.avi</code></pre>
+<p>这个命令会将input.mp4转换成avi格式;</p>
+<p>当然也可以显示指定格式:</p>
+<pre class=" language-shell"><code class="language-shell">ffmpeg -i input.mp4 -f avi output.avi</code></pre>
+<p>效果是一样的.</p>
+<p>这个命令会执行以下几个步骤:</p>
+<ol>
+<li>解封装(Demux)</li>
+<li>解码(Decode)</li>
+<li>编码(Encode)</li>
+<li>封装(Mux)</li>
+</ol>
+<h2 id="ffplay"><a href="#ffplay" class="headerlink" title="ffplay"></a>ffplay</h2><p>用于测试音视频播放的程序,依赖于SDL.</p>
+<p>比如播放一个测试视频:</p>
+<pre class=" language-shell"><code class="language-shell">ffplay input.mp4</code></pre>
+<h2 id="ffprobe"><a href="#ffprobe" class="headerlink" title="ffprobe"></a>ffprobe</h2><p>一个强大的多媒体分析工具.利用ffprobe可以从音视频文件或者流中获取一些信息,比如音视频参数,容器的参数,音频的格式,视频的格式,视频的总时长,码率等.</p>
+<p>比如:</p>
+<pre class=" language-shell"><code class="language-shell">ffprobe -show_streams bee.mp4</code></pre>
+<p>会输出如下信息:</p>
+<pre class=" language-shell"><code class="language-shell">Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'bee.mp4':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: mp42mp41isomavc1
+    creation_time   : 2015-08-10T09:55:17.000000Z
+  Duration: 00:00:04.04, start: 0.000000, bitrate: 2562 kb/s
+    Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709), 1280x720 [SAR 1:1 DAR 16:9], 2407 kb/s, 29.97 fps, 29.97 tbr, 30k tbn, 59.94 tbc (default)
+    Metadata:
+      creation_time   : 2015-08-10T09:55:17.000000Z
+      handler_name    : L-SMASH Video Handler
+      encoder         : AVC Coding
+    Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 147 kb/s (default)
+    Metadata:
+      creation_time   : 2015-08-10T09:55:17.000000Z
+      handler_name    : L-SMASH Audio Handler
+jiangkang@jkmac videos % ffprobe -show_streams bee.mp4
+ffprobe version 4.3 Copyright (c) 2007-2020 the FFmpeg developers
+  built with Apple clang version 11.0.3 (clang-1103.0.32.62)
+  configuration: --prefix=/usr/local/Cellar/ffmpeg/4.3_1 --enable-shared --enable-pthreads --enable-version3 --enable-avresample --cc=clang --host-cflags= --host-ldflags= --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libbluray --enable-libdav1d --enable-libmp3lame --enable-libopus --enable-librav1e --enable-librubberband --enable-libsnappy --enable-libsrt --enable-libtesseract --enable-libtheora --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-librtmp --enable-libspeex --enable-libsoxr --enable-videotoolbox --disable-libjack --disable-indev=jack
+  libavutil      56. 51.100 / 56. 51.100
+  libavcodec     58. 91.100 / 58. 91.100
+  libavformat    58. 45.100 / 58. 45.100
+  libavdevice    58. 10.100 / 58. 10.100
+  libavfilter     7. 85.100 /  7. 85.100
+  libavresample   4.  0.  0 /  4.  0.  0
+  libswscale      5.  7.100 /  5.  7.100
+  libswresample   3.  7.100 /  3.  7.100
+  libpostproc    55.  7.100 / 55.  7.100
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'bee.mp4':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: mp42mp41isomavc1
+    creation_time   : 2015-08-10T09:55:17.000000Z
+  Duration: 00:00:04.04, start: 0.000000, bitrate: 2562 kb/s
+    Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709), 1280x720 [SAR 1:1 DAR 16:9], 2407 kb/s, 29.97 fps, 29.97 tbr, 30k tbn, 59.94 tbc (default)
+    Metadata:
+      creation_time   : 2015-08-10T09:55:17.000000Z
+      handler_name    : L-SMASH Video Handler
+      encoder         : AVC Coding
+    Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 147 kb/s (default)
+    Metadata:
+      creation_time   : 2015-08-10T09:55:17.000000Z
+      handler_name    : L-SMASH Audio Handler
+[STREAM]
+index=0
+codec_name=h264
+codec_long_name=H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
+profile=High
+codec_type=video
+codec_time_base=1001/60000
+codec_tag_string=avc1
+codec_tag=0x31637661
+width=1280
+height=720
+coded_width=1280
+coded_height=720
+closed_captions=0
+has_b_frames=2
+sample_aspect_ratio=1:1
+display_aspect_ratio=16:9
+pix_fmt=yuv420p
+level=31
+color_range=tv
+color_space=bt709
+color_transfer=bt709
+color_primaries=bt709
+chroma_location=left
+field_order=unknown
+timecode=N/A
+refs=1
+is_avc=true
+nal_length_size=4
+id=N/A
+r_frame_rate=30000/1001
+avg_frame_rate=30000/1001
+time_base=1/30000
+start_pts=0
+start_time=0.000000
+duration_ts=121100
+duration=4.036667
+bit_rate=2407163
+max_bit_rate=N/A
+bits_per_raw_sample=8
+nb_frames=121
+nb_read_frames=N/A
+nb_read_packets=N/A
+DISPOSITION:default=1
+DISPOSITION:dub=0
+DISPOSITION:original=0
+DISPOSITION:comment=0
+DISPOSITION:lyrics=0
+DISPOSITION:karaoke=0
+DISPOSITION:forced=0
+DISPOSITION:hearing_impaired=0
+DISPOSITION:visual_impaired=0
+DISPOSITION:clean_effects=0
+DISPOSITION:attached_pic=0
+DISPOSITION:timed_thumbnails=0
+TAG:creation_time=2015-08-10T09:55:17.000000Z
+TAG:language=und
+TAG:handler_name=L-SMASH Video Handler
+TAG:encoder=AVC Coding
+[/STREAM]
+[STREAM]
+index=1
+codec_name=aac
+codec_long_name=AAC (Advanced Audio Coding)
+profile=LC
+codec_type=audio
+codec_time_base=1/48000
+codec_tag_string=mp4a
+codec_tag=0x6134706d
+sample_fmt=fltp
+sample_rate=48000
+channels=2
+channel_layout=stereo
+bits_per_sample=0
+id=N/A
+r_frame_rate=0/0
+avg_frame_rate=0/0
+time_base=1/48000
+start_pts=0
+start_time=0.000000
+duration_ts=193520
+duration=4.031667
+bit_rate=147714
+max_bit_rate=153472
+bits_per_raw_sample=N/A
+nb_frames=189
+nb_read_frames=N/A
+nb_read_packets=N/A
+DISPOSITION:default=1
+DISPOSITION:dub=0
+DISPOSITION:original=0
+DISPOSITION:comment=0
+DISPOSITION:lyrics=0
+DISPOSITION:karaoke=0
+DISPOSITION:forced=0
+DISPOSITION:hearing_impaired=0
+DISPOSITION:visual_impaired=0
+DISPOSITION:clean_effects=0
+DISPOSITION:attached_pic=0
+DISPOSITION:timed_thumbnails=0
+TAG:creation_time=2015-08-10T09:55:17.000000Z
+TAG:language=und
+TAG:handler_name=L-SMASH Audio Handler
+[/STREAM]</code></pre>
 
             </div>
             <hr/>
@@ -515,7 +667,7 @@ ninja -C out/Debug</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.jiangkang.tech/2020/05/29/c/gn-gou-jian-c-xiang-mu-zhi-helloworld/">https://www.jiangkang.tech/2020/05/29/c/gn-gou-jian-c-xiang-mu-zhi-helloworld/</a>
+                    <a href="https://www.jiangkang.tech/2020/06/20/yin-shi-pin-kai-fa/ffmpeg-jian-jie/">https://www.jiangkang.tech/2020/06/20/yin-shi-pin-kai-fa/ffmpeg-jian-jie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -553,12 +705,8 @@ ninja -C out/Debug</code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%BC%96%E8%AF%91/">
-                                    <span class="chip bg-color">编译</span>
-                                </a>
-                            
-                                <a href="/tags/GN/">
-                                    <span class="chip bg-color">GN</span>
+                                <a href="/tags/FFmpeg/">
+                                    <span class="chip bg-color">FFmpeg</span>
                                 </a>
                             
                         </div>
@@ -729,7 +877,7 @@ ninja -C out/Debug</code></pre>
         repo: 'jiangkang.github.io',
         owner: 'jiangkang',
         admin: ["jiangkang"],
-        id: '2020-05-29T22-41-27',
+        id: '2020-06-20T23-58-23',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -753,42 +901,53 @@ ninja -C out/Debug</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/30/ji-hua/jin-qi-xue-xi-ji-hua/">
+                <a href="/2020/06/20/yin-shi-pin-kai-fa/ffmpeg-jian-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="近期学习计划">
+                        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/0.jpg" class="responsive-img" alt="FFmpeg简介">
                         
-                        <span class="card-title">近期学习计划</span>
+                        <span class="card-title">FFmpeg简介</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            6月学习计划
+                            模块库
+avcodec
+用于音视频编解码,支持自带的MPEG4,AAC,MJPEG等编码格式,还支持第三方的编解码,比如H.264(AVC,使用X264编解码器),H.265(HEVC,使用X265编解码器)
+
+avdevice
+多媒体设备
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-20
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            姜康
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91/" class="post-category">
+                                    音视频开发
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E5%88%92/">
-                        <span class="chip bg-color">计划</span>
+                    <a href="/tags/FFmpeg/">
+                        <span class="chip bg-color">FFmpeg</span>
                     </a>
                     
                 </div>
@@ -802,32 +961,33 @@ ninja -C out/Debug</code></pre>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/25/c/cmake-de-jian-dan-shi-yong/">
+                <a href="/2020/06/19/flutter/flutter-zi-ding-yi-shan-ping-ye-splashscreen/">
                     <div class="card-image">
                         
-                        <img src="https://oss.jiangkang.tech/jk/cmake.jpg" class="responsive-img" alt="CMake的简单使用">
                         
-                        <span class="card-title">CMake的简单使用</span>
+                        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/6.jpg" class="responsive-img" alt="Flutter-自定义闪屏页(SplashScreen)">
+                        
+                        <span class="card-title">Flutter-自定义闪屏页(SplashScreen)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            构建可执行程序add_executable( [WIN32] [MACOSX_BUNDLE]
-               [EXCLUDE_FROM_ALL]
-               [source1] [source2 ...])
+                            Splash Screen?对于Android应用来说,Splash Screen最熟悉不过了.比如为了让启动的时候app不现实白屏,或者为了弄个开屏广告用来盈利,都会用到Splash Screen.
+
+Flutter中如何自定义Splas
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-19
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C/" class="post-category">
-                                    C++
+                            <a href="/categories/Flutter/" class="post-category">
+                                    Flutter
                                 </a>
                             
                             
@@ -837,12 +997,8 @@ ninja -C out/Debug</code></pre>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BC%96%E8%AF%91/">
-                        <span class="chip bg-color">编译</span>
-                    </a>
-                    
-                    <a href="/tags/CMake/">
-                        <span class="chip bg-color">CMake</span>
+                    <a href="/tags/Splash-Screen/">
+                        <span class="chip bg-color">Splash Screen</span>
                     </a>
                     
                 </div>
