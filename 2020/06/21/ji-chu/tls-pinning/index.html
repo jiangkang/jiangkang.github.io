@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Flutter时间处理, 姜康,天津大学,Android,Golang">
+    <meta name="keywords" content="TLS-Pinning, 姜康,天津大学,Android,Golang">
     <meta name="description" content="姜康的技术博客:用技术解决实际问题">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Flutter时间处理 | 姜康的技术博客</title>
+    <title>TLS-Pinning | 姜康的技术博客</title>
     <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/avatar.jpeg">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/awesome/css/all.css">
@@ -278,12 +278,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Flutter时间处理</h1>
+                    <h1 class="description center-align post-title">TLS-Pinning</h1>
                 </div>
             </div>
         </div>
@@ -400,8 +400,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/">
-                                <span class="chip bg-color">时间处理</span>
+                            <a href="/tags/TLS/">
+                                <span class="chip bg-color">TLS</span>
                             </a>
                         
                     </div>
@@ -412,8 +412,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Flutter/" class="post-category">
-                                Flutter
+                            <a href="/categories/%E5%9F%BA%E7%A1%80/" class="post-category">
+                                基础
                             </a>
                         
                     </div>
@@ -425,7 +425,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-08
+                    2020-06-21
                 </div>
                 
 
@@ -434,14 +434,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    334
+                    681
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -451,67 +451,89 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Flutter 中在时间处理方面还是比较简单的，我们主要用到的有两个类：</p>
+                <h2 id="什么是SSL-TLS-Pinning"><a href="#什么是SSL-TLS-Pinning" class="headerlink" title="什么是SSL/TLS Pinning?"></a>什么是SSL/TLS Pinning?</h2><p>将服务端提供的TLS/SSL证书内置到移动端开发的APP客户端中,当客户端发起请求时,通过比对内置证书和服务器端证书的内容,以确定这个连接的合法性.</p>
+<blockquote>
+<p>我这里把Pinning翻译成“固定”</p>
+</blockquote>
+<p>Pinning 方式</p>
 <ul>
-<li><p>DateTime</p>
-<p>表示一个指定的时间点，包括年月日时分秒</p>
-</li>
-<li><p>TimeOfDay</p>
-<p>表示一天中的一个时间点，可以区分上午，下午，12小时制，24小时制等</p>
-</li>
+<li>Certificate Pinning (证书固定)</li>
+<li>Public Key Pinning (公钥固定)</li>
 </ul>
-<h3 id="获取当前时间"><a href="#获取当前时间" class="headerlink" title="获取当前时间"></a>获取当前时间</h3><pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> now <span class="token operator">=</span> DateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>这里就得到了一个当前时间的DateTime对象，然后就可以拿到你想要的信息：</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> year <span class="token operator">=</span> now<span class="token punctuation">.</span>year<span class="token punctuation">;</span>
-<span class="token keyword">final</span> month <span class="token operator">=</span> now<span class="token punctuation">.</span>month<span class="token punctuation">;</span>
-<span class="token keyword">final</span> day <span class="token operator">=</span> now<span class="token punctuation">.</span>day<span class="token punctuation">;</span></code></pre>
-<p>还可以获取当前时星期几：</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> week <span class="token operator">=</span> now<span class="token punctuation">.</span>weekday<span class="token punctuation">;</span></code></pre>
-<h3 id="转时间戳"><a href="#转时间戳" class="headerlink" title="转时间戳"></a>转时间戳</h3><pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> now <span class="token operator">=</span> DateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-String timestamp <span class="token operator">=</span> now<span class="token punctuation">.</span>millisecondsSinceEpoch<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h3 id="时间运算"><a href="#时间运算" class="headerlink" title="时间运算"></a>时间运算</h3><ul>
-<li><p>前2天</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> now <span class="token operator">=</span> DateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">final</span> before <span class="token operator">=</span> now<span class="token punctuation">.</span><span class="token function">subtract</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>days<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-</li>
-</ul>
-<ul>
-<li><p>后2天</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> now <span class="token operator">=</span> DateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">final</span> after <span class="token operator">=</span> now<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>days<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-</li>
-</ul>
-<ul>
-<li><p>两个时间点相隔的时间数</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> now <span class="token operator">=</span> DateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">final</span> after <span class="token operator">=</span> now<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>days<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">final</span> diff <span class="token operator">=</span> after<span class="token punctuation">.</span><span class="token function">difference</span><span class="token punctuation">(</span>now<span class="token punctuation">)</span><span class="token punctuation">.</span>inHours<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 相隔的小时数，也可以是分钟数，秒数</span></code></pre>
-</li>
-</ul>
-<h3 id="上午还是下午"><a href="#上午还是下午" class="headerlink" title="上午还是下午"></a>上午还是下午</h3><p>可以使用TimeOfDay来处理：</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> timeOfDay <span class="token operator">=</span> TimeOfDay<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">final</span> amOrPm <span class="token operator">=</span> timeOfDay<span class="token punctuation">.</span>period<span class="token punctuation">;</span></code></pre>
-<p>其中timeOfDay.period实际上是一个枚举对象：</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">enum</span> DayPeriod <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">/// Ante meridiem (before noon).</span>
-  am<span class="token punctuation">,</span>
+<p>在Android中有下面这些具体的方式执行TLS固定:</p>
+<h2 id="OkHttp中设置-TLS-Pinning"><a href="#OkHttp中设置-TLS-Pinning" class="headerlink" title="OkHttp中设置 TLS Pinning"></a>OkHttp中设置 TLS Pinning</h2><p>OkHttp中专门提供了对应的方法设置TLS Pinning:</p>
+<pre class=" language-kotlin"><code class="language-kotlin">String hostname <span class="token operator">=</span> <span class="token string">"publicobject.com"</span><span class="token punctuation">;</span>
+CertificatePinner certificatePinner <span class="token operator">=</span> new CertificatePinner<span class="token punctuation">.</span><span class="token function">Builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"publicobject.com"</span><span class="token punctuation">,</span> <span class="token string">"sha256/afwiKY3RxoMmLkuRW1l7QsPZTJPwDS2pdDROQjXw8ig="</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"publicobject.com"</span><span class="token punctuation">,</span> <span class="token string">"sha256/klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY="</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"publicobject.com"</span><span class="token punctuation">,</span> <span class="token string">"sha256/grX4Ta9HpZx6tSHkmCrvpApTQGo67CYDnvprLg5yRME="</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"publicobject.com"</span><span class="token punctuation">,</span> <span class="token string">"sha256/lCppFqbkrlJ3EcVFAkeip0+44VaoJUymbnOaEUk7tEU="</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+OkHttpClient client <span class="token operator">=</span> OkHttpClient<span class="token punctuation">.</span><span class="token function">Builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">certificatePinner</span><span class="token punctuation">(</span>certificatePinner<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  <span class="token comment" spellcheck="true">/// Post meridiem (after noon).</span>
-  pm<span class="token punctuation">,</span>
-<span class="token punctuation">}</span></code></pre>
-<p>这样可以判断是上午还是下午了。</p>
-<h3 id="12-24小时制"><a href="#12-24小时制" class="headerlink" title="12/24小时制"></a>12/24小时制</h3><ul>
-<li><p>24小时</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> hour24 <span class="token operator">=</span> timeOfDay<span class="token punctuation">.</span>hour<span class="token punctuation">;</span></code></pre>
-</li>
-</ul>
+Request request <span class="token operator">=</span> new Request<span class="token punctuation">.</span><span class="token function">Builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">url</span><span class="token punctuation">(</span><span class="token string">"https://"</span> <span class="token operator">+</span> hostname<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+client<span class="token punctuation">.</span><span class="token function">newCall</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>可以设置多个域名对应的sha256/base64编码的map,用于多版本兼容.</p>
+<p>OkHttp中的CertificatePinner的原理是:</p>
 <ul>
-<li><p>12小时</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> hour12 <span class="token operator">=</span> timeOfDay<span class="token punctuation">.</span>hourOfPeriod<span class="token punctuation">;</span></code></pre>
-</li>
+<li>将证书中的公钥进行SHA256加密,然后进行base64编码,得到一串与hostname对应的字符串</li>
+<li>在建立TLS连接的时候与服务端获取的证书信息中的公钥,并进行SHA256编码,然后与通过base64解码之后的字节字符串进行对比</li>
 </ul>
-<p>还可以格式化输出当前的分钟小时数：</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> timeStr <span class="token operator">=</span> timeOfDay<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 11:49 PM</span></code></pre>
+<p>简而言之,就是一用的是将公钥进行SHA256加密后进行对比.</p>
+<p>之所以本地自己写的时候要用base64编码的字符串,当然是为了容易书写和比较.</p>
+<h2 id="自定义TrustManager"><a href="#自定义TrustManager" class="headerlink" title="自定义TrustManager"></a>自定义TrustManager</h2><ol>
+<li><p>使用<code>KeyStore</code>加载证书</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">val</span> inputStream <span class="token operator">=</span> resources<span class="token punctuation">.</span><span class="token function">openRawResource</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>raw<span class="token punctuation">.</span>my_cert<span class="token punctuation">)</span>
+<span class="token keyword">val</span> keyStoreType <span class="token operator">=</span> KeyStore<span class="token punctuation">.</span><span class="token function">getDefaultType</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">val</span> keyStore <span class="token operator">=</span> KeyStore<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span>keyStoreType<span class="token punctuation">)</span>
+keyStore<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span>inputStream<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span></code></pre>
+</li>
+<li><p>创建一个TrustManager</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">val</span> tmfAlgorithm <span class="token operator">=</span> TrustManagerFactory<span class="token punctuation">.</span><span class="token function">getDefaultAlgorithm</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">val</span> trustManagerFactory <span class="token operator">=</span> TrustManagerFactory<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span>tmfAlgorithm<span class="token punctuation">)</span>
+trustManagerFactory<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span>keyStore<span class="token punctuation">)</span></code></pre>
+</li>
+<li><p>创建SSLContext,并绑定上面创建的TrustManager对象,OKhttp中也可以自定义</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">val</span> sslContext <span class="token operator">=</span> SSLContext<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token string">"TLS"</span><span class="token punctuation">)</span>
+sslContext<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> trustManagerFactory<span class="token punctuation">.</span>trustManagers<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+<span class="token keyword">val</span> url <span class="token operator">=</span> <span class="token function">URL</span><span class="token punctuation">(</span><span class="token string">"http://www.yourdomain.com/"</span><span class="token punctuation">)</span>
+<span class="token keyword">val</span> urlConnection <span class="token operator">=</span> url<span class="token punctuation">.</span><span class="token function">openConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> HttpsURLConnection
+urlConnection<span class="token punctuation">.</span>sslSocketFactory <span class="token operator">=</span> sslContext<span class="token punctuation">.</span>socketFactory</code></pre>
+</li>
+</ol>
+<p>这种方式相当于上面所说的证书固定.会在客户端内置一个证书文件,但是这种方式对服务的证书更换和续期的限制比较大.</p>
+<h2 id="Android7-0之后使用Network-Security-Config配置"><a href="#Android7-0之后使用Network-Security-Config配置" class="headerlink" title="Android7.0之后使用Network Security Config配置"></a>Android7.0之后使用Network Security Config配置</h2><ol>
+<li><p>manifest文件中指定网络配置资源</p>
+<pre class=" language-xml"><code class="language-xml">    <span class="token prolog">&lt;?xml version="1.0" encoding="utf-8"?></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>manifest</span> <span class="token attr-name">...</span> <span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>application</span> <span class="token attr-name"><span class="token namespace">android:</span>networkSecurityConfig</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@xml/network_security_config<span class="token punctuation">"</span></span>
+                        <span class="token attr-name">...</span> <span class="token punctuation">></span></span>
+            ...
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>application</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>manifest</span><span class="token punctuation">></span></span>
+</code></pre>
+</li>
+<li><p>网络安全配置:可以配置自定义信任的CA(缩小/拓展系统信任的CA列表),配置用于调试的CA,当然还有固定证书配置:</p>
+<p>具体的文档在<a href="https://developer.android.com/training/articles/security-config?hl=zh-cn" target="_blank" rel="noopener">网络安全配置说明</a></p>
+<pre class=" language-xml"><code class="language-xml">    <span class="token prolog">&lt;?xml version="1.0" encoding="utf-8"?></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>network-security-config</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>domain-config</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>domain</span> <span class="token attr-name">includeSubdomains</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>example.com<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>domain</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pin-set</span> <span class="token attr-name">expiration</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2018-01-01<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pin</span> <span class="token attr-name">digest</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SHA-256<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>7HIpactkIAq2Y49orFOOQKurWxmmSFZhBCoQYcRhJ3Y=<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pin</span><span class="token punctuation">></span></span>
+                <span class="token comment" spellcheck="true">&lt;!-- backup pin --></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pin</span> <span class="token attr-name">digest</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SHA-256<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>fwza0LRMXouZHRC8Ei+4PyuldPDcf3UKgO/04cDM1oE=<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pin</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pin-set</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>domain-config</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>network-security-config</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>使用证书的公钥的SHA-256值经过base64编码后填入.</p>
+</li>
+</ol>
 
             </div>
             <hr/>
@@ -537,7 +559,7 @@ String timestamp <span class="token operator">=</span> now<span class="token pun
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.jiangkang.tech/2020/05/08/flutter/flutter-shi-jian-chu-li/">https://www.jiangkang.tech/2020/05/08/flutter/flutter-shi-jian-chu-li/</a>
+                    <a href="https://www.jiangkang.tech/2020/06/21/ji-chu/tls-pinning/">https://www.jiangkang.tech/2020/06/21/ji-chu/tls-pinning/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -575,8 +597,8 @@ String timestamp <span class="token operator">=</span> now<span class="token pun
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/">
-                                    <span class="chip bg-color">时间处理</span>
+                                <a href="/tags/TLS/">
+                                    <span class="chip bg-color">TLS</span>
                                 </a>
                             
                         </div>
@@ -747,7 +769,7 @@ String timestamp <span class="token operator">=</span> now<span class="token pun
         repo: 'jiangkang.github.io',
         owner: 'jiangkang',
         admin: ["jiangkang"],
-        id: '2020-05-08T21-47-29',
+        id: '2020-06-21T21-18-33',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -771,52 +793,52 @@ String timestamp <span class="token operator">=</span> now<span class="token pun
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/08/flutter/flutter-tabs-de-shi-yong/">
+                <a href="/2020/06/21/ji-chu/tls-pinning/">
                     <div class="card-image">
                         
-                        <img src="https://oss.jiangkang.tech/jk/tabs1.png" class="responsive-img" alt="Flutter-Tabs的使用">
                         
-                        <span class="card-title">Flutter-Tabs的使用</span>
+                        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="TLS-Pinning">
+                        
+                        <span class="card-title">TLS-Pinning</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Flutter中使用tabs还是非常的简单的，可以用在顶部导航栏，也可以用在底部导航栏。
+                            什么是SSL/TLS Pinning?将服务端提供的TLS/SSL证书内置到移动端开发的APP客户端中,当客户端发起请求时,通过比对内置证书和服务器端证书的内容,以确定这个连接的合法性.
 
-  
-  
-  
+我这里把Pinning翻译成“固定”
 
-
-使用Tabs需要用到两个widget，一个是TabBar,用于顶导航或者底导航；一个是TabBarView，用于Tab下具体的
+Pinni
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Flutter/" class="post-category">
-                                    Flutter
+                            <a href="/categories/%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    基础
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tab/">
-                        <span class="chip bg-color">Tab</span>
+                    <a href="/tags/TLS/">
+                        <span class="chip bg-color">TLS</span>
                     </a>
                     
                 </div>
@@ -830,33 +852,36 @@ String timestamp <span class="token operator">=</span> now<span class="token pun
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/08/flutter/dart-ji-chu-yu-fa/">
+                <a href="/2020/06/20/yin-shi-pin-kai-fa/ffmpeg-jian-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/11.jpg" class="responsive-img" alt="Dart基础语法">
+                        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/0.jpg" class="responsive-img" alt="FFmpeg简介">
                         
-                        <span class="card-title">Dart基础语法</span>
+                        <span class="card-title">FFmpeg简介</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            重要的概念
-任何你可以放在一个变量中的都是一个object，并且每个object都是一个class的实例，甚至于数字，functions，null都是对象，所有的对象继承自Object类。
-即使Dart是强类型的，但是类型说明是可选的，因为
+                            模块库
+avcodec
+用于音视频编解码,支持自带的MPEG4,AAC,MJPEG等编码格式,还支持第三方的编解码,比如H.264(AVC,使用X264编解码器),H.265(HEVC,使用X265编解码器)
+
+avdevice
+多媒体设备
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-20
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Flutter/" class="post-category">
-                                    Flutter
+                            <a href="/categories/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91/" class="post-category">
+                                    音视频开发
                                 </a>
                             
                             
@@ -866,8 +891,8 @@ String timestamp <span class="token operator">=</span> now<span class="token pun
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Dart/">
-                        <span class="chip bg-color">Dart</span>
+                    <a href="/tags/FFmpeg/">
+                        <span class="chip bg-color">FFmpeg</span>
                     </a>
                     
                 </div>
