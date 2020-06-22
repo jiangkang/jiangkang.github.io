@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.jiangkang.tech/2020/06/22/android/android-qi-dong-liu-cheng-init-jin-cheng-fen-xi/</loc>
+    
+    <lastmod>2020-06-22T11:30:25.030Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/06/12/android/android-kai-ji-dong-hua-fen-xi/</loc>
+    
+    <lastmod>2020-06-22T11:30:18.716Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/06/12/android/aosp-de-bian-yi/</loc>
+    
+    <lastmod>2020-06-22T02:59:32.145Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.jiangkang.tech/2020/06/21/ji-chu/tls-pinning/</loc>
     
-    <lastmod>2020-06-21T13:19:14.109Z</lastmod>
+    <lastmod>2020-06-21T13:22:30.708Z</lastmod>
     
   </url>
   
@@ -100,23 +121,9 @@
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/2020/06/12/android/aosp-de-bian-yi/</loc>
-    
-    <lastmod>2020-06-13T15:34:46.140Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.jiangkang.tech/2020/06/12/ying-jian/arm-jia-gou-ji-chu-zhi-shi/</loc>
     
     <lastmod>2020-06-12T15:59:14.011Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/06/12/android/android-kai-ji-dong-hua-fen-xi/</loc>
-    
-    <lastmod>2020-06-12T12:13:36.092Z</lastmod>
     
   </url>
   

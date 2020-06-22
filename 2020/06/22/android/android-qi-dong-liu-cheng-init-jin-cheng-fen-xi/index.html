@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="GN构建C++项目之HelloWorld, 姜康,天津大学,Android,Golang">
+    <meta name="keywords" content="Android启动流程-init进程分析, 姜康,天津大学,Android,Golang">
     <meta name="description" content="姜康的技术博客:用技术解决实际问题">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>GN构建C++项目之HelloWorld | 姜康的技术博客</title>
+    <title>Android启动流程-init进程分析 | 姜康的技术博客</title>
     <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/avatar.jpeg">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/awesome/css/all.css">
@@ -278,12 +278,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">GN构建C++项目之HelloWorld</h1>
+                    <h1 class="description center-align post-title">Android启动流程-init进程分析</h1>
                 </div>
             </div>
         </div>
@@ -400,12 +400,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%BC%96%E8%AF%91/">
-                                <span class="chip bg-color">编译</span>
+                            <a href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
+                                <span class="chip bg-color">源码分析</span>
                             </a>
                         
-                            <a href="/tags/GN/">
-                                <span class="chip bg-color">GN</span>
+                            <a href="/tags/Android%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/">
+                                <span class="chip bg-color">Android启动流程</span>
                             </a>
                         
                     </div>
@@ -416,8 +416,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C/" class="post-category">
-                                C++
+                            <a href="/categories/Android/" class="post-category">
+                                Android
                             </a>
                         
                     </div>
@@ -429,7 +429,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-29
+                    2020-06-22
                 </div>
                 
 
@@ -438,14 +438,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    249
+                    822
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -455,41 +455,514 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>使用Google的gn工具构建C++项目,但是官方的demo构建脚本还是不够简单,这里写一个最简单的构建结构.</p>
-<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p><img src="https://oss.jiangkang.tech/jk/gn-tree.png" alt="目录结构"></p>
-<h2 id="必要的几个文件"><a href="#必要的几个文件" class="headerlink" title="必要的几个文件"></a>必要的几个文件</h2><ul>
-<li>.gn</li>
-<li>根目录下的BUIlD.gn</li>
-<li>BUILDCONFIG.gn</li>
+                <blockquote>
+<p>基于Android 10 源码分析</p>
+</blockquote>
+<p>之前在<a href="https://www.jiangkang.tech/2020/06/12/android/android-xi-tong-qi-dong-liu-cheng-fen-xi/">Android启动流程分析</a>中已经大致分析了一下Android系统启动的过程,这里回顾一下:</p>
+<ol>
+<li>上电,从Boot ROM中执行一段烧录好的代码加载bootloader</li>
+<li>bootloader执行,引导加载并启动linux kernel</li>
+<li>linux kernel启动,并创建第一个用户态的进程<code>init</code></li>
+<li><code>init</code>进程解析<code>init.rc</code>并启动各种服务,包括通过<code>app_process</code>程序创建并启动Zygote进程和system server进程,这个阶段已经启动了虚拟机,进入了Java世界</li>
+<li>system server进程会启动各种服务,包括AMS,WMS等</li>
+<li>启动完成之后,发送广播通知</li>
+</ol>
+<p>这里来分析一下<code>init</code>进程的一些主要逻辑:</p>
+<blockquote>
+<p>强调一点,init就是一个普通的命令行程序,程序位置在<code>/system/core/init</code></p>
+</blockquote>
+<h2 id="入口-system-core-init-main-cpp"><a href="#入口-system-core-init-main-cpp" class="headerlink" title="入口:system/core/init/main.cpp"></a>入口:system/core/init/main.cpp</h2><pre class=" language-c++"><code class="language-c++">int main(int argc, char** argv) {
+
+    // system/bin/ueventd入口
+    if (!strcmp(basename(argv[0]), "ueventd")) {
+        return ueventd_main(argc, argv);
+    }
+
+    // 带参启动init
+    if (argc > 1) {
+        if (!strcmp(argv[1], "subcontext")) {
+            android::base::InitLogging(argv, &android::base::KernelLogger);
+            const BuiltinFunctionMap function_map;
+
+            return SubcontextMain(argc, argv, &function_map);
+        }
+
+        if (!strcmp(argv[1], "selinux_setup")) {
+            return SetupSelinux(argv);
+        }
+
+        if (!strcmp(argv[1], "second_stage")) {
+            return SecondStageMain(argc, argv);
+        }
+    }
+
+    // 不带参,默认启动init入口
+    return FirstStageMain(argc, argv);
+}</code></pre>
+<blockquote>
+<p>main(int argc, char** argv) ,其中argc是命令行参数的个数,默认为1,argv是传入的参数,argv[0]是程序的全路径名,arg[1]才是实际意义上的第一个参数.</p>
+</blockquote>
+<blockquote>
+<p>strcmp(s1,s2)则是用来比较字符串的,如果s1 == s2,则返回0</p>
+<p>basename(path),返回的是文件名,比如 “/system/bin/ueventd”,返回uevened</p>
+</blockquote>
+<p><code>ueventd</code>其实就是<code>init</code>进程的一个软连接,在<code>system/bin</code>中也可以看到,通过<code>ls -l</code>可以看到:</p>
+<pre><code>lrwxr-xr-x  1 root   shell          4 2020-04-04 01:11 ueventd -&gt; init</code></pre><p>这个地方根据程序不同的执行方式,有三种入口:</p>
+<ul>
+<li>默认启动,执行<code>FirstStageMain(argc, argv)</code></li>
+<li>启动<code>ueventd</code>程序,执行<code>ueventd_main(argc, argv)</code></li>
+<li>带参启动<code>init</code>,执行<code>SubcontextMain(argc, argv, &amp;function_map);</code>,<code>SetupSelinux(argv)</code>,<code>SecondStageMain(argc, argv)</code>中的一个</li>
 </ul>
-<h2 id="gn"><a href="#gn" class="headerlink" title=".gn"></a>.gn</h2><pre><code># gn help dotfile
+<blockquote>
+<p> 目前很多文章都说watchdogd进程也是init进程的软连接,但是在新版本的Android中,比如Android 10,watchdogd是一个独立的进程了,并不是init进程.</p>
+</blockquote>
+<p>先来看下<code>FirstStageMain</code></p>
+<h2 id="第一阶段-FirstStageMain"><a href="#第一阶段-FirstStageMain" class="headerlink" title="第一阶段: FirstStageMain"></a>第一阶段: FirstStageMain</h2><p>源码在:<code>system/core/init/first_stage_init.cpp</code></p>
+<pre class=" language-c++"><code class="language-c++">int FirstStageMain(int argc, char** argv) {
 
-buildconfig = &quot;//build/config/BUILDCONFIG.gn&quot;</code></pre><p>这里就指定个最简单的buildconfig文件即可.</p>
-<h2 id="BUILD-gn"><a href="#BUILD-gn" class="headerlink" title="BUILD.gn"></a>BUILD.gn</h2><pre><code>executable(&quot;gn-demo&quot;) {
-    sources = [
-        &quot;main.cpp&quot;
-    ]
-}</code></pre><p>代表着要构建可执行文件.</p>
-<h2 id="BUILDCONFIG-gn"><a href="#BUILDCONFIG-gn" class="headerlink" title="BUILDCONFIG.gn"></a>BUILDCONFIG.gn</h2><pre><code>set_default_toolchain(&quot;//build/config/toolchains:mac&quot;)</code></pre><p>这里指定了使用的默认工具链</p>
-<h2 id="toolchains"><a href="#toolchains" class="headerlink" title="toolchains"></a>toolchains</h2><p>build/config/toolchains/BUILD.gn</p>
-<pre><code>toolchain(&quot;mac&quot;) {
+    CHECKCALL(clearenv());
+    CHECKCALL(setenv("PATH", _PATH_DEFPATH, 1));
+    // Get the basic filesystem setup we need put together in the initramdisk
+    // on / and then we'll let the rc file figure out the rest.
+    CHECKCALL(mount("tmpfs", "/dev", "tmpfs", MS_NOSUID, "mode=0755"));
+    CHECKCALL(mkdir("/dev/pts", 0755));
+    CHECKCALL(mkdir("/dev/socket", 0755));
+    CHECKCALL(mount("devpts", "/dev/pts", "devpts", 0, NULL));
 
-    tool(&quot;cxx&quot;){
-        command = &quot;clang++ -c {{source}} -o {{output}}&quot;
-        outputs = [ &quot;{{source_out_dir}}/{{target_output_name}}.o&quot; ]
+    CHECKCALL(mount("proc", "/proc", "proc", 0, "hidepid=2,gid=" MAKE_STR(AID_READPROC)));
 
+    // root也只有只读权限
+    CHECKCALL(chmod("/proc/cmdline", 0440));
+    gid_t groups[] = {AID_READPROC};
+    CHECKCALL(setgroups(arraysize(groups), groups));
+    CHECKCALL(mount("sysfs", "/sys", "sysfs", 0, NULL));
+    CHECKCALL(mount("selinuxfs", "/sys/fs/selinux", "selinuxfs", 0, NULL));
+
+    CHECKCALL(mknod("/dev/kmsg", S_IFCHR | 0600, makedev(1, 11)));
+    if constexpr (WORLD_WRITABLE_KMSG) {
+        CHECKCALL(mknod("/dev/kmsg_debug", S_IFCHR | 0622, makedev(1, 11)));
+    }
+    CHECKCALL(mknod("/dev/random", S_IFCHR | 0666, makedev(1, 8)));
+    CHECKCALL(mknod("/dev/urandom", S_IFCHR | 0666, makedev(1, 9)));
+    // This is needed for log wrapper, which gets called before ueventd runs.
+    CHECKCALL(mknod("/dev/ptmx", S_IFCHR | 0666, makedev(5, 2)));
+    CHECKCALL(mknod("/dev/null", S_IFCHR | 0666, makedev(1, 3)));
+
+    CHECKCALL(mount("tmpfs", "/mnt", "tmpfs", MS_NOEXEC | MS_NOSUID | MS_NODEV,
+                    "mode=0755,uid=0,gid=1000"));
+    CHECKCALL(mkdir("/mnt/vendor", 0755));
+    CHECKCALL(mkdir("/mnt/product", 0755));
+
+    CHECKCALL(mount("tmpfs", "/apex", "tmpfs", MS_NOEXEC | MS_NOSUID | MS_NODEV,
+                    "mode=0755,uid=0,gid=0"));
+
+    CHECKCALL(mount("tmpfs", "/debug_ramdisk", "tmpfs", MS_NOEXEC | MS_NOSUID | MS_NODEV,
+                    "mode=0755,uid=0,gid=0"));
+
+    SetStdioToDevNull(argv);
+    InitKernelLogging(argv);
+
+    LOG(INFO) << "init first stage started!";
+
+    // execv方式执行 /system/bin/init selinux_setup
+    const char* path = "/system/bin/init";
+    const char* args[] = {path, "selinux_setup", nullptr};
+    execv(path, const_cast<char**>(args));
+
+    return 1;
+}</code></pre>
+<blockquote>
+<p>setenv():设置环境变量</p>
+<p>mount():挂载文件系统:</p>
+<pre class=" language-c++"><code class="language-c++">// source是一个名字,target是挂载点,filesystemtype是文件系统类型
+// 文件系统类型有"btrfs", "ext4", "jfs", "xfs","vfat", "fuse", "tmpfs", "cgroup", "proc", "mqueue", "nfs", //"cifs","iso9660"等
+int mount(const char *source, const char *target,
+                 const char *filesystemtype, unsigned long mountflags,
+                 const void *data);</code></pre>
+<p>mknod():Linux中创建字符设备文件或者块设备文件</p>
+<p>tmpfs:一个基于内存的文件系统,断电后数据丢失</p>
+<pre><code>ABCD
+A- 0， 表示十进制
+B－用户
+C－组用户
+D－其他用户
+
+---  -&gt; 0   (no excute , no write ,no read)
+--x  -&gt; 1   excute, (no write, no read)
+-w-  -&gt; 2   write 
+-wx  -&gt; 3   write, excute
+r--  -&gt; 4   read
+r-x  -&gt; 5   read, excute
+rw-  -&gt; 6   read, write , 
+rwx  -&gt; 7   read, write , excute</code></pre><p>0755:用户具有读/写/执行权限，组用户和其它用户具有读写权限</p>
+</blockquote>
+<p>可以看到这个阶段主要是挂载一些文件系统.并启动SELinux.</p>
+<h2 id="启动SELinux"><a href="#启动SELinux" class="headerlink" title="启动SELinux"></a>启动SELinux</h2><p>这个过程中会执行:</p>
+<pre class=" language-c++"><code class="language-c++">    const char* path = "/system/bin/init";
+    const char* args[] = {path, "second_stage", nullptr};
+    execv(path, const_cast<char**>(args));</code></pre>
+<p>然后进入到init进程的第二个阶段</p>
+<h2 id="第二阶段-SecondStageMain"><a href="#第二阶段-SecondStageMain" class="headerlink" title="第二阶段:SecondStageMain"></a>第二阶段:SecondStageMain</h2><p>在第一阶段的源码中有一饿SecondStageMain的方法调用,这个时候会进入第二个执行阶段:</p>
+<pre class=" language-c++"><code class="language-c++">int SecondStageMain(int argc, char** argv) {
+
+    LOG(INFO) << "init second stage started!";
+
+      // 会执行 /system/bin/init subcontext ....
+    InitializeSubcontext();
+
+    // 为解析init.rc中的action和service做准备
+    ActionManager& am = ActionManager::GetInstance();
+    ServiceList& sm = ServiceList::GetInstance();
+
+    // 加载init.rc
+    LoadBootScripts(am, sm);
+
+      // cgroups:用于控制资源,cpuset相关
+    am.QueueBuiltinAction(SetupCgroupsAction, "SetupCgroups");
+    am.QueueBuiltinAction(SetKptrRestrictAction, "SetKptrRestrict");
+    am.QueueBuiltinAction(TestPerfEventSelinuxAction, "TestPerfEventSelinux");
+
+      // 这里会启动ueventd,
+    am.QueueEventTrigger("early-init");
+
+    // Queue an action that waits for coldboot done so we know ueventd has set up all of /dev...
+    am.QueueBuiltinAction(wait_for_coldboot_done_action, "wait_for_coldboot_done");
+    // ... so that we can start queuing up actions that require stuff from /dev.
+    am.QueueBuiltinAction(MixHwrngIntoLinuxRngAction, "MixHwrngIntoLinuxRng");
+    am.QueueBuiltinAction(SetMmapRndBitsAction, "SetMmapRndBits");
+    Keychords keychords;
+    am.QueueBuiltinAction(
+            [&epoll, &keychords](const BuiltinArguments& args) -> Result<void> {
+                for (const auto& svc : ServiceList::GetInstance()) {
+                    keychords.Register(svc->keycodes());
+                }
+                keychords.Start(&epoll, HandleKeychord);
+                return {};
+            },
+            "KeychordInit");
+
+    // Trigger all the boot actions to get us started.
+    am.QueueEventTrigger("init");
+
+    // 充电模式下不挂载文件系统,也不启动核心系统服务
+    std::string bootmode = GetProperty("ro.bootmode", "");
+    if (bootmode == "charger") {
+        am.QueueEventTrigger("charger");
+    } else {
+        am.QueueEventTrigger("late-init");
     }
 
-    tool(&quot;link&quot;){
-        exe_name = &quot;{{root_out_dir}}/{{target_output_name}}{{output_extension}}&quot;
-        command = &quot;clang++ {{inputs}} -o $exe_name&quot;
-        outputs = [&quot;$exe_name&quot;]
+    // Run all property triggers based on current state of the properties.
+    am.QueueBuiltinAction(queue_property_triggers_action, "queue_property_triggers");
+
+    return 0;
+}</code></pre>
+<p>可以看到第二个阶段依次做了这些事:</p>
+<ul>
+<li><p>加载init.rc配置文件</p>
+<pre class=" language-c++"><code class="language-c++">static void LoadBootScripts(ActionManager& action_manager, ServiceList& service_list) {
+    Parser parser = CreateParser(action_manager, service_list);
+
+    std::string bootscript = GetProperty("ro.boot.init_rc", "");
+    if (bootscript.empty()) {
+        parser.ParseConfig("/system/etc/init/hw/init.rc");
+        if (!parser.ParseConfig("/system/etc/init")) {
+            late_import_paths.emplace_back("/system/etc/init");
+        }
+        // late_import is available only in Q and earlier release. As we don't
+        // have system_ext in those versions, skip late_import for system_ext.
+        parser.ParseConfig("/system_ext/etc/init");
+        if (!parser.ParseConfig("/product/etc/init")) {
+            late_import_paths.emplace_back("/product/etc/init");
+        }
+        if (!parser.ParseConfig("/odm/etc/init")) {
+            late_import_paths.emplace_back("/odm/etc/init");
+        }
+        if (!parser.ParseConfig("/vendor/etc/init")) {
+            late_import_paths.emplace_back("/vendor/etc/init");
+        }
+    } else {
+        parser.ParseConfig(bootscript);
     }
-}</code></pre><p>写工具链的脚本,需要大致明白C++的编译流程.</p>
-<p>其中<code>cxx</code>:代表编译C++,<code>link</code>代表链接.由于我使用的是Mac,所以这里使用clang进行编译.</p>
-<h2 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h2><pre class=" language-shell"><code class="language-shell">gn gen out/Debug
-ninja -C out/Debug</code></pre>
-<p>可执行文件就构建成功了.</p>
+}
+
+Parser CreateParser(ActionManager& action_manager, ServiceList& service_list) {
+    Parser parser;
+
+    parser.AddSectionParser("service", std::make_unique<ServiceParser>(
+                                               &service_list, GetSubcontext(), std::nullopt));
+    parser.AddSectionParser("on", std::make_unique<ActionParser>(&action_manager, GetSubcontext()));
+    parser.AddSectionParser("import", std::make_unique<ImportParser>(&parser));
+
+    return parser;
+}</code></pre>
+<p>这里会根据init.rc中的item类型创建对应的parser:</p>
+<ul>
+<li>ActionParser</li>
+<li>ServiceParser</li>
+<li>ImportParser</li>
+</ul>
+<p>在加载完init.rc文件之后,会加载/{system,vendor,odm}/etc/init/ 下(Android设备中的目录)的所有rc配置文件:</p>
+<ul>
+<li><p><code>/system/etc/init/</code> : 核心系统,比如SurfaceFlinger,MediaService,logd</p>
+<pre><code>ITouch.rc                             hwservicemanager.rc            runtime_data.rc
+android.hidl.allocator@1.0-service.rc iGraphics.rc                   samba.rc
+atrace.rc                             incidentd.rc                   selinux_dmd.rc
+audioserver.rc                        init.huawei.iaware.a15.rc      servicemanager.rc
+balonglogcat.rc                       init.huawei.os.a15.rc          shex.rc
+blank_screen.rc                       init.huawei.os.common.rc       shutanim.rc
+bootanim.rc                           init.huawei.recovery.common.rc statsd.rc
+bootstat.rc                           init.system.rc                 storaged.rc
+cameraserver.rc                       installd.rc                    surfaceflinger.rc
+displayengineserver.rc                keystore.rc                    thermal-daemon.rc
+drmserver.rc                          lmkd.rc                        thermalservice.rc
+dubaid.rc                             logcatd_ext.rc                 tombstoned.rc
+dumpstate.rc                          logd.rc                        uncrypt.rc
+gatekeeperd.rc                        mdnsd.rc                       update_engine.rc
+gpuassistant.rc                       mediadrmserver.rc              usbd.rc
+healthd.rc                            mediaextractor.rc              vdc.rc
+hilogcat.rc                           mediametrics.rc                vold.rc
+hilogd.rc                             mediaserver.rc                 wait_for_keymaster.rc
+hiview.rc                             mtpd.rc                        wificond.rc
+hivrarserver.rc                       netd.rc                        xlogcat.rc
+hwhfd.rc                              perfetto.rc
+hwnffserver.rc                        racoon.rc</code></pre></li>
+<li><p><code>/vendor/etc/init/</code>: SOC需要的核心功能和守护程序</p>
+<pre><code>activity_recognition_service.rc
+android.hardware.bluetooth@1.0-service.rc
+android.hardware.cas@1.0-service.rc
+android.hardware.configstore@1.1-service.rc
+android.hardware.drm@1.0-service.rc
+android.hardware.drm@1.1-service.clearkey.rc
+android.hardware.drm@1.1-service.widevine.rc
+android.hardware.gatekeeper@1.0-service.rc
+android.hardware.graphics.allocator@2.0-service.rc
+android.hardware.graphics.composer@2.2-service.rc
+android.hardware.health@2.0-service.rc
+android.hardware.ir@1.0-service.rc
+android.hardware.keymaster@3.0-service.rc
+android.hardware.media.omx@1.0-service.rc
+android.hardware.memtrack@1.0-service.rc
+android.hardware.secure_element@1.0-service.rc
+android.hardware.thermal@1.0-service.rc
+android.hardware.usb@1.0-service.rc
+android.hardware.vr@1.0-service.rc
+aptouch_daemon.rc
+charger
+connectivity
+hinetmanager.rc
+hisecd.rc
+hw
+init.audio.rc
+init.balong_modem.rc
+init.connectivity.rc
+init.device.rc
+init.extmodem.rc
+init.hisi.rc
+init.ko.rc
+init.manufacture.rc
+init.performance.rc
+init.platform.rc
+init.post-fs-data.rc
+init.protocol.rc
+init.tee.rc
+init.vowifi.rc
+isplogcat.rc
+modemchr_service.rc
+recovery
+rild.rc
+vendor.huawei.graphics.displayeffect@1.0-service.rc
+vendor.huawei.hardware.audio@4.0-service.rc
+vendor.huawei.hardware.biometrics.fingerprint@2.1-service.rc
+vendor.huawei.hardware.biometrics.hwfacerecognize@1.1-service.rc
+vendor.huawei.hardware.dolby.dms@1.0-service.rc
+vendor.huawei.hardware.fm@1.0-service.rc
+vendor.huawei.hardware.gnss@1.2-service.rc
+vendor.huawei.hardware.graphics.mediacomm@2.0-service.rc
+vendor.huawei.hardware.hisupl@1.0-service.rc
+vendor.huawei.hardware.hivrar@1.3-service.rc
+vendor.huawei.hardware.hwdisplay.displayengine@1.2-service.rc
+vendor.huawei.hardware.hwdisplay@1.0-service.rc
+vendor.huawei.hardware.hwfactoryinterface@1.1-service.rc
+vendor.huawei.hardware.hwfs@1.0-service.rc
+vendor.huawei.hardware.hwhiview@1.0-service.rc
+vendor.huawei.hardware.hwsecurity-service.rc
+vendor.huawei.hardware.hwupdate@1.0-service.rc
+vendor.huawei.hardware.hwvibrator@1.0-service.rc
+vendor.huawei.hardware.iawareperf@1.0-service.rc
+vendor.huawei.hardware.irsl@1.0-service.rc
+vendor.huawei.hardware.kds@1.0-service.rc
+vendor.huawei.hardware.libteec@2.0-service.rc
+vendor.huawei.hardware.light@2.0-service.rc
+vendor.huawei.hardware.nfc@1.0-service.rc
+vendor.huawei.hardware.otasimlock@1.0-service.rc
+vendor.huawei.hardware.otherdevices@1.0-service.rc
+vendor.huawei.hardware.perfgenius@2.0-service.rc
+vendor.huawei.hardware.power@1.0-service.rc
+vendor.huawei.hardware.sensors@1.0-service.rc
+vendor.huawei.hardware.tp@1.0-service.rc
+vendor.huawei.hardware.wifi@1.1-service.rc
+vndservicemanager.rc</code></pre></li>
+<li><p><code>/odm/etc/init/</code> : 设备制造商使用,比如传感器和其他外设功能或者守护程序 </p>
+<pre><code>init.hisi.odm.rc 
+init.odm.rc</code></pre></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>在触发early_int 之前,配置cgroup,kptr_restrict,perf等限制资源使用的工具</p>
+<blockquote>
+<p><a href="https://source.android.google.cn/devices/tech/perf/cgroups" target="_blank" rel="noopener">Cgroup 抽象层</a></p>
+</blockquote>
+</li>
+<li><p>触发early init,创建一些文件目录,挂载一些文件系统等,并启动ueventd</p>
+<pre><code>on early-init
+    start ueventd</code></pre></li>
+<li><p>触发init,修改权限并挂载binderfs,启动logd.lmkd,servicemanager,hwservicemanager,vndservicemanager等</p>
+<pre><code>on init
+    # Mount binderfs
+    mkdir /dev/binderfs
+    mount binder binder /dev/binderfs stats=global
+    chmod 0755 /dev/binderfs
+
+    symlink /dev/binderfs/binder /dev/binder
+    symlink /dev/binderfs/hwbinder /dev/hwbinder
+    symlink /dev/binderfs/vndbinder /dev/vndbinder
+
+    chmod 0666 /dev/binderfs/hwbinder
+    chmod 0666 /dev/binderfs/binder
+    chmod 0666 /dev/binderfs/vndbinder
+
+    # Start logd before any other services run to ensure we capture all of their logs.
+    start logd
+    # Start lmkd before any other services run so that it can register them
+    chown root system /sys/module/lowmemorykiller/parameters/adj
+    chmod 0664 /sys/module/lowmemorykiller/parameters/adj
+    chown root system /sys/module/lowmemorykiller/parameters/minfree
+    chmod 0664 /sys/module/lowmemorykiller/parameters/minfree
+    start lmkd
+
+    # Start essential services.
+    start servicemanager
+    start hwservicemanager
+    start vndservicemanager</code></pre><blockquote>
+<p><a href="https://source.android.google.cn/devices/tech/perf/lmkd" target="_blank" rel="noopener">低内存终止守护进程 (lmkd)</a></p>
+</blockquote>
+<ul>
+<li><p>挂载binderfs</p>
+<p>Android的IPC机制是通过/dev节点从用户空间访问的.一般会分配三个节点:</p>
+<ul>
+<li>/dev/binder : 框架/应用进程之间的 IPC，使用 AIDL 接口</li>
+<li>/dev/hwbinder : 框架/供应商进程之间的 IPC，使用 HIDL 接口<br>供应商进程之间的 IPC，使用 HIDL 接口</li>
+<li>/dev/vndbinder :  供应商/供应商进程之间的 IPC，使用 AIDL 接口</li>
+</ul>
+</li>
+<li><p>启动logd,即Android的日志进程</p>
+</li>
+<li><p>启动servicemanager,hwservicemanager,vndservicemanager</p>
+<p>Android O之前,Binder服务通过servicemanager注册,Android O开始binder节点分成了三种,因此对应的servicemanager也分成了三种.</p>
+</li>
+<li><p>判断启动模式,如果是充电模式,在调用charger程序</p>
+<p>charger是关机模式下执行的程序,用于显示充电动画,可参考<a href="https://source.android.com/devices/tech/health" target="_blank" rel="noopener">Android运行状况</a></p>
+</li>
+<li><p>正常模式下启动,则挂载文件系统,并启动核心系统服务</p>
+<p>核心服务,即那些标记 <code>class core</code>的服务,比如init程序入口的ueventd:</p>
+<pre><code>service ueventd /system/bin/ueventd
+    class core
+    critical
+    seclabel u:r:ueventd:s0
+    shutdown critical</code></pre><p>还有就是surfaceFlinger等:</p>
+<pre><code>service surfaceflinger /system/bin/surfaceflinger
+    class core animation
+    user system
+    group graphics drmrpc readproc
+    onrestart restart zygote
+    onrestart restart gpuassistant
+    writepid /dev/stune/foreground/tasks
+    socket pdx/system/vr/display/client     stream 0666 system graphics u:object_r:pdx_display_client_endpoint_socket:s0
+    socket pdx/system/vr/display/manager    stream 0666 system graphics u:object_r:pdx_display_manager_endpoint_socket:s0
+    socket pdx/system/vr/display/vsync      stream 0666 system graphics u:object_r:pdx_display_vsync_endpoint_socket:s0</code></pre></li>
+<li><p>启动zygote相关进程</p>
+<p>late-init中会触发:</p>
+<pre><code>    trigger zygote-start</code></pre><pre><code>on zygote-start &amp;&amp; property:ro.crypto.state=unencrypted
+    # A/B update verifier that marks a successful boot.
+    exec_start update_verifier_nonencrypted
+    start netd
+    start zygote
+    start zygote_secondary
+
+on zygote-start &amp;&amp; property:ro.crypto.state=unsupported
+    # A/B update verifier that marks a successful boot.
+    exec_start update_verifier_nonencrypted
+    start netd
+    start zygote
+    start zygote_secondary
+
+on zygote-start &amp;&amp; property:ro.crypto.state=encrypted &amp;&amp; property:ro.crypto.type=file
+    # A/B update verifier that marks a successful boot.
+    exec_start update_verifier_nonencrypted
+    start netd
+    start zygote
+    start zygote_secondary</code></pre><p>zygote_secondary是针对同时支持64位,32位架构的配置:</p>
+<pre><code>service zygote /system/bin/app_process64 -Xzygote /system/bin --zygote --start-system-server --socket-name=zygote
+    class main
+    priority -20
+    user root
+    group root readproc reserved_disk
+    socket zygote stream 660 root system
+    socket usap_pool_primary stream 660 root system
+    onrestart write /sys/power/state on
+    onrestart restart audioserver
+    onrestart restart cameraserver
+    onrestart restart media
+    onrestart restart netd
+    onrestart restart wificond
+    writepid /dev/cpuset/foreground/tasks
+
+service zygote_secondary /system/bin/app_process32 -Xzygote /system/bin --zygote --socket-name=zygote_secondary --enable-lazy-preload
+    class main
+    priority -20
+    user root
+    group root readproc reserved_disk
+    socket zygote_secondary stream 660 root system
+    socket usap_pool_secondary stream 660 root system
+    onrestart restart zygote
+    writepid /dev/cpuset/foreground/tasks</code></pre></li>
+</ul>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li><p>init入口中包含5个分支:</p>
+<ul>
+<li><p>ueventd : 实际上就是init程序的软连接,在init.rc的early-init阶段启动</p>
+</li>
+<li><p>selinux_setup : FirstStageMain 中通过 <code>/system/bin/init selinux_setup</code> 启动</p>
+</li>
+<li><p>subcontext : SecondStageMain 中启动</p>
+<pre class=" language-c++"><code class="language-c++">        auto init_path = GetExecutablePath();
+        auto child_fd_string = std::to_string(child_fd);
+        const char* args[] = {init_path.c_str(), "subcontext", context_.c_str(),
+                              child_fd_string.c_str(), nullptr};
+        execv(init_path.data(), const_cast<char**>(args));</code></pre>
+</li>
+<li><p>second_stage : 在selinux_setp启动完之后执行</p>
+</li>
+<li><p>fisrt_stage : 默认首先执行</p>
+</li>
+</ul>
+</li>
+<li><p>第二个阶段,首先加载int.rc配置,然后再依次在Android设备中查找以下三种配置,并加载:</p>
+<ul>
+<li>/system/etc/init/</li>
+<li>/vendor/etc/init/</li>
+<li>/odm/etc/init/</li>
+</ul>
+</li>
+<li><p>init.rc各个过程中会挂载文件系统,包括binderfs,创建各种文件目录,并分配权限</p>
+</li>
+<li><p>启动servce manager,Android O开始分成三种,对应三种binder节点,给不同的层使用</p>
+</li>
+</ul>
 
             </div>
             <hr/>
@@ -515,7 +988,7 @@ ninja -C out/Debug</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.jiangkang.tech/2020/05/29/c/gn-gou-jian-c-xiang-mu-zhi-helloworld/">https://www.jiangkang.tech/2020/05/29/c/gn-gou-jian-c-xiang-mu-zhi-helloworld/</a>
+                    <a href="https://www.jiangkang.tech/2020/06/22/android/android-qi-dong-liu-cheng-init-jin-cheng-fen-xi/">https://www.jiangkang.tech/2020/06/22/android/android-qi-dong-liu-cheng-init-jin-cheng-fen-xi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -553,12 +1026,12 @@ ninja -C out/Debug</code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%BC%96%E8%AF%91/">
-                                    <span class="chip bg-color">编译</span>
+                                <a href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
+                                    <span class="chip bg-color">源码分析</span>
                                 </a>
                             
-                                <a href="/tags/GN/">
-                                    <span class="chip bg-color">GN</span>
+                                <a href="/tags/Android%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/">
+                                    <span class="chip bg-color">Android启动流程</span>
                                 </a>
                             
                         </div>
@@ -729,7 +1202,7 @@ ninja -C out/Debug</code></pre>
         repo: 'jiangkang.github.io',
         owner: 'jiangkang',
         admin: ["jiangkang"],
-        id: '2020-05-29T22-41-27',
+        id: '2020-06-22T19-29-02',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -753,42 +1226,58 @@ ninja -C out/Debug</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/30/ji-hua/jin-qi-xue-xi-ji-hua/">
+                <a href="/2020/06/22/android/android-qi-dong-liu-cheng-init-jin-cheng-fen-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="近期学习计划">
+                        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/11.jpg" class="responsive-img" alt="Android启动流程-init进程分析">
                         
-                        <span class="card-title">近期学习计划</span>
+                        <span class="card-title">Android启动流程-init进程分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            6月学习计划
+                            
+基于Android 10 源码分析
+
+之前在Android启动流程分析中已经大致分析了一下Android系统启动的过程,这里回顾一下:
+
+上电,从Boot ROM中执行一段烧录好的代码加载bootloader
+bootloader执行,引
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-22
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            姜康
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Android/" class="post-category">
+                                    Android
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E5%88%92/">
-                        <span class="chip bg-color">计划</span>
+                    <a href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">源码分析</span>
+                    </a>
+                    
+                    <a href="/tags/Android%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/">
+                        <span class="chip bg-color">Android启动流程</span>
                     </a>
                     
                 </div>
@@ -802,32 +1291,35 @@ ninja -C out/Debug</code></pre>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/25/c/cmake-de-jian-dan-shi-yong/">
+                <a href="/2020/06/21/ji-chu/tls-pinning/">
                     <div class="card-image">
                         
-                        <img src="https://oss.jiangkang.tech/jk/cmake.jpg" class="responsive-img" alt="CMake的简单使用">
                         
-                        <span class="card-title">CMake的简单使用</span>
+                        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="TLS-Pinning">
+                        
+                        <span class="card-title">TLS-Pinning</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            构建可执行程序add_executable( [WIN32] [MACOSX_BUNDLE]
-               [EXCLUDE_FROM_ALL]
-               [source1] [source2 ...])
+                            什么是SSL/TLS Pinning?将服务端提供的TLS/SSL证书内置到移动端开发的APP客户端中,当客户端发起请求时,通过比对内置证书和服务器端证书的内容,以确定这个连接的合法性.
+
+我这里把Pinning翻译成“固定”
+
+Pinni
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-21
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C/" class="post-category">
-                                    C++
+                            <a href="/categories/%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    基础
                                 </a>
                             
                             
@@ -837,12 +1329,8 @@ ninja -C out/Debug</code></pre>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BC%96%E8%AF%91/">
-                        <span class="chip bg-color">编译</span>
-                    </a>
-                    
-                    <a href="/tags/CMake/">
-                        <span class="chip bg-color">CMake</span>
+                    <a href="/tags/TLS/">
+                        <span class="chip bg-color">TLS</span>
                     </a>
                     
                 </div>

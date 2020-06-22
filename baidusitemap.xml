@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.jiangkang.tech/2020/06/22/android/android-qi-dong-liu-cheng-init-jin-cheng-fen-xi/</loc>
+    <lastmod>2020-06-22</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/06/12/android/android-kai-ji-dong-hua-fen-xi/</loc>
+    <lastmod>2020-06-22</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/06/12/android/aosp-de-bian-yi/</loc>
+    <lastmod>2020-06-22</lastmod>
+  </url>  <url>
     <loc>https://www.jiangkang.tech/2020/06/21/ji-chu/tls-pinning/</loc>
     <lastmod>2020-06-21</lastmod>
   </url>  <url>
@@ -43,13 +52,7 @@
     <loc>https://www.jiangkang.tech/2020/06/13/ying-jian/uart/</loc>
     <lastmod>2020-06-13</lastmod>
   </url>  <url>
-    <loc>https://www.jiangkang.tech/2020/06/12/android/aosp-de-bian-yi/</loc>
-    <lastmod>2020-06-13</lastmod>
-  </url>  <url>
     <loc>https://www.jiangkang.tech/2020/06/12/ying-jian/arm-jia-gou-ji-chu-zhi-shi/</loc>
-    <lastmod>2020-06-12</lastmod>
-  </url>  <url>
-    <loc>https://www.jiangkang.tech/2020/06/12/android/android-kai-ji-dong-hua-fen-xi/</loc>
     <lastmod>2020-06-12</lastmod>
   </url>  <url>
     <loc>https://www.jiangkang.tech/2020/06/12/android/android-xi-tong-qi-dong-liu-cheng-fen-xi/</loc>
