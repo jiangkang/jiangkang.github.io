@@ -1,0 +1,1612 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Android系统启动流程-Native方法的注册,姜康,天津大学,Android,Golang">
+    <meta name="description" content="姜康的技术博客:用技术解决实际问题">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-170437132-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-170437132-1');
+</script>
+
+
+    <title>Android系统启动流程-Native方法的注册 | 姜康的技术博客</title>
+    <link rel="icon" type="image/jpeg" href="/medias/avatar.jpeg">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="姜康的技术博客" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    <!-- 
+                    <img src="/medias/avatar.jpeg" class="logo-img" alt="LOGO">
+                     -->
+                    <span class="logo-span">姜康的技术博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories/Flutter" class="waves-effect waves-light">
+      
+      <span>Flutter</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories/Android" class="waves-effect waves-light">
+      
+      <span>Android</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories/%E5%9F%BA%E7%A1%80" class="waves-effect waves-light">
+      
+      <span>基础知识</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/avatar.jpeg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">姜康的技术博客</div>
+        <div class="logo-desc">
+            
+            姜康的技术博客:用技术解决实际问题
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories/Flutter" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			Flutter
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories/Android" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			Android
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories/%E5%9F%BA%E7%A1%80" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			基础知识
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/jiangkang" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Follow Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/jiangkang" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Follow Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://oss.jiangkang.tech/jk/jni.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Android系统启动流程-Native方法的注册</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
+                                <span class="chip bg-color">源码分析</span>
+                            </a>
+                        
+                            <a href="/tags/Android%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/">
+                                <span class="chip bg-color">Android启动流程</span>
+                            </a>
+                        
+                            <a href="/tags/Native%E6%96%B9%E6%B3%95%E6%B3%A8%E5%86%8C/">
+                                <span class="chip bg-color">Native方法注册</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Android/" class="post-category">
+                                Android
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-06-28
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    8 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>在使用app_process 创建zygote进程的过程中会执行下面这些操作:</p>
+<ul>
+<li>创建ART虚拟机</li>
+<li>注册Native方法</li>
+<li>找到ZygoteInit,通过反射调用它的main方法进入Java世界</li>
+</ul>
+<p>这里说一下注册Native方法的一些细节.</p>
+<h2 id="入口"><a href="#入口" class="headerlink" title="入口"></a>入口</h2><pre class=" language-cpp"><code class="language-cpp">    <span class="token comment" spellcheck="true">/*
+     * Register android functions.
+     */</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">startReg</span><span class="token punctuation">(</span>env<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">ALOGE</span><span class="token punctuation">(</span><span class="token string">"Unable to register all android natives\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre>
+<p>源码在<code>frameworks/base/core/jni/AndroidRuntime.cpp</code>中.</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+ * Register android native functions with the VM.
+ */</span>
+<span class="token comment" spellcheck="true">/*static*/</span> <span class="token keyword">int</span> AndroidRuntime<span class="token operator">::</span><span class="token function">startReg</span><span class="token punctuation">(</span>JNIEnv<span class="token operator">*</span> env<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">ATRACE_NAME</span><span class="token punctuation">(</span><span class="token string">"RegisterAndroidNatives"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">/*
+     * This hook causes all future threads created in this process to be
+     * attached to the JavaVM.  (This needs to go away in favor of JNI
+     * Attach calls.)
+     */</span>
+    <span class="token function">androidSetCreateThreadFunc</span><span class="token punctuation">(</span><span class="token punctuation">(</span>android_create_thread_fn<span class="token punctuation">)</span> javaCreateThreadEtc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">ALOGV</span><span class="token punctuation">(</span><span class="token string">"--- registering native functions ---\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">/*
+     * Every "register" function calls one or more things that return
+     * a local reference (e.g. FindClass).  Because we haven't really
+     * started the VM yet, they're all getting stored in the base frame
+     * and never released.  Use Push/Pop to manage the storage.
+     */</span>
+    env<span class="token operator">-</span><span class="token operator">></span><span class="token function">PushLocalFrame</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">register_jni_procs</span><span class="token punctuation">(</span>gRegJNI<span class="token punctuation">,</span> <span class="token function">NELEM</span><span class="token punctuation">(</span>gRegJNI<span class="token punctuation">)</span><span class="token punctuation">,</span> env<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        env<span class="token operator">-</span><span class="token operator">></span><span class="token function">PopLocalFrame</span><span class="token punctuation">(</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    env<span class="token operator">-</span><span class="token operator">></span><span class="token function">PopLocalFrame</span><span class="token punctuation">(</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//createJavaThread("fubar", quickTest, (void*) "hello");</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="要注册的方法"><a href="#要注册的方法" class="headerlink" title="要注册的方法"></a>要注册的方法</h2><pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">static</span> <span class="token keyword">const</span> RegJNIRec gRegJNI<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_os_RuntimeInit<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_os_ZygoteInit_nativeZygoteInit<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_SystemClock<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_util_EventLog<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_util_Log<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_util_MemoryIntArray<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_util_PathParser<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_util_StatsLog<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_util_StatsLogInternal<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_app_admin_SecurityLog<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_content_AssetManager<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_content_StringBlock<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_content_XmlBlock<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_content_res_ApkAssets<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_text_AndroidCharacter<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_text_Hyphenator<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_InputDevice<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_KeyCharacterMap<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_Process<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_SystemProperties<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_Binder<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_Parcel<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_HidlMemory<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_HidlSupport<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_HwBinder<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_HwBlob<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_HwParcel<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_HwRemoteBinder<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_NativeHandle<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_VintfObject<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_VintfRuntimeInfo<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Canvas<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// This needs to be before register_android_graphics_Graphics, or the latter</span>
+    <span class="token comment" spellcheck="true">// will not be able to find the jmethodID for ColorSpace.get().</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_ColorSpace<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Graphics<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_DisplayEventReceiver<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_RenderNode<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_RenderNodeAnimator<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_DisplayListCanvas<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_InputApplicationHandle<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_InputWindowHandle<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_TextureLayer<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_ThreadedRenderer<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_Surface<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_SurfaceControl<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_SurfaceSession<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_CompositionSamplingListener<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_TextureView<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_view_animation_NativeInterpolatorFactoryHelper<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_google_android_gles_jni_EGLImpl<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_google_android_gles_jni_GLImpl<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_EGL14<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_EGL15<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_EGLExt<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_GLES10<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_GLES10Ext<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_GLES11<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_GLES11Ext<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_GLES20<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_GLES30<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_GLES31<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_GLES31Ext<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_GLES32<span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Bitmap<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_BitmapFactory<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_BitmapRegionDecoder<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_ByteBufferStreamAdaptor<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Camera<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_CreateJavaOutputStreamAdaptor<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_CanvasProperty<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_ColorFilter<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_DrawFilter<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_FontFamily<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_GraphicBuffer<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_ImageDecoder<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_drawable_AnimatedImageDrawable<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Interpolator<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_MaskFilter<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Matrix<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Movie<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_NinePatch<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Paint<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Path<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_PathMeasure<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_PathEffect<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Picture<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Region<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Shader<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_SurfaceTexture<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Typeface<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_YuvImage<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_drawable_AnimatedVectorDrawable<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_drawable_VectorDrawable<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_fonts_Font<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_fonts_FontFamily<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_pdf_PdfDocument<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_pdf_PdfEditor<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_pdf_PdfRenderer<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_text_MeasuredText<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_text_LineBreaker<span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_database_CursorWindow<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_database_SQLiteConnection<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_database_SQLiteGlobal<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_database_SQLiteDebug<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_Debug<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_FileObserver<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_GraphicsEnvironment<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_MessageQueue<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_SELinux<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_Trace<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_UEventObserver<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_net_LocalSocketImpl<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_net_NetworkUtils<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_MemoryFile<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_SharedMemory<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_os_ClassLoaderFactory<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_os_Zygote<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_os_ZygoteInit<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_util_VirtualRefBasePtr<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_Camera<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_camera2_CameraMetadata<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_camera2_legacy_LegacyCameraDevice<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_camera2_legacy_PerfMeasurement<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_camera2_DngCreator<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_HardwareBuffer<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_SensorManager<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_SerialPort<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_SoundTrigger<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_UsbDevice<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_UsbDeviceConnection<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_UsbRequest<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_location_ActivityRecognitionHardware<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_AudioEffectDescriptor<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_AudioSystem<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_AudioRecord<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_AudioTrack<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_AudioAttributes<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_AudioProductStrategies<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_AudioVolumeGroups<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_AudioVolumeGroupChangeHandler<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_MicrophoneInfo<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_RemoteDisplay<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_ToneGenerator<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_midi<span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_classes<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_server_NetworkManagementSocketTagger<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_ddm_DdmHandleNativeHeap<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_backup_BackupDataInput<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_backup_BackupDataOutput<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_backup_FileBackupHelperBase<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_backup_BackupHelperDispatcher<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_app_backup_FullBackup<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_app_Activity<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_app_ActivityThread<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_app_NativeActivity<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_util_jar_StrictJarFile<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_InputChannel<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_InputEventReceiver<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_InputEventSender<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_InputQueue<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_KeyEvent<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_MotionEvent<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_PointerIcon<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_VelocityTracker<span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_content_res_ObbScanner<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_content_res_Configuration<span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_animation_PropertyValuesHolder<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_security_Scrypt<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_content_NativeLibraryHelper<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_os_AtomicDirectory<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_os_FuseAppLoop<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_os_KernelCpuUidBpfMapReader<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_os_KernelSingleUidTimeReader<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>其中<code>register_xx</code>其实是一个函数指针,遍历的时候会依次执行这些方法:</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">register_jni_procs</span><span class="token punctuation">(</span><span class="token keyword">const</span> RegJNIRec array<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> size_t count<span class="token punctuation">,</span> JNIEnv<span class="token operator">*</span> env<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>size_t i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> count<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">mProc</span><span class="token punctuation">(</span>env<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token macro property">#<span class="token directive keyword">ifndef</span> NDEBUG</span>
+            <span class="token function">ALOGD</span><span class="token punctuation">(</span><span class="token string">"----------!!! %s failed to load\n"</span><span class="token punctuation">,</span> array<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>mName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+            <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">register_com_android_internal_os_RuntimeInit</span><span class="token punctuation">(</span>JNIEnv<span class="token operator">*</span> env<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">const</span> JNINativeMethod methods<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">{</span><span class="token string">"nativeFinishInit"</span><span class="token punctuation">,</span> <span class="token string">"()V"</span><span class="token punctuation">,</span>
+             <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span>com_android_internal_os_RuntimeInit_nativeFinishInit<span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span><span class="token string">"nativeSetExitWithoutCleanup"</span><span class="token punctuation">,</span> <span class="token string">"(Z)V"</span><span class="token punctuation">,</span>
+             <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span>com_android_internal_os_RuntimeInit_nativeSetExitWithoutCleanup<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">jniRegisterNativeMethods</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> <span class="token string">"com/android/internal/os/RuntimeInit"</span><span class="token punctuation">,</span>
+        methods<span class="token punctuation">,</span> <span class="token function">NELEM</span><span class="token punctuation">(</span>methods<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>可以看到需要传入用到JNI方法的Java类名以及用到的Native方法签名.</p>
+<p>实际注册操作都是通过<code>jniRegisterNativeMethods</code>方法:</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">inline</span> <span class="token keyword">int</span> <span class="token function">jniRegisterNativeMethods</span><span class="token punctuation">(</span>JNIEnv<span class="token operator">*</span> env<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> className<span class="token punctuation">,</span> <span class="token keyword">const</span> JNINativeMethod<span class="token operator">*</span> gMethods<span class="token punctuation">,</span> <span class="token keyword">int</span> numMethods<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">jniRegisterNativeMethods</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>env<span class="token operator">-</span><span class="token operator">></span>functions<span class="token punctuation">,</span> className<span class="token punctuation">,</span> gMethods<span class="token punctuation">,</span> numMethods<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>实现在<code>libnativehelper/JNIHelp.c</code>中:</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">jniRegisterNativeMethods</span><span class="token punctuation">(</span>JNIEnv<span class="token operator">*</span> env<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span><span class="token operator">*</span> className<span class="token punctuation">,</span>
+    <span class="token keyword">const</span> JNINativeMethod<span class="token operator">*</span> methods<span class="token punctuation">,</span> <span class="token keyword">int</span> numMethods<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">ALOGV</span><span class="token punctuation">(</span><span class="token string">"Registering %s's %d native methods..."</span><span class="token punctuation">,</span> className<span class="token punctuation">,</span> numMethods<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    jclass <span class="token class-name">clazz</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">FindClass</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> className<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">ALOG_ALWAYS_FATAL_IF</span><span class="token punctuation">(</span>clazz <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">,</span>
+                         <span class="token string">"Native registration unable to find class '%s'; aborting..."</span><span class="token punctuation">,</span>
+                         className<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> result <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">RegisterNatives</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> clazz<span class="token punctuation">,</span> methods<span class="token punctuation">,</span> numMethods<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">DeleteLocalRef</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> clazz<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>result <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// Failure to register natives is fatal. Try to report the corresponding exception,</span>
+    <span class="token comment" spellcheck="true">// otherwise abort with generic failure message.</span>
+    jthrowable thrown <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">ExceptionOccurred</span><span class="token punctuation">(</span>env<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>thrown <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">struct</span> ExpandableString summary<span class="token punctuation">;</span>
+        <span class="token function">ExpandableStringInitialize</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>summary<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">GetExceptionSummary</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> thrown<span class="token punctuation">,</span> <span class="token operator">&amp;</span>summary<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">ALOGF</span><span class="token punctuation">(</span><span class="token string">"%s"</span><span class="token punctuation">,</span> summary<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">ExpandableStringRelease</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>summary<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">(</span><span class="token operator">*</span>env<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">DeleteLocalRef</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> thrown<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">ALOGF</span><span class="token punctuation">(</span><span class="token string">"RegisterNatives failed for '%s'; aborting..."</span><span class="token punctuation">,</span> className<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>这些要注册的Native方法实现大部分都在<code>frameworks/base/core/jni</code>下.</p>
+<p>我门来看一下Canvas中Native方法的注册:</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">static</span> <span class="token keyword">const</span> JNINativeMethod gMethods<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">{</span><span class="token string">"nGetNativeFinalizer"</span><span class="token punctuation">,</span> <span class="token string">"()J"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>getNativeFinalizer<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nFreeCaches"</span><span class="token punctuation">,</span> <span class="token string">"()V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>freeCaches<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nFreeTextLayoutCaches"</span><span class="token punctuation">,</span> <span class="token string">"()V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>freeTextLayoutCaches<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nSetCompatibilityVersion"</span><span class="token punctuation">,</span> <span class="token string">"(I)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>setCompatibilityVersion<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token comment" spellcheck="true">// ------------ @FastNative ----------------</span>
+    <span class="token punctuation">{</span><span class="token string">"nInitRaster"</span><span class="token punctuation">,</span> <span class="token string">"(J)J"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>initRaster<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nSetBitmap"</span><span class="token punctuation">,</span> <span class="token string">"(JJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>setBitmap<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nGetClipBounds"</span><span class="token punctuation">,</span><span class="token string">"(JLandroid/graphics/Rect;)Z"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>getClipBounds<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token comment" spellcheck="true">// ------------ @CriticalNative ----------------</span>
+    <span class="token punctuation">{</span><span class="token string">"nIsOpaque"</span><span class="token punctuation">,</span><span class="token string">"(J)Z"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>isOpaque<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nGetWidth"</span><span class="token punctuation">,</span><span class="token string">"(J)I"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>getWidth<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nGetHeight"</span><span class="token punctuation">,</span><span class="token string">"(J)I"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>getHeight<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nSave"</span><span class="token punctuation">,</span><span class="token string">"(JI)I"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>save<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nSaveLayer"</span><span class="token punctuation">,</span><span class="token string">"(JFFFFJI)I"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>saveLayer<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nSaveLayerAlpha"</span><span class="token punctuation">,</span><span class="token string">"(JFFFFII)I"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>saveLayerAlpha<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nSaveUnclippedLayer"</span><span class="token punctuation">,</span><span class="token string">"(JIIII)I"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>saveUnclippedLayer<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nRestoreUnclippedLayer"</span><span class="token punctuation">,</span><span class="token string">"(JIJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>restoreUnclippedLayer<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nGetSaveCount"</span><span class="token punctuation">,</span><span class="token string">"(J)I"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>getSaveCount<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nRestore"</span><span class="token punctuation">,</span><span class="token string">"(J)Z"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>restore<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nRestoreToCount"</span><span class="token punctuation">,</span><span class="token string">"(JI)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>restoreToCount<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nGetMatrix"</span><span class="token punctuation">,</span> <span class="token string">"(JJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span>CanvasJNI<span class="token operator">::</span>getMatrix<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nSetMatrix"</span><span class="token punctuation">,</span><span class="token string">"(JJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>setMatrix<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nConcat"</span><span class="token punctuation">,</span><span class="token string">"(JJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>concat<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nRotate"</span><span class="token punctuation">,</span><span class="token string">"(JF)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>rotate<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nScale"</span><span class="token punctuation">,</span><span class="token string">"(JFF)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>scale<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nSkew"</span><span class="token punctuation">,</span><span class="token string">"(JFF)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>skew<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nTranslate"</span><span class="token punctuation">,</span><span class="token string">"(JFF)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>translate<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nQuickReject"</span><span class="token punctuation">,</span><span class="token string">"(JJ)Z"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>quickRejectPath<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nQuickReject"</span><span class="token punctuation">,</span><span class="token string">"(JFFFF)Z"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span>CanvasJNI<span class="token operator">::</span>quickRejectRect<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nClipRect"</span><span class="token punctuation">,</span><span class="token string">"(JFFFFI)Z"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>clipRect<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nClipPath"</span><span class="token punctuation">,</span><span class="token string">"(JJI)Z"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>clipPath<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nSetDrawFilter"</span><span class="token punctuation">,</span> <span class="token string">"(JJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>setPaintFilter<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// If called from Canvas these are regular JNI</span>
+<span class="token comment" spellcheck="true">// If called from DisplayListCanvas they are @FastNative</span>
+<span class="token keyword">static</span> <span class="token keyword">const</span> JNINativeMethod gDrawMethods<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawColor"</span><span class="token punctuation">,</span><span class="token string">"(JII)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawColor<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawColor"</span><span class="token punctuation">,</span><span class="token string">"(JJJI)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawColorLong<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawPaint"</span><span class="token punctuation">,</span><span class="token string">"(JJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawPaint<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawPoint"</span><span class="token punctuation">,</span> <span class="token string">"(JFFJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawPoint<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawPoints"</span><span class="token punctuation">,</span> <span class="token string">"(J[FIIJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawPoints<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawLine"</span><span class="token punctuation">,</span> <span class="token string">"(JFFFFJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawLine<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawLines"</span><span class="token punctuation">,</span> <span class="token string">"(J[FIIJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawLines<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawRect"</span><span class="token punctuation">,</span><span class="token string">"(JFFFFJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawRect<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawRegion"</span><span class="token punctuation">,</span> <span class="token string">"(JJJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawRegion <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawRoundRect"</span><span class="token punctuation">,</span><span class="token string">"(JFFFFFFJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawRoundRect<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawDoubleRoundRect"</span><span class="token punctuation">,</span> <span class="token string">"(JFFFFFFFFFFFFJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawDoubleRoundRectXY<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawDoubleRoundRect"</span><span class="token punctuation">,</span> <span class="token string">"(JFFFF[FFFFF[FJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawDoubleRoundRectRadii<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawCircle"</span><span class="token punctuation">,</span><span class="token string">"(JFFFJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawCircle<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawOval"</span><span class="token punctuation">,</span><span class="token string">"(JFFFFJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawOval<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawArc"</span><span class="token punctuation">,</span><span class="token string">"(JFFFFFFZJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawArc<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawPath"</span><span class="token punctuation">,</span><span class="token string">"(JJJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawPath<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawVertices"</span><span class="token punctuation">,</span> <span class="token string">"(JII[FI[FI[II[SIIJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span>CanvasJNI<span class="token operator">::</span>drawVertices<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawNinePatch"</span><span class="token punctuation">,</span> <span class="token string">"(JJJFFFFJII)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span>CanvasJNI<span class="token operator">::</span>drawNinePatch<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawBitmapMatrix"</span><span class="token punctuation">,</span> <span class="token string">"(JJJJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span>CanvasJNI<span class="token operator">::</span>drawBitmapMatrix<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawBitmapMesh"</span><span class="token punctuation">,</span> <span class="token string">"(JJII[FI[IIJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span>CanvasJNI<span class="token operator">::</span>drawBitmapMesh<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawBitmap"</span><span class="token punctuation">,</span><span class="token string">"(JJFFJIII)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawBitmap<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawBitmap"</span><span class="token punctuation">,</span><span class="token string">"(JJFFFFFFFFJII)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawBitmapRect<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawBitmap"</span><span class="token punctuation">,</span> <span class="token string">"(J[IIIFFIIZJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span>CanvasJNI<span class="token operator">::</span>drawBitmapArray<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawText"</span><span class="token punctuation">,</span><span class="token string">"(J[CIIFFIJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawTextChars<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawText"</span><span class="token punctuation">,</span><span class="token string">"(JLjava/lang/String;IIFFIJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawTextString<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawTextRun"</span><span class="token punctuation">,</span><span class="token string">"(J[CIIIIFFZJJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawTextRunChars<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawTextRun"</span><span class="token punctuation">,</span><span class="token string">"(JLjava/lang/String;IIIIFFZJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawTextRunString<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawTextOnPath"</span><span class="token punctuation">,</span><span class="token string">"(J[CIIJFFIJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawTextOnPathChars<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">"nDrawTextOnPath"</span><span class="token punctuation">,</span><span class="token string">"(JLjava/lang/String;JFFIJ)V"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span> CanvasJNI<span class="token operator">::</span>drawTextOnPathString<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">register_android_graphics_Canvas</span><span class="token punctuation">(</span>JNIEnv<span class="token operator">*</span> env<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> ret <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    ret <span class="token operator">|</span><span class="token operator">=</span> <span class="token function">RegisterMethodsOrDie</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> <span class="token string">"android/graphics/Canvas"</span><span class="token punctuation">,</span> gMethods<span class="token punctuation">,</span> <span class="token function">NELEM</span><span class="token punctuation">(</span>gMethods<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ret <span class="token operator">|</span><span class="token operator">=</span> <span class="token function">RegisterMethodsOrDie</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> <span class="token string">"android/graphics/BaseCanvas"</span><span class="token punctuation">,</span> gDrawMethods<span class="token punctuation">,</span> <span class="token function">NELEM</span><span class="token punctuation">(</span>gDrawMethods<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ret <span class="token operator">|</span><span class="token operator">=</span> <span class="token function">RegisterMethodsOrDie</span><span class="token punctuation">(</span>env<span class="token punctuation">,</span> <span class="token string">"android/graphics/BaseRecordingCanvas"</span><span class="token punctuation">,</span> gDrawMethods<span class="token punctuation">,</span> <span class="token function">NELEM</span><span class="token punctuation">(</span>gDrawMethods<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>使用JNIEnv的<code>RegisterNatives</code>方法实际上就是在Java的native方法名与C++中的JNI调用方法签名之间建立一个映射关系,从而避免了在C++中必须写那些丑陋的方法名了.</p>
+<p>而<code>RegisterNatives</code>的使用在JNI开发中还是非常常见的,比如我们经常会在JNI_Onload方法中注册Native方法,还是会使用到<code>RegisterNatives</code>方法.</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li><p>灵活使用<code>ReigsterNatives</code>方法,不一定必须在<code>JNI_OnLoad()</code>方法中调用,也可以自行调用</p>
+</li>
+<li><p>JNI中绝大部分方法都在JNIEnv中;</p>
+</li>
+</ol>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">姜康</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.jiangkang.tech/2020/06/28/android/android-xi-tong-qi-dong-liu-cheng-native-fang-fa-de-zhu-ce/">https://www.jiangkang.tech/2020/06/28/android/android-xi-tong-qi-dong-liu-cheng-native-fang-fa-de-zhu-ce/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">姜康</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
+                                    <span class="chip bg-color">源码分析</span>
+                                </a>
+                            
+                                <a href="/tags/Android%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/">
+                                    <span class="chip bg-color">Android启动流程</span>
+                                </a>
+                            
+                                <a href="/tags/Native%E6%96%B9%E6%B3%95%E6%B3%A8%E5%86%8C/">
+                                    <span class="chip bg-color">Native方法注册</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">要请博主喝杯咖啡吗?</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpeg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'c8bf6daef1cea6746759',
+        clientSecret: '1ce7017f67af8c9036da53c0980fbfc5a742d39c',
+        repo: 'jiangkang.github.io',
+        owner: 'jiangkang',
+        admin: ["jiangkang"],
+        id: '2020-06-28T19-12-55',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/06/28/android/android-zhong-de-deeplink-yu-applink/">
+                    <div class="card-image">
+                        
+                        <img src="https://oss.jiangkang.tech/jk/app.png" class="responsive-img" alt="Android中的Deep Link与 APP Link">
+                        
+                        <span class="card-title">Android中的Deep Link与 APP Link</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Deep link其实就是一种intent过滤器.可以直接进入APP特定的Activity.
+如果APP中存在多个符合要求的Activity,会弹出一个选择框.
+
+
+
+
+App link一种特殊的deep link,需要验证网站网址.
+用一
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-28
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Android/" class="post-category">
+                                    Android
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Deep-Link/">
+                        <span class="chip bg-color">Deep Link</span>
+                    </a>
+                    
+                    <a href="/tags/APP-Link/">
+                        <span class="chip bg-color">APP Link</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/06/26/android/android-xi-tong-qi-dong-liu-cheng-systemserver-fen-xi/">
+                    <div class="card-image">
+                        
+                        <img src="https://oss.jiangkang.tech/jk/system_server.png" class="responsive-img" alt="Android系统启动流程-SystemServer分析">
+                        
+                        <span class="card-title">Android系统启动流程-SystemServer分析</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            app_process64在启动zygote进程的时候,会从zygote进程fork出system_server进程.
+system_server的入口在SystemServer.java中
+在Android启动流程-Zygote分析中已经
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Android/" class="post-category">
+                                    Android
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">源码分析</span>
+                    </a>
+                    
+                    <a href="/tags/Android%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/">
+                        <span class="chip bg-color">Android启动流程</span>
+                    </a>
+                    
+                    <a href="/tags/SystemServer/">
+                        <span class="chip bg-color">SystemServer</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 姜康的技术博客<br />'
+            + '文章作者: 姜康<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">姜康</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">58.6k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "5";
+                    var startDate = "08";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="http://beian.miit.gov.cn/" target="_blank">鄂ICP备19012843号-1</a>
+            </span>
+            
+            
+            <span id="icp"><img src="/medias/icp.png"
+                    style="vertical-align: text-bottom;" />
+                <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42070302000069" target="_blank">鄂公网安备 42070302000069号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/jiangkang" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:jking54@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MjM5ODQ5OTIzMw==#wechat_redirect" class="tooltipped" target="_blank" data-tooltip="关注我的微信公众号: 超光速" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1356385951" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1356385951" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/jiang_kang" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/jiang_kang" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?fe47fdf1df45d357560766f0f6454e48";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

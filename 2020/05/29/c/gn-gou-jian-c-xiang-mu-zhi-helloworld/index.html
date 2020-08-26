@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="GN构建C++项目之HelloWorld, 姜康,天津大学,Android,Golang">
+    <meta name="keywords" content="GN构建C++项目之HelloWorld,姜康,天津大学,Android,Golang">
     <meta name="description" content="姜康的技术博客:用技术解决实际问题">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -15,22 +15,33 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-170437132-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-170437132-1');
+</script>
+
 
     <title>GN构建C++项目之HelloWorld | 姜康的技术博客</title>
-    <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/avatar.jpeg">
+    <link rel="icon" type="image/jpeg" href="/medias/avatar.jpeg">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/css/my.css">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="姜康的技术博客" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -40,7 +51,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     <!-- 
-                    <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/avatar.jpeg" class="logo-img" alt="LOGO">
+                    <img src="/medias/avatar.jpeg" class="logo-img" alt="LOGO">
                      -->
                     <span class="logo-span">姜康的技术博客</span>
                 </a>
@@ -54,8 +65,6 @@
     
     <a href="/" class="waves-effect waves-light">
       
-      <i class="fas fa-home" style="zoom: 0.6;"></i>
-      
       <span>首页</span>
     </a>
     
@@ -63,33 +72,27 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
+    <a href="/categories/Flutter" class="waves-effect waves-light">
       
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
+      <span>Flutter</span>
     </a>
     
   </li>
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/categories" class="waves-effect waves-light">
+    <a href="/categories/Android" class="waves-effect waves-light">
       
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
+      <span>Android</span>
     </a>
     
   </li>
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/archives" class="waves-effect waves-light">
+    <a href="/categories/%E5%9F%BA%E7%A1%80" class="waves-effect waves-light">
       
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
-      
-      <span>归档</span>
+      <span>基础知识</span>
     </a>
     
   </li>
@@ -97,8 +100,6 @@
   <li class="hide-on-med-and-down nav-item">
     
     <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
       
       <span>关于</span>
     </a>
@@ -117,7 +118,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/avatar.jpeg" class="logo-img circle responsive-img">
+        <img src="/medias/avatar.jpeg" class="logo-img circle responsive-img">
         
         <div class="logo-name">姜康的技术博客</div>
         <div class="logo-desc">
@@ -135,7 +136,7 @@
 	  
 		<a href="/" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-home"></i>
+				<i class="fas fa-fw fa-link"></i>
 			
 			首页
 		</a>
@@ -144,33 +145,33 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
+		<a href="/categories/Flutter" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-tags"></i>
+				<i class="fas fa-fw fa-link"></i>
 			
-			标签
+			Flutter
 		</a>
           
         </li>
         
         <li class="m-nav-item">
 	  
-		<a href="/categories" class="waves-effect waves-light">
+		<a href="/categories/Android" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-bookmark"></i>
+				<i class="fas fa-fw fa-link"></i>
 			
-			分类
+			Android
 		</a>
           
         </li>
         
         <li class="m-nav-item">
 	  
-		<a href="/archives" class="waves-effect waves-light">
+		<a href="/categories/%E5%9F%BA%E7%A1%80" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-archive"></i>
+				<i class="fas fa-fw fa-link"></i>
 			
-			归档
+			基础知识
 		</a>
           
         </li>
@@ -179,7 +180,7 @@
 	  
 		<a href="/about" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-user-circle"></i>
+				<i class="fas fa-fw fa-link"></i>
 			
 			关于
 		</a>
@@ -262,7 +263,7 @@
 </header>
 
     
-<script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
         let pwd = '';
@@ -278,7 +279,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -296,7 +297,7 @@
 <main class="post-container content">
 
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
 <style>
     #articleContent h1::before,
     #articleContent h2::before,
@@ -565,12 +566,12 @@ ninja -C out/Debug</code></pre>
                     
                 </div>
                 <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/share/css/share.min.css">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
     
     <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/share/js/social-share.min.js"></script>
+    <script src="/libs/share/js/social-share.min.js"></script>
     
 
     
@@ -688,10 +689,10 @@ ninja -C out/Debug</code></pre>
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/reward/alipay.jpeg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="/medias/reward/alipay.jpeg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -710,8 +711,8 @@ ninja -C out/Debug</code></pre>
     </div>
 
     
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/css/my-gitalk.css">
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
 
 <div class="card gitalk-card" data-aos="fade-up">
     <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
@@ -721,7 +722,7 @@ ninja -C out/Debug</code></pre>
     <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/gitalk/gitalk.min.js"></script>
+<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
     let gitalk = new Gitalk({
         clientID: 'c8bf6daef1cea6746759',
@@ -761,7 +762,7 @@ ninja -C out/Debug</code></pre>
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="近期学习计划">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="近期学习计划">
                         
                         <span class="card-title">近期学习计划</span>
                     </div>
@@ -895,21 +896,21 @@ ninja -C out/Debug</code></pre>
 
 
 <!-- 代码块功能依赖 -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/codeBlock/codeLang.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
 
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
 
 
 <!-- 代码块收缩 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/codeBlock/codeShrink.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
 <!-- 代码块折行 -->
@@ -937,7 +938,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/tocbot/tocbot.min.js"></script>
+<script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
         tocbot.init({
@@ -1032,7 +1033,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">28.8k</span>&nbsp;字
+                class="white-color">58.6k</span>&nbsp;字
             
             
             
@@ -1098,12 +1099,12 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             
             <br>
             
-            <span id="icp"><img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/icp.png" style="vertical-align: text-bottom;" />
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
                 <a href="http://beian.miit.gov.cn/" target="_blank">鄂ICP备19012843号-1</a>
             </span>
             
             
-            <span id="icp"><img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/icp.png"
+            <span id="icp"><img src="/medias/icp.png"
                     style="vertical-align: text-bottom;" />
                 <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42070302000069" target="_blank">鄂公网安备 42070302000069号</a>
             </span>
@@ -1121,6 +1122,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </a>
 
 
+
+    <a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MjM5ODQ5OTIzMw==#wechat_redirect" class="tooltipped" target="_blank" data-tooltip="关注我的微信公众号: 超光速" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
 
 
 
@@ -1163,10 +1168,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/js/search.js"></script>
+<script src="/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/search.xml", 'searchInput', 'searchResult');
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
 });
 </script>
 
@@ -1178,12 +1183,12 @@ $(function () {
 </div>
 
 
-    <script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/materialize/materialize.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/aos/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/js/matery.js"></script>
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
 
     <!-- Baidu Analytics -->
 
@@ -1214,12 +1219,10 @@ $(function () {
 </script>
 
     
-    <script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/others/clicklove.js" async="async"></script>
+    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
-    <script async src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/others/busuanzi.pure.mini.js"></script>
-    
-
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
     
 
     
@@ -1231,7 +1234,9 @@ $(function () {
     
 
     
-    <script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/instantpage/instantpage.js" type="module"></script>
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
 </body>

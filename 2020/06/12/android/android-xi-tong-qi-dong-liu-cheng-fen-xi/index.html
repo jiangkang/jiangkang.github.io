@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Android系统启动流程分析, 姜康,天津大学,Android,Golang">
+    <meta name="keywords" content="Android系统启动流程分析,姜康,天津大学,Android,Golang">
     <meta name="description" content="姜康的技术博客:用技术解决实际问题">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -15,22 +15,33 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-170437132-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-170437132-1');
+</script>
+
 
     <title>Android系统启动流程分析 | 姜康的技术博客</title>
-    <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/avatar.jpeg">
+    <link rel="icon" type="image/jpeg" href="/medias/avatar.jpeg">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/css/my.css">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-    <script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="姜康的技术博客" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -40,7 +51,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     <!-- 
-                    <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/avatar.jpeg" class="logo-img" alt="LOGO">
+                    <img src="/medias/avatar.jpeg" class="logo-img" alt="LOGO">
                      -->
                     <span class="logo-span">姜康的技术博客</span>
                 </a>
@@ -54,8 +65,6 @@
     
     <a href="/" class="waves-effect waves-light">
       
-      <i class="fas fa-home" style="zoom: 0.6;"></i>
-      
       <span>首页</span>
     </a>
     
@@ -63,33 +72,27 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
+    <a href="/categories/Flutter" class="waves-effect waves-light">
       
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
+      <span>Flutter</span>
     </a>
     
   </li>
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/categories" class="waves-effect waves-light">
+    <a href="/categories/Android" class="waves-effect waves-light">
       
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
+      <span>Android</span>
     </a>
     
   </li>
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/archives" class="waves-effect waves-light">
+    <a href="/categories/%E5%9F%BA%E7%A1%80" class="waves-effect waves-light">
       
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
-      
-      <span>归档</span>
+      <span>基础知识</span>
     </a>
     
   </li>
@@ -97,8 +100,6 @@
   <li class="hide-on-med-and-down nav-item">
     
     <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
       
       <span>关于</span>
     </a>
@@ -117,7 +118,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/avatar.jpeg" class="logo-img circle responsive-img">
+        <img src="/medias/avatar.jpeg" class="logo-img circle responsive-img">
         
         <div class="logo-name">姜康的技术博客</div>
         <div class="logo-desc">
@@ -135,7 +136,7 @@
 	  
 		<a href="/" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-home"></i>
+				<i class="fas fa-fw fa-link"></i>
 			
 			首页
 		</a>
@@ -144,33 +145,33 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
+		<a href="/categories/Flutter" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-tags"></i>
+				<i class="fas fa-fw fa-link"></i>
 			
-			标签
+			Flutter
 		</a>
           
         </li>
         
         <li class="m-nav-item">
 	  
-		<a href="/categories" class="waves-effect waves-light">
+		<a href="/categories/Android" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-bookmark"></i>
+				<i class="fas fa-fw fa-link"></i>
 			
-			分类
+			Android
 		</a>
           
         </li>
         
         <li class="m-nav-item">
 	  
-		<a href="/archives" class="waves-effect waves-light">
+		<a href="/categories/%E5%9F%BA%E7%A1%80" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-archive"></i>
+				<i class="fas fa-fw fa-link"></i>
 			
-			归档
+			基础知识
 		</a>
           
         </li>
@@ -179,7 +180,7 @@
 	  
 		<a href="/about" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-user-circle"></i>
+				<i class="fas fa-fw fa-link"></i>
 			
 			关于
 		</a>
@@ -262,7 +263,7 @@
 </header>
 
     
-<script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
         let pwd = '';
@@ -278,7 +279,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -296,7 +297,7 @@
 <main class="post-container content">
 
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
 <style>
     #articleContent h1::before,
     #articleContent h2::before,
@@ -438,7 +439,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    3.2k
                 </div>
                 
 
@@ -676,255 +677,255 @@ SYM_FUNC_END(__primary_switched)</code></pre>
 <p>可以看出来,<code>-Xzygote</code>是java-options,命令行程序位置在/system/bin下,<code>--zygote --start-system-server</code>则为传入的选项.</p>
 <p><code>app_process64</code>实际上是一个单独的程序,源码入口在<code>frameworks/base/cmds/app_process/app_main.cpp</code></p>
 <p>其中的main方法中会执行:</p>
-<pre class=" language-c++"><code class="language-c++">runtime.start("com.android.internal.os.ZygoteInit", args, zygote);</code></pre>
+<pre class=" language-cpp"><code class="language-cpp">runtime<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token string">"com.android.internal.os.ZygoteInit"</span><span class="token punctuation">,</span> args<span class="token punctuation">,</span> zygote<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>这个命令首先会创建一个VM,然后调用ZygoteInit.java的main方法.Zygote接收到一个请求,会通过<code>/dev/socket/zygote</code>启动一个进程,即触发<code>fork</code>调用,创建Zygote进程.</p>
 <p>runtime实际上就是<code>AndroidRuntime</code>,源码在<code>frameworks/base/core/jni/AndroidRuntime.cpp</code>,在它的start方法中,主要处理两件事:</p>
 <ul>
 <li><ol>
 <li><p>启动虚拟机</p>
-<pre class=" language-c++"><code class="language-c++">    /* start the virtual machine */
-    JniInvocation jni_invocation;
-    jni_invocation.Init(NULL);
-    JNIEnv* env;
-    if (startVm(&mJavaVM, &env, zygote, primary_zygote) != 0) {
-        return;
-    }
-    onVmCreated(env);
+<pre class=" language-cpp"><code class="language-cpp">    <span class="token comment" spellcheck="true">/* start the virtual machine */</span>
+    JniInvocation jni_invocation<span class="token punctuation">;</span>
+    jni_invocation<span class="token punctuation">.</span><span class="token function">Init</span><span class="token punctuation">(</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    JNIEnv<span class="token operator">*</span> env<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">startVm</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mJavaVM<span class="token punctuation">,</span> <span class="token operator">&amp;</span>env<span class="token punctuation">,</span> zygote<span class="token punctuation">,</span> primary_zygote<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">onVmCreated</span><span class="token punctuation">(</span>env<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    /*
+    <span class="token comment" spellcheck="true">/*
      * Register android functions.
-     */
-    if (startReg(env) < 0) {
-        ALOGE("Unable to register all android natives\n");
-        return;
-    }</code></pre>
+     */</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">startReg</span><span class="token punctuation">(</span>env<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">ALOGE</span><span class="token punctuation">(</span><span class="token string">"Unable to register all android natives\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre>
 <p><code>startVM</code>中会启动Dalvik虚拟机(为什么不是ART虚拟机),并初始化JNI环境:</p>
-<pre class=" language-c++"><code class="language-c++">  /*
+<pre class=" language-cpp"><code class="language-cpp">  <span class="token comment" spellcheck="true">/*
      * Initialize the VM.
      *
      * The JavaVM* is essentially per-process, and the JNIEnv* is per-thread.
      * If this call succeeds, the VM is ready, and we can start issuing
      * JNI calls.
-     */
-    if (JNI_CreateJavaVM(pJavaVM, pEnv, &initArgs) < 0) {
-        ALOGE("JNI_CreateJavaVM failed\n");
-        return -1;
-    }</code></pre>
+     */</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">JNI_CreateJavaVM</span><span class="token punctuation">(</span>pJavaVM<span class="token punctuation">,</span> pEnv<span class="token punctuation">,</span> <span class="token operator">&amp;</span>initArgs<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">ALOGE</span><span class="token punctuation">(</span><span class="token string">"JNI_CreateJavaVM failed\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre>
 <p>然后就是注册系统库中的JNI方法:</p>
-<pre class=" language-c++"><code class="language-c++">/*
+<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * 注册Android JNI方法
- */
-/*static*/ int AndroidRuntime::startReg(JNIEnv* env)
-{
+ */</span>
+<span class="token comment" spellcheck="true">/*static*/</span> <span class="token keyword">int</span> AndroidRuntime<span class="token operator">::</span><span class="token function">startReg</span><span class="token punctuation">(</span>JNIEnv<span class="token operator">*</span> env<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
 
-    if (register_jni_procs(gRegJNI, NELEM(gRegJNI), env) < 0) {
-        env->PopLocalFrame(NULL);
-        return -1;
-    }
-    return 0;
-}
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">register_jni_procs</span><span class="token punctuation">(</span>gRegJNI<span class="token punctuation">,</span> <span class="token function">NELEM</span><span class="token punctuation">(</span>gRegJNI<span class="token punctuation">)</span><span class="token punctuation">,</span> env<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        env<span class="token operator">-</span><span class="token operator">></span><span class="token function">PopLocalFrame</span><span class="token punctuation">(</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-// 这里就是要注册的系统JNI方法
-static const RegJNIRec gRegJNI[] = {
-    REG_JNI(register_com_android_internal_os_RuntimeInit),
-    REG_JNI(register_com_android_internal_os_ZygoteInit_nativeZygoteInit),
-    REG_JNI(register_android_os_SystemClock),
-    REG_JNI(register_android_util_EventLog),
-    REG_JNI(register_android_util_Log),
-    REG_JNI(register_android_util_MemoryIntArray),
-    REG_JNI(register_android_util_PathParser),
-    REG_JNI(register_android_util_StatsLog),
-    REG_JNI(register_android_util_StatsLogInternal),
-    REG_JNI(register_android_app_admin_SecurityLog),
-    REG_JNI(register_android_content_AssetManager),
-    REG_JNI(register_android_content_StringBlock),
-    REG_JNI(register_android_content_XmlBlock),
-    REG_JNI(register_android_content_res_ApkAssets),
-    REG_JNI(register_android_text_AndroidCharacter),
-    REG_JNI(register_android_text_Hyphenator),
-    REG_JNI(register_android_view_InputDevice),
-    REG_JNI(register_android_view_KeyCharacterMap),
-    REG_JNI(register_android_os_Process),
-    REG_JNI(register_android_os_SystemProperties),
-    REG_JNI(register_android_os_Binder),
-    REG_JNI(register_android_os_Parcel),
-    REG_JNI(register_android_os_HidlMemory),
-    REG_JNI(register_android_os_HidlSupport),
-    REG_JNI(register_android_os_HwBinder),
-    REG_JNI(register_android_os_HwBlob),
-    REG_JNI(register_android_os_HwParcel),
-    REG_JNI(register_android_os_HwRemoteBinder),
-    REG_JNI(register_android_os_NativeHandle),
-    REG_JNI(register_android_os_VintfObject),
-    REG_JNI(register_android_os_VintfRuntimeInfo),
-    REG_JNI(register_android_graphics_Canvas),
-    // This needs to be before register_android_graphics_Graphics, or the latter
-    // will not be able to find the jmethodID for ColorSpace.get().
-    REG_JNI(register_android_graphics_ColorSpace),
-    REG_JNI(register_android_graphics_Graphics),
-    REG_JNI(register_android_view_DisplayEventReceiver),
-    REG_JNI(register_android_view_RenderNode),
-    REG_JNI(register_android_view_RenderNodeAnimator),
-    REG_JNI(register_android_view_DisplayListCanvas),
-    REG_JNI(register_android_view_InputApplicationHandle),
-    REG_JNI(register_android_view_InputWindowHandle),
-    REG_JNI(register_android_view_TextureLayer),
-    REG_JNI(register_android_view_ThreadedRenderer),
-    REG_JNI(register_android_view_Surface),
-    REG_JNI(register_android_view_SurfaceControl),
-    REG_JNI(register_android_view_SurfaceSession),
-    REG_JNI(register_android_view_CompositionSamplingListener),
-    REG_JNI(register_android_view_TextureView),
-    REG_JNI(register_com_android_internal_view_animation_NativeInterpolatorFactoryHelper),
-    REG_JNI(register_com_google_android_gles_jni_EGLImpl),
-    REG_JNI(register_com_google_android_gles_jni_GLImpl),
-    REG_JNI(register_android_opengl_jni_EGL14),
-    REG_JNI(register_android_opengl_jni_EGL15),
-    REG_JNI(register_android_opengl_jni_EGLExt),
-    REG_JNI(register_android_opengl_jni_GLES10),
-    REG_JNI(register_android_opengl_jni_GLES10Ext),
-    REG_JNI(register_android_opengl_jni_GLES11),
-    REG_JNI(register_android_opengl_jni_GLES11Ext),
-    REG_JNI(register_android_opengl_jni_GLES20),
-    REG_JNI(register_android_opengl_jni_GLES30),
-    REG_JNI(register_android_opengl_jni_GLES31),
-    REG_JNI(register_android_opengl_jni_GLES31Ext),
-    REG_JNI(register_android_opengl_jni_GLES32),
+<span class="token comment" spellcheck="true">// 这里就是要注册的系统JNI方法</span>
+<span class="token keyword">static</span> <span class="token keyword">const</span> RegJNIRec gRegJNI<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_os_RuntimeInit<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_os_ZygoteInit_nativeZygoteInit<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_SystemClock<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_util_EventLog<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_util_Log<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_util_MemoryIntArray<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_util_PathParser<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_util_StatsLog<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_util_StatsLogInternal<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_app_admin_SecurityLog<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_content_AssetManager<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_content_StringBlock<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_content_XmlBlock<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_content_res_ApkAssets<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_text_AndroidCharacter<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_text_Hyphenator<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_InputDevice<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_KeyCharacterMap<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_Process<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_SystemProperties<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_Binder<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_Parcel<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_HidlMemory<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_HidlSupport<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_HwBinder<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_HwBlob<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_HwParcel<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_HwRemoteBinder<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_NativeHandle<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_VintfObject<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_VintfRuntimeInfo<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Canvas<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// This needs to be before register_android_graphics_Graphics, or the latter</span>
+    <span class="token comment" spellcheck="true">// will not be able to find the jmethodID for ColorSpace.get().</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_ColorSpace<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Graphics<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_DisplayEventReceiver<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_RenderNode<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_RenderNodeAnimator<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_DisplayListCanvas<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_InputApplicationHandle<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_InputWindowHandle<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_TextureLayer<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_ThreadedRenderer<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_Surface<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_SurfaceControl<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_SurfaceSession<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_CompositionSamplingListener<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_TextureView<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_view_animation_NativeInterpolatorFactoryHelper<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_google_android_gles_jni_EGLImpl<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_google_android_gles_jni_GLImpl<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_EGL14<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_EGL15<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_EGLExt<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_GLES10<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_GLES10Ext<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_GLES11<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_GLES11Ext<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_GLES20<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_GLES30<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_GLES31<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_GLES31Ext<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_jni_GLES32<span class="token punctuation">)</span><span class="token punctuation">,</span>
 
-    REG_JNI(register_android_graphics_Bitmap),
-    REG_JNI(register_android_graphics_BitmapFactory),
-    REG_JNI(register_android_graphics_BitmapRegionDecoder),
-    REG_JNI(register_android_graphics_ByteBufferStreamAdaptor),
-    REG_JNI(register_android_graphics_Camera),
-    REG_JNI(register_android_graphics_CreateJavaOutputStreamAdaptor),
-    REG_JNI(register_android_graphics_CanvasProperty),
-    REG_JNI(register_android_graphics_ColorFilter),
-    REG_JNI(register_android_graphics_DrawFilter),
-    REG_JNI(register_android_graphics_FontFamily),
-    REG_JNI(register_android_graphics_GraphicBuffer),
-    REG_JNI(register_android_graphics_ImageDecoder),
-    REG_JNI(register_android_graphics_drawable_AnimatedImageDrawable),
-    REG_JNI(register_android_graphics_Interpolator),
-    REG_JNI(register_android_graphics_MaskFilter),
-    REG_JNI(register_android_graphics_Matrix),
-    REG_JNI(register_android_graphics_Movie),
-    REG_JNI(register_android_graphics_NinePatch),
-    REG_JNI(register_android_graphics_Paint),
-    REG_JNI(register_android_graphics_Path),
-    REG_JNI(register_android_graphics_PathMeasure),
-    REG_JNI(register_android_graphics_PathEffect),
-    REG_JNI(register_android_graphics_Picture),
-    REG_JNI(register_android_graphics_Region),
-    REG_JNI(register_android_graphics_Shader),
-    REG_JNI(register_android_graphics_SurfaceTexture),
-    REG_JNI(register_android_graphics_Typeface),
-    REG_JNI(register_android_graphics_YuvImage),
-    REG_JNI(register_android_graphics_drawable_AnimatedVectorDrawable),
-    REG_JNI(register_android_graphics_drawable_VectorDrawable),
-    REG_JNI(register_android_graphics_fonts_Font),
-    REG_JNI(register_android_graphics_fonts_FontFamily),
-    REG_JNI(register_android_graphics_pdf_PdfDocument),
-    REG_JNI(register_android_graphics_pdf_PdfEditor),
-    REG_JNI(register_android_graphics_pdf_PdfRenderer),
-    REG_JNI(register_android_graphics_text_MeasuredText),
-    REG_JNI(register_android_graphics_text_LineBreaker),
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Bitmap<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_BitmapFactory<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_BitmapRegionDecoder<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_ByteBufferStreamAdaptor<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Camera<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_CreateJavaOutputStreamAdaptor<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_CanvasProperty<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_ColorFilter<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_DrawFilter<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_FontFamily<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_GraphicBuffer<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_ImageDecoder<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_drawable_AnimatedImageDrawable<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Interpolator<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_MaskFilter<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Matrix<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Movie<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_NinePatch<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Paint<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Path<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_PathMeasure<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_PathEffect<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Picture<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Region<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Shader<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_SurfaceTexture<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_Typeface<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_YuvImage<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_drawable_AnimatedVectorDrawable<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_drawable_VectorDrawable<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_fonts_Font<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_fonts_FontFamily<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_pdf_PdfDocument<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_pdf_PdfEditor<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_pdf_PdfRenderer<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_text_MeasuredText<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_graphics_text_LineBreaker<span class="token punctuation">)</span><span class="token punctuation">,</span>
 
-    REG_JNI(register_android_database_CursorWindow),
-    REG_JNI(register_android_database_SQLiteConnection),
-    REG_JNI(register_android_database_SQLiteGlobal),
-    REG_JNI(register_android_database_SQLiteDebug),
-    REG_JNI(register_android_os_Debug),
-    REG_JNI(register_android_os_FileObserver),
-    REG_JNI(register_android_os_GraphicsEnvironment),
-    REG_JNI(register_android_os_MessageQueue),
-    REG_JNI(register_android_os_SELinux),
-    REG_JNI(register_android_os_Trace),
-    REG_JNI(register_android_os_UEventObserver),
-    REG_JNI(register_android_net_LocalSocketImpl),
-    REG_JNI(register_android_net_NetworkUtils),
-    REG_JNI(register_android_os_MemoryFile),
-    REG_JNI(register_android_os_SharedMemory),
-    REG_JNI(register_com_android_internal_os_ClassLoaderFactory),
-    REG_JNI(register_com_android_internal_os_Zygote),
-    REG_JNI(register_com_android_internal_os_ZygoteInit),
-    REG_JNI(register_com_android_internal_util_VirtualRefBasePtr),
-    REG_JNI(register_android_hardware_Camera),
-    REG_JNI(register_android_hardware_camera2_CameraMetadata),
-    REG_JNI(register_android_hardware_camera2_legacy_LegacyCameraDevice),
-    REG_JNI(register_android_hardware_camera2_legacy_PerfMeasurement),
-    REG_JNI(register_android_hardware_camera2_DngCreator),
-    REG_JNI(register_android_hardware_HardwareBuffer),
-    REG_JNI(register_android_hardware_SensorManager),
-    REG_JNI(register_android_hardware_SerialPort),
-    REG_JNI(register_android_hardware_SoundTrigger),
-    REG_JNI(register_android_hardware_UsbDevice),
-    REG_JNI(register_android_hardware_UsbDeviceConnection),
-    REG_JNI(register_android_hardware_UsbRequest),
-    REG_JNI(register_android_hardware_location_ActivityRecognitionHardware),
-    REG_JNI(register_android_media_AudioEffectDescriptor),
-    REG_JNI(register_android_media_AudioSystem),
-    REG_JNI(register_android_media_AudioRecord),
-    REG_JNI(register_android_media_AudioTrack),
-    REG_JNI(register_android_media_AudioAttributes),
-    REG_JNI(register_android_media_AudioProductStrategies),
-    REG_JNI(register_android_media_AudioVolumeGroups),
-    REG_JNI(register_android_media_AudioVolumeGroupChangeHandler),
-    REG_JNI(register_android_media_MicrophoneInfo),
-    REG_JNI(register_android_media_RemoteDisplay),
-    REG_JNI(register_android_media_ToneGenerator),
-    REG_JNI(register_android_media_midi),
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_database_CursorWindow<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_database_SQLiteConnection<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_database_SQLiteGlobal<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_database_SQLiteDebug<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_Debug<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_FileObserver<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_GraphicsEnvironment<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_MessageQueue<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_SELinux<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_Trace<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_UEventObserver<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_net_LocalSocketImpl<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_net_NetworkUtils<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_MemoryFile<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_os_SharedMemory<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_os_ClassLoaderFactory<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_os_Zygote<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_os_ZygoteInit<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_util_VirtualRefBasePtr<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_Camera<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_camera2_CameraMetadata<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_camera2_legacy_LegacyCameraDevice<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_camera2_legacy_PerfMeasurement<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_camera2_DngCreator<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_HardwareBuffer<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_SensorManager<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_SerialPort<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_SoundTrigger<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_UsbDevice<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_UsbDeviceConnection<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_UsbRequest<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_hardware_location_ActivityRecognitionHardware<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_AudioEffectDescriptor<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_AudioSystem<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_AudioRecord<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_AudioTrack<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_AudioAttributes<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_AudioProductStrategies<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_AudioVolumeGroups<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_AudioVolumeGroupChangeHandler<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_MicrophoneInfo<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_RemoteDisplay<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_ToneGenerator<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_media_midi<span class="token punctuation">)</span><span class="token punctuation">,</span>
 
-    REG_JNI(register_android_opengl_classes),
-    REG_JNI(register_android_server_NetworkManagementSocketTagger),
-    REG_JNI(register_android_ddm_DdmHandleNativeHeap),
-    REG_JNI(register_android_backup_BackupDataInput),
-    REG_JNI(register_android_backup_BackupDataOutput),
-    REG_JNI(register_android_backup_FileBackupHelperBase),
-    REG_JNI(register_android_backup_BackupHelperDispatcher),
-    REG_JNI(register_android_app_backup_FullBackup),
-    REG_JNI(register_android_app_Activity),
-    REG_JNI(register_android_app_ActivityThread),
-    REG_JNI(register_android_app_NativeActivity),
-    REG_JNI(register_android_util_jar_StrictJarFile),
-    REG_JNI(register_android_view_InputChannel),
-    REG_JNI(register_android_view_InputEventReceiver),
-    REG_JNI(register_android_view_InputEventSender),
-    REG_JNI(register_android_view_InputQueue),
-    REG_JNI(register_android_view_KeyEvent),
-    REG_JNI(register_android_view_MotionEvent),
-    REG_JNI(register_android_view_PointerIcon),
-    REG_JNI(register_android_view_VelocityTracker),
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_opengl_classes<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_server_NetworkManagementSocketTagger<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_ddm_DdmHandleNativeHeap<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_backup_BackupDataInput<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_backup_BackupDataOutput<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_backup_FileBackupHelperBase<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_backup_BackupHelperDispatcher<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_app_backup_FullBackup<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_app_Activity<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_app_ActivityThread<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_app_NativeActivity<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_util_jar_StrictJarFile<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_InputChannel<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_InputEventReceiver<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_InputEventSender<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_InputQueue<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_KeyEvent<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_MotionEvent<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_PointerIcon<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_view_VelocityTracker<span class="token punctuation">)</span><span class="token punctuation">,</span>
 
-    REG_JNI(register_android_content_res_ObbScanner),
-    REG_JNI(register_android_content_res_Configuration),
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_content_res_ObbScanner<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_content_res_Configuration<span class="token punctuation">)</span><span class="token punctuation">,</span>
 
-    REG_JNI(register_android_animation_PropertyValuesHolder),
-    REG_JNI(register_android_security_Scrypt),
-    REG_JNI(register_com_android_internal_content_NativeLibraryHelper),
-    REG_JNI(register_com_android_internal_os_AtomicDirectory),
-    REG_JNI(register_com_android_internal_os_FuseAppLoop),
-    REG_JNI(register_com_android_internal_os_KernelCpuUidBpfMapReader),
-    REG_JNI(register_com_android_internal_os_KernelSingleUidTimeReader),
-};
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_animation_PropertyValuesHolder<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_android_security_Scrypt<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_content_NativeLibraryHelper<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_os_AtomicDirectory<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_os_FuseAppLoop<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_os_KernelCpuUidBpfMapReader<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">REG_JNI</span><span class="token punctuation">(</span>register_com_android_internal_os_KernelSingleUidTimeReader<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 </li>
 <li><p>调用ZygoteInit.java的main方法,创建zygote进程,和systemserver进程.</p>
 <p>先看AndroidRuntime.cpp中是如何调用ZygoteInit.java中的main()方法的:</p>
-<pre class=" language-c++"><code class="language-c++">// 拿到main方法
-jmethodID startMeth = env->GetStaticMethodID(startClass, "main",
-            "([Ljava/lang/String;)V");
-        if (startMeth == NULL) {
-            ALOGE("JavaVM unable to find main() in '%s'\n", className);
-            /* keep going */
-        } else {
-            // 调用main方法
-            env->CallStaticVoidMethod(startClass, startMeth, strArray);
+<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">// 拿到main方法</span>
+jmethodID startMeth <span class="token operator">=</span> env<span class="token operator">-</span><span class="token operator">></span><span class="token function">GetStaticMethodID</span><span class="token punctuation">(</span>startClass<span class="token punctuation">,</span> <span class="token string">"main"</span><span class="token punctuation">,</span>
+            <span class="token string">"([Ljava/lang/String;)V"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>startMeth <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">ALOGE</span><span class="token punctuation">(</span><span class="token string">"JavaVM unable to find main() in '%s'\n"</span><span class="token punctuation">,</span> className<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">/* keep going */</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 调用main方法</span>
+            env<span class="token operator">-</span><span class="token operator">></span><span class="token function">CallStaticVoidMethod</span><span class="token punctuation">(</span>startClass<span class="token punctuation">,</span> startMeth<span class="token punctuation">,</span> strArray<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-#if 0
-            if (env->ExceptionCheck())
-                threadExitUncaughtException(env);
-#endif
-        }</code></pre>
+<span class="token macro property">#<span class="token directive keyword">if</span> 0</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>env<span class="token operator">-</span><span class="token operator">></span><span class="token function">ExceptionCheck</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token function">threadExitUncaughtException</span><span class="token punctuation">(</span>env<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+        <span class="token punctuation">}</span></code></pre>
 <p>可以看出来同样是通过jni调用.</p>
 <p>进入ZygoteInit.java看一下main()方法:</p>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// Zygote goes into its own process group.</span>
@@ -1132,12 +1133,12 @@ jmethodID startMeth = env->GetStaticMethodID(startClass, "main",
                     
                 </div>
                 <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/share/css/share.min.css">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 <div id="article-share">
 
     
     <div class="social-share" data-sites="qq,qzone,wechat,weibo,douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/share/js/social-share.min.js"></script>
+    <script src="/libs/share/js/social-share.min.js"></script>
     
 
     
@@ -1255,10 +1256,10 @@ jmethodID startMeth = env->GetStaticMethodID(startClass, "main",
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/reward/alipay.jpeg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="/medias/reward/alipay.jpeg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -1277,8 +1278,8 @@ jmethodID startMeth = env->GetStaticMethodID(startClass, "main",
     </div>
 
     
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/css/my-gitalk.css">
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
 
 <div class="card gitalk-card" data-aos="fade-up">
     <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
@@ -1288,7 +1289,7 @@ jmethodID startMeth = env->GetStaticMethodID(startClass, "main",
     <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/gitalk/gitalk.min.js"></script>
+<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
     let gitalk = new Gitalk({
         clientID: 'c8bf6daef1cea6746759',
@@ -1328,7 +1329,7 @@ jmethodID startMeth = env->GetStaticMethodID(startClass, "main",
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/6.jpg" class="responsive-img" alt="Android开机动画分析">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Android开机动画分析">
                         
                         <span class="card-title">Android开机动画分析</span>
                     </div>
@@ -1386,7 +1387,7 @@ jmethodID startMeth = env->GetStaticMethodID(startClass, "main",
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="近期学习计划">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="近期学习计划">
                         
                         <span class="card-title">近期学习计划</span>
                     </div>
@@ -1466,21 +1467,21 @@ jmethodID startMeth = env->GetStaticMethodID(startClass, "main",
 
 
 <!-- 代码块功能依赖 -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 <!-- 代码语言 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/codeBlock/codeLang.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
 
 
 <!-- 代码块复制 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
 
 
 <!-- 代码块收缩 -->
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/codeBlock/codeShrink.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
 <!-- 代码块折行 -->
@@ -1508,7 +1509,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/tocbot/tocbot.min.js"></script>
+<script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
         tocbot.init({
@@ -1603,7 +1604,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">28.8k</span>&nbsp;字
+                class="white-color">58.6k</span>&nbsp;字
             
             
             
@@ -1669,12 +1670,12 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             
             <br>
             
-            <span id="icp"><img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/icp.png" style="vertical-align: text-bottom;" />
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
                 <a href="http://beian.miit.gov.cn/" target="_blank">鄂ICP备19012843号-1</a>
             </span>
             
             
-            <span id="icp"><img src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/medias/icp.png"
+            <span id="icp"><img src="/medias/icp.png"
                     style="vertical-align: text-bottom;" />
                 <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42070302000069" target="_blank">鄂公网安备 42070302000069号</a>
             </span>
@@ -1692,6 +1693,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </a>
 
 
+
+    <a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MjM5ODQ5OTIzMw==#wechat_redirect" class="tooltipped" target="_blank" data-tooltip="关注我的微信公众号: 超光速" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
 
 
 
@@ -1734,10 +1739,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/js/search.js"></script>
+<script src="/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/search.xml", 'searchInput', 'searchResult');
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
 });
 </script>
 
@@ -1749,12 +1754,12 @@ $(function () {
 </div>
 
 
-    <script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/materialize/materialize.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/aos/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/js/matery.js"></script>
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
 
     <!-- Baidu Analytics -->
 
@@ -1785,12 +1790,10 @@ $(function () {
 </script>
 
     
-    <script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/others/clicklove.js" async="async"></script>
+    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
-    <script async src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/others/busuanzi.pure.mini.js"></script>
-    
-
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
     
 
     
@@ -1802,7 +1805,9 @@ $(function () {
     
 
     
-    <script src="https://cdn.jsdelivr.net/gh/jiangkang/jiangkang.github.io/libs/instantpage/instantpage.js" type="module"></script>
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
 </body>
