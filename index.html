@@ -349,7 +349,7 @@
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
+    $('.bg-cover').css('background-image', 'url(/medias/banner/6.jpg)');
 </script>
 
 
@@ -444,6 +444,33 @@
         
             
             <div class="carousel-item amber white-text carousel-post bg-cover"
+                 style="background-image: url('https://oss.jiangkang.tech/jk/art.png');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s10 offset-s1">
+                            <div class="title center-align">Android系统启动流程-ART虚拟机的启动</div>
+                            <div class="description center-align">
+                                
+                                    启动JVM的通用流程
+加载虚拟机实现的动态链接库(Android中是so文件);
+一般通过dlopen方法加载so文件.
+
+设置启动参数,并使用JNI_CreateJavaVM(JavaVM**, JNIEnv**, void*)方法创建虚
+                                
+                            </div>
+                            <div class="cover-btns">
+                                <a href="/2020/06/28/android/android-xi-tong-qi-dong-liu-cheng-art-xu-ni-ji-de-qi-dong/" class="waves-effect waves-light btn"
+                                   target="_blank">
+                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="carousel-item amber white-text carousel-post bg-cover"
                  style="background-image: url('https://oss.jiangkang.tech/jk/system_server.png');">
                 <div class="container">
                     <div class="row">
@@ -486,33 +513,6 @@ app_processint main(int argc, char* const argv[])
                             </div>
                             <div class="cover-btns">
                                 <a href="/2020/06/25/android/android-xi-tong-qi-dong-liu-cheng-zygote-fen-xi/" class="waves-effect waves-light btn"
-                                   target="_blank">
-                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            
-            <div class="carousel-item amber white-text carousel-post bg-cover"
-                 style="background-image: url('https://oss.jiangkang.tech/jk/art.png');">
-                <div class="container">
-                    <div class="row">
-                        <div class="col s10 offset-s1">
-                            <div class="title center-align">Android系统启动流程-ART虚拟机的启动</div>
-                            <div class="description center-align">
-                                
-                                    启动JVM的通用流程
-加载虚拟机实现的动态链接库(Android中是so文件);
-一般通过dlopen方法加载so文件.
-
-设置启动参数,并使用JNI_CreateJavaVM(JavaVM**, JNIEnv**, void*)方法创建虚
-                                
-                            </div>
-                            <div class="cover-btns">
-                                <a href="/2020/06/28/android/android-xi-tong-qi-dong-liu-cheng-art-xu-ni-ji-de-qi-dong/" class="waves-effect waves-light btn"
                                    target="_blank">
                                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                                 </a>
@@ -659,6 +659,57 @@ bootloaderbootloader用于告诉设备如何找到系统内核,
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/09/12/c/yong-sdl-xie-ge-helloworld/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="用SDL写个Hello World">
+                            
+                            <span class="card-title">用SDL写个Hello World</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                const int WIDTH = 600;
+const int HEIGHT = 600;
+void SDLExample() {
+    if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+        
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-12
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/C/" class="post-category">
+                                    C++
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/SDL/">
+                            <span class="chip bg-color">SDL</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -1539,54 +1590,6 @@ Hook之前,一般都得先看看源码,以找到如何反射,如何替换比较�
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/12/flutter/flutter-lu-you-tiao-zhuan/">
-                        <div class="card-image">
-                            
-                            <img src="https://oss.jiangkang.tech/jk/20200719173617.png" class="responsive-img" alt="Flutter-路由跳转">
-                            
-                            <span class="card-title">Flutter-路由跳转</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-前端页面开发中,路由的概念并不陌生,比如Android中经常会封装一些路由框架,通过一个name跳转指定的Acitivity以进行一定程度的解耦.
-在Flutter中同样也有路由的概念,但是由于Dart语言比较古老落后,Flutter的路
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Flutter/" class="post-category">
-                                    Flutter
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E8%B7%AF%E7%94%B1/">
-                            <span class="chip bg-color">路由</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -1631,7 +1634,7 @@ Hook之前,一般都得先看看源码,以找到如何反射,如何替换比较�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">58.6k</span>&nbsp;字
+                class="white-color">58.7k</span>&nbsp;字
             
             
             

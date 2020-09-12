@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>用SDL写个Hello World</title>
+      <link href="/2020/09/12/c/yong-sdl-xie-ge-helloworld/"/>
+      <url>/2020/09/12/c/yong-sdl-xie-ge-helloworld/</url>
+      
+        <content type="html"><![CDATA[<pre class=" language-c++"><code class="language-c++">const int WIDTH = 600;const int HEIGHT = 600;void SDLExample() {    if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {        std::cout << "初始化失败" << std::endl;    }    SDL_Window *window = SDL_CreateWindow("Skia + SDL"            ,SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED            ,WIDTH,HEIGHT,SDL_WINDOW_ALLOW_HIGHDPI);    if (window == nullptr){        std::cout<< "创建Window失败" << std::endl;    }    SDL_Event windowEvent;    while (true){        if (SDL_PollEvent(&windowEvent)){            if (windowEvent.type == SDL_QUIT){                std::cout << "终止程序" << std::endl;                break;            }        }    }    SDL_DestroyWindow(window);    SDL_Quit();}</code></pre><h2 id="基本的步骤"><a href="#基本的步骤" class="headerlink" title="基本的步骤"></a>基本的步骤</h2><ol><li>初始化</li><li>创建Window</li><li>监听输入事件</li><li>监听到关闭事件的时候销毁Window并离开</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SDL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Android Service启动流程分析</title>
       <link href="/2020/08/23/android/service-qi-dong-liu-cheng-fen-xi/"/>
       <url>/2020/08/23/android/service-qi-dong-liu-cheng-fen-xi/</url>
@@ -675,9 +700,9 @@
             
             <tag> 编译 </tag>
             
-            <tag> Android.bp </tag>
-            
             <tag> AOSP </tag>
+            
+            <tag> Android.bp </tag>
             
         </tags>
       
@@ -1066,9 +1091,9 @@
       
         <tags>
             
-            <tag> 编译 </tag>
-            
             <tag> GN </tag>
+            
+            <tag> 编译 </tag>
             
         </tags>
       
@@ -1226,9 +1251,9 @@
             
             <tag> 数据结构 </tag>
             
-            <tag> Map </tag>
-            
             <tag> Java </tag>
+            
+            <tag> Map </tag>
             
         </tags>
       
@@ -1255,9 +1280,9 @@
             
             <tag> 数据结构 </tag>
             
-            <tag> Java </tag>
-            
             <tag> List </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       

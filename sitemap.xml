@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.jiangkang.tech/2020/09/12/c/yong-sdl-xie-ge-helloworld/</loc>
+    
+    <lastmod>2020-09-12T15:54:45.233Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.jiangkang.tech/2020/08/23/android/service-qi-dong-liu-cheng-fen-xi/</loc>
     
     <lastmod>2020-08-23T14:53:42.633Z</lastmod>
@@ -366,14 +373,14 @@
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-map/</loc>
+    <loc>https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-list/</loc>
     
     <lastmod>2020-05-25T10:54:38.825Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-list/</loc>
+    <loc>https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-map/</loc>
     
     <lastmod>2020-05-25T10:54:38.825Z</lastmod>
     
