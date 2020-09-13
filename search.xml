@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>用SDL展示一张JPG图片</title>
+      <link href="/2020/09/13/c/yong-sdl-zhan-shi-yi-zhang-jpg-tu-pian/"/>
+      <url>/2020/09/13/c/yong-sdl-zhan-shi-yi-zhang-jpg-tu-pian/</url>
+      
+        <content type="html"><![CDATA[<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"SDL2/SDL.h"</span></span><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"SDL2_image/SDL_image.h"</span></span><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"demo_sdl.h"</span></span><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span><span class="token keyword">const</span> <span class="token keyword">int</span> WIDTH <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">;</span><span class="token keyword">const</span> <span class="token keyword">int</span> HEIGHT <span class="token operator">=</span> <span class="token number">600</span><span class="token punctuation">;</span><span class="token keyword">void</span> <span class="token function">showImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">SDL_Init</span><span class="token punctuation">(</span>SDL_INIT_EVERYTHING<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"初始化失败"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>        <span class="token keyword">return</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    SDL_Window <span class="token operator">*</span>window <span class="token operator">=</span> <span class="token function">SDL_CreateWindow</span><span class="token punctuation">(</span><span class="token string">"Show Image"</span><span class="token punctuation">,</span>                                          SDL_WINDOWPOS_CENTERED<span class="token punctuation">,</span> SDL_WINDOWPOS_CENTERED<span class="token punctuation">,</span>                                          WIDTH<span class="token punctuation">,</span> HEIGHT<span class="token punctuation">,</span> SDL_WINDOW_SHOWN<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">if</span> <span class="token punctuation">(</span>window <span class="token operator">==</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"创建Window失败："</span> <span class="token operator">&lt;&lt;</span> <span class="token function">SDL_GetError</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>        <span class="token keyword">return</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    SDL_Renderer <span class="token operator">*</span>renderer <span class="token operator">=</span> <span class="token function">SDL_CreateRenderer</span><span class="token punctuation">(</span>window<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> SDL_RENDERER_ACCELERATED<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">if</span> <span class="token punctuation">(</span>renderer <span class="token operator">==</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"创建Renderer失败："</span> <span class="token operator">&lt;&lt;</span> <span class="token function">SDL_GetError</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>        <span class="token keyword">return</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    SDL_Surface <span class="token operator">*</span>image <span class="token operator">=</span> <span class="token function">IMG_Load</span><span class="token punctuation">(</span><span class="token string">"/Volumes/T5/CppPractice/renderer-dog/res/demo.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>image<span class="token punctuation">)</span><span class="token punctuation">{</span>        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"加载图片失败："</span> <span class="token operator">&lt;&lt;</span> <span class="token function">SDL_GetError</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>        <span class="token keyword">return</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token comment" spellcheck="true">// 如果使用硬件加速，则必须将Surface转换成Texture</span>    SDL_Texture <span class="token operator">*</span>texture <span class="token operator">=</span> <span class="token function">SDL_CreateTextureFromSurface</span><span class="token punctuation">(</span>renderer<span class="token punctuation">,</span>image<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token function">SDL_FreeSurface</span><span class="token punctuation">(</span>image<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token function">SDL_RenderClear</span><span class="token punctuation">(</span>renderer<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token function">SDL_RenderCopy</span><span class="token punctuation">(</span>renderer<span class="token punctuation">,</span>texture<span class="token punctuation">,</span> <span class="token keyword">nullptr</span><span class="token punctuation">,</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token function">SDL_RenderPresent</span><span class="token punctuation">(</span>renderer<span class="token punctuation">)</span><span class="token punctuation">;</span>    SDL_Event windowEvent<span class="token punctuation">;</span>    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">{</span>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">SDL_PollEvent</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>windowEvent<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>            <span class="token keyword">if</span> <span class="token punctuation">(</span>windowEvent<span class="token punctuation">.</span>type <span class="token operator">==</span> SDL_QUIT<span class="token punctuation">)</span><span class="token punctuation">{</span>                std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"终止程序"</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>                <span class="token keyword">break</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span>        <span class="token punctuation">}</span>    <span class="token punctuation">}</span>    <span class="token function">SDL_DestroyRenderer</span><span class="token punctuation">(</span>renderer<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token function">SDL_DestroyTexture</span><span class="token punctuation">(</span>texture<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token function">SDL_DestroyWindow</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token function">SDL_Quit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><h2 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h2><ol><li>初始化</li><li>创建Window</li><li>创建Renderer,用于在Window上渲染内容</li><li>创建Surface,Surface其实就是像素的载体</li><li>如果需要使用硬件加速,需要将Surface转换成Texture</li><li>清除Renderer内容,并使用Renderer的Copy功能将texture内容复制到屏幕的指定区域</li><li>指定当前的Renderer.</li><li>事件监听</li><li>销毁各种对象</li></ol><h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ul><li><p>MacOS安装的SDL2_image库打开时提示安全提示</p><p>解决方案:</p><pre class=" language-shell"><code class="language-shell">sudo spctl --master-disable</code></pre></li></ul><h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/jiangkang/renderer-dog" target="_blank" rel="noopener">https://github.com/jiangkang/renderer-dog</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SDL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>用SDL写个Hello World</title>
       <link href="/2020/09/12/c/yong-sdl-xie-ge-helloworld/"/>
       <url>/2020/09/12/c/yong-sdl-xie-ge-helloworld/</url>
       
-        <content type="html"><![CDATA[<pre class=" language-c++"><code class="language-c++">const int WIDTH = 600;const int HEIGHT = 600;void SDLExample() {    if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {        std::cout << "初始化失败" << std::endl;    }    SDL_Window *window = SDL_CreateWindow("Skia + SDL"            ,SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED            ,WIDTH,HEIGHT,SDL_WINDOW_ALLOW_HIGHDPI);    if (window == nullptr){        std::cout<< "创建Window失败" << std::endl;    }    SDL_Event windowEvent;    while (true){        if (SDL_PollEvent(&windowEvent)){            if (windowEvent.type == SDL_QUIT){                std::cout << "终止程序" << std::endl;                break;            }        }    }    SDL_DestroyWindow(window);    SDL_Quit();}</code></pre><h2 id="基本的步骤"><a href="#基本的步骤" class="headerlink" title="基本的步骤"></a>基本的步骤</h2><ol><li>初始化</li><li>创建Window</li><li>监听输入事件</li><li>监听到关闭事件的时候销毁Window并离开</li></ol>]]></content>
+        <content type="html"><![CDATA[<pre class=" language-c++"><code class="language-c++">const int WIDTH = 600;const int HEIGHT = 600;void SDLExample() {    if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {        std::cout << "初始化失败" << std::endl;    }    SDL_Window *window = SDL_CreateWindow("Skia + SDL"            ,SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED            ,WIDTH,HEIGHT,SDL_WINDOW_ALLOW_HIGHDPI);    if (window == nullptr){        std::cout<< "创建Window失败" << std::endl;    }    SDL_Event windowEvent;    while (true){        if (SDL_PollEvent(&windowEvent)){            if (windowEvent.type == SDL_QUIT){                std::cout << "终止程序" << std::endl;                break;            }        }    }    SDL_DestroyWindow(window);    SDL_Quit();}</code></pre><h2 id="基本的步骤"><a href="#基本的步骤" class="headerlink" title="基本的步骤"></a>基本的步骤</h2><ol><li>初始化</li><li>创建Window</li><li>监听输入事件</li><li>监听到关闭事件的时候销毁Window并离开</li></ol><h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/jiangkang/renderer-dog" target="_blank" rel="noopener">https://github.com/jiangkang/renderer-dog</a></p>]]></content>
       
       
       <categories>
@@ -783,9 +808,9 @@
             
             <tag> 源码分析 </tag>
             
-            <tag> Init </tag>
-            
             <tag> Android启动流程 </tag>
+            
+            <tag> Init </tag>
             
         </tags>
       
@@ -1018,9 +1043,9 @@
             
             <tag> 源码分析 </tag>
             
-            <tag> Android启动流程 </tag>
-            
             <tag> Android开机动画 </tag>
+            
+            <tag> Android启动流程 </tag>
             
         </tags>
       
@@ -1091,9 +1116,9 @@
       
         <tags>
             
-            <tag> GN </tag>
-            
             <tag> 编译 </tag>
+            
+            <tag> GN </tag>
             
         </tags>
       

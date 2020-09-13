@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Flutter时间处理,姜康,天津大学,Android,Golang">
+    <meta name="keywords" content="用SDL展示一张JPG图片,姜康,天津大学,Android,Golang">
     <meta name="description" content="姜康的技术博客:用技术解决实际问题">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>Flutter时间处理 | 姜康的技术博客</title>
+    <title>用SDL展示一张JPG图片 | 姜康的技术博客</title>
     <link rel="icon" type="image/jpeg" href="/medias/avatar.jpeg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -279,12 +279,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Flutter时间处理</h1>
+                    <h1 class="description center-align post-title">用SDL展示一张JPG图片</h1>
                 </div>
             </div>
         </div>
@@ -401,8 +401,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/">
-                                <span class="chip bg-color">时间处理</span>
+                            <a href="/tags/SDL/">
+                                <span class="chip bg-color">SDL</span>
                             </a>
                         
                     </div>
@@ -413,8 +413,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Flutter/" class="post-category">
-                                Flutter
+                            <a href="/categories/C/" class="post-category">
+                                C++
                             </a>
                         
                     </div>
@@ -426,7 +426,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-08
+                    2020-09-13
                 </div>
                 
 
@@ -435,7 +435,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    334
+                    317
                 </div>
                 
 
@@ -452,67 +452,81 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Flutter 中在时间处理方面还是比较简单的，我们主要用到的有两个类：</p>
-<ul>
-<li><p>DateTime</p>
-<p>表示一个指定的时间点，包括年月日时分秒</p>
-</li>
-<li><p>TimeOfDay</p>
-<p>表示一天中的一个时间点，可以区分上午，下午，12小时制，24小时制等</p>
-</li>
-</ul>
-<h3 id="获取当前时间"><a href="#获取当前时间" class="headerlink" title="获取当前时间"></a>获取当前时间</h3><pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> now <span class="token operator">=</span> DateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>这里就得到了一个当前时间的DateTime对象，然后就可以拿到你想要的信息：</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> year <span class="token operator">=</span> now<span class="token punctuation">.</span>year<span class="token punctuation">;</span>
-<span class="token keyword">final</span> month <span class="token operator">=</span> now<span class="token punctuation">.</span>month<span class="token punctuation">;</span>
-<span class="token keyword">final</span> day <span class="token operator">=</span> now<span class="token punctuation">.</span>day<span class="token punctuation">;</span></code></pre>
-<p>还可以获取当前时星期几：</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> week <span class="token operator">=</span> now<span class="token punctuation">.</span>weekday<span class="token punctuation">;</span></code></pre>
-<h3 id="转时间戳"><a href="#转时间戳" class="headerlink" title="转时间戳"></a>转时间戳</h3><pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> now <span class="token operator">=</span> DateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-String timestamp <span class="token operator">=</span> now<span class="token punctuation">.</span>millisecondsSinceEpoch<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h3 id="时间运算"><a href="#时间运算" class="headerlink" title="时间运算"></a>时间运算</h3><ul>
-<li><p>前2天</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> now <span class="token operator">=</span> DateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">final</span> before <span class="token operator">=</span> now<span class="token punctuation">.</span><span class="token function">subtract</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>days<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-</li>
-</ul>
-<ul>
-<li><p>后2天</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> now <span class="token operator">=</span> DateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">final</span> after <span class="token operator">=</span> now<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>days<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-</li>
-</ul>
-<ul>
-<li><p>两个时间点相隔的时间数</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> now <span class="token operator">=</span> DateTime<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">final</span> after <span class="token operator">=</span> now<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token function">Duration</span><span class="token punctuation">(</span>days<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">final</span> diff <span class="token operator">=</span> after<span class="token punctuation">.</span><span class="token function">difference</span><span class="token punctuation">(</span>now<span class="token punctuation">)</span><span class="token punctuation">.</span>inHours<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 相隔的小时数，也可以是分钟数，秒数</span></code></pre>
-</li>
-</ul>
-<h3 id="上午还是下午"><a href="#上午还是下午" class="headerlink" title="上午还是下午"></a>上午还是下午</h3><p>可以使用TimeOfDay来处理：</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> timeOfDay <span class="token operator">=</span> TimeOfDay<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">final</span> amOrPm <span class="token operator">=</span> timeOfDay<span class="token punctuation">.</span>period<span class="token punctuation">;</span></code></pre>
-<p>其中timeOfDay.period实际上是一个枚举对象：</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">enum</span> DayPeriod <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">/// Ante meridiem (before noon).</span>
-  am<span class="token punctuation">,</span>
+                <pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"SDL2/SDL.h"</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"SDL2_image/SDL_image.h"</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"demo_sdl.h"</span></span>
 
-  <span class="token comment" spellcheck="true">/// Post meridiem (after noon).</span>
-  pm<span class="token punctuation">,</span>
-<span class="token punctuation">}</span></code></pre>
-<p>这样可以判断是上午还是下午了。</p>
-<h3 id="12-24小时制"><a href="#12-24小时制" class="headerlink" title="12/24小时制"></a>12/24小时制</h3><ul>
-<li><p>24小时</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> hour24 <span class="token operator">=</span> timeOfDay<span class="token punctuation">.</span>hour<span class="token punctuation">;</span></code></pre>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token keyword">int</span> WIDTH <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> HEIGHT <span class="token operator">=</span> <span class="token number">600</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">showImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">SDL_Init</span><span class="token punctuation">(</span>SDL_INIT_EVERYTHING<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"初始化失败"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    SDL_Window <span class="token operator">*</span>window <span class="token operator">=</span> <span class="token function">SDL_CreateWindow</span><span class="token punctuation">(</span><span class="token string">"Show Image"</span><span class="token punctuation">,</span>
+                                          SDL_WINDOWPOS_CENTERED<span class="token punctuation">,</span> SDL_WINDOWPOS_CENTERED<span class="token punctuation">,</span>
+                                          WIDTH<span class="token punctuation">,</span> HEIGHT<span class="token punctuation">,</span> SDL_WINDOW_SHOWN<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>window <span class="token operator">==</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"创建Window失败："</span> <span class="token operator">&lt;&lt;</span> <span class="token function">SDL_GetError</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    SDL_Renderer <span class="token operator">*</span>renderer <span class="token operator">=</span> <span class="token function">SDL_CreateRenderer</span><span class="token punctuation">(</span>window<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> SDL_RENDERER_ACCELERATED<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>renderer <span class="token operator">==</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"创建Renderer失败："</span> <span class="token operator">&lt;&lt;</span> <span class="token function">SDL_GetError</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    SDL_Surface <span class="token operator">*</span>image <span class="token operator">=</span> <span class="token function">IMG_Load</span><span class="token punctuation">(</span><span class="token string">"/Volumes/T5/CppPractice/renderer-dog/res/demo.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>image<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"加载图片失败："</span> <span class="token operator">&lt;&lt;</span> <span class="token function">SDL_GetError</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// 如果使用硬件加速，则必须将Surface转换成Texture</span>
+    SDL_Texture <span class="token operator">*</span>texture <span class="token operator">=</span> <span class="token function">SDL_CreateTextureFromSurface</span><span class="token punctuation">(</span>renderer<span class="token punctuation">,</span>image<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">SDL_FreeSurface</span><span class="token punctuation">(</span>image<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">SDL_RenderClear</span><span class="token punctuation">(</span>renderer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">SDL_RenderCopy</span><span class="token punctuation">(</span>renderer<span class="token punctuation">,</span>texture<span class="token punctuation">,</span> <span class="token keyword">nullptr</span><span class="token punctuation">,</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">SDL_RenderPresent</span><span class="token punctuation">(</span>renderer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    SDL_Event windowEvent<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">SDL_PollEvent</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>windowEvent<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>windowEvent<span class="token punctuation">.</span>type <span class="token operator">==</span> SDL_QUIT<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"终止程序"</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">SDL_DestroyRenderer</span><span class="token punctuation">(</span>renderer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">SDL_DestroyTexture</span><span class="token punctuation">(</span>texture<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">SDL_DestroyWindow</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">SDL_Quit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h2><ol>
+<li>初始化</li>
+<li>创建Window</li>
+<li>创建Renderer,用于在Window上渲染内容</li>
+<li>创建Surface,Surface其实就是像素的载体</li>
+<li>如果需要使用硬件加速,需要将Surface转换成Texture</li>
+<li>清除Renderer内容,并使用Renderer的Copy功能将texture内容复制到屏幕的指定区域</li>
+<li>指定当前的Renderer.</li>
+<li>事件监听</li>
+<li>销毁各种对象</li>
+</ol>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ul>
+<li><p>MacOS安装的SDL2_image库打开时提示安全提示</p>
+<p>解决方案:</p>
+<pre class=" language-shell"><code class="language-shell">sudo spctl --master-disable</code></pre>
 </li>
 </ul>
-<ul>
-<li><p>12小时</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> hour12 <span class="token operator">=</span> timeOfDay<span class="token punctuation">.</span>hourOfPeriod<span class="token punctuation">;</span></code></pre>
-</li>
-</ul>
-<p>还可以格式化输出当前的分钟小时数：</p>
-<pre class=" language-dart"><code class="language-dart"><span class="token keyword">final</span> timeStr <span class="token operator">=</span> timeOfDay<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 11:49 PM</span></code></pre>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/jiangkang/renderer-dog" target="_blank" rel="noopener">https://github.com/jiangkang/renderer-dog</a></p>
 
             </div>
             <hr/>
@@ -538,7 +552,7 @@ String timestamp <span class="token operator">=</span> now<span class="token pun
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.jiangkang.tech/2020/05/08/flutter/flutter-shi-jian-chu-li/">https://www.jiangkang.tech/2020/05/08/flutter/flutter-shi-jian-chu-li/</a>
+                    <a href="https://www.jiangkang.tech/2020/09/13/c/yong-sdl-zhan-shi-yi-zhang-jpg-tu-pian/">https://www.jiangkang.tech/2020/09/13/c/yong-sdl-zhan-shi-yi-zhang-jpg-tu-pian/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -576,8 +590,8 @@ String timestamp <span class="token operator">=</span> now<span class="token pun
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/">
-                                    <span class="chip bg-color">时间处理</span>
+                                <a href="/tags/SDL/">
+                                    <span class="chip bg-color">SDL</span>
                                 </a>
                             
                         </div>
@@ -748,7 +762,7 @@ String timestamp <span class="token operator">=</span> now<span class="token pun
         repo: 'jiangkang.github.io',
         owner: 'jiangkang',
         admin: ["jiangkang"],
-        id: '2020-05-08T21-47-29',
+        id: '2020-09-13T17-52-14',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -772,52 +786,53 @@ String timestamp <span class="token operator">=</span> now<span class="token pun
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/08/flutter/flutter-tabs-de-shi-yong/">
+                <a href="/2020/09/13/c/yong-sdl-zhan-shi-yi-zhang-jpg-tu-pian/">
                     <div class="card-image">
                         
-                        <img src="https://oss.jiangkang.tech/jk/tabs1.png" class="responsive-img" alt="Flutter-Tabs的使用">
                         
-                        <span class="card-title">Flutter-Tabs的使用</span>
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="用SDL展示一张JPG图片">
+                        
+                        <span class="card-title">用SDL展示一张JPG图片</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Flutter中使用tabs还是非常的简单的，可以用在顶部导航栏，也可以用在底部导航栏。
+                            #include &lt;iostream>
+#include "SDL2/SDL.h"
+#include "SDL2_image/SDL_image.h"
+#include "demo_sdl.h"
 
-  
-  
-  
-
-
-使用Tabs需要用到两个widget，一个是TabBar,用于顶导航或者底导航；一个是TabBarView，用于Tab下具体的
+using namespace st
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Flutter/" class="post-category">
-                                    Flutter
+                            <a href="/categories/C/" class="post-category">
+                                    C++
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tab/">
-                        <span class="chip bg-color">Tab</span>
+                    <a href="/tags/SDL/">
+                        <span class="chip bg-color">SDL</span>
                     </a>
                     
                 </div>
@@ -831,33 +846,35 @@ String timestamp <span class="token operator">=</span> now<span class="token pun
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/08/flutter/dart-ji-chu-yu-fa/">
+                <a href="/2020/09/12/c/yong-sdl-xie-ge-helloworld/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Dart基础语法">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="用SDL写个Hello World">
                         
-                        <span class="card-title">Dart基础语法</span>
+                        <span class="card-title">用SDL写个Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            重要的概念
-任何你可以放在一个变量中的都是一个object，并且每个object都是一个class的实例，甚至于数字，functions，null都是对象，所有的对象继承自Object类。
-即使Dart是强类型的，但是类型说明是可选的，因为
+                            const int WIDTH = 600;
+const int HEIGHT = 600;
+void SDLExample() {
+    if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+        
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-12
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Flutter/" class="post-category">
-                                    Flutter
+                            <a href="/categories/C/" class="post-category">
+                                    C++
                                 </a>
                             
                             
@@ -867,8 +884,8 @@ String timestamp <span class="token operator">=</span> now<span class="token pun
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Dart/">
-                        <span class="chip bg-color">Dart</span>
+                    <a href="/tags/SDL/">
+                        <span class="chip bg-color">SDL</span>
                     </a>
                     
                 </div>

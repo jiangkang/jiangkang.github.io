@@ -483,6 +483,7 @@ void SDLExample() {
 <li>监听输入事件</li>
 <li>监听到关闭事件的时候销毁Window并离开</li>
 </ol>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/jiangkang/renderer-dog" target="_blank" rel="noopener">https://github.com/jiangkang/renderer-dog</a></p>
 
             </div>
             <hr/>
@@ -742,34 +743,34 @@ void SDLExample() {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/09/12/c/yong-sdl-xie-ge-helloworld/">
+                <a href="/2020/09/13/c/yong-sdl-zhan-shi-yi-zhang-jpg-tu-pian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="用SDL写个Hello World">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="用SDL展示一张JPG图片">
                         
-                        <span class="card-title">用SDL写个Hello World</span>
+                        <span class="card-title">用SDL展示一张JPG图片</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            const int WIDTH = 600;
-const int HEIGHT = 600;
-void SDLExample() {
-    if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
-        
+                            #include &lt;iostream>
+#include "SDL2/SDL.h"
+#include "SDL2_image/SDL_image.h"
+#include "demo_sdl.h"
+
+using namespace st
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-12
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-13
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -782,7 +783,6 @@ void SDLExample() {
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1039,7 +1039,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">58.7k</span>&nbsp;字
+                class="white-color">59k</span>&nbsp;字
             
             
             
