@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.jiangkang.tech/2020/05/18/tu-xing-xuan-ran/skia-de-bian-yi/</loc>
+    <lastmod>2020-10-03</lastmod>
+  </url>  <url>
     <loc>https://www.jiangkang.tech/2020/09/12/c/yong-sdl-xie-ge-helloworld/</loc>
     <lastmod>2020-09-13</lastmod>
   </url>  <url>
@@ -177,9 +180,6 @@
   </url>  <url>
     <loc>https://www.jiangkang.tech/2020/05/08/c/chu-shi-sdl/</loc>
     <lastmod>2020-05-23</lastmod>
-  </url>  <url>
-    <loc>https://www.jiangkang.tech/2020/05/18/tu-xing-xuan-ran/skia-de-bian-yi/</loc>
-    <lastmod>2020-05-18</lastmod>
   </url>  <url>
     <loc>https://www.jiangkang.tech/2020/05/15/android/gradle-du-qu-pei-zhi-wen-jian/</loc>
     <lastmod>2020-05-15</lastmod>

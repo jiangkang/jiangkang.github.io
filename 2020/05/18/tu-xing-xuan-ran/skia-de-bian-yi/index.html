@@ -439,7 +439,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    212
+                    379
                 </div>
                 
 
@@ -463,8 +463,34 @@
 bin/gn gen out/Shared --args='is_official_build=false is_component_build=true'</code></pre>
 <p>如果出现问题,就使用python脚本更新依赖:</p>
 <pre class=" language-shell"><code class="language-shell">python2 tools/git-sync-deps</code></pre>
+<p>然后就是:</p>
+<pre class=" language-shell"><code class="language-shell">ninja -C out/Shared</code></pre>
+<h2 id="为Android编译"><a href="#为Android编译" class="headerlink" title="为Android编译"></a>为Android编译</h2><pre class=" language-shell"><code class="language-shell">bin/gn gen out/arm   --args='ndk="/tmp/ndk" target_cpu="arm"'
+bin/gn gen out/arm64 --args='ndk="/tmp/ndk" target_cpu="arm64"'</code></pre>
+<p>ndk的地址写自己电脑上的地址.<br>如果需要so库,还是需要加上<code>is_component_build=true</code></p>
+<h2 id="单独编译测试APP"><a href="#单独编译测试APP" class="headerlink" title="单独编译测试APP"></a>单独编译测试APP</h2><ul>
+<li><p>viewer: 包含各种demo,按D键可以切换后端实现</p>
+<pre class=" language-shell"><code class="language-shell">bin/gn gen out/Release --args='is_debug=false'
+ninja -C out/Release viewer</code></pre>
+</li>
+<li><p>HelloWorld: 绘制一些简单的形状</p>
+<pre class=" language-shell"><code class="language-shell">bin/gn gen out/Release --args='is_debug=false'
+ninja -C out/Release HelloWorld</code></pre>
+</li>
+<li><p>SkiaSDLExample: SDL + Skia</p>
+<pre class=" language-shell"><code class="language-shell">bin/gn gen out/Release --args='is_debug=false'
+ninja -C out/Release HelloWorld</code></pre>
+</li>
+<li><p>editor: 一个纯文本编辑器</p>
+<pre class=" language-shell"><code class="language-shell">bin/gn gen out/Release --args='is_debug=false'
+ninja -C out/Release editor</code></pre>
+</li>
+</ul>
 <h2 id="需要注意的地方"><a href="#需要注意的地方" class="headerlink" title="需要注意的地方"></a>需要注意的地方</h2><h3 id="is-official-build"><a href="#is-official-build" class="headerlink" title="is_official_build"></a>is_official_build</h3><p>如果这个属性为true,则会在你电脑上的系统环境取寻找一些依赖库,比如libjpeg,libpng等,如果你设置成true,编译过程中发现一些库不存在或者函数错误等,建议直接把is_official_build设置成false.这样就用skia项目中的源码依赖了,就不会出问题了.</p>
 <h3 id="is-component-build"><a href="#is-component-build" class="headerlink" title="is_component_build"></a>is_component_build</h3><p>设置为true,则编译成多个小的动态链接库,比如各种so文件.如果需要使用skia,建议设置成true.</p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ol>
+<li><a href="https://skia.org/user/build" target="_blank" rel="noopener">https://skia.org/user/build</a></li>
+</ol>
 
             </div>
             <hr/>
@@ -1010,7 +1036,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">59k</span>&nbsp;字
+                class="white-color">59.2k</span>&nbsp;字
             
             
             
