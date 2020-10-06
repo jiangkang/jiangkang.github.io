@@ -738,9 +738,9 @@
             
             <tag> 编译 </tag>
             
-            <tag> Android.bp </tag>
-            
             <tag> AOSP </tag>
+            
+            <tag> Android.bp </tag>
             
         </tags>
       
@@ -819,11 +819,11 @@
       
         <tags>
             
-            <tag> Init </tag>
-            
             <tag> 源码分析 </tag>
             
             <tag> Android启动流程 </tag>
+            
+            <tag> Init </tag>
             
         </tags>
       
@@ -1056,9 +1056,9 @@
             
             <tag> 源码分析 </tag>
             
-            <tag> Android启动流程 </tag>
-            
             <tag> Android开机动画 </tag>
+            
+            <tag> Android启动流程 </tag>
             
         </tags>
       
@@ -1156,9 +1156,9 @@
       
         <tags>
             
-            <tag> CMake </tag>
-            
             <tag> 编译 </tag>
+            
+            <tag> CMake </tag>
             
         </tags>
       
@@ -1260,9 +1260,9 @@
       
         <tags>
             
-            <tag> Lock </tag>
-            
             <tag> Java </tag>
+            
+            <tag> Lock </tag>
             
         </tags>
       
@@ -1287,9 +1287,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 数据结构 </tag>
+            
+            <tag> Java </tag>
             
             <tag> Map </tag>
             
@@ -1316,11 +1316,11 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 数据结构 </tag>
             
             <tag> List </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -1345,9 +1345,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 数据结构 </tag>
+            
+            <tag> Java </tag>
             
             <tag> 队列 </tag>
             

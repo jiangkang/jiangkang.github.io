@@ -441,6 +441,31 @@
         
             
             <div class="carousel-item amber white-text carousel-post bg-cover"
+                 style="background-image: url('https://oss.jiangkang.tech/jk/system_server.png');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s10 offset-s1">
+                            <div class="title center-align">Android系统启动流程-SystemServer分析</div>
+                            <div class="description center-align">
+                                
+                                    app_process64在启动zygote进程的时候,会从zygote进程fork出system_server进程.
+system_server的入口在SystemServer.java中
+在Android启动流程-Zygote分析中已经
+                                
+                            </div>
+                            <div class="cover-btns">
+                                <a href="/2020/06/26/android/android-xi-tong-qi-dong-liu-cheng-systemserver-fen-xi/" class="waves-effect waves-light btn"
+                                   target="_blank">
+                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="carousel-item amber white-text carousel-post bg-cover"
                  style="background-image: url('https://oss.jiangkang.tech/jk/jni.png');">
                 <div class="container">
                     <div class="row">
@@ -471,6 +496,30 @@
         
             
             <div class="carousel-item amber white-text carousel-post bg-cover"
+                 style="background-image: url('/medias/featureimages/4.jpg');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s10 offset-s1">
+                            <div class="title center-align">Android系统启动流程分析</div>
+                            <div class="description center-align">
+                                
+                                    Boot ROM当按下电源键,硬件上电之后,会从一个固定的内存区域读取程序.这个程序是烧写到硬件上的(ROM),用于将bootloader加载到RAM中,并开始执行它.
+bootloaderbootloader用于告诉设备如何找到系统内核,
+                                
+                            </div>
+                            <div class="cover-btns">
+                                <a href="/2020/06/12/android/android-xi-tong-qi-dong-liu-cheng-fen-xi/" class="waves-effect waves-light btn"
+                                   target="_blank">
+                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="carousel-item amber white-text carousel-post bg-cover"
                  style="background-image: url('https://oss.jiangkang.tech/jk/zygote.png');">
                 <div class="container">
                     <div class="row">
@@ -488,55 +537,6 @@ app_processint main(int argc, char* const argv[])
                             </div>
                             <div class="cover-btns">
                                 <a href="/2020/06/25/android/android-xi-tong-qi-dong-liu-cheng-zygote-fen-xi/" class="waves-effect waves-light btn"
-                                   target="_blank">
-                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            
-            <div class="carousel-item amber white-text carousel-post bg-cover"
-                 style="background-image: url('https://oss.jiangkang.tech/jk/system_server.png');">
-                <div class="container">
-                    <div class="row">
-                        <div class="col s10 offset-s1">
-                            <div class="title center-align">Android系统启动流程-SystemServer分析</div>
-                            <div class="description center-align">
-                                
-                                    app_process64在启动zygote进程的时候,会从zygote进程fork出system_server进程.
-system_server的入口在SystemServer.java中
-在Android启动流程-Zygote分析中已经
-                                
-                            </div>
-                            <div class="cover-btns">
-                                <a href="/2020/06/26/android/android-xi-tong-qi-dong-liu-cheng-systemserver-fen-xi/" class="waves-effect waves-light btn"
-                                   target="_blank">
-                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            
-            <div class="carousel-item amber white-text carousel-post bg-cover"
-                 style="background-image: url('/medias/featureimages/4.jpg');">
-                <div class="container">
-                    <div class="row">
-                        <div class="col s10 offset-s1">
-                            <div class="title center-align">Android系统启动流程分析</div>
-                            <div class="description center-align">
-                                
-                                    Boot ROM当按下电源键,硬件上电之后,会从一个固定的内存区域读取程序.这个程序是烧写到硬件上的(ROM),用于将bootloader加载到RAM中,并开始执行它.
-bootloaderbootloader用于告诉设备如何找到系统内核,
-                                
-                            </div>
-                            <div class="cover-btns">
-                                <a href="/2020/06/12/android/android-xi-tong-qi-dong-liu-cheng-fen-xi/" class="waves-effect waves-light btn"
                                    target="_blank">
                                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                                 </a>
