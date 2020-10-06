@@ -296,7 +296,7 @@
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(/medias/banner/6.jpg)');
+    $('.bg-cover').css('background-image', 'url(/medias/banner/2.jpg)');
 </script>
 
 
@@ -313,6 +313,65 @@
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/06/15/c/linux-shi-yong-fork-fang-shi-chuang-jian-jin-cheng/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="linux使用fork方式创建进程">
+                            
+                            <span class="card-title">linux使用fork方式创建进程</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                代码#include &lt;stdio.h>
+#include &lt;unistd.h>
+
+int main()
+{
+    printf("fork之前\n");
+    pid_t fpid;
+    fpid = fork();
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-15
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/C/" class="post-category">
+                                    C++
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/fork/">
+                            <span class="chip bg-color">fork</span>
+                        </a>
+                        
+                        <a href="/tags/%E8%BF%9B%E7%A8%8B/">
+                            <span class="chip bg-color">进程</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -726,12 +785,12 @@ BUILDCONFIG.gn
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E7%BC%96%E8%AF%91/">
-                            <span class="chip bg-color">编译</span>
-                        </a>
-                        
                         <a href="/tags/CMake/">
                             <span class="chip bg-color">CMake</span>
+                        </a>
+                        
+                        <a href="/tags/%E7%BC%96%E8%AF%91/">
+                            <span class="chip bg-color">编译</span>
                         </a>
                         
                     </div>
@@ -933,12 +992,12 @@ https://skia.googlesource.com/skia
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Java/">
-                            <span class="chip bg-color">Java</span>
-                        </a>
-                        
                         <a href="/tags/Lock/">
                             <span class="chip bg-color">Lock</span>
+                        </a>
+                        
+                        <a href="/tags/Java/">
+                            <span class="chip bg-color">Java</span>
                         </a>
                         
                     </div>
@@ -986,12 +1045,12 @@ https://skia.googlesource.com/skia
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                            <span class="chip bg-color">数据结构</span>
-                        </a>
-                        
                         <a href="/tags/Java/">
                             <span class="chip bg-color">Java</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                            <span class="chip bg-color">数据结构</span>
                         </a>
                         
                         <a href="/tags/Map/">
@@ -1043,16 +1102,16 @@ ArrayList由于通过数组索引定位，所以查找效率比
                     
                     <div class="card-action article-tags">
                         
+                        <a href="/tags/Java/">
+                            <span class="chip bg-color">Java</span>
+                        </a>
+                        
                         <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                             <span class="chip bg-color">数据结构</span>
                         </a>
                         
                         <a href="/tags/List/">
                             <span class="chip bg-color">List</span>
-                        </a>
-                        
-                        <a href="/tags/Java/">
-                            <span class="chip bg-color">Java</span>
                         </a>
                         
                     </div>
@@ -1102,12 +1161,12 @@ public interface Queue&lt;E> extends Collection&lt;E> {
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                            <span class="chip bg-color">数据结构</span>
-                        </a>
-                        
                         <a href="/tags/Java/">
                             <span class="chip bg-color">Java</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                            <span class="chip bg-color">数据结构</span>
                         </a>
                         
                         <a href="/tags/%E9%98%9F%E5%88%97/">
@@ -1227,60 +1286,6 @@ switchswitch 下的每个case不必带break,匹配到了某个case之后会自�
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/05/08/flutter/flutter-text-de-shi-yong/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Flutter-Text的使用">
-                            
-                            <span class="card-title">Flutter-Text的使用</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-关注 https://github.com/jiangkang/flutter-system 了解更多Flutter相关的知识
-
-文本作为UI最基本的元素，最基本的用法有这些：
-
-字体
-文字大小、颜色
-一些常用样式，比如倾斜，加粗，下划线
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Flutter/" class="post-category">
-                                    Flutter
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Text/">
-                            <span class="chip bg-color">Text</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -1326,7 +1331,7 @@ switchswitch 下的每个case不必带break,匹配到了某个case之后会自�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">59.2k</span>&nbsp;字
+                class="white-color">62.4k</span>&nbsp;字
             
             
             
