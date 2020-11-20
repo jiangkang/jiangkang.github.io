@@ -1,8 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.jiangkang.tech/2020/11/12/flutter/flutter-cong-widget-dao-chu-tu-pian/</loc>
+    <lastmod>2020-11-12</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/11/03/android/glide-yuan-li-fen-xi/</loc>
+    <lastmod>2020-11-03</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/11/02/android/gc-yu-reference/</loc>
+    <lastmod>2020-11-02</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/10/31/android/leakcanary-shi-ru-he-bu-huo-nei-cun-xie-lou-de/</loc>
+    <lastmod>2020-10-31</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/10/29/android/leakcanary-bu-huo-nei-cun-xie-lou-de-shi-ji/</loc>
+    <lastmod>2020-10-29</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/10/29/android/leakcanary-de-zi-dong-chu-shi-hua/</loc>
+    <lastmod>2020-10-29</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/06/26/android/android-xi-tong-qi-dong-liu-cheng-systemserver-fen-xi/</loc>
+    <lastmod>2020-10-29</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/06/28/android/android-xi-tong-qi-dong-liu-cheng-art-xu-ni-ji-de-qi-dong/</loc>
+    <lastmod>2020-10-29</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/06/25/android/android-xi-tong-qi-dong-liu-cheng-zygote-fen-xi/</loc>
+    <lastmod>2020-10-29</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/06/28/android/android-xi-tong-qi-dong-liu-cheng-native-fang-fa-de-zhu-ce/</loc>
+    <lastmod>2020-10-29</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/06/12/android/android-xi-tong-qi-dong-liu-cheng-fen-xi/</loc>
+    <lastmod>2020-10-29</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/10/29/android/kotlin-zhong-de-object/</loc>
+    <lastmod>2020-10-29</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/10/29/android/cu-cao-de-tan-yi-xia-kotlin-zhong-de-xie-cheng/</loc>
+    <lastmod>2020-10-29</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/10/29/android/cu-cao-de-tan-yi-xia-kotlin-zhong-de-coroutinescope/</loc>
+    <lastmod>2020-10-29</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/10/27/flutter/image-picker-de-shi-yong/</loc>
+    <lastmod>2020-10-27</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/10/25/android/appstart-ku-de-shi-yong/</loc>
+    <lastmod>2020-10-25</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/10/25/android/android-kuai-jie-fang-shi-de-jian-dan-yong-fa/</loc>
+    <lastmod>2020-10-25</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/10/25/android/android-wei-jian-de-jian-dan-yong-fa/</loc>
+    <lastmod>2020-10-25</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/10/25/android/android-tong-zhi-de-jian-dan-yong-fa/</loc>
+    <lastmod>2020-10-25</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/10/14/android/kotlin-zhong-de-fan-xing/</loc>
+    <lastmod>2020-10-14</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/10/14/android/kotlin-zhong-de-inline/</loc>
+    <lastmod>2020-10-14</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/10/14/android/kotlin-zhong-de-infix/</loc>
+    <lastmod>2020-10-14</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/10/13/android/shen-ru-qian-chu-android-zhong-de-shi-jian-fen-fa-ji-zhi/</loc>
+    <lastmod>2020-10-13</lastmod>
+  </url>  <url>
+    <loc>https://www.jiangkang.tech/2020/10/09/android/qian-tan-android-zhong-de-broadcast/</loc>
+    <lastmod>2020-10-09</lastmod>
+  </url>  <url>
     <loc>https://www.jiangkang.tech/2020/10/06/android/qian-tan-android-zhong-de-handler/</loc>
-    <lastmod>2020-10-06</lastmod>
+    <lastmod>2020-10-09</lastmod>
   </url>  <url>
     <loc>https://www.jiangkang.tech/2020/05/18/tu-xing-xuan-ran/skia-de-bian-yi/</loc>
     <lastmod>2020-10-03</lastmod>
@@ -79,18 +151,6 @@
     <loc>https://www.jiangkang.tech/2020/06/24/android/linux-cha-kan-jin-cheng-he-xian-cheng-xin-xi/</loc>
     <lastmod>2020-07-19</lastmod>
   </url>  <url>
-    <loc>https://www.jiangkang.tech/2020/06/25/android/android-xi-tong-qi-dong-liu-cheng-zygote-fen-xi/</loc>
-    <lastmod>2020-07-19</lastmod>
-  </url>  <url>
-    <loc>https://www.jiangkang.tech/2020/06/26/android/android-xi-tong-qi-dong-liu-cheng-systemserver-fen-xi/</loc>
-    <lastmod>2020-07-19</lastmod>
-  </url>  <url>
-    <loc>https://www.jiangkang.tech/2020/06/28/android/android-xi-tong-qi-dong-liu-cheng-native-fang-fa-de-zhu-ce/</loc>
-    <lastmod>2020-07-19</lastmod>
-  </url>  <url>
-    <loc>https://www.jiangkang.tech/2020/06/28/android/android-xi-tong-qi-dong-liu-cheng-art-xu-ni-ji-de-qi-dong/</loc>
-    <lastmod>2020-07-19</lastmod>
-  </url>  <url>
     <loc>https://www.jiangkang.tech/2020/06/28/android/android-zhong-de-deeplink-yu-applink/</loc>
     <lastmod>2020-07-19</lastmod>
   </url>  <url>
@@ -114,9 +174,6 @@
   </url>  <url>
     <loc>https://www.jiangkang.tech/2020/05/08/flutter/flutter-shi-xian-tu-pian-yuan-jiao-de-ji-chong-fang-shi/</loc>
     <lastmod>2020-07-12</lastmod>
-  </url>  <url>
-    <loc>https://www.jiangkang.tech/2020/06/12/android/android-xi-tong-qi-dong-liu-cheng-fen-xi/</loc>
-    <lastmod>2020-07-09</lastmod>
   </url>  <url>
     <loc>https://www.jiangkang.tech/2020/05/23/c/modernc-de-yi-xie-te-xing/</loc>
     <lastmod>2020-06-29</lastmod>
@@ -166,10 +223,10 @@
     <loc>https://www.jiangkang.tech/2020/05/29/c/gn-gou-jian-c-xiang-mu-zhi-helloworld/</loc>
     <lastmod>2020-05-29</lastmod>
   </url>  <url>
-    <loc>https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-list/</loc>
+    <loc>https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-map/</loc>
     <lastmod>2020-05-25</lastmod>
   </url>  <url>
-    <loc>https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-map/</loc>
+    <loc>https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-list/</loc>
     <lastmod>2020-05-25</lastmod>
   </url>  <url>
     <loc>https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-lock/</loc>

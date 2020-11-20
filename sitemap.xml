@@ -2,493 +2,1316 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.jiangkang.tech/2020/10/06/android/qian-tan-android-zhong-de-handler/</loc>
+    <loc>https://www.jiangkang.tech/2020/11/12/flutter/flutter-cong-widget-dao-chu-tu-pian/</loc>
     
-    <lastmod>2020-10-06T12:36:03.289Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/05/18/tu-xing-xuan-ran/skia-de-bian-yi/</loc>
-    
-    <lastmod>2020-10-03T14:39:37.909Z</lastmod>
+    <lastmod>2020-11-12</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/2020/09/12/c/yong-sdl-xie-ge-helloworld/</loc>
+    <loc>https://www.jiangkang.tech/2020/11/03/android/glide-yuan-li-fen-xi/</loc>
     
-    <lastmod>2020-09-13T09:52:57.049Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/09/13/c/yong-sdl-zhan-shi-yi-zhang-jpg-tu-pian/</loc>
-    
-    <lastmod>2020-09-13T09:52:44.696Z</lastmod>
+    <lastmod>2020-11-03</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/2020/08/23/android/service-qi-dong-liu-cheng-fen-xi/</loc>
+    <loc>https://www.jiangkang.tech/2020/11/02/android/gc-yu-reference/</loc>
     
-    <lastmod>2020-08-23T14:53:42.633Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/08/23/android/activity-qi-dong-liu-cheng-fen-xi/</loc>
-    
-    <lastmod>2020-08-22T17:56:56.299Z</lastmod>
+    <lastmod>2020-11-02</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/2020/08/22/ji-chu/wen-jian-ya-suo-ge-shi/</loc>
+    <loc>https://www.jiangkang.tech/2020/10/31/android/leakcanary-shi-ru-he-bu-huo-nei-cun-xie-lou-de/</loc>
     
-    <lastmod>2020-08-22T14:50:28.566Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/08/22/android/hook-zhi-lan-jie-activity-de-qi-dong/</loc>
-    
-    <lastmod>2020-08-22T14:44:23.304Z</lastmod>
+    <lastmod>2020-10-31</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/2020/08/21/android/androidstudio-cha-kan-he-diao-shi-aosp-yuan-ma/</loc>
+    <loc>https://www.jiangkang.tech/2020/10/29/android/leakcanary-bu-huo-nei-cun-xie-lou-de-shi-ji/</loc>
     
-    <lastmod>2020-08-22T06:16:04.153Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/06/25/android/aosp-gou-jian-android-bp-de-li-jie/</loc>
-    
-    <lastmod>2020-08-21T12:06:26.139Z</lastmod>
+    <lastmod>2020-10-29</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/2020/06/12/android/aosp-de-bian-yi/</loc>
+    <loc>https://www.jiangkang.tech/2020/10/29/android/leakcanary-de-zi-dong-chu-shi-hua/</loc>
     
-    <lastmod>2020-08-21T12:06:20.017Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/08/19/android/multidex-yuan-li-fen-xi/</loc>
-    
-    <lastmod>2020-08-19T15:35:18.180Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/08/14/android/app-qi-dong-liu-cheng-fen-xi/</loc>
-    
-    <lastmod>2020-08-14T05:31:17.119Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/08/11/android/apk-an-zhuang-liu-cheng-fen-xi-pu-tong-app-de-an-zhuang/</loc>
-    
-    <lastmod>2020-08-11T10:46:26.900Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/06/25/android/shi-yong-vscode-yue-du-android-yuan-ma/</loc>
-    
-    <lastmod>2020-08-11T06:49:08.843Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/07/29/android/java-xian-cheng-chi-yuan-ma-fen-xi/</loc>
-    
-    <lastmod>2020-07-29T15:02:35.542Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/07/29/android/threadpoolexecutor/</loc>
-    
-    <lastmod>2020-07-28T16:01:23.266Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/07/27/ji-chu/git-bu-chang-jian-cao-zuo/</loc>
-    
-    <lastmod>2020-07-27T15:27:49.030Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/07/26/android/java-fan-she/</loc>
-    
-    <lastmod>2020-07-26T14:58:24.283Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/07/25/android/hook-dian-ji-shi-jian/</loc>
-    
-    <lastmod>2020-07-25T14:58:53.613Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/07/25/ji-chu/wlan-ji-chu-zhi-shi/</loc>
-    
-    <lastmod>2020-07-24T16:14:20.059Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/07/24/ji-chu/macos-shang-shi-yong-wireshark-zhua-bao-802-11/</loc>
-    
-    <lastmod>2020-07-24T11:58:57.095Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/07/23/ji-chu/yi-dong-duan-she-bei-biao-shi-fu/</loc>
-    
-    <lastmod>2020-07-23T14:58:10.079Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/06/20/yin-shi-pin-kai-fa/ffmpeg-jian-jie/</loc>
-    
-    <lastmod>2020-07-19T14:17:10.523Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/06/22/android/android-qi-dong-liu-cheng-init-jin-cheng-fen-xi/</loc>
-    
-    <lastmod>2020-07-19T14:13:02.930Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/06/24/android/linux-cha-kan-jin-cheng-he-xian-cheng-xin-xi/</loc>
-    
-    <lastmod>2020-07-19T14:11:56.084Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/06/25/android/android-xi-tong-qi-dong-liu-cheng-zygote-fen-xi/</loc>
-    
-    <lastmod>2020-07-19T14:05:34.582Z</lastmod>
+    <lastmod>2020-10-29</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/06/26/android/android-xi-tong-qi-dong-liu-cheng-systemserver-fen-xi/</loc>
     
-    <lastmod>2020-07-19T10:21:49.639Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/06/28/android/android-xi-tong-qi-dong-liu-cheng-native-fang-fa-de-zhu-ce/</loc>
-    
-    <lastmod>2020-07-19T10:06:55.832Z</lastmod>
+    <lastmod>2020-10-29</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/06/28/android/android-xi-tong-qi-dong-liu-cheng-art-xu-ni-ji-de-qi-dong/</loc>
     
-    <lastmod>2020-07-19T10:06:45.016Z</lastmod>
+    <lastmod>2020-10-29</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/2020/06/28/android/android-zhong-de-deeplink-yu-applink/</loc>
+    <loc>https://www.jiangkang.tech/2020/06/25/android/android-xi-tong-qi-dong-liu-cheng-zygote-fen-xi/</loc>
     
-    <lastmod>2020-07-19T09:59:36.860Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/06/29/android/android-xi-tong-qi-dong-liu-cheng-zhuo-mian-cheng-xu-de-qi-dong/</loc>
-    
-    <lastmod>2020-07-19T09:52:19.251Z</lastmod>
+    <lastmod>2020-10-29</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/2020/07/12/flutter/flutter-zhuan-chang-dong-hua/</loc>
+    <loc>https://www.jiangkang.tech/2020/06/28/android/android-xi-tong-qi-dong-liu-cheng-native-fang-fa-de-zhu-ce/</loc>
     
-    <lastmod>2020-07-19T09:46:30.648Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/07/12/flutter/flutter-lu-you-tiao-zhuan/</loc>
-    
-    <lastmod>2020-07-19T09:37:04.274Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/07/18/flutter/flutter-qu-fen-debug-release-profile-mo-shi/</loc>
-    
-    <lastmod>2020-07-19T09:26:01.890Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/05/08/flutter/flutter-tabs-de-shi-yong/</loc>
-    
-    <lastmod>2020-07-12T15:51:20.253Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/06/19/flutter/flutter-zi-ding-yi-shan-ping-ye-splashscreen/</loc>
-    
-    <lastmod>2020-07-12T15:50:56.981Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/05/08/flutter/flutter-shi-xian-tu-pian-yuan-jiao-de-ji-chong-fang-shi/</loc>
-    
-    <lastmod>2020-07-12T15:49:51.239Z</lastmod>
+    <lastmod>2020-10-29</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/06/12/android/android-xi-tong-qi-dong-liu-cheng-fen-xi/</loc>
     
-    <lastmod>2020-07-09T06:04:13.875Z</lastmod>
+    <lastmod>2020-10-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/10/29/android/kotlin-zhong-de-object/</loc>
+    
+    <lastmod>2020-10-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/10/29/android/cu-cao-de-tan-yi-xia-kotlin-zhong-de-xie-cheng/</loc>
+    
+    <lastmod>2020-10-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/10/29/android/cu-cao-de-tan-yi-xia-kotlin-zhong-de-coroutinescope/</loc>
+    
+    <lastmod>2020-10-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/10/27/flutter/image-picker-de-shi-yong/</loc>
+    
+    <lastmod>2020-10-27</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/10/25/android/appstart-ku-de-shi-yong/</loc>
+    
+    <lastmod>2020-10-25</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/10/25/android/android-kuai-jie-fang-shi-de-jian-dan-yong-fa/</loc>
+    
+    <lastmod>2020-10-25</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/10/25/android/android-wei-jian-de-jian-dan-yong-fa/</loc>
+    
+    <lastmod>2020-10-25</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/10/25/android/android-tong-zhi-de-jian-dan-yong-fa/</loc>
+    
+    <lastmod>2020-10-25</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/10/14/android/kotlin-zhong-de-fan-xing/</loc>
+    
+    <lastmod>2020-10-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/10/14/android/kotlin-zhong-de-inline/</loc>
+    
+    <lastmod>2020-10-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/10/14/android/kotlin-zhong-de-infix/</loc>
+    
+    <lastmod>2020-10-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/10/13/android/shen-ru-qian-chu-android-zhong-de-shi-jian-fen-fa-ji-zhi/</loc>
+    
+    <lastmod>2020-10-13</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/10/09/android/qian-tan-android-zhong-de-broadcast/</loc>
+    
+    <lastmod>2020-10-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/10/06/android/qian-tan-android-zhong-de-handler/</loc>
+    
+    <lastmod>2020-10-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/05/18/tu-xing-xuan-ran/skia-de-bian-yi/</loc>
+    
+    <lastmod>2020-10-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/09/12/c/yong-sdl-xie-ge-helloworld/</loc>
+    
+    <lastmod>2020-09-13</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/09/13/c/yong-sdl-zhan-shi-yi-zhang-jpg-tu-pian/</loc>
+    
+    <lastmod>2020-09-13</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/08/23/android/service-qi-dong-liu-cheng-fen-xi/</loc>
+    
+    <lastmod>2020-08-23</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/08/23/android/activity-qi-dong-liu-cheng-fen-xi/</loc>
+    
+    <lastmod>2020-08-22</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/08/22/ji-chu/wen-jian-ya-suo-ge-shi/</loc>
+    
+    <lastmod>2020-08-22</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/08/22/android/hook-zhi-lan-jie-activity-de-qi-dong/</loc>
+    
+    <lastmod>2020-08-22</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/08/21/android/androidstudio-cha-kan-he-diao-shi-aosp-yuan-ma/</loc>
+    
+    <lastmod>2020-08-22</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/06/25/android/aosp-gou-jian-android-bp-de-li-jie/</loc>
+    
+    <lastmod>2020-08-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/06/12/android/aosp-de-bian-yi/</loc>
+    
+    <lastmod>2020-08-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/08/19/android/multidex-yuan-li-fen-xi/</loc>
+    
+    <lastmod>2020-08-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/08/14/android/app-qi-dong-liu-cheng-fen-xi/</loc>
+    
+    <lastmod>2020-08-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/08/11/android/apk-an-zhuang-liu-cheng-fen-xi-pu-tong-app-de-an-zhuang/</loc>
+    
+    <lastmod>2020-08-11</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/06/25/android/shi-yong-vscode-yue-du-android-yuan-ma/</loc>
+    
+    <lastmod>2020-08-11</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/07/29/android/java-xian-cheng-chi-yuan-ma-fen-xi/</loc>
+    
+    <lastmod>2020-07-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/07/29/android/threadpoolexecutor/</loc>
+    
+    <lastmod>2020-07-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/07/27/ji-chu/git-bu-chang-jian-cao-zuo/</loc>
+    
+    <lastmod>2020-07-27</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/07/26/android/java-fan-she/</loc>
+    
+    <lastmod>2020-07-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/07/25/android/hook-dian-ji-shi-jian/</loc>
+    
+    <lastmod>2020-07-25</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/07/25/ji-chu/wlan-ji-chu-zhi-shi/</loc>
+    
+    <lastmod>2020-07-24</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/07/24/ji-chu/macos-shang-shi-yong-wireshark-zhua-bao-802-11/</loc>
+    
+    <lastmod>2020-07-24</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/07/23/ji-chu/yi-dong-duan-she-bei-biao-shi-fu/</loc>
+    
+    <lastmod>2020-07-23</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/06/20/yin-shi-pin-kai-fa/ffmpeg-jian-jie/</loc>
+    
+    <lastmod>2020-07-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/06/22/android/android-qi-dong-liu-cheng-init-jin-cheng-fen-xi/</loc>
+    
+    <lastmod>2020-07-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/06/24/android/linux-cha-kan-jin-cheng-he-xian-cheng-xin-xi/</loc>
+    
+    <lastmod>2020-07-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/06/28/android/android-zhong-de-deeplink-yu-applink/</loc>
+    
+    <lastmod>2020-07-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/06/29/android/android-xi-tong-qi-dong-liu-cheng-zhuo-mian-cheng-xu-de-qi-dong/</loc>
+    
+    <lastmod>2020-07-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/07/12/flutter/flutter-zhuan-chang-dong-hua/</loc>
+    
+    <lastmod>2020-07-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/07/12/flutter/flutter-lu-you-tiao-zhuan/</loc>
+    
+    <lastmod>2020-07-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/07/18/flutter/flutter-qu-fen-debug-release-profile-mo-shi/</loc>
+    
+    <lastmod>2020-07-19</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/05/08/flutter/flutter-tabs-de-shi-yong/</loc>
+    
+    <lastmod>2020-07-12</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/06/19/flutter/flutter-zi-ding-yi-shan-ping-ye-splashscreen/</loc>
+    
+    <lastmod>2020-07-12</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/05/08/flutter/flutter-shi-xian-tu-pian-yuan-jiao-de-ji-chong-fang-shi/</loc>
+    
+    <lastmod>2020-07-12</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/404.html</loc>
     
-    <lastmod>2020-07-06T14:37:33.951Z</lastmod>
+    <lastmod>2020-07-06</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/05/23/c/modernc-de-yi-xie-te-xing/</loc>
     
-    <lastmod>2020-06-29T12:22:01.056Z</lastmod>
+    <lastmod>2020-06-29</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/06/19/android/android-zhong-de-anativewindow/</loc>
     
-    <lastmod>2020-06-29T12:22:01.042Z</lastmod>
+    <lastmod>2020-06-29</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/06/12/android/android-kai-ji-dong-hua-fen-xi/</loc>
     
-    <lastmod>2020-06-22T11:30:18.716Z</lastmod>
+    <lastmod>2020-06-22</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/06/21/ji-chu/tls-pinning/</loc>
     
-    <lastmod>2020-06-21T13:22:30.708Z</lastmod>
+    <lastmod>2020-06-21</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/05/08/flutter/flutter-shi-jian-chu-li/</loc>
     
-    <lastmod>2020-06-19T14:37:45.304Z</lastmod>
+    <lastmod>2020-06-19</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/05/08/flutter/flutter-shen-se-mo-shi/</loc>
     
-    <lastmod>2020-06-19T14:37:42.492Z</lastmod>
+    <lastmod>2020-06-19</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/05/08/flutter/flutter-timeline/</loc>
     
-    <lastmod>2020-06-19T14:37:37.736Z</lastmod>
+    <lastmod>2020-06-19</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/05/08/flutter/flutter-text-de-shi-yong/</loc>
     
-    <lastmod>2020-06-19T14:37:29.767Z</lastmod>
+    <lastmod>2020-06-19</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/05/08/flutter/dart-ji-chu-yu-fa/</loc>
     
-    <lastmod>2020-06-19T14:37:18.499Z</lastmod>
+    <lastmod>2020-06-19</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/05/08/android/android-zhong-de-cun-chu-lu-jing/</loc>
     
-    <lastmod>2020-06-19T13:59:41.084Z</lastmod>
+    <lastmod>2020-06-19</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/06/15/c/linux-shi-yong-fork-fang-shi-chuang-jian-jin-cheng/</loc>
     
-    <lastmod>2020-06-15T11:33:49.958Z</lastmod>
+    <lastmod>2020-06-15</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/06/13/ying-jian/uart/</loc>
     
-    <lastmod>2020-06-13T15:56:07.939Z</lastmod>
+    <lastmod>2020-06-13</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/06/12/ying-jian/arm-jia-gou-ji-chu-zhi-shi/</loc>
     
-    <lastmod>2020-06-12T15:59:14.011Z</lastmod>
+    <lastmod>2020-06-12</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/05/30/ji-hua/jin-qi-xue-xi-ji-hua/</loc>
     
-    <lastmod>2020-05-30T12:23:02.261Z</lastmod>
+    <lastmod>2020-05-30</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/05/25/c/cmake-de-jian-dan-shi-yong/</loc>
     
-    <lastmod>2020-05-29T14:44:44.067Z</lastmod>
+    <lastmod>2020-05-29</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/05/29/c/gn-gou-jian-c-xiang-mu-zhi-helloworld/</loc>
     
-    <lastmod>2020-05-29T14:42:58.199Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-list/</loc>
-    
-    <lastmod>2020-05-25T10:54:38.825Z</lastmod>
+    <lastmod>2020-05-29</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-map/</loc>
     
-    <lastmod>2020-05-25T10:54:38.825Z</lastmod>
+    <lastmod>2020-05-25</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-list/</loc>
+    
+    <lastmod>2020-05-25</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-lock/</loc>
     
-    <lastmod>2020-05-25T10:54:38.824Z</lastmod>
+    <lastmod>2020-05-25</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/05/15/flutter/diao-shi-flutter-tools/</loc>
     
-    <lastmod>2020-05-25T10:54:38.791Z</lastmod>
+    <lastmod>2020-05-25</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/05/15/android/java-dui-lie/</loc>
     
-    <lastmod>2020-05-25T10:54:38.789Z</lastmod>
+    <lastmod>2020-05-25</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/05/08/c/chu-shi-sdl/</loc>
     
-    <lastmod>2020-05-23T09:51:31.418Z</lastmod>
+    <lastmod>2020-05-23</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/05/15/android/gradle-du-qu-pei-zhi-wen-jian/</loc>
     
-    <lastmod>2020-05-15T05:25:20.558Z</lastmod>
+    <lastmod>2020-05-15</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/05/09/golang/golang-yu-fa-kuai-su-ru-men/</loc>
     
-    <lastmod>2020-05-09T13:52:41.888Z</lastmod>
+    <lastmod>2020-05-09</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/2020/05/08/golang/golang-zhong-de-init-fang-fa/</loc>
     
-    <lastmod>2020-05-08T10:41:16.163Z</lastmod>
+    <lastmod>2020-05-08</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/friends/index.html</loc>
     
-    <lastmod>2020-05-08T06:34:10.451Z</lastmod>
+    <lastmod>2020-05-08</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/contact/index.html</loc>
     
-    <lastmod>2020-05-08T06:33:59.016Z</lastmod>
+    <lastmod>2020-05-08</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/about/index.html</loc>
     
-    <lastmod>2020-05-08T06:33:09.993Z</lastmod>
+    <lastmod>2020-05-08</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/tags/index.html</loc>
     
-    <lastmod>2020-05-08T06:30:07.854Z</lastmod>
+    <lastmod>2020-05-08</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.jiangkang.tech/categories/index.html</loc>
     
-    <lastmod>2020-05-08T06:29:38.622Z</lastmod>
+    <lastmod>2020-05-08</lastmod>
     
+  </url>
+  
+
+  <url>
+    <loc>https://www.jiangkang.tech/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E7%BC%96%E8%AF%91/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/AOSP/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Android-bp/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Activity%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/APK%E5%AE%89%E8%A3%85%E6%B5%81%E7%A8%8B/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/APP%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Deep-Link/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/APP-Link/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/ANativeWindow/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E5%AD%98%E5%82%A8/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Shortcut/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Android%E5%BC%80%E6%9C%BA%E5%8A%A8%E7%94%BB/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Android%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E5%BE%AE%E4%BB%B6/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/App-Widget/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/ART/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Zygote/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Init/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Native%E6%96%B9%E6%B3%95%E6%B3%A8%E5%86%8C/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/SystemServer/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/GC/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Reference/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Java/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Hook/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Notification/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Glide/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E5%BA%93/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Jetpack/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/App-Startup/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Gradle/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Lock/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E5%8F%8D%E5%B0%84/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Map/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E9%98%9F%E5%88%97/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/List/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Kotlin/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/inline/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E6%B3%9B%E5%9E%8B/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/infix/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/MultiDex/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/object/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/leakcanary/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Linux/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Service%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/VSCode/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Broadcast/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Handler/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E5%8D%8F%E7%A8%8B/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/GN/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/CMake/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E8%AF%AD%E6%B3%95/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/SDL/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/fork/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E8%BF%9B%E7%A8%8B/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Tab/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Text/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Dart/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E5%9C%86%E8%A7%92/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Timeline/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Splash-Screen/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Widget/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/RepaintBoundary/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E7%BC%96%E8%AF%91%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E6%B7%B1%E8%89%B2%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E8%B7%AF%E7%94%B1/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E5%8A%A8%E7%94%BB/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Golang/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Skia/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/flutter-tools/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/TLS/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/802-11/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/WLAN/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Image/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/git/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E5%8E%8B%E7%BC%A9/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E8%AE%BE%E5%A4%87%E6%A0%87%E8%AF%86%E7%AC%A6/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/ARM%E6%9E%B6%E6%9E%84/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/ARM/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E8%AE%A1%E5%88%92/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/UART/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/FFmpeg/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
+  
+  <url>
+    <loc>https://www.jiangkang.tech/categories/Android/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/categories/C/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/categories/Flutter/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/categories/Golang/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/categories/%E5%9F%BA%E7%A1%80/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/categories/%E7%A1%AC%E4%BB%B6/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/categories/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
   </url>
   
 </urlset>
