@@ -1275,11 +1275,11 @@
       
         <tags>
             
+            <tag> AOSP </tag>
+            
             <tag> 编译 </tag>
             
             <tag> Android.bp </tag>
-            
-            <tag> AOSP </tag>
             
         </tags>
       
@@ -1360,9 +1360,9 @@
             
             <tag> 源码分析 </tag>
             
-            <tag> Android启动流程 </tag>
-            
             <tag> Init </tag>
+            
+            <tag> Android启动流程 </tag>
             
         </tags>
       
@@ -1566,9 +1566,9 @@
       
         <tags>
             
-            <tag> 编译 </tag>
-            
             <tag> AOSP </tag>
+            
+            <tag> 编译 </tag>
             
         </tags>
       
@@ -1595,9 +1595,9 @@
             
             <tag> 源码分析 </tag>
             
-            <tag> Android开机动画 </tag>
-            
             <tag> Android启动流程 </tag>
+            
+            <tag> Android开机动画 </tag>
             
         </tags>
       
