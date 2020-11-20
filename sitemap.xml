@@ -65,14 +65,14 @@
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/2020/06/28/android/android-xi-tong-qi-dong-liu-cheng-native-fang-fa-de-zhu-ce/</loc>
+    <loc>https://www.jiangkang.tech/2020/06/12/android/android-xi-tong-qi-dong-liu-cheng-fen-xi/</loc>
     
     <lastmod>2020-10-29</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/2020/06/12/android/android-xi-tong-qi-dong-liu-cheng-fen-xi/</loc>
+    <loc>https://www.jiangkang.tech/2020/06/28/android/android-xi-tong-qi-dong-liu-cheng-native-fang-fa-de-zhu-ce/</loc>
     
     <lastmod>2020-10-29</lastmod>
     
@@ -527,14 +527,14 @@
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-map/</loc>
+    <loc>https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-list/</loc>
     
     <lastmod>2020-05-25</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-list/</loc>
+    <loc>https://www.jiangkang.tech/2020/05/15/android/java-zhong-de-map/</loc>
     
     <lastmod>2020-05-25</lastmod>
     
@@ -641,14 +641,14 @@
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/tags/AOSP/</loc>
+    <loc>https://www.jiangkang.tech/tags/Android-bp/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/tags/Android-bp/</loc>
+    <loc>https://www.jiangkang.tech/tags/AOSP/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -662,13 +662,6 @@
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/tags/Activity%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.jiangkang.tech/tags/APK%E5%AE%89%E8%A3%85%E6%B5%81%E7%A8%8B/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
@@ -676,7 +669,7 @@
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/tags/APP%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/</loc>
+    <loc>https://www.jiangkang.tech/tags/Activity%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -704,28 +697,7 @@
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/tags/%E5%AD%98%E5%82%A8/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/tags/%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/tags/Shortcut/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/tags/%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/</loc>
+    <loc>https://www.jiangkang.tech/tags/APP%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -746,6 +718,20 @@
   </url>
   
   <url>
+    <loc>https://www.jiangkang.tech/tags/Init/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E5%AD%98%E5%82%A8/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.jiangkang.tech/tags/%E5%BE%AE%E4%BB%B6/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
@@ -754,6 +740,34 @@
   
   <url>
     <loc>https://www.jiangkang.tech/tags/App-Widget/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Shortcut/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/SystemServer/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -774,7 +788,7 @@
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/tags/Init/</loc>
+    <loc>https://www.jiangkang.tech/tags/Notification/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -788,7 +802,21 @@
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/tags/SystemServer/</loc>
+    <loc>https://www.jiangkang.tech/tags/Jetpack/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/App-Startup/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Gradle/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -823,13 +851,6 @@
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/tags/Notification/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.jiangkang.tech/tags/Glide/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
@@ -844,21 +865,14 @@
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/tags/Jetpack/</loc>
+    <loc>https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/tags/App-Startup/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/tags/Gradle/</loc>
+    <loc>https://www.jiangkang.tech/tags/List/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -872,21 +886,28 @@
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/tags/%E5%8F%8D%E5%B0%84/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.jiangkang.tech/tags/Map/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Kotlin/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/infix/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E5%8F%8D%E5%B0%84/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -907,20 +928,6 @@
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/tags/List/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/tags/Kotlin/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.jiangkang.tech/tags/inline/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
@@ -935,21 +942,14 @@
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/tags/infix/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/tags/MultiDex/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.jiangkang.tech/tags/object/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Linux/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -964,13 +964,6 @@
   
   <url>
     <loc>https://www.jiangkang.tech/tags/%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/tags/Linux/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -998,7 +991,21 @@
   </url>
   
   <url>
+    <loc>https://www.jiangkang.tech/tags/MultiDex/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.jiangkang.tech/tags/Handler/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/CMake/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1019,20 +1026,6 @@
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/tags/GN/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/tags/CMake/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.jiangkang.tech/tags/%E8%AF%AD%E6%B3%95/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
@@ -1040,7 +1033,7 @@
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/tags/SDL/</loc>
+    <loc>https://www.jiangkang.tech/tags/GN/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1061,6 +1054,13 @@
   </url>
   
   <url>
+    <loc>https://www.jiangkang.tech/tags/SDL/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.jiangkang.tech/tags/Tab/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
@@ -1075,20 +1075,6 @@
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/tags/Dart/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/tags/%E5%9C%86%E8%A7%92/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.jiangkang.tech/tags/Timeline/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
@@ -1096,7 +1082,7 @@
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/tags/Splash-Screen/</loc>
+    <loc>https://www.jiangkang.tech/tags/Dart/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1117,28 +1103,21 @@
   </url>
   
   <url>
+    <loc>https://www.jiangkang.tech/tags/%E5%9C%86%E8%A7%92/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Splash-Screen/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.jiangkang.tech/tags/%E7%BC%96%E8%AF%91%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/tags/%E6%B7%B1%E8%89%B2%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/tags/%E8%B7%AF%E7%94%B1/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/tags/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1152,42 +1131,7 @@
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/tags/Golang/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/tags/Skia/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/tags/flutter-tools/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/tags/TLS/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/tags/802-11/</loc>
-    <lastmod>2020-11-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.jiangkang.tech/tags/WLAN/</loc>
+    <loc>https://www.jiangkang.tech/tags/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1201,6 +1145,62 @@
   </url>
   
   <url>
+    <loc>https://www.jiangkang.tech/tags/flutter-tools/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E8%B7%AF%E7%94%B1/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Golang/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/%E6%B7%B1%E8%89%B2%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/Skia/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/802-11/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/TLS/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.jiangkang.tech/tags/WLAN/</loc>
+    <lastmod>2020-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.jiangkang.tech/tags/git/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
@@ -1208,14 +1208,14 @@
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/tags/%E5%8E%8B%E7%BC%A9/</loc>
+    <loc>https://www.jiangkang.tech/tags/%E8%AE%BE%E5%A4%87%E6%A0%87%E8%AF%86%E7%AC%A6/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/tags/%E8%AE%BE%E5%A4%87%E6%A0%87%E8%AF%86%E7%AC%A6/</loc>
+    <loc>https://www.jiangkang.tech/tags/%E5%8E%8B%E7%BC%A9/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1236,14 +1236,14 @@
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/tags/%E8%AE%A1%E5%88%92/</loc>
+    <loc>https://www.jiangkang.tech/tags/UART/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.jiangkang.tech/tags/UART/</loc>
+    <loc>https://www.jiangkang.tech/tags/%E8%AE%A1%E5%88%92/</loc>
     <lastmod>2020-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

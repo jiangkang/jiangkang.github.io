@@ -325,11 +325,11 @@
       
         <tags>
             
-            <tag> 简单用法 </tag>
-            
             <tag> 微件 </tag>
             
             <tag> App Widget </tag>
+            
+            <tag> 简单用法 </tag>
             
         </tags>
       
@@ -354,11 +354,11 @@
       
         <tags>
             
+            <tag> 简单用法 </tag>
+            
             <tag> 快捷方式 </tag>
             
             <tag> Shortcut </tag>
-            
-            <tag> 简单用法 </tag>
             
         </tags>
       
@@ -1277,9 +1277,9 @@
             
             <tag> 编译 </tag>
             
-            <tag> AOSP </tag>
-            
             <tag> Android.bp </tag>
+            
+            <tag> AOSP </tag>
             
         </tags>
       
